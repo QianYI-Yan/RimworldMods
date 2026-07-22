@@ -8,12 +8,12 @@
     [i]修复跨种族服装限制开关无效[/i]
 
     [b]The Problem[/b]
-    TailorMade's Patches/TailorMade_UnlockRaceRestrictedApparel.xml runs unconditionally during XML loading, deleting HAR race apparel restriction data before the game even starts. As a result, the "unlockRestrictedApparel" toggle in the mod settings has no real effect — it only controls backup Harmony patches that never fire because the XML data was already destroyed.
-    [i]TailorMade 的补丁在 XML 加载阶段无条件删除 HAR 种族限制数据，导致设置开关形同虚设。[/i]
+    TailorMade's Patches/TailorMade_UnlockRaceRestrictedApparel.xml runs unconditionally during XML loading, deleting HAR race apparel restriction data before the game even starts. As a result, the "unlockRestrictedApparel" toggle cannot re-enable restrictions — it never had real effect.
+    [i]TailorMade 在 XML 加载阶段无条件删除 HAR 种族的服装限制数据，导致设置中的「解锁跨种族服装限制」开关形同虚设——关了跟没关一样。[/i]
 
     [b]The Fix[/b]
-    This mod restores HAR's race apparel restrictions at game startup by reading the original XML files directly from disk (before TailorMade's patches modify them). When TailorMade's "unlockRestrictedApparel" setting is turned OFF, the original HAR restrictions are properly enforced again.
-    [i]本模组直接从磁盘读取原始 XML 恢复被删除的种族限制数据，让开关真正生效。[/i]
+    This mod hooks into the XML patching process itself and prevents TailorMade's patch from deleting the data. HAR's original restriction data survives intact. When "unlockRestrictedApparel" is OFF, HAR's original race apparel restrictions work exactly as designed. When ON, the game allows all apparel for all races.
+    [i]本模组在 XML 补丁阶段就拦截了 TailorMade 的删除操作，HAR 的原始服装限制数据完好保留。关闭开关时，HAR 的种族限制正常生效；开启时，所有种族随意穿。[/i]
 
     [b]Requirements[/b]
     - TailorMade: Unified Apparel &amp; Body Refitting

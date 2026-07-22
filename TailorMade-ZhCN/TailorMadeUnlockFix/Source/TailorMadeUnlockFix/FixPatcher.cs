@@ -28,12 +28,32 @@ namespace TailorMadeUnlockFix
     }
 
     // ═══════════════════════════════════════════════════════
-    //  XML 补丁拦截器
+    //  XML 补丁拦截器 —— 只拦截 TailorMade 的补丁
     // ═══════════════════════════════════════════════════════
     public static class PatchBlocker
     {
+        private static bool IsCalledByTailorMade()
+        {
+            var stack = new System.Diagnostics.StackTrace(false);
+            for (int i = 2; i < stack.FrameCount; i++)
+            {
+                var asm = stack.GetFrame(i).GetMethod()?.DeclaringType?.Assembly;
+                if (asm == null) continue;
+                try
+                {
+                    var name = asm.GetName().Name;
+                    if (name.IndexOf("TailorMade", StringComparison.OrdinalIgnoreCase) >= 0)
+                        return true;
+                }
+                catch { }
+            }
+            return false;
+        }
+
         public static bool PrefixRemove(PatchOperationRemove __instance, ref bool __result, XmlDocument xml)
         {
+            if (!IsCalledByTailorMade()) return true;
+
             var xpath = Traverse.Create(__instance).Field("xpath").GetValue<string>();
             if (!string.IsNullOrEmpty(xpath) && xpath.Contains("apparelList/li"))
             {
@@ -45,6 +65,8 @@ namespace TailorMadeUnlockFix
 
         public static bool PrefixReplace(PatchOperationReplace __instance, ref bool __result, XmlDocument xml)
         {
+            if (!IsCalledByTailorMade()) return true;
+
             var xpath = Traverse.Create(__instance).Field("xpath").GetValue<string>();
             if (!string.IsNullOrEmpty(xpath) && xpath.Contains("onlyUseRaceRestrictedApparel"))
             {
