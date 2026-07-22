@@ -14,6 +14,9 @@
 
 [hr][h2]说明[/h2]
 本模组通过 Harmony 运行时翻译，不修改原模组的任何文件。
+
+[hr][h2]源码[/h2]
+[url=https://github.com/QianYI-Yan/RimworldMods/tree/main/TailorMade-ZhCN]github.com/QianYI-Yan/RimworldMods[/url]
   </description>
   <supportedVersions>
     <li>1.5</li>
