@@ -13,10 +13,9 @@ if %ERRORLEVEL% EQU 0 (
     echo   Output: Assemblies\TailorMadeUnlockFix.dll
     echo.
     echo Deploying to RimWorld Mods...
-    xcopy /E /Y /Q "Assemblies\TailorMadeUnlockFix.dll" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Assemblies\"
-    xcopy /E /Y /Q "Patches\RestoreOnlyUseRaceRestricted.xml" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Patches\"
-    xcopy /E /Y /Q "About\About.xml" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\About\"
-    xcopy /E /Y /Q "About\Preview.png" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\About\"
+    xcopy /E /Y /Q Assemblies\TailorMadeUnlockFix.dll "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Assemblies\"
+    xcopy /E /Y /Q Patches\RestoreOnlyUseRaceRestricted.xml "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Patches\"
+    xcopy /E /Y /Q About\About.xml "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\About\"
     echo ✓ Deployed!
 ) else (
     echo.

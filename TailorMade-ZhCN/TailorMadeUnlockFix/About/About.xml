@@ -1,45 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ModMetaData>
-  <name>TailorMade: Race Restriction Fix [种族限制修复]</name>
-  <author>deepseek</author>
-  <packageId>astryl.tailormade.racefix</packageId>
-  <modVersion>1.0.0</modVersion>
+  <name>TailorMade Unlock Fix</name>
+  <packageId>yintx.deepseek.astryl.tailormade.unlockfix</packageId>
+  <author>yintx, deepseek</author>
   <description>
-[h1]TailorMade: Race Restriction Fix[/h1]
-[i]修复 TailorMade 的 unlockRestrictedApparel 开关无效的问题[/i]
+    [h1]Fixes TailorMade's unlockRestrictedApparel setting[/h1]
+    [i]修复跨种族服装限制开关无效[/i]
 
-[h2]The Bug / 问题[/h2]
-TailorMade's XML patch unconditionally deletes HAR race restriction data at load time, making the "unlockRestrictedApparel" toggle a dead switch.
-[i]TailorMade 的 XML 补丁在加载时强制删除 HAR 种族服装限制数据，导致设置开关形同虚设。[/i]
+    [b]The Problem[/b]
+    TailorMade's Patches/TailorMade_UnlockRaceRestrictedApparel.xml runs unconditionally during XML loading, deleting HAR race apparel restriction data before the game even starts. As a result, the "unlockRestrictedApparel" toggle in the mod settings has no real effect — it only controls backup Harmony patches that never fire because the XML data was already destroyed.
+    [i]TailorMade 的补丁在 XML 加载阶段无条件删除 HAR 种族限制数据，导致设置开关形同虚设。[/i]
 
-[h2]The Fix / 修复[/h2]
-[list]
-[*]Properly respects the unlockRestrictedApparel setting at runtime
-[*]When OFF: restricts cross-race clothing based on recovered race data
-[*]When ON: behaves identically to TailorMade's original behavior
-[*]Safe to use, easy to remove — no TailorMade files are modified
-[/list]
-[i]运行时正确响应开关状态。关闭时恢复跨种族服装限制，开启时与 TailorMade 原行为一致。不修改任何 TailorMade 文件。[/i]
+    [b]The Fix[/b]
+    This mod restores HAR's race apparel restrictions at game startup by reading the original XML files directly from disk (before TailorMade's patches modify them). When TailorMade's "unlockRestrictedApparel" setting is turned OFF, the original HAR restrictions are properly enforced again.
+    [i]本模组直接从磁盘读取原始 XML 恢复被删除的种族限制数据，让开关真正生效。[/i]
 
-[h2]Installation / 安装[/h2]
-Place this mod AFTER TailorMade in your mod list.
-[i]将此模组排在 TailorMade 之后。[/i]
+    [b]Requirements[/b]
+    - TailorMade: Unified Apparel &amp; Body Refitting
+    - Humanoid Alien Races (HAR)
 
-[h2]Source / 源码[/h2]
-[url=https://github.com/QianYI-Yan/RimworldMods/tree/main/TailorMade-ZhCN/TailorMadeUnlockFix]github.com/QianYI-Yan/RimworldMods[/url]
+    [b]Load Order[/b]
+    Must load AFTER TailorMade. [i]必须排在 TailorMade 之后。[/i]
   </description>
   <supportedVersions>
-    <li>1.5</li>
     <li>1.6</li>
   </supportedVersions>
-  <loadAfter>
-    <li>astryl.tailormade</li>
-  </loadAfter>
   <modDependencies>
     <li>
       <packageId>astryl.tailormade</packageId>
-      <displayName>TailorMade: Unified Apparel &amp; Body Refitting</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/2895221531</steamWorkshopUrl>
+      <displayName>TailorMade</displayName>
+      <steamWorkshopUrl>steamcommunity.com/sharedfiles/filedetails/?id=3014568497</steamWorkshopUrl>
     </li>
   </modDependencies>
+  <loadAfter>
+    <li>astryl.tailormade</li>
+  </loadAfter>
 </ModMetaData>
