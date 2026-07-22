@@ -22,6 +22,7 @@
     [b]Load Order[/b]
     Must load AFTER TailorMade. [i]必须排在 TailorMade 之后。[/i]
   </description>
+  <modVersion>2.0</modVersion>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>
