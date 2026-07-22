@@ -13,6 +13,10 @@ Assemblies/*.pdb
 .idea/
 *.sln.DotSettings.user
 
+# 原始参考文件（不上传到远程仓库）
+OriginalMod/
+OriginalSRC-SDK/
+
 # 系统文件
 Thumbs.db
 .DS_Store
