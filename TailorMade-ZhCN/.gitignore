@@ -1,10 +1,6 @@
-# .NET
+# .NET 构建中间文件
 bin/
 obj/
-
-# 编译产物（Assemblies 下的 DLL 由编译生成）
-Assemblies/*.dll
-Assemblies/*.pdb
 
 # VS Code
 .vscode/
@@ -13,7 +9,7 @@ Assemblies/*.pdb
 .idea/
 *.sln.DotSettings.user
 
-# 原始参考文件（不上传到远程仓库）
+# 原始模组参考文件（非我们原创，不上传）
 OriginalMod/
 OriginalSRC-SDK/
 

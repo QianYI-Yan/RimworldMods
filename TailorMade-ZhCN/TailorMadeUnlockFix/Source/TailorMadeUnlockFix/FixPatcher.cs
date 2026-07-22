@@ -77,9 +77,9 @@ namespace TailorMadeUnlockFix
 
                 if (_recoverySucceeded)
                 {
-                    Log.Message($"[TailorMadeUnlockFix] Recovered restriction data for " +
-                        $"{RecoveredRaceApparelLists.Count} HAR races, " +
-                        $"{RecoveredRestrictedApparel.Count} restricted apparel items. Fix active.");
+                    string raceList = string.Join(", ", RecoveredRaceApparelLists.Keys);
+                    Log.Message($"[TailorMadeUnlockFix] Recovered {RecoveredRaceApparelLists.Count} races [{raceList}], " +
+                        $"{RecoveredRestrictedApparel.Count} apparel items. Fix active.");
                 }
             }
             catch (Exception ex)
@@ -97,12 +97,14 @@ namespace TailorMadeUnlockFix
             try
             {
                 var mods = LoadedModManager.RunningMods;
-                if (mods == null || !mods.Any())
+                if (mods == null)
                 {
-                    Log.Warning("[TailorMadeUnlockFix] No running mods, cannot recover restriction data.");
+                    Log.Warning("[TailorMadeUnlockFix] RunningMods is null.");
                     return;
                 }
 
+                int index = 0;
+                int scanned = 0;
                 var skipDirs = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
                 {
                     "About", "Assemblies", "Languages", "Textures", "Sounds",
@@ -111,28 +113,66 @@ namespace TailorMadeUnlockFix
 
                 foreach (var mod in mods)
                 {
-                    var root = mod.RootDir?.ToString();
-                    if (string.IsNullOrEmpty(root) || !Directory.Exists(root))
-                        continue;
+                    index++;
+                    string root = null;
+                    string modName = "(unknown)";
 
-                    // Search ALL XML files recursively in the mod folder,
-                    // skipping non-def directories
-                    SearchXmlRecursive(root, root, skipDirs);
+                    try { modName = mod.GetType().GetProperty("Name")?.GetValue(mod)?.ToString() ?? "(unknown)"; } catch { }
+
+                    try
+                    {
+                        var rootProp = mod.GetType().GetProperty("RootDir");
+                        if (rootProp != null)
+                            root = rootProp.GetValue(mod)?.ToString();
+                        else
+                        {
+                            var rootField = mod.GetType().GetField("rootDir");
+                            if (rootField != null)
+                                root = rootField.GetValue(mod)?.ToString();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Warning($"[TailorMadeUnlockFix]   mod[{index}] {modName}: cant get RootDir - {ex.Message}");
+                        continue;
+                    }
+
+                    if (string.IsNullOrEmpty(root))
+                    {
+                        Log.Warning($"[TailorMadeUnlockFix]   mod[{index}] {modName}: RootDir is empty");
+                        continue;
+                    }
+
+                    if (!Directory.Exists(root))
+                    {
+                        Log.Warning($"[TailorMadeUnlockFix]   mod[{index}] {modName}: dir not found '{root}'");
+                        continue;
+                    }
+
+                    Log.Message($"[TailorMadeUnlockFix]   Scanning mod[{index}]: {modName}");
+                    scanned++;
+
+                    try { SearchXmlRecursive(root, root, skipDirs); }
+                    catch (Exception ex) { Log.Warning($"[TailorMadeUnlockFix]   Error scanning {modName}: {ex.Message}"); }
                 }
 
                 _recoverySucceeded = RecoveredRaceApparelLists.Count > 0;
 
                 if (_recoverySucceeded)
                 {
+                    string raceList = string.Join(", ", RecoveredRaceApparelLists.Keys);
                     Log.Message($"[TailorMadeUnlockFix] Recovery OK: " +
-                        $"{RecoveredRaceApparelLists.Count} races, " +
+                        $"{RecoveredRaceApparelLists.Count} races [{raceList}], " +
                         $"{RecoveredRestrictedApparel.Count} apparel items.");
                 }
                 else
                 {
-                    Log.Warning("[TailorMadeUnlockFix] Recovery found NO HAR race defs. " +
-                        "Searched " + mods.Count() + " mods. " +
-                        "Restriction enforcement will be limited.");
+                    string raceNames = RecoveredRaceApparelLists.Count > 0
+                        ? string.Join(", ", RecoveredRaceApparelLists.Keys)
+                        : "(none)";
+                    Log.Warning($"[TailorMadeUnlockFix] Recovery: {index} mods total, {scanned} scanned, " +
+                        $"{RecoveredRaceApparelLists.Count} races found [{raceNames}]. " +
+                        $"XML files parsed across all mods.");
                 }
             }
             catch (Exception ex)
@@ -243,12 +283,16 @@ namespace TailorMadeUnlockFix
         /// <summary>
         /// Postfix on <c>RaceRestrictionSettings.CanWear(ThingDef, ThingDef)</c>.
         ///
-        /// When <c>unlockRestrictedApparel = true</c> (default):
-        ///   Override HAR's rejection (caused by restored onlyUseRaceRestrictedApparel=true
-        ///   with empty apparelList) — allow all apparel for all races.
+        /// Strategy: PERMISSIVE — only use recovered data to ALLOW, never to BLOCK
+        /// (because recovery data may be incomplete).
+        ///
+        /// When <c>unlockRestrictedApparel = true</c>:
+        ///   Allow all apparel for all races.
         ///
         /// When <c>unlockRestrictedApparel = false</c>:
-        ///   Use recovered data to determine the correct restriction outcome.
+        ///   - Alien races with recovered data: allow items in their list (override HAR rejection)
+        ///   - Non-alien races (Humans): block race-specific apparel using recovered data
+        ///   - Otherwise: do nothing (let current state stand)
         /// </summary>
         public static void CanWearPostfix(ThingDef apparel, ThingDef race, ref bool __result)
         {
@@ -260,7 +304,7 @@ namespace TailorMadeUnlockFix
 
             if (settings.unlockRestrictedApparel)
             {
-                // User wants everything unlocked — override any HAR rejection
+                // Allow everything
                 if (!__result)
                     __result = true;
                 return;
@@ -273,29 +317,29 @@ namespace TailorMadeUnlockFix
 
             if (RecoveredRaceApparelLists.TryGetValue(race.defName, out var allowed))
             {
-                // This race has recovered restriction data → enforce it unconditionally
-                __result = allowed.Contains(apparel.defName);
+                // Race has recovered data — only ALLOW confirmed items, never BLOCK
+                // (incomplete recovery may miss items, so we don't reject unknowns)
+                if (allowed.Contains(apparel.defName) && !__result)
+                {
+                    __result = true;
+                }
             }
-            else if (RecoveredRestrictedApparel.Contains(apparel.defName))
+            else if (!HarSupport.IsAlienRace(race)
+                && RecoveredRestrictedApparel.Contains(apparel.defName))
             {
-                // This race has no recovered data (e.g. vanilla Human) but the apparel
-                // IS restricted by at least one HAR race.
-                // If any HAR race has it in its whitelist, it's race-specific → block
-                // non-HAR races from wearing it.
+                // Non-HAR race (eg Human) trying to wear race-specific apparel → BLOCK
                 bool allowedByAny = RecoveredRaceApparelLists.Values
                     .Any(list => list.Contains(apparel.defName));
                 if (allowedByAny)
                     __result = false;
             }
-            // else: no recovered data for this race AND apparel not known restricted
-            // → let HAR's original result stand (conservative default)
+            // else: no recovered data, do nothing (let current state stand)
         }
 
         /// <summary>
         /// Postfix on <c>EquipmentUtility.CanEquip</c> (Priority.Last).
         ///
-        /// Second line of defense: ensures the final CanEquip result is consistent
-        /// with the recovered restriction data.
+        /// Second line of defense, same permissive strategy as CanWearPostfix.
         /// </summary>
         public static void CanEquipPostfix(Thing thing, Pawn pawn,
             ref bool __result, ref string cantReason)
@@ -308,7 +352,7 @@ namespace TailorMadeUnlockFix
 
             if (settings.unlockRestrictedApparel)
             {
-                // User wants everything unlocked
+                // Allow everything
                 if (!__result)
                 {
                     __result = true;
@@ -327,34 +371,21 @@ namespace TailorMadeUnlockFix
 
             if (RecoveredRaceApparelLists.TryGetValue(raceName, out var allowed))
             {
-                if (allowed.Contains(apparelName))
+                // Only ALLOW confirmed items, never BLOCK
+                if (allowed.Contains(apparelName) && !__result)
                 {
-                    // Our data says allowed
-                    if (!__result)
-                    {
-                        __result = true;
-                        cantReason = null;
-                    }
-                }
-                else
-                {
-                    // Our data says restricted — reject
-                    if (__result)
-                    {
-                        __result = false;
-                        cantReason = "CannotEquip_RaceRestriction".Translate();
-                    }
+                    __result = true;
+                    cantReason = null;
                 }
             }
-            else if (RecoveredRestrictedApparel.Contains(apparelName))
+            else if (!HarSupport.IsAlienRace(pawn.def)
+                && RecoveredRestrictedApparel.Contains(apparelName))
             {
-                // This apparel is restricted by some race, but we have no data for
-                // this specific race → check if ANY race allows it
+                // Non-HAR race wearing race-specific apparel → BLOCK
                 bool allowedByAny = RecoveredRaceApparelLists.Values
                     .Any(list => list.Contains(apparelName));
                 if (allowedByAny && __result)
                 {
-                    // Apparel is race-specific and this race isn't in our recovered data
                     __result = false;
                     cantReason = "CannotEquip_RaceRestriction".Translate();
                 }
