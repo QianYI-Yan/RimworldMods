@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      将下面的路径改为你的 RimWorld 游戏安装目录。
+      例如：
+        Windows Steam:  C:\Program Files (x86)\Steam\steamapps\common\RimWorld
+        GOG:            C:\Program Files (x86)\GOG Galaxy\Games\RimWorld
+    -->
+    <RimWorldDir>C:\Program Files (x86)\Steam\steamapps\common\RimWorld</RimWorldDir>
+  </PropertyGroup>
+</Project>

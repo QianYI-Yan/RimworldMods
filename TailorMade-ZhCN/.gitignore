@@ -1,0 +1,18 @@
+# .NET
+bin/
+obj/
+
+# 编译产物（Assemblies 下的 DLL 由编译生成）
+Assemblies/*.dll
+Assemblies/*.pdb
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+*.sln.DotSettings.user
+
+# 系统文件
+Thumbs.db
+.DS_Store

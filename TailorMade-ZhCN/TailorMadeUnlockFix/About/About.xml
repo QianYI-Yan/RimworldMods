@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+  <name>TailorMade Unlock Fix</name>
+  <packageId>tailormade.unlockfix</packageId>
+  <author>Community Fix</author>
+  <description>
+    [h1]Fixes TailorMade's unlockRestrictedApparel setting[/h1]
+
+    [b]The Problem:[/b]
+    TailorMade's Patches/TailorMade_UnlockRaceRestrictedApparel.xml runs unconditionally during XML loading, deleting HAR race apparel restriction data before the game even starts. This means the "unlockRestrictedApparel" toggle in the mod settings cannot actually re-enable race apparel restrictions — it only controls the backup Harmony patches which never fire because the XML data was already destroyed.
+
+    [b]The Fix:[/b]
+    This mod restores HAR's race apparel restrictions at game startup by reading the original XML files directly from disk (before TailorMade's patches modify them). When TailorMade's "unlockRestrictedApparel" setting is turned OFF, the original HAR restrictions are properly enforced again.
+
+    [b]Requirements:[/b]
+    - TailorMade: Unified Apparel &amp; Body Refitting
+    - Humanoid Alien Races (HAR)
+
+    [b]Load Order:[/b]
+    Must load AFTER TailorMade. That's it.
+  </description>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modDependencies>
+    <li>
+      <packageId>astryl.tailormade</packageId>
+      <displayName>TailorMade</displayName>
+      <steamWorkshopUrl>steamcommunity.com/sharedfiles/filedetails/?id=3014568497</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+  <loadAfter>
+    <li>astryl.tailormade</li>
+  </loadAfter>
+</ModMetaData>

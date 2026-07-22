@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>TailorMadeUnlockFix</AssemblyName>
+    <RootNamespace>TailorMadeUnlockFix</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="FixPatcher.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <!-- RimWorld references -->
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+  </ItemGroup>
+
+  <!-- Reference TailorMade DLL for HarSupport, TailorMadeMod, TailorMadeSettings -->
+  <ItemGroup>
+    <Reference Include="TailorMadeUnifiedApparelBodyRefitting">
+      <HintPath>..\..\..\OriginalMod\Assemblies\TailorMadeUnifiedApparelBodyRefitting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Auto-copy to Assemblies/ after build -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)..\..\Assemblies\" />
+  </Target>
+</Project>

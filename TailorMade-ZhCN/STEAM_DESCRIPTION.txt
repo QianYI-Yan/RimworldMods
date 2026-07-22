@@ -1,0 +1,34 @@
+[h1]TailorMade 简体中文汉化补丁[/h1]
+
+将 [b]TailorMade: Unified Apparel & Body Refitting[/b] 模组的设置界面和编辑窗口完整翻译为简体中文。
+
+[hr][/hr]
+
+[h2]说明[/h2]
+本模组通过 Harmony 运行时翻译技术实现，[b]不修改[/b]原模组的任何文件，可与原模组一起正常更新。
+
+[h2]翻译内容[/h2]
+[list]
+[*]模组设置界面 — 所有选项标签、工具提示、按钮文字
+[*]游戏内服装编辑窗口 — 列表标题、操作按钮、状态提示
+[*]工具栏按钮提示
+[*]总计 80+ 条界面字符串
+[/list]
+
+[h2]依赖[/h2]
+[list]
+[*][b]TailorMade: Unified Apparel & Body Refitting[/b] (astryl.tailormade)
+[/list]
+
+[h2]安装[/h2]
+[olist]
+[*]确保已安装 TailorMade 原模组
+[*]将本模组放入 RimWorld/Mods/ 目录
+[*]在游戏 Mod 列表中启用（置于原模组之后加载）
+[/olist]
+
+[hr][/hr]
+
+[list]
+[*][b]致谢[/b]：感谢 astryl 开发了 TailorMade 模组
+[/list]

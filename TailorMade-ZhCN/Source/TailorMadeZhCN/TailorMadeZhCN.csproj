@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>TailorMadeZhCN</AssemblyName>
+    <RootNamespace>TailorMadeZhCN</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="StringReplacer.cs" />
+    <Compile Include="Strings_Chinese.cs" />
+    <Compile Include="Patches.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <!-- RimWorld 引用（通过 NuGet） -->
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+  </ItemGroup>
+
+  <!-- 源模组的 DLL -->
+  <ItemGroup>
+    <Reference Include="TailorMadeUnifiedApparelBodyRefitting">
+      <HintPath>..\..\OriginalMod\Assemblies\TailorMadeUnifiedApparelBodyRefitting.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- 编译后自动复制 DLL 到模组 Assemblies 目录 -->
+  <Target Name="CopyToMod" AfterTargets="Build">
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll"
+          DestinationFolder="..\..\Assemblies"
+          SkipUnchangedFiles="true" />
+    <Message Text="已将 $(AssemblyName).dll 复制到 ..\..\Assemblies\" Importance="high" />
+  </Target>
+</Project>

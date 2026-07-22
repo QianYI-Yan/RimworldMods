@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+  <name>TailorMade: Race Restriction Fix</name>
+  <author>deepseek</author>
+  <packageId>astryl.tailormade.racefix</packageId>
+  <description>
+[h1]TailorMade: Race Restriction Fix[/h1]
+Fixes a bug where the [b]Unlock Race-Restricted Apparel[/b] setting in TailorMade has no effect — cross-race clothing restrictions cannot be restored even when the setting is turned off.
+
+[hr][h2]The Bug[/h2]
+TailorMade ships an XML patch (Patches/TailorMade_UnlockRaceRestrictedApparel.xml) that unconditionally clears HAR race restriction data at game load time. This runs regardless of the [b]unlockRestrictedApparel[/b] mod setting, making the toggle a dead switch — turning it off does NOT re-enable restrictions.
+
+[hr][h2]What This Fix Does[/h2]
+[list]
+[*]Adds runtime Harmony checks that properly respect the [b]unlockRestrictedApparel[/b] setting
+[*]When the setting is OFF, restricts cross-race clothing for HAR alien races based on mod origin
+[*]When the setting is ON, behaves identically to TailorMade's original unlock behavior
+[*]Does NOT modify any TailorMade files — safe to use, easy to remove
+[/list]
+
+[hr][h2]Installation[/h2]
+[list][*]Place this mod [b]after[/b] TailorMade in your mod list[/list]
+
+  </description>
+  <supportedVersions>
+    <li>1.5</li>
+    <li>1.6</li>
+  </supportedVersions>
+  <loadAfter>
+    <li>astryl.tailormade</li>
+  </loadAfter>
+  <modDependencies>
+    <li>
+      <packageId>astryl.tailormade</packageId>
+      <displayName>TailorMade: Unified Apparel &amp; Body Refitting</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2895221531</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+</ModMetaData>
