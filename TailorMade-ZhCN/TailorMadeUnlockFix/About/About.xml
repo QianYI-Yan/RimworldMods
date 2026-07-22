@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ModMetaData>
-  <name>TailorMade: Race Restriction Fix</name>
+  <name>TailorMade: Race Restriction Fix [种族限制修复]</name>
   <author>deepseek</author>
   <packageId>astryl.tailormade.racefix</packageId>
   <description>
 [h1]TailorMade: Race Restriction Fix[/h1]
-Fixes a bug where the [b]Unlock Race-Restricted Apparel[/b] setting in TailorMade has no effect — cross-race clothing restrictions cannot be restored even when the setting is turned off.
+[i]修复 TailorMade 的 unlockRestrictedApparel 开关无效的问题[/i]
 
-[hr][h2]The Bug[/h2]
-TailorMade ships an XML patch (Patches/TailorMade_UnlockRaceRestrictedApparel.xml) that unconditionally clears HAR race restriction data at game load time. This runs regardless of the [b]unlockRestrictedApparel[/b] mod setting, making the toggle a dead switch — turning it off does NOT re-enable restrictions.
+[h2]The Bug / 问题[/h2]
+TailorMade's XML patch unconditionally deletes HAR race restriction data at load time, making the "unlockRestrictedApparel" toggle a dead switch.
+[i]TailorMade 的 XML 补丁在加载时强制删除 HAR 种族服装限制数据，导致设置开关形同虚设。[/i]
 
-[hr][h2]What This Fix Does[/h2]
+[h2]The Fix / 修复[/h2]
 [list]
-[*]Adds runtime Harmony checks that properly respect the [b]unlockRestrictedApparel[/b] setting
-[*]When the setting is OFF, restricts cross-race clothing for HAR alien races based on mod origin
-[*]When the setting is ON, behaves identically to TailorMade's original unlock behavior
-[*]Does NOT modify any TailorMade files — safe to use, easy to remove
+[*]Properly respects the unlockRestrictedApparel setting at runtime
+[*]When OFF: restricts cross-race clothing based on recovered race data
+[*]When ON: behaves identically to TailorMade's original behavior
+[*]Safe to use, easy to remove — no TailorMade files are modified
 [/list]
+[i]运行时正确响应开关状态。关闭时恢复跨种族服装限制，开启时与 TailorMade 原行为一致。不修改任何 TailorMade 文件。[/i]
 
-[hr][h2]Installation[/h2]
-[list][*]Place this mod [b]after[/b] TailorMade in your mod list[/list]
-
+[h2]Installation / 安装[/h2]
+Place this mod AFTER TailorMade in your mod list.
+[i]将此模组排在 TailorMade 之后。[/i]
   </description>
   <supportedVersions>
     <li>1.5</li>
