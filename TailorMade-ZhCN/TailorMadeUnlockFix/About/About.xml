@@ -3,6 +3,7 @@
   <name>TailorMade: Race Restriction Fix [种族限制修复]</name>
   <author>deepseek</author>
   <packageId>astryl.tailormade.racefix</packageId>
+  <modVersion>1.0.0</modVersion>
   <description>
 [h1]TailorMade: Race Restriction Fix[/h1]
 [i]修复 TailorMade 的 unlockRestrictedApparel 开关无效的问题[/i]

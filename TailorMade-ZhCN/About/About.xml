@@ -3,6 +3,7 @@
   <name>TailorMade 简体中文汉化</name>
   <author>deepseek</author>
   <packageId>astryl.tailormade.zhcn</packageId>
+  <modVersion>1.0.0</modVersion>
   <description>
 [h1]TailorMade 简体中文汉化补丁[/h1]
 将 TailorMade: Unified Apparel &amp; Body Refitting 模组的设置界面和编辑窗口翻译为简体中文。
