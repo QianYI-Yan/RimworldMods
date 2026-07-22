@@ -25,7 +25,6 @@ if %ERRORLEVEL% EQU 0 (
         xcopy /Y /Q "Source\TailorMadeUnlockFix\Properties\*.cs" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\Properties\"
     )
     echo ✓ Deployed!
-    echo ✓ Deployed!
 ) else (
     echo.
     echo ✗ Build failed. Check errors above.
