@@ -240,7 +240,7 @@ namespace TailorMadeUnlockFix
                     ExtractRestrictionData(node, ref onlyUseRestricted, ref apparelList);
                 }
 
-                if (string.IsNullOrEmpty(defName) || !onlyUseRestricted ||
+                if (string.IsNullOrEmpty(defName) ||
                     apparelList == null || apparelList.Count == 0)
                     continue;
 
