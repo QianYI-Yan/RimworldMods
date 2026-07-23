@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../../APP/Game/Steam/steamapps/common/RimWorld/Mods"
 		}
 	],
 	"settings": {}
