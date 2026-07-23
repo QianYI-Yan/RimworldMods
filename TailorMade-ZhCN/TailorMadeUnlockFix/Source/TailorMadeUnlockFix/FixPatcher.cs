@@ -28,32 +28,16 @@ namespace TailorMadeUnlockFix
     }
 
     // ═══════════════════════════════════════════════════════
-    //  XML 补丁拦截器 —— 只拦截 TailorMade 的补丁
+    //  XML 补丁拦截器 —— 阻止删除 HAR 种族限制数据
+    //  RimWorld 的 PatchOperation 执行时调用栈不包含来源模组，
+    //  所以直接按 XPath 特征拦截，不区分调用者。
+    //  XPath "apparelList/li" 和 "onlyUseRaceRestrictedApparel"
+    //  只有 TailorMade 会操作，无其他模组误伤风险。
     // ═══════════════════════════════════════════════════════
     public static class PatchBlocker
     {
-        private static bool IsCalledByTailorMade()
-        {
-            var stack = new System.Diagnostics.StackTrace(false);
-            for (int i = 2; i < stack.FrameCount; i++)
-            {
-                var asm = stack.GetFrame(i).GetMethod()?.DeclaringType?.Assembly;
-                if (asm == null) continue;
-                try
-                {
-                    var name = asm.GetName().Name;
-                    if (name.IndexOf("TailorMade", StringComparison.OrdinalIgnoreCase) >= 0)
-                        return true;
-                }
-                catch { }
-            }
-            return false;
-        }
-
         public static bool PrefixRemove(PatchOperationRemove __instance, ref bool __result, XmlDocument xml)
         {
-            if (!IsCalledByTailorMade()) return true;
-
             var xpath = Traverse.Create(__instance).Field("xpath").GetValue<string>();
             if (!string.IsNullOrEmpty(xpath) && xpath.Contains("apparelList/li"))
             {
@@ -65,8 +49,6 @@ namespace TailorMadeUnlockFix
 
         public static bool PrefixReplace(PatchOperationReplace __instance, ref bool __result, XmlDocument xml)
         {
-            if (!IsCalledByTailorMade()) return true;
-
             var xpath = Traverse.Create(__instance).Field("xpath").GetValue<string>();
             if (!string.IsNullOrEmpty(xpath) && xpath.Contains("onlyUseRaceRestrictedApparel"))
             {
