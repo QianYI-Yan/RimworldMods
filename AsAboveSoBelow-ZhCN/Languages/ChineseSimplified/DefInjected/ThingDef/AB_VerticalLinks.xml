@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 下行垂直线管 -->
+  <AB_VerticalConduitDown.label>垂直线管（下行）</AB_VerticalConduitDown.label>
+  <AB_VerticalConduitDown.description>携带电力通往下一层的密封电缆井。连接两侧接触到的电网；无法攀爬，不会泄漏温度。建造完成后会开启地下室层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalConduitDown.description>
+
+  <!-- 上行垂直线管 -->
+  <AB_VerticalConduitUp.label>垂直线管（上行）</AB_VerticalConduitUp.label>
+  <AB_VerticalConduitUp.description>携带电力通往上一层的密封电缆井。连接两侧接触到的电网；无法攀爬，不会泄漏温度。建造完成后会开启天空层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalConduitUp.description>
+
+</LanguageData>

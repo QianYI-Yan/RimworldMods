@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AB_UseStairs.reportString>正在使用楼梯。</AB_UseStairs.reportString>
+  <AB_CrossLevelAttack.reportString>正在跨层攻击。</AB_CrossLevelAttack.reportString>
+  <AB_HaulAcrossLevels.reportString>正在将目标A搬运到另一层。</AB_HaulAcrossLevels.reportString>
+  <AB_RescueAcrossLevels.reportString>正在将目标A救援到另一层。</AB_RescueAcrossLevels.reportString>
+  <AB_CaptureAcrossLevels.reportString>正在将目标A逮捕到另一层。</AB_CaptureAcrossLevels.reportString>
+  <AB_TakePrisonerAcrossLevels.reportString>正在将囚犯目标A带到另一层。</AB_TakePrisonerAcrossLevels.reportString>
+
+</LanguageData>

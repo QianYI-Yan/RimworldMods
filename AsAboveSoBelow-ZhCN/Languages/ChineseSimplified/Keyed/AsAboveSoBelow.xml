@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AB_VerboseLogging>详细日志</AB_VerboseLogging>
+  <AB_VerboseLoggingTip>向日志写入详细的诊断信息。仅在排查错误时有用。</AB_VerboseLoggingTip>
+
+  <AB_GoUp>上楼</AB_GoUp>
+  <AB_GoDown>下楼</AB_GoDown>
+  <AB_NoPath>无路径</AB_NoPath>
+  <AB_NotLinkedShort>未连接</AB_NotLinkedShort>
+  <AB_NotLinkedLine>尚未连接到另一层。</AB_NotLinkedLine>
+  <AB_LinkedAbove>已连接到上一层。</AB_LinkedAbove>
+  <AB_LinkedBelow>已连接到下一层。</AB_LinkedBelow>
+  <AB_ViewAbove>查看上一层</AB_ViewAbove>
+  <AB_ViewBelow>查看下一层</AB_ViewBelow>
+  <AB_ViewOtherLevelDesc>将镜头跳转到另一层连接的楼梯处。你也可以按 Page Up 和 Page Down 切换楼层。</AB_ViewOtherLevelDesc>
+  <AB_BasementCreated>地下室层已开启。这里全是坚固的岩石，挖掘即可扩展空间。</AB_BasementCreated>
+  <AB_SkyCreated>天空层已开启。在带屋顶的房间上方建造地板即可向上扩展。</AB_SkyCreated>
+  <AB_OnlySurfaceForNow>必须放置在地表层。</AB_OnlySurfaceForNow>
+  <AB_LevelCap>楼层数量已达上限（上一层、下一层）。</AB_LevelCap>
+  <AB_ShowLiveBelow>显示下一层的实时动态</AB_ShowLiveBelow>
+  <AB_ShowLiveBelowTip>向下看时，绘制下一层的小人、动物和投弹轨迹。关闭可在天空层获得小幅性能提升。</AB_ShowLiveBelowTip>
+  <AB_SelectBelowInPlace>选择下一层的小人</AB_SelectBelowInPlace>
+  <AB_SelectBelowInPlaceTip>无需离开天空视角，点击透过空隙可见的下一层小人即可选中。需要开启"显示下一层的实时动态"。</AB_SelectBelowInPlaceTip>
+  <AB_BelowDim>下一层变暗程度</AB_BelowDim>
+  <AB_BelowDimTip>从上方观看时，下一层视图的变暗程度。默认保持较低值：让下一层保持明亮可见，有助于让上层感觉是抬升的平台而非一个深坑。</AB_BelowDimTip>
+  <AB_SlabEdge>绘制楼板边缘轮廓</AB_SlabEdge>
+  <AB_SlabEdgeTip>毗邻露天区域的屋顶和地板边缘会绘制一层细暗轮廓，使楼板边界看起来像是干净的接缝而非原始纹理的边界。</AB_SlabEdgeTip>
+  <AB_WallReveal>在屋顶显示支撑墙边缘</AB_WallReveal>
+  <AB_WallRevealTip>屋顶砖格的外圈会在毗邻露天区域的边缘显示支撑墙顶部的带状条纹，使屋顶看起来是搁置在下方墙线上而非悬浮在空中。被建造在边缘的任何物体覆盖。</AB_WallRevealTip>
+  <AB_WallRevealWidth>支撑墙显示宽度</AB_WallRevealWidth>
+  <AB_WallRevealWidthTip>屋顶外圈砖格显示下方墙壁的宽度（以格数计）。</AB_WallRevealWidthTip>
+  <AB_BelowScale>下层物体缩放比例</AB_BelowScale>
+  <AB_BelowScaleTip>下一层的小人、动物、物品、植物和家具等比缩小绘制，模仿向下俯视一整层的缩放效果。每个物体会在其所在格子内原位缩小，不会发生滑动或错位。墙壁和其他连接结构保持实际大小。</AB_BelowScaleTip>
+  <AB_TabGeneration>生成</AB_TabGeneration>
+  <AB_TabView>视图与镜头</AB_TabView>
+  <AB_TabWork>工作与后勤</AB_TabWork>
+  <AB_TabCombat>战斗与威胁</AB_TabCombat>
+  <AB_TabAdvanced>高级</AB_TabAdvanced>
+  <AB_GenNote>生成设置在楼层首次创建时生效。已有的天空层和地下室层保持其生成时的外观。</AB_GenNote>
+  <AB_Presets>山峰预设</AB_Presets>
+  <AB_PresetsTip>一键设置新生成山峰的外观。默认恢复所有生成设置；其他选项调整下方的山峰滑块，保持矿石和洞穴设置不变。</AB_PresetsTip>
+  <AB_PresetDefault>默认</AB_PresetDefault>
+  <AB_PresetDramatic>壮丽</AB_PresetDramatic>
+  <AB_PresetSubtle>柔和</AB_PresetSubtle>
+  <AB_PresetLush>繁茂</AB_PresetLush>
+  <AB_PlateauOpenness>高原开阔程度</AB_PlateauOpenness>
+  <AB_PlateauOpennessTip>山脉深处有多少区域变成可通行的草甸高原而非坚固岩石。低值产生崎岖多石的山峰；高值产生广阔开阔的高地。</AB_PlateauOpennessTip>
+  <AB_MeadowScale>草甸规模</AB_MeadowScale>
+  <AB_MeadowScaleTip>草甸图案的规模。高值形成少数几个相连的大草甸；低值散布许多小片草甸和蜿蜒的岩石狭道。</AB_MeadowScaleTip>
+  <AB_TerraceMax>边缘带状宽度</AB_TerraceMax>
+  <AB_TerraceMaxTip>沿山脉边缘的可通行岩石台阶能切入山体的最大深度（以格数计）。1 是经典的单层 ledge；高值打开宽阔的架状延伸区域。</AB_TerraceMaxTip>
+  <AB_OutcropDensity>露头密度</AB_OutcropDensity>
+  <AB_OutcropDensityTip>在开阔高原上散布多少岩石露头。0% 完全移除。</AB_OutcropDensityTip>
+  <AB_Tarns>山间湖泊</AB_Tarns>
+  <AB_TarnsTip>聚集在开阔高原上的小型山间湖泊，较大的湖泊中心有深水区。0% 保持高原干燥。</AB_TarnsTip>
+  <AB_HiddenValleys>隐藏山谷</AB_HiddenValleys>
+  <AB_HiddenValleysTip>完全被岩石封闭的草甸区域中，保持密封未被探索（隐藏山谷）的比例。其余部分会打开一个狭窄的可通行缺口，生成可达的峡谷草甸。</AB_HiddenValleysTip>
+  <AB_SkyOre>天空层矿石密度</AB_SkyOre>
+  <AB_SkyOreTip>新生成的天空层中，每 10,000 格山体质量中矿石团块的数量。</AB_SkyOreTip>
+  <AB_BasementOre>地下室矿石密度</AB_BasementOre>
+  <AB_BasementOreTip>新生成的地下室岩石中，每 10,000 格矿石团块的数量。</AB_BasementOreTip>
+  <AB_ChamberFreq>洞穴大厅频率</AB_ChamberFreq>
+  <AB_ChamberFreqTip>洞穴网络扩展成大型大厅的频率，按每次雕刻步进计算（以百分比显示）。大厅也是洞穴生物群系自身湖泊和地形特征的集中地，提高此值可获得更潮湿、更宽敞的洞穴。</AB_ChamberFreqTip>
+  <AB_CavernFormations>洞穴构造密度</AB_CavernFormations>
+  <AB_CavernFormationsTip>生成的洞穴中钟乳石和其他 Biomes! Caverns 构造的密度。0% 完全跳过。</AB_CavernFormationsTip>
+  <AB_PreviewTitle>生成预览</AB_PreviewTitle>
+  <AB_PreviewUpper>上层</AB_PreviewUpper>
+  <AB_PreviewLower>下层</AB_PreviewLower>
+  <AB_PreviewReroll>重新随机</AB_PreviewReroll>
+  <AB_PreviewNote>示意样本——实际山峰将遵循你的真实山脉形状。</AB_PreviewNote>
+  <AB_LegendMeadow>草甸</AB_LegendMeadow>
+  <AB_LegendRock>岩石体</AB_LegendRock>
+  <AB_LegendLedge>岩架</AB_LegendLedge>
+  <AB_LegendTarn>山湖</AB_LegendTarn>
+  <AB_LegendHidden>隐藏山谷</AB_LegendHidden>
+  <AB_LegendAir>露天</AB_LegendAir>
+  <AB_SkyLandmarks>天空层地标</AB_SkyLandmarks>
+  <AB_SkyLandmarksTip>新生成的天空层可以生成地标——远古排烟口、纪念碑以及 Odyssey 地标系统的其他特征，包括其他模组添加的地标（如 Vanilla Landmarks Expanded）。地标需要真正的山体地面：仅出现在拥有至少 7x7 开阔高原的楼层上，且其建筑局限于高原范围内。在天空层首次生成时生效。</AB_SkyLandmarksTip>
+  <AB_LandmarkChance>随机地标概率</AB_LandmarkChance>
+  <AB_LandmarkChanceTip>新生成且有开阔高原场地的天空层从设置为"随机"的地标池中生成一个地标的概率。</AB_LandmarkChanceTip>
+  <AB_LandmarkMax>每层地标上限</AB_LandmarkMax>
+  <AB_LandmarkMaxTip>一个天空层最多能获得的地标数量（包括强制、启用和随机生成的）。</AB_LandmarkMaxTip>
+  <AB_LandmarksExpand>配置地标 ({0})...</AB_LandmarksExpand>
+  <AB_LandmarksCollapse>收起地标列表 ({0})</AB_LandmarksCollapse>
+  <AB_LandmarksNeedOdyssey>天空层地标需要 Odyssey 扩展包。</AB_LandmarksNeedOdyssey>
+  <AB_LandmarkDisabled>禁用</AB_LandmarkDisabled>
+  <AB_LandmarkRandom>随机</AB_LandmarkRandom>
+  <AB_LandmarkEnabled>启用</AB_LandmarkEnabled>
+  <AB_LandmarkForced>强制</AB_LandmarkForced>
+  <AB_GuardPanel>子系统状态</AB_GuardPanel>
+  <AB_GuardPanelTip>每个子系统都有自己的独立开关：如果某个子系统遇到错误，它会自行关闭，其余模组和游戏继续运行。已关闭的子系统会在此列出并可重新启用；加载游戏时也会重置。</AB_GuardPanelTip>
+  <AB_GuardAllGreen>全部 {0} 个子系统运行正常。</AB_GuardAllGreen>
+  <AB_GuardTripped>{0} - 因 {1} 中的错误已关闭</AB_GuardTripped>
+  <AB_ReArm>重新启用</AB_ReArm>
+  <AB_ResetTab>将此标签页重置为默认值</AB_ResetTab>
+  <AB_ResetAll>将所有设置重置为默认值</AB_ResetAll>
+  <AB_ResetAllConfirm>将每个标签页上的每项设置都重置为默认值？</AB_ResetAllConfirm>
+  <AB_SkyBiomeInherit>天空层继承地表生物群系</AB_SkyBiomeInherit>
+  <AB_SkyBiomeInheritTip>新创建的天空层使用与下方地表地图相同的生物群系，使高原植被、树木再生、野生植物种类和天气与山脉周围的世界相匹配。在天空层首次生成时生效；已有的天空层保持创建时的生物群系。关闭则恢复荒凉的高海拔外观。</AB_SkyBiomeInheritTip>
+  <AB_ClimbTime>楼梯攀爬时间</AB_ClimbTime>
+  <AB_ClimbTimeTip>所有类型楼梯的攀爬时间倍率。梯子比普通楼梯慢，大楼梯比普通楼梯快，不受此倍率影响。</AB_ClimbTimeTip>
+  <AB_ShowCeilingHint>在地表显示天花板提示</AB_ShowCeilingHint>
+  <AB_ShowCeilingHintTip>处于已建造的天空层地板下的格子会绘制一层淡淡的天花板纹理，让你在地表查看时知道上方有建筑结构。</AB_ShowCeilingHintTip>
+  <AB_StairsCollapsed>一处楼梯因失去支撑而坍塌。</AB_StairsCollapsed>
+  <AB_DismountFirst>使用楼梯或电梯前请先下车。</AB_DismountFirst>
+  <AB_GoUpDesc>前往最近的楼梯到上一层。</AB_GoUpDesc>
+  <AB_GoDownDesc>前往最近的楼梯到下一层。</AB_GoDownDesc>
+  <AB_NoStairs>本层没有连接的楼梯</AB_NoStairs>
+  <AB_LinkBlocked>楼梯无法连接。另一层的对应位置被阻挡。</AB_LinkBlocked>
+  <AB_BlockedOnTarget>另一层的对应位置被阻挡。</AB_BlockedOnTarget>
+  <AB_NoSupportOnTarget>另一层的对应位置无法支撑楼梯。</AB_NoSupportOnTarget>
+  <AB_NoStairsToLevel>没有楼梯连接到{0}</AB_NoStairsToLevel>
+  <AB_LevelAbove>上一层</AB_LevelAbove>
+  <AB_LevelBelow>下一层</AB_LevelBelow>
+  <AB_CrossLevelOrders>命令选中小人跨层执行</AB_CrossLevelOrders>
+  <AB_CrossLevelOrdersTip>当你右键命令在下一层选中的小人时，他们会走到最近的楼梯、上楼，然后在本层的指定位置执行命令。涵盖征召移动、攻击、搬运和工作指令。</AB_CrossLevelOrdersTip>
+  <AB_CrossLevelCombat>跨层战斗</AB_CrossLevelCombat>
+  <AB_CrossLevelCombatTip>被征召的殖民者被命令攻击在下一层（或上一层）透过空隙可见的敌人时，只要视线清晰且目标在射程内，子弹会直接跨层射击——俯射或仰射以正常精度和伤害落在另一层。当没有开阔射击线、目标超出射程或在地下室时，他们会转而走楼梯到那一层交战。</AB_CrossLevelCombatTip>
+  <AB_CrossLevelAutoEngage>小人自主跨层射击</AB_CrossLevelAutoEngage>
+  <AB_CrossLevelAutoEngageTip>持有远程武器且在本层找不到可达目标的敌人会透过空隙向上或向下攻击你的小人；开启"自由开火"的被征召殖民者也会在未被命令时跨层还击。关闭后跨层射击仅限玩家手动命令。</AB_CrossLevelAutoEngageTip>
+  <AB_ReportAttackingAcross>正在跨层攻击{0}。</AB_ReportAttackingAcross>
+  <AB_MortarTargetSet>{0} 将在有人操作、装填完毕且本层无威胁时轰击另一层的目标。</AB_MortarTargetSet>
+  <AB_NoArcPath>炮弹在楼层间没有开放的弹道路径。</AB_NoArcPath>
+  <AB_TurretTargetSet>{0} 将在准备就绪且本层无威胁时向另一层的目标开火。</AB_TurretTargetSet>
+  <AB_NoGapLine>透过空隙没有清晰的射击线。</AB_NoGapLine>
+  <AB_GapLineLost>{0} 失去了通向另一层的射击线。</AB_GapLineLost>
+  <AB_StopCrossBombard>停止跨层轰炸</AB_StopCrossBombard>
+  <AB_StopCrossBombardTip>取消此炮塔对另一层的轰炸命令。</AB_StopCrossBombardTip>
+  <AB_AnimalWander>野生动物跨层游荡</AB_AnimalWander>
+  <AB_AnimalWanderTip>野生动物将楼梯视为景观的一部分：偶尔会有动物游荡到地下室里躲避、逗留一阵然后离开——任何困在无食物楼层里的野生动物也会自己找路回到地表。圈养和殖民地动物不会自行游荡，也没有动物会独自游荡到天空层。</AB_AnimalWanderTip>
+  <AB_CrossLevelRituals>仪式从其他楼层召集参与者</AB_CrossLevelRituals>
+  <AB_CrossLevelRitualsTip>已连接楼层上的仪式职位持有者和参与者被视为可用的：开始仪式会先将所有离层人员送到楼梯处，等所有人到齐后仪式开始。无法完成的集会（参与者死亡、楼梯被摧毁）会在数小时后取消。</AB_CrossLevelRitualsTip>
+  <AB_CrossLevelSocial>已连接楼层视为一个殖民地</AB_CrossLevelSocial>
+  <AB_CrossLevelSocialTip>在同一垂直列的另一层的小人仍算作在一起且在家。精神链接（包括 Highmate）在同一列内忽略距离惩罚；天空层和地下室层报告为玩家殖民地的一部分，因此原版和模组的"远离殖民地"检查将所有人员视为在家。每地图警报和任务地图选择保持原版行为。</AB_CrossLevelSocialTip>
+  <AB_RitualGathering>{0} 名仪式参与者正在走楼梯。所有人到齐后仪式开始。</AB_RitualGathering>
+  <AB_RitualGatherTimeout>{0} 的集会时间过长，已取消。</AB_RitualGatherTimeout>
+  <AB_RitualNoRoute>{0} 没有通往仪式的楼梯路径。</AB_RitualNoRoute>
+  <AB_CrossLevelWork>殖民者走楼梯到其他楼层工作</AB_CrossLevelWork>
+  <AB_CrossLevelWorkTip>当殖民者在当前楼层找不到工作时，他们会检查直接连接的楼层，如果有事可做就走楼梯过去。</AB_CrossLevelWorkTip>
+  <AB_PriorityCrossLevelWork>跨层追逐更高优先级的工作</AB_PriorityCrossLevelWork>
+  <AB_PriorityCrossLevelWorkTip>殖民者在本层仍有工作时也会检查其他楼层：如果连接楼层有严格更高优先级的工作（按工作设置），他们会走楼梯去做，而不是将就做本层低优先级的活。设置为优先级 1 的典狱长会离开优先级 2 的采矿去地下室照料囚犯。同优先级工作始终留在本层执行，结果会被缓存以减少额外检查的开销。</AB_PriorityCrossLevelWorkTip>
+  <AB_IdleReturnHome>空闲殖民者返回地表</AB_IdleReturnHome>
+  <AB_IdleReturnHomeTip>在所有楼层都无事可做的殖民者会回到地表，而不是在刚刚工作的楼层闲逛。</AB_IdleReturnHomeTip>
+  <AB_CrossLevelHauling>跨层搬运物品</AB_CrossLevelHauling>
+  <AB_CrossLevelHaulingTip>当某件物品的最佳存放位置在另一层时，搬运工会将其搬过楼梯。在本层搬运完成后执行。</AB_CrossLevelHaulingTip>
+  <AB_CrossLevelSupply>从其他楼层获取所需材料</AB_CrossLevelSupply>
+  <AB_CrossLevelSupplyTip>当某一层缺少所需材料时——如蓝图和框架的建筑材料、工作台的原料、病人和囚犯的食物——殖民者会走楼梯到有这些材料的楼层并将其搬回。适用于资源堆在另一层的库存中而没有空闲搬运工在那推送的情况。</AB_CrossLevelSupplyTip>
+  <AB_CrossLevelNeeds>殖民者跨层回床睡觉</AB_CrossLevelNeeds>
+  <AB_CrossLevelNeedsTip>疲倦的殖民者如果床在另一层，会走楼梯而不是睡在地上。</AB_CrossLevelNeedsTip>
+  <AB_CrossLevelPrisoners>典狱长跨层转移囚犯</AB_CrossLevelPrisoners>
+  <AB_CrossLevelPrisonersTip>当囚犯唯一可用的牢房在另一层，或者你将其指派到另一层的床位时，典狱长会将其抱过楼梯。你也可以右键囚犯将其送到楼上或楼下的牢房。</AB_CrossLevelPrisonersTip>
+  <AB_HaulUpTo>将{0}搬运到上一层</AB_HaulUpTo>
+  <AB_HaulDownTo>将{0}搬运到下一层</AB_HaulDownTo>
+  <AB_RemoveLink>拆除</AB_RemoveLink>
+  <AB_RemoveLinkDesc>标记为待拆除。建筑工会将其拆解，同时也会移除另一层的连接端。垂直连接物不可被损坏，因此这是移除它们的唯一方式。</AB_RemoveLinkDesc>
+  <AB_RemoveQueued>已标记为待拆除。</AB_RemoveQueued>
+  <AB_ColumnWealth>袭击按整列财富值计算</AB_ColumnWealth>
+  <AB_ColumnWealthTip>故事叙述者会计算你所有楼层上的财富和小人数量，而不仅限于地表。防止将财富藏在地下室以降低袭击规模。建议开启以获得诚实的游戏难度。</AB_ColumnWealthTip>
+  <AB_WorldIntegration>世界整合</AB_WorldIntegration>
+  <AB_WorldIntegrationTip>商队可以包含其他楼层的殖民者（他们走楼梯加入集合）；运输舱和飞船可以从天空层发射；任意楼层的贸易信标均可出售货物；通讯台在地面以下也能工作。</AB_WorldIntegrationTip>
+  <AB_CaravanNeedsSurfacePawn>商队必须在地表组建：至少包含一名在地表层的殖民者。</AB_CaravanNeedsSurfacePawn>
+  <AB_CaravanPawnNoStairs>{0} 无法到达任何通往地表的楼梯，将不会加入商队。</AB_CaravanPawnNoStairs>
+  <AB_CaravanPawnsDescending>{0} 名殖民者正在走楼梯加入商队。</AB_CaravanPawnsDescending>
+  <AB_AbandonLevelsWarning>{0} 名殖民者仍在殖民地的其他楼层。废弃定居点会同时摧毁所有楼层，他们将因此消失。确定要这样做吗？</AB_AbandonLevelsWarning>
+  <AB_PodTransit>空投舱穿过天空层空隙</AB_PodTransit>
+  <AB_PodTransitTip>落向地表的入侵空投舱、飞船残骸和陨石，如果着陆点上方有露天空隙，会穿过天空层的空域。当它们穿过上层时，建在上面的防空设施可以拦截它们。着陆点、下落时间和撞击效果不变。飞船和降落在天空层本身的不受影响。默认开启。</AB_PodTransitTip>
+  <AB_ThreatBasementInfest>虫灾可在地下室爆发</AB_ThreatBasementInfest>
+  <AB_ThreatBasementInfestTip>当虫灾事件触发时，有一定概率从地下室层钻出而非地表。威胁规模和故事叙述者节奏不变；只有战场转移。默认关闭。</AB_ThreatBasementInfestTip>
+  <AB_ThreatSkyDrops>空投舱袭击可降临天空层</AB_ThreatSkyDrops>
+  <AB_ThreatSkyDropsTip>当敌对空投舱袭击事件触发时，有一定概率降落在你的屋顶上而非地表。袭击者在上面找不到可攻击之物时会从你的楼梯下去。威胁规模和故事叙述者节奏不变。默认关闭。</AB_ThreatSkyDropsTip>
+  <AB_ThreatDivertChance>转移概率</AB_ThreatDivertChance>
+  <AB_ThreatDivertChanceTip>符合条件的袭击事件被转移到其它楼层而非降临地表的概率。</AB_ThreatDivertChanceTip>
+  <AB_RescueUpTo>救援{0}（床位在上一层）</AB_RescueUpTo>
+  <AB_RescueDownTo>救援{0}（床位在下一层）</AB_RescueDownTo>
+  <AB_CaptureUpTo>逮捕{0}（床位在上一层）</AB_CaptureUpTo>
+  <AB_CaptureDownTo>逮捕{0}（床位在下一层）</AB_CaptureDownTo>
+  <AB_TakePrisonerUpTo>将{0}带到上一层的牢房</AB_TakePrisonerUpTo>
+  <AB_TakePrisonerDownTo>将{0}带到下一层的牢房</AB_TakePrisonerDownTo>
+  <AB_ExtendUp>向上延伸井道</AB_ExtendUp>
+  <AB_ExtendUpDesc>将电梯井延伸到上一层（如需则开启该层），并在那里放置一个连接轿厢。</AB_ExtendUpDesc>
+  <AB_ExtendDown>向下延伸井道</AB_ExtendDown>
+  <AB_ExtendDownDesc>将电梯井延伸到下一层（如需则开启该层），并在那里放置一个连接轿厢。</AB_ExtendDownDesc>
+  <AB_RideToSky>乘到天空层</AB_RideToSky>
+  <AB_RideToBasement>乘到地下室</AB_RideToBasement>
+  <AB_LevelSky>天空层</AB_LevelSky>
+  <AB_LevelSurface>地表</AB_LevelSurface>
+  <AB_LevelBasement>地下室</AB_LevelBasement>
+  <AB_LevelWidgetTip>你也可以按 Page Up 和 Page Down 切换。</AB_LevelWidgetTip>
+  <AB_ShowLevelWidget>显示楼层查看按钮</AB_ShowLevelWidget>
+  <AB_ShowLevelWidgetTip>在右下角其他视图切换按钮旁添加"查看上一层"和"查看下一层"按钮。</AB_ShowLevelWidgetTip>
+  <AB_OneColonistBar>将同一列合并为殖民者栏的一个分组</AB_OneColonistBar>
+  <AB_OneColonistBarTip>将同一垂直列的天空层、地表和地下室在殖民者栏中绘制为一个连续块，楼层之间没有分隔间隙。其他殖民地和商队保持自己的分组。当 [LTO] Colony Groups 模组启用时，遵循该模组的设置。</AB_OneColonistBarTip>
+  <AB_CameraFollowStairs>镜头跟随殖民者穿过楼梯</AB_CameraFollowStairs>
+  <AB_CameraFollowStairsTip>当你将选中的殖民者送上或送下楼梯（或电梯）时，镜头会跟随到他们到达的楼层，以相同缩放居中显示。仅跟随你选中并正在观看的小人——自动搬运工、宠物和敌人不会移动你的镜头。</AB_CameraFollowStairsTip>
+  <AB_GridLinkReceiving>电网连接：正在从连接楼层接收 {0} W。</AB_GridLinkReceiving>
+  <AB_GridLinkSending>电网连接：正在向连接楼层输送 {0} W。</AB_GridLinkSending>
+  <AB_GridLinkIdle>电网连接：已连接，无需电力传输。</AB_GridLinkIdle>
+  <AB_CrossLevelPipes>通过楼梯间连接管道网络</AB_CrossLevelPipes>
+  <AB_CrossLevelPipesTip>当 Dubs Bad Hygiene 或 Vanilla Expanded 管道网络在两层均触及已连接的楼梯间时，其存储的内容会在楼层间流动。电力管线无论此设置如何都会通过楼梯间连接。</AB_CrossLevelPipesTip>
+  <AB_CrossLevelTemperature>楼梯间在楼层间交换热量</AB_CrossLevelTemperature>
+  <AB_CrossLevelTemperatureTip>已连接的楼梯间会缓慢均衡所在房间之间的温度，就像楼层间的通风口一样。天空层也会跟随地表的室外温度和季节。</AB_CrossLevelTemperatureTip>
+
+  <AB_CameraLockKeybind>镜头锁定快捷键</AB_CameraLockKeybind>
+  <AB_CameraLockKeybindTip>启用镜头锁定快捷键（默认 End，可在选项-按键设置中更改）。锁定开启时，镜头将停留在当前查看的楼层：不会跟随选中小人走楼梯。手动切换楼层始终有效。</AB_CameraLockKeybindTip>
+  <AB_CameraLockOn>镜头锁定已开启：视图将停留在当前楼层。再次按快捷键解锁。</AB_CameraLockOn>
+  <AB_CameraLockOff>镜头锁定已关闭：镜头将再次跟随小人穿过楼梯。</AB_CameraLockOff>
+
+  <AB_CavernBasements>地下室生成活体洞穴（Biomes! Caverns）</AB_CavernBasements>
+  <AB_CavernBasementsTip>新生成的地下室会以 Biomes! Caverns 的洞穴生物群系之一呈现：一个连接的隧道网络，包含洞穴地形、植物、野生动物、钟乳石和水晶，密封在岩石中直到你挖开它。已有的地下室保持不变。注意：大地深层的生物群系持续高温。</AB_CavernBasementsTip>
+  <AB_CavernBiome>洞穴生物群系</AB_CavernBiome>
+  <AB_CavernBiomeTip>新地下室使用哪种洞穴生物群系。"随机"按地下室逐个选取，权重偏向真菌森林；大地深层较为罕见，因其持续 55°C 的高温会造就恶劣的地下室环境。</AB_CavernBiomeTip>
+  <AB_CavernBiomeRandom>随机（加权）</AB_CavernBiomeRandom>
+  <AB_CavernOpenness>洞穴密度</AB_CavernOpenness>
+  <AB_CavernOpennessTip>隧道网络在地下室中挖掘的比例。低值保持大部分楼层为可开采的岩石，偶有洞穴；高值形成广阔开阔的洞穴系统。</AB_CavernOpennessTip>
+
+  <AB_NaturalPeaks>新天空层使用自然主义山峰</AB_NaturalPeaks>
+  <AB_NaturalPeaksTip>新生成的天空层山顶呈现为可通行的高原：自然地形散布着土壤和植被斑块、岩石露头以及深度自然变化的坚固岩石悬崖边缘。关闭恢复经典的完全实心山峰。已有的天空层无论何种设置均不受影响。</AB_NaturalPeaksTip>
+  <AB_PeakSoil>高原可耕地土壤</AB_PeakSoil>
+  <AB_PeakSoilTip>高原表面有多少是可种植的肥沃土壤，而非砾石和裸露岩石。</AB_PeakSoilTip>
+  <AB_PeakVegetation>高原植被</AB_PeakVegetation>
+  <AB_PeakVegetationTip>生成时在高原上播种的野生植物和树木密度，相对于地表生物群系正常密度的比例。之后的再生是自然进行的。</AB_PeakVegetationTip>
+
+</LanguageData>

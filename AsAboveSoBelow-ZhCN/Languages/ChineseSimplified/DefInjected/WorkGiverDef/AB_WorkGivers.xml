@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AB_HaulAcrossLevels.label>搬运物品到其他楼层</AB_HaulAcrossLevels.label>
+  <AB_RescueAcrossLevels.label>救援到其他楼层</AB_RescueAcrossLevels.label>
+  <AB_WardenTakeToBedAcrossLevels.label>将囚犯带到其他楼层的牢房</AB_WardenTakeToBedAcrossLevels.label>
+  <AB_FetchFromOtherLevels.label>从其他楼层取回物品</AB_FetchFromOtherLevels.label>
+
+</LanguageData>

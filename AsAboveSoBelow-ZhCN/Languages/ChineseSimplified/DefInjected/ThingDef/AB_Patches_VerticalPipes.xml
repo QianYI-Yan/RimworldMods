@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Dubs Bad Hygiene 水管 -->
+  <AB_VerticalWaterPipeDown.label>垂直水管（下行）</AB_VerticalWaterPipeDown.label>
+  <AB_VerticalWaterPipeDown.description>携带水通往下一层的密封立管。两侧接触到的水网通过井道连接，如同一体；任一层都无需水箱。无法攀爬，不会泄漏温度。建造完成后会开启地下室层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalWaterPipeDown.description>
+
+  <AB_VerticalWaterPipeUp.label>垂直水管（上行）</AB_VerticalWaterPipeUp.label>
+  <AB_VerticalWaterPipeUp.description>携带水通往上一层的密封立管。两侧接触到的水网通过井道连接，如同一体；任一层都无需水箱。无法攀爬，不会泄漏温度。建造完成后会开启天空层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalWaterPipeUp.description>
+
+  <!-- Rimefeller 化工管 -->
+  <AB_VerticalChemPipeDown.label>垂直化工管（下行）</AB_VerticalChemPipeDown.label>
+  <AB_VerticalChemPipeDown.description>携带石油和化工燃料通往下一层的密封管道立管。两侧接触到的管道网通过井道连接，如同一体；任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启地下室层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalChemPipeDown.description>
+
+  <AB_VerticalChemPipeUp.label>垂直化工管（上行）</AB_VerticalChemPipeUp.label>
+  <AB_VerticalChemPipeUp.description>携带石油和化工燃料通往上一层的密封管道立管。两侧接触到的管道网通过井道连接，如同一体；任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启天空层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalChemPipeUp.description>
+
+  <!-- Vanilla Chemfuel Expanded 化工燃料管 -->
+  <AB_VerticalChemfuelPipeDown.label>垂直化工燃料管（下行）</AB_VerticalChemfuelPipeDown.label>
+  <AB_VerticalChemfuelPipeDown.description>携带化工燃料和深化工燃料通往下一层的密封管道立管。两种资源的管道网在两侧接触时通过井道连接，如同一体，且井道本身会缓存少量每种资源，因此任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启地下室层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalChemfuelPipeDown.description>
+
+  <AB_VerticalChemfuelPipeUp.label>垂直化工燃料管（上行）</AB_VerticalChemfuelPipeUp.label>
+  <AB_VerticalChemfuelPipeUp.description>携带化工燃料和深化工燃料通往上一层的密封管道立管。两种资源的管道网在两侧接触时通过井道连接，如同一体，且井道本身会缓存少量每种资源，因此任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启天空层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalChemfuelPipeUp.description>
+
+  <!-- Vanilla Expanded Framework 垂直管道 -->
+  <AB_VerticalDuctDown.label>垂直管道（下行）</AB_VerticalDuctDown.label>
+  <AB_VerticalDuctDown.description>携带管道资源通往下一层的密封公用管道。两侧接触到的同种资源管道网通过井道连接，如同一体；任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启地下室层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalDuctDown.description>
+
+  <AB_VerticalDuctUp.label>垂直管道（上行）</AB_VerticalDuctUp.label>
+  <AB_VerticalDuctUp.description>携带管道资源通往上一层的密封公用管道。两侧接触到的同种资源管道网通过井道连接，如同一体；任一层都无需储罐。无法攀爬，不会泄漏温度。建造完成后会开启天空层（如果尚不存在）。拆除任一端会同时移除两端。</AB_VerticalDuctUp.description>
+
+</LanguageData>
