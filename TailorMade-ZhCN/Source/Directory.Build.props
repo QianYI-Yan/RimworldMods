@@ -6,6 +6,6 @@
         Windows Steam:  C:\Program Files (x86)\Steam\steamapps\common\RimWorld
         GOG:            C:\Program Files (x86)\GOG Galaxy\Games\RimWorld
     -->
-    <RimWorldDir>C:\Program Files (x86)\Steam\steamapps\common\RimWorld</RimWorldDir>
+    <RimWorldDir>D:\app\game\steam\steamapps\common\RimWorld</RimWorldDir>
   </PropertyGroup>
 </Project>
