@@ -5,5 +5,9 @@
   <AB_RescueAcrossLevels.label>救援到其他楼层</AB_RescueAcrossLevels.label>
   <AB_WardenTakeToBedAcrossLevels.label>将囚犯带到其他楼层的牢房</AB_WardenTakeToBedAcrossLevels.label>
   <AB_FetchFromOtherLevels.label>从其他楼层取回物品</AB_FetchFromOtherLevels.label>
+  <AB_BulkHaulAcrossLevels.label>批量搬运物品到其他楼层</AB_BulkHaulAcrossLevels.label>
+  <AB_HaulUrgentlyAcrossLevels.label>紧急搬运物品到其他楼层</AB_HaulUrgentlyAcrossLevels.label>
+  <AB_SupplyConstructionAcrossLevels.label>跨层补给建筑材料</AB_SupplyConstructionAcrossLevels.label>
+  <AB_TakeToPenAcrossLevels.label>将动物带到其他楼层的畜栏</AB_TakeToPenAcrossLevels.label>
 
 </LanguageData>

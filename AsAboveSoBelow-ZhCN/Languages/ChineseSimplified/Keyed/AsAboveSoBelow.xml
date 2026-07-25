@@ -18,10 +18,13 @@
   <AB_SkyCreated>天空层已开启。在带屋顶的房间上方建造地板即可向上扩展。</AB_SkyCreated>
   <AB_OnlySurfaceForNow>必须放置在地表层。</AB_OnlySurfaceForNow>
   <AB_LevelCap>楼层数量已达上限（上一层、下一层）。</AB_LevelCap>
+  <AB_NoLevelsUrbanRuins>此处无法添加楼层：这是一张古代都市废墟探索地图。如需在都市废墟内建造垂直基地，请在模组设置-兼容标签页中启用。</AB_NoLevelsUrbanRuins>
   <AB_ShowLiveBelow>显示下一层的实时动态</AB_ShowLiveBelow>
   <AB_ShowLiveBelowTip>向下看时，绘制下一层的小人、动物和投弹轨迹。关闭可在天空层获得小幅性能提升。</AB_ShowLiveBelowTip>
-  <AB_SelectBelowInPlace>选择下一层的小人</AB_SelectBelowInPlace>
-  <AB_SelectBelowInPlaceTip>无需离开天空视角，点击透过空隙可见的下一层小人即可选中。需要开启"显示下一层的实时动态"。</AB_SelectBelowInPlaceTip>
+  <AB_SelectBelowInPlace>选择下一层的物体</AB_SelectBelowInPlace>
+  <AB_SelectBelowInPlaceTip>无需离开天空视角，点击透过空隙可见的下一层小人、物品或建筑即可选中。双击物品可选中附近同类物品，与地表操作一致。需要开启"显示下一层的实时动态"。</AB_SelectBelowInPlaceTip>
+  <AB_BelowItemOverlays>显示下一层物品堆叠数</AB_BelowItemOverlays>
+  <AB_BelowItemOverlaysTip>在下一层物品上方绘制堆叠数量和品质字母，让你从天空层一览地表库存。与地表一样，放大到最近时数字才会显示。</AB_BelowItemOverlaysTip>
   <AB_BelowDim>下一层变暗程度</AB_BelowDim>
   <AB_BelowDimTip>从上方观看时，下一层视图的变暗程度。默认保持较低值：让下一层保持明亮可见，有助于让上层感觉是抬升的平台而非一个深坑。</AB_BelowDimTip>
   <AB_SlabEdge>绘制楼板边缘轮廓</AB_SlabEdge>
@@ -36,7 +39,13 @@
   <AB_TabView>视图与镜头</AB_TabView>
   <AB_TabWork>工作与后勤</AB_TabWork>
   <AB_TabCombat>战斗与威胁</AB_TabCombat>
+  <AB_TabCompat>兼容</AB_TabCompat>
   <AB_TabAdvanced>高级</AB_TabAdvanced>
+  <AB_CompatNote>As Above, So Below 检测到的其他模组选项。对应模组加载时才会显示这些选项区。</AB_CompatNote>
+  <AB_CompatNoneDetected>未检测到有可配置兼容选项的模组。无需选项的模组兼容性会自动处理。</AB_CompatNoneDetected>
+  <AB_CompatAUR>古代都市废墟</AB_CompatAUR>
+  <AB_AllowUrbanRuinsLevels>允许在都市废墟地图上建造楼层</AB_AllowUrbanRuinsLevels>
+  <AB_AllowUrbanRuinsLevelsTip>默认情况下，你无法在古代都市废墟探索地图上建造楼梯，以免你不小心把天空层或地下室叠在临时任务地图上。开启后将都市废墟地图视为普通地面，可以在其中建造垂直基地。废墟地图本身被移除时，你在上面建造的楼层也会随之被干净地移除。</AB_AllowUrbanRuinsLevelsTip>
   <AB_GenNote>生成设置在楼层首次创建时生效。已有的天空层和地下室层保持其生成时的外观。</AB_GenNote>
   <AB_Presets>山峰预设</AB_Presets>
   <AB_PresetsTip>一键设置新生成山峰的外观。默认恢复所有生成设置；其他选项调整下方的山峰滑块，保持矿石和洞穴设置不变。</AB_PresetsTip>
@@ -49,7 +58,7 @@
   <AB_MeadowScale>草甸规模</AB_MeadowScale>
   <AB_MeadowScaleTip>草甸图案的规模。高值形成少数几个相连的大草甸；低值散布许多小片草甸和蜿蜒的岩石狭道。</AB_MeadowScaleTip>
   <AB_TerraceMax>边缘带状宽度</AB_TerraceMax>
-  <AB_TerraceMaxTip>沿山脉边缘的可通行岩石台阶能切入山体的最大深度（以格数计）。1 是经典的单层 ledge；高值打开宽阔的架状延伸区域。</AB_TerraceMaxTip>
+  <AB_TerraceMaxTip>沿山脉边缘的可通行岩石台阶能切入山体的最大深度（以格数计）。1 是经典的单层岩架；高值打开宽阔的架状延伸区域。</AB_TerraceMaxTip>
   <AB_OutcropDensity>露头密度</AB_OutcropDensity>
   <AB_OutcropDensityTip>在开阔高原上散布多少岩石露头。0% 完全移除。</AB_OutcropDensityTip>
   <AB_Tarns>山间湖泊</AB_Tarns>
@@ -97,7 +106,7 @@
   <AB_ResetAll>将所有设置重置为默认值</AB_ResetAll>
   <AB_ResetAllConfirm>将每个标签页上的每项设置都重置为默认值？</AB_ResetAllConfirm>
   <AB_SkyBiomeInherit>天空层继承地表生物群系</AB_SkyBiomeInherit>
-  <AB_SkyBiomeInheritTip>新创建的天空层使用与下方地表地图相同的生物群系，使高原植被、树木再生、野生植物种类和天气与山脉周围的世界相匹配。在天空层首次生成时生效；已有的天空层保持创建时的生物群系。关闭则恢复荒凉的高海拔外观。</AB_SkyBiomeInheritTip>
+  <AB_SkyBiomeInheritTip>新创建的天空层使用与下方地表地图相同的生物群系，使高原土壤、植被、树木再生、野生植物种类和天气与山脉周围的世界相匹配——包括模组生物群系，其特有的肥沃地形和植物也会带上山顶。在天空层首次生成时生效；已有的天空层保持创建时的生物群系。关闭则恢复荒凉的高海拔外观。</AB_SkyBiomeInheritTip>
   <AB_ClimbTime>楼梯攀爬时间</AB_ClimbTime>
   <AB_ClimbTimeTip>所有类型楼梯的攀爬时间倍率。梯子比普通楼梯慢，大楼梯比普通楼梯快，不受此倍率影响。</AB_ClimbTimeTip>
   <AB_ShowCeilingHint>在地表显示天花板提示</AB_ShowCeilingHint>
@@ -206,6 +215,15 @@
   <AB_CameraLockOn>镜头锁定已开启：视图将停留在当前楼层。再次按快捷键解锁。</AB_CameraLockOn>
   <AB_CameraLockOff>镜头锁定已关闭：镜头将再次跟随小人穿过楼梯。</AB_CameraLockOff>
 
+  <AB_BasementEnv>地下室环境</AB_BasementEnv>
+  <AB_BasementEnvTip>新生成的地下室将变成什么。坚固岩石是默认可开采填充物。其他选项在对应模组加载时显示：Biomes! Caverns 的活体洞穴、Ancient Urban Ruins 的埋藏设施，或者雕刻成洞穴的精选外来生物群系。已有的地下室保持生成时的外观。注意：外来生物群系使用其自身的固定温度，部分可能很热或很冷。</AB_BasementEnvTip>
+  <AB_BasementSolidRock>坚固岩石</AB_BasementSolidRock>
+  <AB_BasementCaverns>活体洞穴（Biomes! Caverns）</AB_BasementCaverns>
+  <AB_BasementUrbanRuins>埋藏设施（古代都市废墟）</AB_BasementUrbanRuins>
+  <AB_UrbanRuinsOccupants>包含古代居民</AB_UrbanRuinsOccupants>
+  <AB_UrbanRuinsOccupantsTip>在地下室创建时生成设施的原始拾荒者：黑暗中既有战利品也有真正的战斗。关闭则得到一座安静废弃的遗迹。设施自身的出入口始终会被移除，你的楼梯是唯一的进出通道。</AB_UrbanRuinsOccupantsTip>
+  <AB_RevealBasement>加载时揭示地下室</AB_RevealBasement>
+  <AB_RevealBasementTip>在地下室创建或加载时立即清除所有迷雾，无需挖掘探索即可看到整个楼层。适用于所有地下室类型。关闭则按常规方式探索地下室，一格一格地敲开黑暗。</AB_RevealBasementTip>
   <AB_CavernBasements>地下室生成活体洞穴（Biomes! Caverns）</AB_CavernBasements>
   <AB_CavernBasementsTip>新生成的地下室会以 Biomes! Caverns 的洞穴生物群系之一呈现：一个连接的隧道网络，包含洞穴地形、植物、野生动物、钟乳石和水晶，密封在岩石中直到你挖开它。已有的地下室保持不变。注意：大地深层的生物群系持续高温。</AB_CavernBasementsTip>
   <AB_CavernBiome>洞穴生物群系</AB_CavernBiome>
@@ -220,5 +238,46 @@
   <AB_PeakSoilTip>高原表面有多少是可种植的肥沃土壤，而非砾石和裸露岩石。</AB_PeakSoilTip>
   <AB_PeakVegetation>高原植被</AB_PeakVegetation>
   <AB_PeakVegetationTip>生成时在高原上播种的野生植物和树木密度，相对于地表生物群系正常密度的比例。之后的再生是自然进行的。</AB_PeakVegetationTip>
+
+  <AB_ClimbAnimations>楼梯和梯子攀爬动画</AB_ClimbAnimations>
+  <AB_ClimbAnimationsTip>攀爬楼梯或梯子时，小人会明显走上梯段并在下楼时沉入、上楼时浮出，到达另一层时还有短暂的出现动画。电梯不受影响。纯视觉效果。</AB_ClimbAnimationsTip>
+
+  <AB_TabJobs>工作扫描</AB_TabJobs>
+  <AB_JobsNote>小人查找跨层工作的积极程度。更快的扫描感觉更灵敏，但在大型殖民地中会消耗少量性能。默认值匹配精心调校的内置节奏。</AB_JobsNote>
+  <AB_JobsPresets>扫描积极性预设</AB_JobsPresets>
+  <AB_JobsPresetsTip>一键设置扫描节奏。轻松减半扫描力度，积极加倍，极速用于想要近乎即时跨层反应的小型殖民地。下方滑块会显示每个预设对应的具体数值。</AB_JobsPresetsTip>
+  <AB_JobsPresetRelaxed>轻松</AB_JobsPresetRelaxed>
+  <AB_JobsPresetDefault>默认</AB_JobsPresetDefault>
+  <AB_JobsPresetEager>积极</AB_JobsPresetEager>
+  <AB_JobsPresetFrantic>极速</AB_JobsPresetFrantic>
+  <AB_JobProbeBudget>每 tick 工作探查数</AB_JobProbeBudget>
+  <AB_JobProbeBudgetTip>整个殖民地每游戏 tick 可执行的跨层工作检查次数。数值越高，小人越快注意到其他楼层的工作；每次探查都是一次有界虚拟扫描。</AB_JobProbeBudgetTip>
+  <AB_JobEmptyScanCooldown>无果扫描后的冷却时间</AB_JobEmptyScanCooldown>
+  <AB_JobEmptyScanCooldownTip>小人进行一次无结果的跨层扫描后，等多久才会再次检查其他楼层。数值越低，对其他地方出现新工作的反应越快。</AB_JobEmptyScanCooldownTip>
+  <AB_JobMigrationCooldown>楼层迁移冷却时间</AB_JobMigrationCooldown>
+  <AB_JobMigrationCooldownTip>小人迁移到另一层工作后至少停留的时间，以防小人在楼梯上来回折腾。玩家的新指令会立即无视此冷却。</AB_JobMigrationCooldownTip>
+  <AB_JobCacheTtl>工作缓存生存期</AB_JobCacheTtl>
+  <AB_JobCacheTtlTip>每层的可用工作和所需材料摘要缓存多久后重建。新蓝图和指令会立即刷新这些缓存，不受此设置影响。</AB_JobCacheTtlTip>
+  <AB_SupplyConstruction>建筑工将材料搬运到其他楼层</AB_SupplyConstruction>
+  <AB_SupplyConstructionTip>从事建筑工作的小人会携带所需建筑材料通过楼梯运送到连接楼层的蓝图和框架，然后在那里建造。</AB_SupplyConstructionTip>
+  <AB_SupplyBills>跨层获取配方原料</AB_SupplyBills>
+  <AB_SupplyBillsTip>有活跃配方的工作台会登记原料短缺，以便搬运工从连接楼层为该层补充。</AB_SupplyBillsTip>
+  <AB_SupplyMeals>为病人和囚犯获取食物</AB_SupplyMeals>
+  <AB_SupplyMealsTip>有卧病病人或囚犯的楼层会从连接楼层获取少量食物缓冲，让医生和典狱长可以就地喂食。</AB_SupplyMealsTip>
+  <AB_SupplyFuel>跨层获取燃料和培养舱养分</AB_SupplyFuel>
+  <AB_SupplyFuelTip>发电机、炮塔、生物培养舱以及任何设置为自动补充燃料的物品会登记其燃料短缺，使木材、化工燃料和养分流向需要消耗它们的楼层。</AB_SupplyFuelTip>
+  <AB_FetchFromOtherLevels>搬运工从其他楼层取货</AB_FetchFromOtherLevels>
+  <AB_FetchFromOtherLevelsTip>空闲的搬运工会检查直接连接楼层的搬运工作并主动过去执行，而不是等待较慢的空闲迁移漂移。</AB_FetchFromOtherLevelsTip>
+
+  <AB_BringMaterialsAndBuild>携带{0}并建造{1}</AB_BringMaterialsAndBuild>
+  <AB_BringAndInstall>携带{0}并在此安装</AB_BringAndInstall>
+  <AB_BringAndRefuel>携带{0}并补充{1}的燃料</AB_BringAndRefuel>
+
+  <AB_SubsystemDown>As Above, So Below："{0}"子系统遇到错误并已自行关闭以保护游戏。其他功能继续运行。你可以从模组设置中重新启用它；详细信息在日志中。</AB_SubsystemDown>
+
+  <AB_SkyVisitors>访客可到达天空高原</AB_SkyVisitors>
+  <AB_SkyVisitorsTip>当天空层有玩家建筑、一个可通行的地图边缘开口和可用的楼梯时，约一半的访客和旅人小队会从天空层进入而非地表。贸易商队始终从地表到达。</AB_SkyVisitorsTip>
+  <AB_HospitalityRoaming>Hospitality 客人漫游所有楼层</AB_HospitalityRoaming>
+  <AB_HospitalityRoamingTip>需要 Hospitality 模组。在访问期间，空闲的客人偶尔会游览有客床或自动售货机的连接楼层，离开时返回其团队所在楼层。完整的客人服务（购物、床位认领）仍留在其团队到达的楼层。</AB_HospitalityRoamingTip>
 
 </LanguageData>

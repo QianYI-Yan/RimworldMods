@@ -7,5 +7,7 @@
   <AB_RescueAcrossLevels.reportString>正在将目标A救援到另一层。</AB_RescueAcrossLevels.reportString>
   <AB_CaptureAcrossLevels.reportString>正在将目标A逮捕到另一层。</AB_CaptureAcrossLevels.reportString>
   <AB_TakePrisonerAcrossLevels.reportString>正在将囚犯目标A带到另一层。</AB_TakePrisonerAcrossLevels.reportString>
+  <AB_TakeToPenAcrossLevels.reportString>正在将目标A牵到另一层的畜栏。</AB_TakeToPenAcrossLevels.reportString>
+  <AB_BulkHaulAcrossLevels.reportString>正在将物品批量搬运到另一层。</AB_BulkHaulAcrossLevels.reportString>
 
 </LanguageData>

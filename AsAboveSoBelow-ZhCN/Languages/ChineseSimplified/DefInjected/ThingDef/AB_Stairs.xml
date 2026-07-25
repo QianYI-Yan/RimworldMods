@@ -29,4 +29,12 @@
   <AB_LadderUp.label>上行梯子</AB_LadderUp.label>
   <AB_LadderUp.description>通往上一层的廉价梯子。攀爬速度比楼梯慢，且无法携带电力连接。建造完成后会开启天空层并在那里生成对应的梯子。</AB_LadderUp.description>
 
+  <!-- 下行宽楼梯 -->
+  <AB_WideStairsDown.label>下行宽楼梯</AB_WideStairsDown.label>
+  <AB_WideStairsDown.description>通往下一层的宽敞双格楼梯，攀爬速度比普通楼梯快。建造完成后会开启地下室层并在那里生成对应的楼梯。地下室初始为坚固岩石，请带上矿工。</AB_WideStairsDown.description>
+
+  <!-- 上行宽楼梯 -->
+  <AB_WideStairsUp.label>上行宽楼梯</AB_WideStairsUp.label>
+  <AB_WideStairsUp.description>通往上一层的宽敞双格楼梯，攀爬速度比普通楼梯快。建造完成后会开启天空层并在那里生成对应的楼梯。在上面你只能在基地有屋顶的部分行走和建造。</AB_WideStairsUp.description>
+
 </LanguageData>
