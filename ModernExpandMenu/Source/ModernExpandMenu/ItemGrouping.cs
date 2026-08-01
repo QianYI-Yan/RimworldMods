@@ -22,7 +22,9 @@ namespace ModernExpandMenu
 
         public bool isHaulAction;   // 是否为自建的"搬运到储物区"操作（用于同组多项目时标注物品名）
 
-        public float appearTime = -1f;   // 左侧渐入动画的开始时间（realtimeSinceStartup）
+        public float appearTime = -1f;     // 出现动画的开始时间（realtimeSinceStartup，-1=未安排）
+        public float disappearTime = -1f;  // 消失动画的开始时间（realtimeSinceStartup，-1=未安排）
+        public bool hasAppeared;           // 是否已完成出现动画（用于滚动进出时播放出现/消失动画）
     }
 
     // ═══════════════════════════════════════════════════
@@ -37,6 +39,10 @@ namespace ModernExpandMenu
         public bool isOtherGroup;           // 是否为"其他"组（用于排序与识别，避免依赖文本比较）
 
         public int totalCount;              // 物品总数（"其他"组为 0）
+
+        public float appearTime = -1f;     // 组标题出现动画开始时间（realtimeSinceStartup，-1=尚未安排）
+        public float disappearTime = -1f;  // 组标题消失动画开始时间（realtimeSinceStartup，-1=未安排）
+        public bool hasAppeared;           // 是否已完成出现动画（滚动进出时播放出现/消失动画）
 
         public List<ItemActionEntry> actions = new List<ItemActionEntry>();
 

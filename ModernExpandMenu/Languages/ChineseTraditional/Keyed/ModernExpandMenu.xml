@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>顯示載入動畫（頂部緩衝條 + 環形進度 + 覆蓋層 + 逐條載入）</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>懸停操作項時高亮目標物品並繪製發光箭頭</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>分組標題顯示物品總數（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>啟用模組（關閉後完全使用原版右鍵選單）</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>停用開發者模式的偽翻譯字元（預設關閉）</ModernExpandMenu_DisablePseudoTranslation>
+  <ModernExpandMenu_MaxMenuHeight>懸浮窗最大高度（像素）</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>每幀處理的物品實例數</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>進度條強制額外顯示時間（秒，0 為不強制）</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>搬運到儲物區</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>搬運到儲物區：{0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>其他</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>外觀</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>效能</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>載入動畫</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>恢復預設設定</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>一般</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>顏色</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>主色</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>表面</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>文字</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>捲軸</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>陰影</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>主色</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>主色前景</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>視窗表面</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>次級表面</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>強調表面</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>主要文字</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>次要文字</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>外框線</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>停用文字</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>陰影</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>捲軸軌道</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>捲軸滑塊</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>捲軸拖曳</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>恢復預設設定 - 確認變更</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>全選</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>全不選</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>反向選擇</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>確定恢復</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>取消</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>調色盤</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>水影藍</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>賽博紫</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>翡翠綠</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>熔岩橙</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_ColorCopyHint>點擊色塊複製顏色</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>貼上</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>動畫</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>動畫速度</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>單條滑入動畫時長（秒）</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>相鄰項就位間隔（秒）</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>視窗彈出動畫時長（秒）</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>分組展開摺疊速度</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>載入時滾動跟隨速度</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>載入後滾動回頂速度</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>動畫預覽</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>已載入 {0} 件物品 / {1} 項操作，耗時 {2} 秒，動畫總時長 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>常規</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>動畫</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>顏色</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>單條滑入時長</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>相鄰項間隔</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>彈出動畫時長</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>展開動畫速度</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>滾動跟隨速度</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>回頂速度</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>視窗高度動畫速度</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>視窗高度動畫速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>總開關</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>啟用動畫（關閉後停用所有動畫效果）</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>啟用動畫</ModernExpandMenu_ResetEnableAnimations>
+</LanguageData>

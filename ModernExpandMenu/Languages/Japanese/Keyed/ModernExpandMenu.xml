@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>読み込みアニメーションを表示（上部バー、円形進捗、オーバーレイ、段階表示）</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>操作項目にカーソルを合わせたときに対象アイテムを強調し、光る矢印を表示</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>グループ見出しにアイテム総数を表示（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>モッドを有効にする（無効時はバニラの右クリックメニューを使用）</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>開発者モードの擬似翻訳文字を無効化（既定ではオフ）</ModernExpandMenu_DisablePseudoTranslation>
+  <ModernExpandMenu_MaxMenuHeight>メニューの最大高さ（ピクセル）</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>1フレームあたりに処理するアイテム数</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>読み込み完了後も進捗バーを表示し続ける秒数（0 で無効）</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>倉庫へ運搬</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>倉庫へ運搬：{0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>その他</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>外観</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>性能</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>読み込みアニメーション</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>既定値に戻す</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>一般</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>色</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>メインカラー</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>表面</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>テキスト</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>スクロールバー</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>影</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>メインカラー</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>メインカラー前景</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>ウィンドウ表面</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>準表面</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>強調表面</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>主要テキスト</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>副テキスト</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>輪郭</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>無効テキスト</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>影</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>スクロールバー軌道</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>スクロールバーつまみ</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>スクロールバー操作中</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>既定値に戻す - 変更内容の確認</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>すべて選択</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>すべて解除</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>選択を反転</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>選択項目を戻す</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>キャンセル</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>パレット</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>アクアブルー</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>サイバーパープル</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>エメラルド</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>ラバオレンジ</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_ColorCopyHint>色見本をクリックして色をコピー</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>貼り付け</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>アニメーション</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>アニメーション速度</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>項目のスライドイン時間（秒）</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>項目間の間隔（秒）</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>ウィンドウのポップイン時間（秒）</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>グループ展開・折りたたみ速度</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>読み込み中のスクロール追従速度</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>読み込み後の先頭へ戻る速度</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>アニメーションのプレビュー</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>{0} 個のアイテム / {1} 件の操作、{2} 秒、アニメーション合計 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>一般</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>アニメーション</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>色</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>項目のスライドイン時間</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>項目間の間隔</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>ポップイン時間</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>展開アニメーション速度</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>スクロール追従速度</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>先頭へ戻る速度</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>ウィンドウの高さアニメーション速度</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>ウィンドウの高さアニメーション速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>マスタースイッチ</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>アニメーションを有効化（オフで全てのアニメーションを無効化）</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>アニメーションを有効化</ModernExpandMenu_ResetEnableAnimations>
+</LanguageData>

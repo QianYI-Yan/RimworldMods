@@ -26,6 +26,12 @@ namespace ModernExpandMenu
             FloatMenuContext context,
             ref List<FloatMenuOption> __result)
         {
+            // 设置中"完全关闭模组"时直接放行原版菜单
+            if (!ModernExpandMenuMod.Settings.modEnabled)
+            {
+                return;
+            }
+
             // 仅处理单选小人 + 存在右键上下文
             if (context == null || context.IsMultiselect || selectedPawns.NullOrEmpty())
             {

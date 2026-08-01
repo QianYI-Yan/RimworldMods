@@ -20,6 +20,52 @@ namespace ModernExpandMenu.UI
 
         private static readonly Texture2D roundedRectTexture = CreateRoundedRectTexture();
 
+        // 垂直渐变纹理（滚动内容顶部/底部淡出遮罩）：
+        // fadeTopTexture   —— 顶部不透明 → 向下渐透明（内容从顶部边缘淡入时遮挡硬截断）
+        // fadeBottomTexture—— 底部不透明 → 向上渐透明（内容从底部边缘淡出时遮挡硬截断）
+        private static readonly Texture2D fadeTopTexture = CreateFadeTexture(opaqueAtBottom: false);
+        private static readonly Texture2D fadeBottomTexture = CreateFadeTexture(opaqueAtBottom: true);
+
+        /// <summary>生成 1x16 垂直渐变遮罩纹理（pixels[0] 为纹理底部，GUI 中显示在 rect 底部）。</summary>
+        private static Texture2D CreateFadeTexture(bool opaqueAtBottom)
+        {
+            const int height = 16;
+            var texture = new Texture2D(1, height, TextureFormat.RGBA32, false);
+            var pixels = new Color[height];
+            for (int y = 0; y < height; y++)
+            {
+                float alpha = opaqueAtBottom ? (height - 1 - y) / (float)(height - 1) : y / (float)(height - 1);
+                pixels[y] = new Color(1f, 1f, 1f, alpha);
+            }
+            texture.SetPixels(pixels);
+            texture.Apply();
+            texture.hideFlags = HideFlags.HideAndDontSave;
+            return texture;
+        }
+
+        /// <summary>
+        /// 绘制垂直渐变遮罩（用于滚动内容上下边缘淡出，避免内容被窗口边缘硬截断）。
+        /// color 为遮罩色（通常取窗口表面色）；opaqueAtBottom=true 时底部不透明。
+        /// </summary>
+        public static void DrawVerticalFade(Rect rect, Color color, bool opaqueAtBottom)
+        {
+            GUI.color = color;
+            GUI.DrawTexture(rect, opaqueAtBottom ? fadeBottomTexture : fadeTopTexture);
+            GUI.color = Color.white;
+        }
+
+        /// <summary>
+        /// 绘制圆角矩形描边：先整块填充 outlineColor，再用 fillColor 内缩覆盖中间，留出描边环。
+        /// 用于窗口外框上下左右描边（MD3 Outline token）。
+        /// </summary>
+        public static void DrawRoundedRectOutline(Rect rect, Color outlineColor, float radius, float thickness, Color fillColor)
+        {
+            DrawRoundedRect(rect, outlineColor, radius);
+            float inset = Mathf.Max(0.5f, thickness);
+            DrawRoundedRect(new Rect(rect.x + inset, rect.y + inset, rect.width - inset * 2f, rect.height - inset * 2f),
+                fillColor, Mathf.Max(1f, radius - inset));
+        }
+
         /// <summary>
         /// 生成四角圆角矩形纹理：中心与边全不透明，四角按到圆心的距离场
         /// 计算 alpha，得到平滑圆角遮罩。
@@ -265,37 +311,25 @@ namespace ModernExpandMenu.UI
         }
 
         /// <summary>
-        /// MD3 安卓 15 风格数字输入框（自绘）：圆角背景 + 聚焦主色描边 + 闪烁光标。
-        /// 仅接受数字与小数点；返回编辑后的文本；submitted=回车提交、cancelled=ESC 取消。
+        /// MD3 安卓 15 风格数字输入框：圆角 + 主色描边外观，
+        /// 输入处理使用原版 Widgets.TextFieldNumeric（Windows 键盘/输入法兼容、可靠保存数值），
+        /// 仅绘制 MD3 边框包裹。
         /// </summary>
-        public static string MD3NumberField(Rect rect, string text, bool focused, out bool submitted, out bool cancelled)
+        public static void MD3NumberField(Rect rect, ref float value, ref string buffer, float min, out bool submitted, out bool cancelled)
         {
-            // 背景 + 描边（聚焦时主色，否则描边色）
-            Color borderColor = focused ? Theme.MD3Theme.Primary : Theme.MD3Theme.Outline;
-            DrawRoundedRect(rect, borderColor, 6f);
+            // 边框（安卓 15 风格：圆角 + 主色描边）
+            DrawRoundedRect(rect, Theme.MD3Theme.Primary, 6f);
+            DrawRoundedRect(rect.ContractedBy(1.5f), Theme.MD3Theme.SurfaceContainerHigh, 4.5f);
+
+            // 原版可靠的数值输入（无上限，仅按下限限制）
+            Widgets.TextFieldNumeric(rect.ContractedBy(1f), ref value, ref buffer, min, 1E+09f);
+
+            // 再画描边盖住原版文本框背景的边缘
+            DrawRoundedRect(rect, Theme.MD3Theme.Primary, 6f);
             DrawRoundedRect(rect.ContractedBy(1.5f), Theme.MD3Theme.SurfaceContainerHigh, 4.5f);
 
             submitted = false;
             cancelled = false;
-            string newText = text;
-
-            // 文本 + 闪烁光标
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.MiddleLeft;
-            Text.WordWrap = false;
-            GUI.color = Theme.MD3Theme.OnSurface;
-            Widgets.Label(new Rect(rect.x + 8f, rect.y, rect.width - 18f, rect.height), newText);
-            if (focused && (int)(Time.realtimeSinceStartup * 2f) % 2 == 0)
-            {
-                float textWidth = Text.CalcSize(newText).x;
-                GUI.color = Theme.MD3Theme.Primary;
-                Widgets.Label(new Rect(rect.x + 8f + textWidth, rect.y + 2f, 2f, rect.height - 4f), "|");
-            }
-            Text.Anchor = TextAnchor.UpperLeft;
-            Text.WordWrap = true;
-            GUI.color = Color.white;
-
-            // 键盘输入处理
             if (Event.current.type == EventType.KeyDown)
             {
                 if (Event.current.keyCode == KeyCode.Return)
@@ -308,25 +342,7 @@ namespace ModernExpandMenu.UI
                     cancelled = true;
                     Event.current.Use();
                 }
-                else if (Event.current.keyCode == KeyCode.Backspace)
-                {
-                    if (newText.Length > 0)
-                    {
-                        newText = newText.Substring(0, newText.Length - 1);
-                    }
-                    Event.current.Use();
-                }
-                else if (Event.current.character != '\0')
-                {
-                    char c = Event.current.character;
-                    if (char.IsDigit(c) || c == '.' || c == ',')
-                    {
-                        newText += c;
-                    }
-                    Event.current.Use();
-                }
             }
-            return newText;
         }
 
         /// <summary>按 UV 子区域绘制圆角纹理。</summary>
