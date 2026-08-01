@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+  <name>Modern RClick Menu</name>
+  <packageId>yintx.deepseek.modernRclickmenu</packageId>
+  <author>yintx, deepseek</author>
+  <description>
+    [h1]Material Design 3 style grouped right-click menu[/h1]
+    [i]MD3 风格的分组右键菜单[/i]
+
+    [b]What it does[/b]
+    When you select a colonist and right-click a single-cell storage container holding multiple items, instead of the vanilla flat float menu, this mod shows a modern MD3-style floating window. Items are grouped by type — each group header shows the item icon, name and total count, with actions (wear, pick up, haul, force wear) listed as an expandable submenu underneath. The window follows the mouse, supports scrolling, and is capped at a maximum height.
+    [i]选中小人后右键一个存放了多种物品的单格储物容器时，本模组会弹出一个 MD3（Material Design 3）风格的现代化悬浮窗来取代原版扁平菜单。物品按类型分组展示，每个分组的标题显示物品图标、名称与总数，下方以子菜单形式展开各类操作（穿戴、拾取、搬运、强制穿戴等）。悬浮窗跟随鼠标弹出，支持滚动，并设有最大高度限制。[/i]
+
+    [b]Actions per item[/b]
+    - Apparel: Force wear / Pick up / Haul to storage
+    - Other haulable items: Pick up / Haul to storage
+    [i]衣物：强制穿戴 / 拾取 / 搬运到储物区；其他可搬运物品：拾取 / 搬运到储物区。[/i]
+
+    [b]Requirement[/b]
+    RimWorld 1.6
+
+    [b]Notes[/b]
+    Currently applies to single-cell storage containers (e.g. wooden box, metal cabinet). Other right-click targets keep the vanilla menu.
+    [i]当前仅作用于单格储物容器（如木箱、铁柜），其他右键目标仍使用原版菜单。[/i]
+
+    [b]Repository[/b]
+    [url=https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernRClickMenu]github.com/QianYI-Yan/RimworldMods[/url]
+  </description>
+  <modVersion>0.1</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+</ModMetaData>
