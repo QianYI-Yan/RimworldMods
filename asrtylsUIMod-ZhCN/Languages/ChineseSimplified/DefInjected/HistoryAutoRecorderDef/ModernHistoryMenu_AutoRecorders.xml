@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modern History Menu 历史自动记录器 Def 汉化（DefInjected 注入） -->
+<Defs>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_Slaves</defName>
+    <label>奴隶</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_PowerGeneration</defName>
+    <label>发电量（W）</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_PowerUsage</defName>
+    <label>用电量（W）</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_PowerStored</defName>
+    <label>储存电量（Wd）</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_EdibleNutrition</defName>
+    <label>可食用营养</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_Meals</defName>
+    <label>餐食</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_ColonyAnimals</defName>
+    <label>殖民地动物</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_WildAnimals</defName>
+    <label>野生动物</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_AvgColonistHealth</defName>
+    <label>平均健康（%）</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_NeedingTend</defName>
+    <label>需要治疗照顾的殖民者</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_SownCrops</defName>
+    <label>已播种作物</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_HarvestableCrops</defName>
+    <label>当前可收获</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_RealPlaytime</defName>
+    <label>真实时间（小时）</label>
+  </HistoryAutoRecorderDef>
+
+  <HistoryAutoRecorderDef>
+    <defName>NHM_IngameDays</defName>
+    <label>游戏内（天）</label>
+  </HistoryAutoRecorderDef>
+
+</Defs>

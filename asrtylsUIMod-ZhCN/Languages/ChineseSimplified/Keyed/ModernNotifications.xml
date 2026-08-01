@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ── 设置：分区 ─────────────────────────────────────────── -->
+  <MN_SettingsSectionsHeader>表面（逐一开启或关闭每种类型）</MN_SettingsSectionsHeader>
+  <MN_IconsHeader>图标</MN_IconsHeader>
+  <MN_AppearanceHeader>外观</MN_AppearanceHeader>
+  <MN_SurfaceDisabledNote>在「表面」下开启此项以进行配置。</MN_SurfaceDisabledNote>
+  <MN_StyledMessages>风格化消息</MN_StyledMessages>
+  <MN_StyledMessagesDesc>重新设计瞬态弹出消息的样式。关闭 = 原版消息。</MN_StyledMessagesDesc>
+  <MN_StyledAlerts>风格化警报</MN_StyledAlerts>
+  <MN_StyledAlertsDesc>重新设计右侧警报读数的样式。关闭 = 原版警报。</MN_StyledAlertsDesc>
+  <MN_StyledLetters>风格化信件</MN_StyledLetters>
+  <MN_StyledLettersDesc>用事件图标重新设计信件按钮的样式。关闭 = 原版信件。</MN_StyledLettersDesc>
+  <MN_LettersIconsOnly>信件仅显示图标</MN_LettersIconsOnly>
+  <MN_LettersIconsOnlyDesc>将每封信件显示为无文本标签的紧凑图标。悬停信件可阅读其标题。</MN_LettersIconsOnlyDesc>
+  <MN_ShowCardIcons>在卡片上显示图标</MN_ShowCardIcons>
+  <MN_ShowCardIconsDesc>在信件卡片上显示信封和事件图标，并在关键警报上显示警告徽章。关闭 = 干净、纯文本卡片。</MN_ShowCardIconsDesc>
+  <MN_ShowRowIcon>显示图标</MN_ShowRowIcon>
+  <MN_HideConditionTimer>隐藏剩余时间</MN_HideConditionTimer>
+  <MN_HideConditionTimerDesc>隐藏显示在「日食」和「有毒尘埃」等定时条件行上的倒计时（例如「2d」或「5h」）。悬停该行时仍会显示完整剩余时间。</MN_HideConditionTimerDesc>
+  <MN_RowRaidIcon>袭击倒计时图标</MN_RowRaidIcon>
+  <MN_RowRaidIconDesc>在袭击倒计时行上显示警告图标（检测到袭击逼近时显示）。关闭 = 纯文本。</MN_RowRaidIconDesc>
+  <MN_BottomRightPanel>右下角面板</MN_BottomRightPanel>
+  <MN_BottomRightPanelDesc>替换右下角 HUD（速度、天气、日期、环境）。关闭 = 原版控件。</MN_BottomRightPanelDesc>
+  <MN_RowWeather>天气与温度行</MN_RowWeather>
+  <MN_RowDate>日期与时间行</MN_RowDate>
+  <MN_RowSeason>季节行</MN_RowSeason>
+  <MN_RowConditions>活跃环境</MN_RowConditions>
+  <MN_RowPerf>FPS / TPS 仪表</MN_RowPerf>
+  <MN_RowVitals>殖民地生命体征行</MN_RowVitals>
+  <MN_RowVitalsDesc>在面板顶部显示一行紧凑的殖民地统计（人口、平均心情、食物天数、威胁）。</MN_RowVitalsDesc>
+
+  <!-- ── 设置：各区域显示 + 大小 ─────────────── -->
+  <MN_AreasHint>显示、隐藏和调整每个区域的大小：</MN_AreasHint>
+  <MN_RowPlaySettings>游戏设置抽屉</MN_RowPlaySettings>
+  <MN_RowSpeed>速度控件</MN_RowSpeed>
+  <MN_RowWeek>周条</MN_RowWeek>
+  <MN_AreaSize>大小：{0}</MN_AreaSize>
+  <MN_AreaOpacity>不透明度：{0}</MN_AreaOpacity>
+  <MN_ModeOurs>现代</MN_ModeOurs>
+  <MN_ModeVanilla>原版</MN_ModeVanilla>
+  <MN_RowRealClock>真实时钟</MN_RowRealClock>
+  <MN_RealClock24h>24 小时制时间</MN_RealClock24h>
+  <MN_RealClock24hDesc>以 24 小时制显示真实时钟（例如 18:30）。关闭时使用你的系统时间格式。</MN_RealClock24hDesc>
+
+  <!-- ── 设置：游戏内日期布局（国际化）── -->
+  <MN_DateLayout>游戏内日期布局</MN_DateLayout>
+  <MN_DateLayout_Default>游戏默认</MN_DateLayout_Default>
+  <MN_DateLayout_DMY>日、月、年</MN_DateLayout_DMY>
+  <MN_DateLayout_MDY>月、日、年</MN_DateLayout_MDY>
+  <MN_DateLayout_YMD>年、月、日</MN_DateLayout_YMD>
+
+  <!-- ── 设置：文本字体 ────────────────────── -->
+  <MN_FontHeader>文本字体（所有表面）</MN_FontHeader>
+  <MN_FontFamily>字体</MN_FontFamily>
+  <MN_FontDefault>默认（游戏字体）</MN_FontDefault>
+  <MN_FontBold>粗体</MN_FontBold>
+  <MN_FontItalic>斜体</MN_FontItalic>
+  <MN_FontHint>适用于消息、警报、信件和右下角面板。</MN_FontHint>
+  <MN_FontPickerTitle>选择字体</MN_FontPickerTitle>
+
+  <!-- ── 设置：外观 + 兼容性 ───────────────────────── -->
+  <MN_AccentHeader>强调色（日历、提醒、高亮）</MN_AccentHeader>
+  <MN_CompatHeader>兼容性</MN_CompatHeader>
+  <MN_DeferDeclutter>遵从 Declutter UI</MN_DeferDeclutter>
+  <MN_DeferDeclutterDesc>开启时，现代通知跟随 Declutter UI：它隐藏自己的小组件抽屉（Declutter 在自己的菜单中管理游戏设置开关），并将 Declutter 的 HUD 整理选择镜像到我们的面板——当你在那里禁用原版天气小组件时隐藏我们的天气行，禁用环境小组件时隐藏我们的环境，禁用日期读数时隐藏我们的日期，Declutter 显示自己的 FPS/TPS 仪表时隐藏我们的。关闭以忽略 Declutter，仅使用现代通知自己的行开关。</MN_DeferDeclutterDesc>
+  <MN_DeclutterNotDetected>未检测到 Declutter UI。它激活时其兼容性选项会出现在这里。</MN_DeclutterNotDetected>
+  <MN_StyleExplicitTimings>重新设计 Explicit Timings 标签样式</MN_StyleExplicitTimings>
+  <MN_StyleExplicitTimingsDesc>将 Explicit Timings 的右侧计时标签（精神崩溃、环境计时器）绘制为与通知堆栈其余部分匹配的深色卡片。保留点击跳转和提示。关闭以保持该模组自己的样式。</MN_StyleExplicitTimingsDesc>
+  <MN_ExplicitTimingsNotDetected>未检测到 Explicit Timings。它激活时其计时标签会被重新设计为卡片。</MN_ExplicitTimingsNotDetected>
+  <MN_ForceShowDrawer>强制显示小组件抽屉</MN_ForceShowDrawer>
+  <MN_ForceShowDrawerDesc>即使在遵从 Declutter UI 时，也保持现代通知自己的游戏设置抽屉（汉堡条 + 开关网格）可见。如果你更喜欢我们的抽屉而不是 Declutter 的菜单，请使用此项。</MN_ForceShowDrawerDesc>
+  <MN_DeclutterAreasNote>遵从期间，Declutter UI 控制天气、环境、日期和 FPS/TPS 区域是否隐藏——请在 Declutter 自己的设置中更改这些。</MN_DeclutterAreasNote>
+  <MN_DeclutterHidingTag>（由 Declutter UI 隐藏）</MN_DeclutterHidingTag>
+  <MN_TipToday>今天：</MN_TipToday>
+  <MN_TipClickCalendar>点击打开日历。</MN_TipClickCalendar>
+
+  <!-- ── 面板悬停提示 ────────────────── -->
+  <MN_SpeedPause>暂停</MN_SpeedPause>
+  <MN_SpeedNormal>正常速度</MN_SpeedNormal>
+  <MN_SpeedFast>快速</MN_SpeedFast>
+  <MN_SpeedSuperfast>超快</MN_SpeedSuperfast>
+  <MN_SpeedUltrafast>极快</MN_SpeedUltrafast>
+  <MN_TipOutdoor>室外：{0}</MN_TipOutdoor>
+  <MN_TipIndoor>室内（光标下）：{0}</MN_TipIndoor>
+
+  <!-- 风读数（天气行）。下面的蒲福风级标签在未加载 Combat Extended 时使用；
+       加载 CE 时我们复用 CE 自己的 CE_Wind_Beaufort*/Direction 键，
+       使读数与 CE 的本地化保持一致。 -->
+  <MN_TipWind>风：{0}</MN_TipWind>
+  <MN_Wind_Beaufort0>无风</MN_Wind_Beaufort0>
+  <MN_Wind_Beaufort1>微风</MN_Wind_Beaufort1>
+  <MN_Wind_Beaufort2>和风</MN_Wind_Beaufort2>
+  <MN_Wind_Beaufort3>清风</MN_Wind_Beaufort3>
+  <MN_Wind_Beaufort4>轻风</MN_Wind_Beaufort4>
+  <MN_Wind_Beaufort5>中等风</MN_Wind_Beaufort5>
+  <MN_Wind_Beaufort6>强风</MN_Wind_Beaufort6>
+  <MN_Wind_Beaufort7>接近大风</MN_Wind_Beaufort7>
+  <MN_Wind_Beaufort8>大风</MN_Wind_Beaufort8>
+  <MN_Wind_Beaufort9>强烈大风</MN_Wind_Beaufort9>
+  <!-- 查看叠加楼层时显示在右下角温度行上的「As above, So below」层级标签，
+       使其气候绝不会被误认为地表。 -->
+  <MN_AbLevelSky>天空</MN_AbLevelSky>
+  <MN_AbLevelBasement>地下</MN_AbLevelBasement>
+  <MN_TipUnroofed>此房间中有 {0} 个屋顶格对天空开放，因此其温度会向室外温度漂移。</MN_TipUnroofed>
+  <MN_Unroofed>无屋顶（{0}）</MN_Unroofed>
+  <MN_ProxyHeated>已加热</MN_ProxyHeated>
+  <MN_ProxyCooled>已冷却</MN_ProxyCooled>
+  <MN_TipProxyHeated>由附近来源加热（光标下）：{0}</MN_TipProxyHeated>
+  <MN_TipProxyCooled>由附近来源冷却（光标下）：{0}</MN_TipProxyCooled>
+  <MN_TipHeatOverlayShow>右键：显示热度覆盖层</MN_TipHeatOverlayShow>
+  <MN_TipHeatOverlayHide>右键：隐藏热度覆盖层</MN_TipHeatOverlayHide>
+  <MN_TipPerf>每秒帧数（渲染）和每秒 tick 数（模拟）。箭头显示近期趋势。</MN_TipPerf>
+  <MN_TipDrawer>显示或隐藏游戏设置小组件抽屉。</MN_TipDrawer>
+  <MN_TipSeasonNow>当前季节：{0}</MN_TipSeasonNow>
+
+  <!-- ── 设置：消息条 ───────────────────────────────── -->
+  <MN_StripHeader>消息</MN_StripHeader>
+  <MN_DockMessages>将消息停靠到右下角</MN_DockMessages>
+  <MN_DockMessagesDesc>开启时，瞬态消息堆叠在右下角通知列中，直接位于信件和警报下方。关闭时，它们漂浮在可拖动的左上角条带中。</MN_DockMessagesDesc>
+  <MN_TruncateDocked>截断长消息</MN_TruncateDocked>
+  <MN_TruncateDockedDesc>开启时，停靠的消息保持标准卡片宽度，任何溢出都会用省略号缩短。关闭时，长消息会向左加宽卡片，超过屏幕宽度一半后换行到额外行并让卡片更高（最多五行；更长的内容在悬停时完整显示）。</MN_TruncateDockedDesc>
+  <MN_StripHoverHint>在游戏中悬停条带可显示拖动手柄，然后将其拖到任意位置。</MN_StripHoverHint>
+  <MN_ResetPosition>将位置重置为默认值</MN_ResetPosition>
+  <MN_ScaleLabel>缩放：{0}（字体大小固定；缩放改变卡片几何）</MN_ScaleLabel>
+  <MN_MessageOpacity>消息不透明度：{0}</MN_MessageOpacity>
+  <MN_MsgDraggable>解锁并允许拖动</MN_MsgDraggable>
+  <MN_MsgDraggableDesc>关闭时，左上角消息锁定在原版位置。开启以显示拖动手柄并可将条带移到任意位置。</MN_MsgDraggableDesc>
+  <MN_MsgAlign>消息文本对齐</MN_MsgAlign>
+  <MN_AlignLeft>左</MN_AlignLeft>
+  <MN_AlignCenter>中</MN_AlignCenter>
+  <MN_AlignRight>右</MN_AlignRight>
+  <MN_HideAlertHint>Shift+点击警报可永久隐藏它。它会停止出现，直到你在下面恢复它。</MN_HideAlertHint>
+  <MN_ManageHiddenAlerts>管理隐藏的警报（{0}）</MN_ManageHiddenAlerts>
+  <MN_HiddenAlertsTitle>隐藏的警报</MN_HiddenAlertsTitle>
+  <MN_HiddenAlertsEmpty>没有隐藏的警报。在游戏中 Shift+点击警报可将其隐藏到此。</MN_HiddenAlertsEmpty>
+  <MN_Restore>恢复</MN_Restore>
+  <MN_RestoreAll>全部恢复</MN_RestoreAll>
+
+  <!-- ── 设置：右侧面板 ─────────────────────────────────── -->
+  <MN_PanelHeader>右下角面板</MN_PanelHeader>
+  <MN_PanelOpacity>面板不透明度：{0}</MN_PanelOpacity>
+  <MN_PanelScale>面板缩放：{0}（字体大小固定；缩放改变卡片几何）</MN_PanelScale>
+  <MN_RefreshRate>后台数据刷新间隔：{0}</MN_RefreshRate>
+  <MN_RefreshRateDesc>控制慢速 HUD 数据重新采样的频率：殖民地生命体征、环境列表和房间温度标签。更高的值重新采样频率更低，CPU 开销更少。无论哪种方式绘制都保持流畅，只是采样的数字更新频率降低。</MN_RefreshRateDesc>
+  <MN_RefreshRateHint>x1.0 为默认值。在大型殖民地提高它以在 HUD 数据上花费更少 CPU。</MN_RefreshRateHint>
+  <MN_TempUnit>温度单位</MN_TempUnit>
+  <MN_TempUnit_Game>游戏</MN_TempUnit_Game>
+  <MN_TempUnit_C>C</MN_TempUnit_C>
+  <MN_TempUnit_F>F</MN_TempUnit_F>
+  <MN_TempUnit_K>K</MN_TempUnit_K>
+  <MN_TempUnit_Both>C&amp;F</MN_TempUnit_Both>
+  <MN_AnimateTemp>动画显示极端温度</MN_AnimateTemp>
+  <MN_AnimateTempDesc>当室外温度离开安全区间时，温度读数会获得脉动辉光，带有上升的热浪闪烁（热）或下降的霜花（冷）。</MN_AnimateTempDesc>
+  <MN_HeatShimmer>上方热浪：{0}</MN_HeatShimmer>
+  <MN_FrostBelow>下方霜冻：{0}</MN_FrostBelow>
+  <MN_AnimateIcons>动画图标</MN_AnimateIcons>
+  <MN_AnimateIconsDesc>图标上的微妙动画：落雨、旋转的雪、闪烁的雷、摇摆的风和雾、闪烁的太阳和火、跳动的灵能和疾病、旋转的辐射、摇晃的地震和袭击、脉动的活动速度按钮，以及扫过的时钟指针。</MN_AnimateIconsDesc>
+
+  <!-- ── 设置：警报卡片 ──────────────────────────────────────── -->
+  <MN_AlertHeader>警报卡片（右侧警告）</MN_AlertHeader>
+  <MN_AlertOpacity>警报卡片不透明度：{0}</MN_AlertOpacity>
+  <MN_HoverOpacity>悬停和弹窗不透明度：{0}</MN_HoverOpacity>
+  <MN_CountdownFade>倒计时条在以下时间后淡出：{0} 秒</MN_CountdownFade>
+  <MN_SnoozeDuration>右键点击休眠时长：{0} 秒</MN_SnoozeDuration>
+  <MN_AlertSnoozeHint>在游戏中右键点击任何警报卡片可暂时隐藏它。</MN_AlertSnoozeHint>
+
+  <!-- ── 设置：节日与日历 ─────────────────────────────── -->
+  <MN_OccasionsHeader>节日与日历</MN_OccasionsHeader>
+  <MN_EventDateLine>事件感知日期行</MN_EventDateLine>
+  <MN_EventDateLineDesc>在右下角日期上标记即将到来的生日、季节更替、任务截止日期等。点击日期打开日历。</MN_EventDateLineDesc>
+  <MN_Confetti>庆祝时的五彩纸屑</MN_Confetti>
+  <MN_ConfettiDesc>在生日或其他庆祝节日的当天，在日期周围爆发五彩纸屑。</MN_ConfettiDesc>
+  <MN_WeekStrip>日期上方的周条</MN_WeekStrip>
+  <MN_WeekStripDesc>在右下角面板顶部显示一条紧凑的七天条带，为每个即将到来的事件标记一个点。点击它打开日历。</MN_WeekStripDesc>
+  <MN_CalendarFilterHint>打开日历（点击日期）并使用其图标过滤器选择哪些事件显示在日期行和日历上。</MN_CalendarFilterHint>
+
+  <!-- ── 节日类别名称（复数，用于过滤器）────────────────────── -->
+  <MN_CatL_Birthday>生日</MN_CatL_Birthday>
+  <MN_CatL_Anniversary>纪念日</MN_CatL_Anniversary>
+  <MN_CatL_Ritual>仪式</MN_CatL_Ritual>
+  <MN_CatL_Quest>任务</MN_CatL_Quest>
+  <MN_CatL_Milestone>里程碑</MN_CatL_Milestone>
+  <MN_CatL_Royal>皇族</MN_CatL_Royal>
+  <MN_CatL_Growth>成长时刻</MN_CatL_Growth>
+  <MN_CatL_Death>死亡</MN_CatL_Death>
+  <MN_CatL_Raid>袭击</MN_CatL_Raid>
+  <MN_CatL_Marriage>婚礼</MN_CatL_Marriage>
+  <MN_CatL_Solar>太阳事件</MN_CatL_Solar>
+  <MN_CatL_Incident>事件</MN_CatL_Incident>
+  <MN_CatL_Reminder>提醒</MN_CatL_Reminder>
+  <MN_CatL_Caravan>商队</MN_CatL_Caravan>
+  <MN_CatL_Shuttle>穿梭机</MN_CatL_Shuttle>
+  <MN_CatL_Pregnancy>怀孕</MN_CatL_Pregnancy>
+  <MN_CatL_Research>研究</MN_CatL_Research>
+  <MN_CatL_Election>选举</MN_CatL_Election>
+  <MN_CatL_Conclave>枢机会议</MN_CatL_Conclave>
+  <MN_CatL_Appointment>任命</MN_CatL_Appointment>
+  <MN_CatL_Challenge>挑战</MN_CatL_Challenge>
+  <MN_CatL_Coronation>加冕</MN_CatL_Coronation>
+
+  <!-- ── 节日类别名称（单数，用于日期单元格）──────────────── -->
+  <MN_CatS_Birthday>生日</MN_CatS_Birthday>
+  <MN_CatS_Anniversary>纪念日</MN_CatS_Anniversary>
+  <MN_CatS_Ritual>仪式</MN_CatS_Ritual>
+  <MN_CatS_Quest>任务</MN_CatS_Quest>
+  <MN_CatS_Milestone>里程碑</MN_CatS_Milestone>
+  <MN_CatS_Royal>头衔</MN_CatS_Royal>
+  <MN_CatS_Growth>成长</MN_CatS_Growth>
+  <MN_CatS_Death>死亡</MN_CatS_Death>
+  <MN_CatS_Raid>袭击</MN_CatS_Raid>
+  <MN_CatS_Marriage>婚礼</MN_CatS_Marriage>
+  <MN_CatS_Solar>太阳</MN_CatS_Solar>
+  <MN_CatS_Incident>事件</MN_CatS_Incident>
+  <MN_CatS_Reminder>提醒</MN_CatS_Reminder>
+  <MN_CatS_Caravan>商队</MN_CatS_Caravan>
+  <MN_CatS_Shuttle>穿梭机</MN_CatS_Shuttle>
+  <MN_CatS_Pregnancy>怀孕</MN_CatS_Pregnancy>
+  <MN_CatS_Research>研究</MN_CatS_Research>
+  <MN_CatS_Election>选举</MN_CatS_Election>
+  <MN_CatS_Conclave>枢机会议</MN_CatS_Conclave>
+  <MN_CatS_Appointment>任命</MN_CatS_Appointment>
+  <MN_CatS_Challenge>挑战</MN_CatS_Challenge>
+  <MN_CatS_Coronation>加冕</MN_CatS_Coronation>
+
+  <!-- ── 严重度 / 重复 / 天数短语 ────────────────────────── -->
+  <MN_Sev_Info>信息</MN_Sev_Info>
+  <MN_Sev_Good>良好</MN_Sev_Good>
+  <MN_Sev_Caution>注意</MN_Sev_Caution>
+  <MN_Sev_Urgent>紧急</MN_Sev_Urgent>
+  <MN_Rec_OneTime>一次性</MN_Rec_OneTime>
+  <MN_Rec_Quadrum>每季度</MN_Rec_Quadrum>
+  <MN_Rec_Monthly>每月</MN_Rec_Monthly>
+  <MN_Rec_Yearly>每年</MN_Rec_Yearly>
+  <MN_AnyDayNow>随时都可能</MN_AnyDayNow>
+  <MN_InDay>1 天后</MN_InDay>
+  <MN_InDays>{0} 天后</MN_InDays>
+  <MN_ResDay>约 1 天</MN_ResDay>
+  <MN_ResDays>约 {0} 天</MN_ResDays>
+  <MN_ClickToView>（点击查看）</MN_ClickToView>
+
+  <!-- ── 节日提供者 ──────────────────────────────────── -->
+  <MN_Birthday>{0} 的生日</MN_Birthday>
+  <MN_BirthdayAnimal>{0}（动物）的生日</MN_BirthdayAnimal>
+  <MN_GrowthMoment>{0} 的成长时刻</MN_GrowthMoment>
+  <MN_Turns>满 {0} 岁</MN_Turns>
+  <MN_ReachesAge>达到 {0} 岁</MN_ReachesAge>
+  <MN_QuadrumBegins>{0} 开始</MN_QuadrumBegins>
+  <MN_MonthBegins>{0} 开始</MN_MonthBegins>
+  <MN_SeasonSuffix>{0} 季节</MN_SeasonSuffix>
+  <MN_OfferExpires>报价过期：{0}</MN_OfferExpires>
+  <MN_QuestEnds>任务结束：{0}</MN_QuestEnds>
+  <MN_PawnDue>{0} 到期</MN_PawnDue>
+  <MN_CaravanArrives>{0} 到达</MN_CaravanArrives>
+  <MN_ShuttleArriving>穿梭机到达中</MN_ShuttleArriving>
+  <MN_ShuttlesArriving>{0} 架穿梭机到达中</MN_ShuttlesArriving>
+  <MN_ResearchLabel>研究：{0}</MN_ResearchLabel>
+  <MN_Today>今天</MN_Today>
+  <MN_ReminderShort>提醒</MN_ReminderShort>
+  <MN_ReminderLabel>提醒：{0}</MN_ReminderLabel>
+  <MN_Sent>已发送</MN_Sent>
+  <MN_ReminderDefault>你为今天设置了一条提醒。</MN_ReminderDefault>
+
+  <!-- ── 日历窗口 ─────────────────────────────────── -->
+  <MN_CalToday>今天</MN_CalToday>
+  <MN_CalTomorrow>明天</MN_CalTomorrow>
+  <MN_CalAgenda>议程</MN_CalAgenda>
+  <MN_CalGrid>网格</MN_CalGrid>
+  <MN_CalShow>显示</MN_CalShow>
+  <MN_CalNoEvents>这一天没有事件。</MN_CalNoEvents>
+  <MN_CalNothingUpcoming>没有即将到来的事件。</MN_CalNothingUpcoming>
+  <MN_CalInDays>（{0} 天后）</MN_CalInDays>
+  <MN_CalMore>+{0} 更多</MN_CalMore>
+  <MN_CalShown>（已显示）</MN_CalShown>
+  <MN_CalHidden>（已隐藏）</MN_CalHidden>
+  <MN_CalSetReminder>右键点击设置提醒。</MN_CalSetReminder>
+
+  <!-- ── FuckQuadrums（地球历）兼容 ────────────── -->
+  <MN_FQDateTip>自殖民地建立以来已过去 {0} 天。\n当前季节：{1}。</MN_FQDateTip>
+  <MN_Month01>一月</MN_Month01>
+  <MN_Month02>二月</MN_Month02>
+  <MN_Month03>三月</MN_Month03>
+  <MN_Month04>四月</MN_Month04>
+  <MN_Month05>五月</MN_Month05>
+  <MN_Month06>六月</MN_Month06>
+  <MN_Month07>七月</MN_Month07>
+  <MN_Month08>八月</MN_Month08>
+  <MN_Month09>九月</MN_Month09>
+  <MN_Month10>十月</MN_Month10>
+  <MN_Month11>十一月</MN_Month11>
+  <MN_Month12>十二月</MN_Month12>
+  <MN_WeekdayShort01>周一</MN_WeekdayShort01>
+  <MN_WeekdayShort02>周二</MN_WeekdayShort02>
+  <MN_WeekdayShort03>周三</MN_WeekdayShort03>
+  <MN_WeekdayShort04>周四</MN_WeekdayShort04>
+  <MN_WeekdayShort05>周五</MN_WeekdayShort05>
+  <MN_WeekdayShort06>周六</MN_WeekdayShort06>
+  <MN_WeekdayShort07>周日</MN_WeekdayShort07>
+
+  <!-- ── 提醒对话框 ─────────────────────────────────── -->
+  <MN_RemSet>设置提醒</MN_RemSet>
+  <MN_RemEdit>编辑提醒</MN_RemEdit>
+  <MN_RemFires>将在 {0} 作为信件触发</MN_RemFires>
+  <MN_RemTitle>标题</MN_RemTitle>
+  <MN_RemMessage>消息</MN_RemMessage>
+  <MN_RemSeverity>严重度</MN_RemSeverity>
+  <MN_RemRepeat>重复</MN_RemRepeat>
+  <MN_RemIcon>图标</MN_RemIcon>
+  <MN_BtnSave>保存</MN_BtnSave>
+  <MN_BtnCancel>取消</MN_BtnCancel>
+  <MN_BtnDelete>删除</MN_BtnDelete>
+
+  <!-- ── 殖民地生命体征 ───────────────────────────────────── -->
+  <MN_VitHealth>健康</MN_VitHealth>
+  <MN_VitMood>心情</MN_VitMood>
+  <MN_VitFood>食物</MN_VitFood>
+  <MN_VitRisk>风险</MN_VitRisk>
+  <MN_VitOK>良好</MN_VitOK>
+  <MN_RiskCalm>平静</MN_RiskCalm>
+  <MN_RiskLow>低</MN_RiskLow>
+  <MN_RiskHigh>高</MN_RiskHigh>
+  <MN_FoodDays>{0}天</MN_FoodDays>
+  <MN_FoodMax>99+天</MN_FoodMax>
+  <MN_VitTipHealth>健康：{0}</MN_VitTipHealth>
+  <MN_VitHealthy>所有殖民者健康</MN_VitHealthy>
+  <MN_VitBreakdown>{0} 需要治疗，{1} 生病，{2} 流血，{3} 倒地</MN_VitBreakdown>
+  <MN_VitColonists>{0} 名殖民者</MN_VitColonists>
+  <MN_VitAvgMood>平均心情：{0}%</MN_VitAvgMood>
+  <MN_VitFoodDays>约 {0} 天的食物</MN_VitFoodDays>
+  <MN_VitWealth>财富：{0}</MN_VitWealth>
+  <MN_VitThreat>威胁：{0}</MN_VitThreat>
+  <MN_HideWidgets>▲ 隐藏小组件</MN_HideWidgets>
+  <MN_ShowWidgets>≡ 显示小组件</MN_ShowWidgets>
+  <MN_DragToReposition>拖动以重新定位</MN_DragToReposition>
+
+  <!-- ── 记录历史 ───────────────────────────────── -->
+  <MN_HInMemoriam>纪念</MN_HInMemoriam>
+  <MN_HInMemoriamName>纪念：{0}</MN_HInMemoriamName>
+  <MN_HAge>年龄：{0}</MN_HAge>
+  <MN_HCause>死因：{0}</MN_HCause>
+  <MN_HKilledBy>被 {0} 杀死</MN_HKilledBy>
+  <MN_HRaid>袭击</MN_HRaid>
+  <MN_HRaidFac>袭击：{0}</MN_HRaidFac>
+  <MN_HRaidBy>由 {0} 发起的袭击</MN_HRaidBy>
+  <MN_HThreatPoints>威胁点数：{0}</MN_HThreatPoints>
+  <MN_HRaiders>袭击者：{0}</MN_HRaiders>
+  <MN_HMarriage>婚礼：{0} 和 {1}</MN_HMarriage>
+  <MN_HTitle>{0} 获得头衔：{1}</MN_HTitle>
+  <MN_HRitual>已举行仪式：{0}</MN_HRitual>
+  <MN_HQuestStarted>任务开始：{0}</MN_HQuestStarted>
+  <MN_HResearchComplete>研究完成：{0}</MN_HResearchComplete>
+  <MN_HResearched>已研究：{0}</MN_HResearched>
+  <MN_HCost>花费：{0} 点数</MN_HCost>
+  <MN_HTechLevel>科技等级：{0}</MN_HTechLevel>
+  <MN_HBorn>出生：{0}</MN_HBorn>
+  <MN_HChildBorn>一个孩子出生了</MN_HChildBorn>
+  <MN_HMother>母亲：{0}</MN_HMother>
+  <MN_HFather>父亲：{0}</MN_HFather>
+
+  <!-- ── 意识形态领导层扩展 ───────────────────────── -->
+  <MN_ILE_Upcoming>{0}：{1}</MN_ILE_Upcoming>
+  <MN_ILE_Tip>{0}，{1}</MN_ILE_Tip>
+  <MN_ILE_CurrentLeader>现任领袖：{0}</MN_ILE_CurrentLeader>
+  <MN_ILE_WonBy>{0} 由 {1} 赢得</MN_ILE_WonBy>
+  <MN_ILE_PastTip>{0} {1}</MN_ILE_PastTip>
+  <MN_ILE_Winner>获胜者：{0}</MN_ILE_Winner>
+  <MN_ILE_CoronationOf>{0} 的加冕</MN_ILE_CoronationOf>
+  <MN_ILE_Crowned>{0} 加冕，统御 {1}</MN_ILE_Crowned>
+  <MN_ILE_Reigning>当前在位</MN_ILE_Reigning>
+  <MN_ILE_ReignEnded>统治已结束</MN_ILE_ReignEnded>
+  <MN_ILE_ReignEndedReason>统治已结束（{0}）</MN_ILE_ReignEndedReason>
+
+</LanguageData>

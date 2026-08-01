@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 统计卡片 -->
+  <MHM_ColonyWealth>殖民地财富</MHM_ColonyWealth>
+  <MHM_ColonistsPeak>殖民者（峰值 {0}）</MHM_ColonistsPeak>
+  <MHM_DaysPassed>已过天数</MHM_DaysPassed>
+  <MHM_EnemyRaids>敌方袭击</MHM_EnemyRaids>
+  <MHM_ColonistsKilled>殖民者阵亡</MHM_ColonistsKilled>
+  <MHM_Playtime>游戏时长</MHM_Playtime>
+
+  <!-- 右侧卡片窗格 -->
+  <MHM_Events>事件</MHM_Events>
+  <MHM_Leaders>领袖</MHM_Leaders>
+  <MHM_Wealth>财富</MHM_Wealth>
+  <MHM_Total>总计</MHM_Total>
+
+  <!-- 固定殖民者 / 对比 -->
+  <MHM_PinnedColonists>已固定殖民者：</MHM_PinnedColonists>
+  <MHM_PinTipPin>点击固定到仪表盘。</MHM_PinTipPin>
+  <MHM_PinTipUnpin>点击取消固定。</MHM_PinTipUnpin>
+  <MHM_PinHint>（点击上方肖像以固定殖民者）</MHM_PinHint>
+  <MHM_Compare>对比</MHM_Compare>
+  <MHM_CompareTip>将每个固定殖民者叠加到同一张选定指标的图表上。</MHM_CompareTip>
+  <MHM_ChooseSkill>选择要对比的技能。</MHM_ChooseSkill>
+  <MHM_NoMetricData>（此指标无数据）</MHM_NoMetricData>
+
+  <!-- 指标 / 图表模式 -->
+  <MHM_Skills>技能</MHM_Skills>
+  <MHM_Mood>心情</MHM_Mood>
+  <MHM_Health>健康</MHM_Health>
+  <MHM_Rest>休息</MHM_Rest>
+  <MHM_Food>食物</MHM_Food>
+  <MHM_Recreation>娱乐</MHM_Recreation>
+  <MHM_IsekaiLevel>异世界等级</MHM_IsekaiLevel>
+  <MHM_SkillLevels>技能等级</MHM_SkillLevels>
+  <MHM_MoodHistory>心情历史</MHM_MoodHistory>
+  <MHM_HealthHistory>健康历史</MHM_HealthHistory>
+  <MHM_RestHistory>休息历史</MHM_RestHistory>
+  <MHM_FoodHistory>食物历史</MHM_FoodHistory>
+  <MHM_RecreationHistory>娱乐历史</MHM_RecreationHistory>
+  <MHM_IsekaiHistory>异世界等级历史</MHM_IsekaiHistory>
+
+  <!-- 数值 / 单位格式 -->
+  <MHM_LvlFormat>等级 {0}</MHM_LvlFormat>
+  <MHM_PctFormat>{0}%</MHM_PctFormat>
+  <MHM_DaysHours>{0} 天 · {1} 小时</MHM_DaysHours>
+
+  <!-- 科技等级 -->
+  <MHM_Tech_Animal>动物</MHM_Tech_Animal>
+  <MHM_Tech_Neolithic>新石器时代</MHM_Tech_Neolithic>
+  <MHM_Tech_Medieval>中世纪</MHM_Tech_Medieval>
+  <MHM_Tech_Industrial>工业时代</MHM_Tech_Industrial>
+  <MHM_Tech_Spacer>太空时代</MHM_Tech_Spacer>
+  <MHM_Tech_Ultra>超空间时代</MHM_Tech_Ultra>
+  <MHM_Tech_Archotech>远古科技</MHM_Tech_Archotech>
+  <MHM_Tech_Undefined>未定义</MHM_Tech_Undefined>
+
+  <!-- 游戏时长时代栏 -->
+  <MHM_NoTimeRecorded>（尚无时间记录——先玩一会儿）</MHM_NoTimeRecorded>
+  <MHM_AllErasHidden>（所有时代已隐藏）</MHM_AllErasHidden>
+  <MHM_EraNotReached> — 尚未达到</MHM_EraNotReached>
+  <MHM_EraClickHide> — 点击隐藏</MHM_EraClickHide>
+  <MHM_EraClickShow> — 已隐藏（点击显示）</MHM_EraClickShow>
+  <MHM_EraTooltip>{0}：{1} 天，{2} 真实小时</MHM_EraTooltip>
+
+  <!-- 范围按钮 -->
+  <MHM_Last30>最近 30 天</MHM_Last30>
+  <MHM_Last100>最近 100 天</MHM_Last100>
+  <MHM_Last300>最近 300 天</MHM_Last300>
+  <MHM_AllDays>全部天数</MHM_AllDays>
+
+  <!-- 窗口模式切换 -->
+  <MHM_DockTip>浮动窗口模式——点击停靠到菜单栏。</MHM_DockTip>
+  <MHM_FloatTip>停靠模式——点击弹出为可调整大小的窗口。</MHM_FloatTip>
+  <MHM_SwapToModern>切换到现代历史菜单仪表盘。</MHM_SwapToModern>
+  <MHM_SwapToVanilla>切换到原版历史窗口。</MHM_SwapToVanilla>
+  <MHM_Close>关闭</MHM_Close>
+
+  <!-- 图表选择器 + 图例 -->
+  <MHM_DragFavorite>拖动以重新排序。右键点击收藏——收藏项保持最左。</MHM_DragFavorite>
+  <MHM_DragUnfavorite>拖动以重新排序。右键点击取消收藏。</MHM_DragUnfavorite>
+  <MHM_LegendShow>点击在图表上显示。</MHM_LegendShow>
+  <MHM_LegendHide>点击从图表中隐藏。</MHM_LegendHide>
+
+  <!-- 事件流 -->
+  <MHM_ShowMessages>在事件流中显示消息弹窗（小型通知）。</MHM_ShowMessages>
+  <MHM_HideMessages>事件流中已显示消息弹窗。点击隐藏。</MHM_HideMessages>
+
+  <!-- 财富窗格 -->
+  <MHM_FloorsTerrain>地板与地形</MHM_FloorsTerrain>
+  <MHM_WealthExpand>点击逐一列出每项及其财富值。</MHM_WealthExpand>
+  <MHM_WealthCollapse>点击折叠。</MHM_WealthCollapse>
+
+  <!-- 排行榜类别 -->
+  <MHM_BiggestGainers>涨幅最大（30 天）</MHM_BiggestGainers>
+  <MHM_GainersFormat>+{0} 级</MHM_GainersFormat>
+  <MHM_IsekaiLevelCat>异世界：等级</MHM_IsekaiLevelCat>
+  <MHM_IsekaiStatCat>异世界：{0}</MHM_IsekaiStatCat>
+  <MHM_SkillCat>技能：{0}</MHM_SkillCat>
+  <MHM_StatPickerTip>选择一项属性——输入以搜索。</MHM_StatPickerTip>
+  <MHM_NoMatchingStats>（无匹配属性）</MHM_NoMatchingStats>
+
+  <!-- 异世界属性名称 -->
+  <MHM_Isekai_Strength>力量</MHM_Isekai_Strength>
+  <MHM_Isekai_Dexterity>敏捷</MHM_Isekai_Dexterity>
+  <MHM_Isekai_Vitality>活力</MHM_Isekai_Vitality>
+  <MHM_Isekai_Intelligence>智力</MHM_Isekai_Intelligence>
+  <MHM_Isekai_Wisdom>智慧</MHM_Isekai_Wisdom>
+  <MHM_Isekai_Charisma>魅力</MHM_Isekai_Charisma>
+
+  <!-- 设置 -->
+  <MHM_SettingsCategory>现代历史菜单</MHM_SettingsCategory>
+  <MHM_Set_WindowIntro>历史菜单以可拖动、可调整大小的弹出窗口形式打开。其大小和位置会在此记住。</MHM_Set_WindowIntro>
+  <MHM_Set_CurrentSize>当前窗口大小：{0} × {1}</MHM_Set_CurrentSize>
+  <MHM_Set_DefaultSize>当前窗口大小：默认（1010 × 700）</MHM_Set_DefaultSize>
+  <MHM_Set_VanillaSkin>使用原版 RimWorld 皮肤</MHM_Set_VanillaSkin>
+  <MHM_Set_VanillaSkinTip>保持现代历史菜单的布局，但用 RimWorld 原版外观绘制——羊皮纸窗口、菜单区块面板、原版滚动条和更浅的文字。</MHM_Set_VanillaSkinTip>
+  <MHM_Set_Reset>重置窗口大小与位置</MHM_Set_Reset>
+  <MHM_Set_OpenBehavior>打开行为</MHM_Set_OpenBehavior>
+  <MHM_Set_RememberLast>记住上次查看的图表与窗格</MHM_Set_RememberLast>
+  <MHM_Set_RememberLastTip>打开时，返回到你上次查看的图表和右侧窗格。关闭则始终以下面的默认值打开。</MHM_Set_RememberLastTip>
+  <MHM_Set_DefaultGraph>默认图表</MHM_Set_DefaultGraph>
+  <MHM_Set_DefaultPane>默认窗格</MHM_Set_DefaultPane>
+  <MHM_Set_FirstAvailable>第一个可用项</MHM_Set_FirstAvailable>
+  <MHM_Set_Data>数据</MHM_Set_Data>
+  <MHM_Set_SampleEvery>每 {0} 采样一次殖民者历史</MHM_Set_SampleEvery>
+  <MHM_Set_Day>天</MHM_Set_Day>
+  <MHM_Set_Days>天</MHM_Set_Days>
+  <MHM_Set_AutoPin>自动固定前 3 名殖民者</MHM_Set_AutoPin>
+  <MHM_Set_AutoPinTip>首次打开存档时，将前三名殖民者固定到仪表盘。关闭则以无固定开始。</MHM_Set_AutoPinTip>
+
+</LanguageData>

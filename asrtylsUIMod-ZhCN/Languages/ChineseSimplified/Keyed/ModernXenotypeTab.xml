@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ── 设置 ──────────────────────────────────────────────────── -->
+  <NXT_SecDisplay>显示</NXT_SecDisplay>
+  <NXT_SecIntegration>集成</NXT_SecIntegration>
+  <NXT_SecBehavior>行为</NXT_SecBehavior>
+  <NXT_UseModernTab>使用现代异种人标签页</NXT_UseModernTab>
+  <NXT_WindowScale>窗口缩放：{0}</NXT_WindowScale>
+  <NXT_RgaColors>显示基因所有权颜色（Random 的基因助手）</NXT_RgaColors>
+  <NXT_RgaColorsTip>当加载 Random's Gene Assistant 时，基因图标会带有状态点/环：绿色 = 在单基因包中拥有，黄色 = 在多基因包中拥有，红色 = 未拥有，灰色 = 已忽略。</NXT_RgaColorsTip>
+  <NXT_XsButton>Xenotype Summary 集成（按钮 + 侧面板）</NXT_XsButton>
+  <NXT_XsButtonTip>当加载 Xenotype Summary 模组时，显示一个打开其摘要窗口的标题按钮，以及标签页右边缘一个可弹出嵌入式摘要侧面板的 V 形按钮。</NXT_XsButtonTip>
+  <NXT_AndroidNaming>安卓基因命名（Vanilla Races Expanded - Android）</NXT_AndroidNaming>
+  <NXT_AndroidNamingTip>当加载 VRE - Android 时，安卓小人使用该模组自己的术语：基因区块变为「硬件组件」和「子程序」，生物统计显示功率效率和功率消耗，而不是新陈代谢和微型机械，且遗传模式被禁用（安卓是制造出来的，而非出生的）。</NXT_AndroidNamingTip>
+  <NXT_BigSmallMechanical>机械种族支持（Big and Small）</NXT_BigSmallMechanical>
+  <NXT_BigSmallMechanicalTip>当加载 Big and Small 时，它归类为机械的小人被视为制造而非出生：对它们禁用遗传模式，因为组装的小人没有可遗传的基因。</NXT_BigSmallMechanicalTip>
+  <NXT_ClearPins>清除固定基因（{0}）</NXT_ClearPins>
+  <NXT_ClearPlans>清除所有异种人计划（{0}）</NXT_ClearPlans>
+  <NXT_NoGameHint>固定基因和异种人计划按存档存储。加载游戏以管理它们。</NXT_NoGameHint>
+
+  <!-- ── 模组集成 ──────────────────────────────────────────── -->
+  <NXT_OpenSummary>打开 Xenotype Summary</NXT_OpenSummary>
+  <NXT_SummaryHeader>{0} - 基因摘要</NXT_SummaryHeader>
+  <NXT_XsFlyoutExpand>展开 Xenotype Summary 面板</NXT_XsFlyoutExpand>
+  <NXT_XsFlyoutCollapse>折叠 Xenotype Summary 面板</NXT_XsFlyoutCollapse>
+  <NXT_XsFlyoutBroken>嵌入式摘要面板本次会话遇到错误。\n请改用下面的按钮打开完整窗口。</NXT_XsFlyoutBroken>
+
+  <!-- ── 顶栏 / 部件 ──────────────────────────────────────────── -->
+  <NXT_SwitchToVanilla>切换到原版基因标签页</NXT_SwitchToVanilla>
+  <NXT_SwitchToModern>切换到现代异种人标签页</NXT_SwitchToModern>
+
+  <!-- ── 模式标签页 ─────────────────────────────────────────────────── -->
+  <NXT_TabOverview>概览</NXT_TabOverview>
+  <NXT_TabPlanner>规划器</NXT_TabPlanner>
+  <NXT_TabInheritance>遗传</NXT_TabInheritance>
+  <NXT_TabDatabase>数据库</NXT_TabDatabase>
+  <NXT_TabOverviewTip>纸娃娃、生物统计、基因详情和基因数据库。</NXT_TabOverviewTip>
+  <NXT_TabPlannerTip>将基因暂存到草稿异种人上：实时生物统计、冲突警告以及每个暂存基因的获取计划。</NXT_TabPlannerTip>
+  <NXT_TabInheritanceTip>选择伴侣，预览这对伴侣的孩子会遗传的基因，以及真实的遗传概率。</NXT_TabInheritanceTip>
+  <NXT_TabDatabaseTip>浏览和搜索每个基因，固定基因以追踪其最近来源。</NXT_TabDatabaseTip>
+  <NXT_TabInheritanceAndroidTip>安卓是制造出来的，而非出生——遗传不适用于它们。</NXT_TabInheritanceAndroidTip>
+  <NXT_TabInheritanceMechanicalTip>机械小人是制造出来的，而非出生——遗传不适用于它们。</NXT_TabInheritanceMechanicalTip>
+  <NXT_PawnInfoTip>打开此小人的信息卡</NXT_PawnInfoTip>
+  <NXT_GeneInfoTip>打开此基因的信息卡</NXT_GeneInfoTip>
+
+  <!-- ── 侧栏 / 卡片 ──────────────────────────────────────────────── -->
+  <NXT_RailClickHint>左键：查看详情 - 右键：信息卡</NXT_RailClickHint>
+  <NXT_NoGeneSelected>在左侧选择一个基因以查看其详情。</NXT_NoGeneSelected>
+
+  <!-- ── 基因数据库 ─────────────────────────────────────────────── -->
+  <NXT_GeneDatabase>基因数据库</NXT_GeneDatabase>
+  <NXT_PinnedSection>已固定（{0}）- 点击清除</NXT_PinnedSection>
+  <NXT_GeneDatabasePinned>基因数据库（{0} 已固定）</NXT_GeneDatabasePinned>
+  <NXT_SearchPlaceholder>搜索基因…</NXT_SearchPlaceholder>
+  <NXT_AllGenesCount>全部基因（{0}）</NXT_AllGenesCount>
+
+  <!-- ── 纸娃娃 ─────────────────────────────────────────────────── -->
+  <NXT_Baseliner>基准人</NXT_Baseliner>
+  <NXT_PaperdollStatusOne>{0} - 1 个异种基因</NXT_PaperdollStatusOne>
+  <NXT_PaperdollStatusMany>{0} - {1} 个异种基因</NXT_PaperdollStatusMany>
+  <NXT_PaperdollStatusAndroidOne>{0} - 1 个硬件组件</NXT_PaperdollStatusAndroidOne>
+  <NXT_PaperdollStatusAndroidMany>{0} - {1} 个硬件组件</NXT_PaperdollStatusAndroidMany>
+
+  <!-- ── 生物统计区块 ────────────────────────────────────────────── -->
+  <NXT_Archites>微型机械</NXT_Archites>
+  <NXT_TipEndo>内源基因（种系）：{0}</NXT_TipEndo>
+  <NXT_TipXeno>异种基因（植入）：{0}</NXT_TipXeno>
+  <NXT_TipSubroutines>子程序（行为模块）：{0}</NXT_TipSubroutines>
+  <NXT_TipHardware>硬件组件（已安装）：{0}</NXT_TipHardware>
+  <NXT_PowerDrainTip>该安卓消耗其储存功率的速度乘数，由其总功率效率决定。</NXT_PowerDrainTip>
+  <NXT_Desired>期望</NXT_Desired>
+  <NXT_DesiredTipHeader>期望基因（已固定 + 已计划）：</NXT_DesiredTipHeader>
+  <NXT_DesiredEmptyTip>在数据库中固定基因或暂存规划器更改，以追踪此小人距离你的期望基因集有多近。</NXT_DesiredEmptyTip>
+  <NXT_DesiredSrcPinned>（已固定）</NXT_DesiredSrcPinned>
+  <NXT_DesiredSrcPlanned>（已计划）</NXT_DesiredSrcPlanned>
+
+  <!-- ── 基因卡片 / 详情 ───────────────────────────────────────── -->
+  <NXT_Overridden>（已覆盖）</NXT_Overridden>
+  <NXT_RarityPrefix>稀有度：{0}</NXT_RarityPrefix>
+  <NXT_RarityInline>稀有度 {0}</NXT_RarityInline>
+  <NXT_RarityTip>&lt;b&gt;全局稀有度&lt;/b&gt;\n\n{0} / {1} 名人形小人携带此基因。</NXT_RarityTip>
+  <NXT_PinTip>固定到基因数据库追踪器</NXT_PinTip>
+  <NXT_UnpinTip>从基因数据库取消固定</NXT_UnpinTip>
+  <NXT_PinnedClickHint>左键：取消固定 - 右键：信息卡</NXT_PinnedClickHint>
+  <NXT_GridClickHintPin>左键：固定到追踪器 - 右键：信息卡</NXT_GridClickHintPin>
+  <NXT_GridClickHintPlan>左键：暂存到计划 - 右键：信息卡</NXT_GridClickHintPlan>
+  <NXT_GridAlreadyCarried>此小人已经携带此基因。</NXT_GridAlreadyCarried>
+  <NXT_ClosestSource>最近来源：</NXT_ClosestSource>
+
+  <!-- ── 开发者模式（直接添加基因） ────────────────────── -->
+  <NXT_DevAddEndo>DEV：+内源基因</NXT_DevAddEndo>
+  <NXT_DevAddXeno>DEV：+异种基因</NXT_DevAddXeno>
+  <NXT_DevRemoveGene>DEV：从小人移除基因</NXT_DevRemoveGene>
+  <NXT_DevGridHint>DEV - Shift+点击：添加异种基因 - Ctrl+点击：添加内源基因</NXT_DevGridHint>
+
+  <!-- ── 规划器 ───────────────────────────────────────────────────── -->
+  <NXT_PlannerChanges>计划更改（{0}）</NXT_PlannerChanges>
+  <NXT_PlannerChangesCell>更改</NXT_PlannerChangesCell>
+  <NXT_PlannerChangesCellTip>为这位小人的草稿异种人暂存的基因添加和移除。计划随游戏保存，从不修改小人——它们是你基因实验室的购物清单。</NXT_PlannerChangesCellTip>
+  <NXT_PlannerEmpty>没有暂存的更改。在下方数据库中左键点击基因，将它们暂存到这位小人的草稿异种人上。上方生物统计显示当前 &gt; 计划。</NXT_PlannerEmpty>
+  <NXT_PlannerUnstage>从计划移除</NXT_PlannerUnstage>
+  <NXT_PlannerReset>重置</NXT_PlannerReset>
+  <NXT_PlannerResetTip>清除所有暂存更改——重置此小人的计划（以及任何已加载的异种人目标）。</NXT_PlannerResetTip>
+  <NXT_PlannerRestore>保留此基因（取消移除）</NXT_PlannerRestore>
+  <NXT_PlannerConflictReq>需要前置基因：{0}</NXT_PlannerConflictReq>
+  <NXT_PlannerConflictExcl>与以下冲突：{0}（其中一个将覆盖另一个）</NXT_PlannerConflictExcl>
+  <NXT_MetOutOfRange>新陈代谢超出可行范围（{0} 到 {1}）——这样的异种胚无法组装。</NXT_MetOutOfRange>
+  <NXT_AcqPlan>获取计划</NXT_AcqPlan>
+  <NXT_LoadXenotype>加载异种人…</NXT_LoadXenotype>
+  <NXT_CustomSuffix>（自定义）</NXT_CustomSuffix>
+  <NXT_AcqSummary>{0} / {1} 个暂存基因已在基因包储存中。</NXT_AcqSummary>
+
+  <!-- ── 遗传 ───────────────────────────────────────────────── -->
+  <NXT_PartnerLabel>伴侣：</NXT_PartnerLabel>
+  <NXT_ChoosePartner>选择伴侣…</NXT_ChoosePartner>
+  <NXT_PartnerHint>选择一位殖民者、囚犯或奴隶，预览这对伴侣的孩子会遗传的基因。</NXT_PartnerHint>
+  <NXT_NoPartnerBody>未选择伴侣。</NXT_NoPartnerBody>
+  <NXT_NoCandidates>（无可用候选）</NXT_NoCandidates>
+  <NXT_ChildXenotype>孩子异种人：{0}</NXT_ChildXenotype>
+  <NXT_ChildHybrid>父母拥有不同的种系——每个孩子会掷取两者的混合。</NXT_ChildHybrid>
+  <NXT_FertilityLine>生育力：{0} {1}，{2} {3}</NXT_FertilityLine>
+  <NXT_SameGenderNote>假设性配对——实际怀孕需要一男一女两位父母。</NXT_SameGenderNote>
+  <NXT_SimNote>基于 {0} 次模拟遗传掷取（{1} 次产生可行的基因组合）。</NXT_SimNote>
+  <NXT_Guaranteed>保证基因（{0}）</NXT_Guaranteed>
+  <NXT_Possible>可能基因（{0}）</NXT_Possible>
+  <NXT_NoArchites>微型机械基因和植入的异种基因绝不会遗传给后代。</NXT_NoArchites>
+  <NXT_RowClickHint>右键：信息卡</NXT_RowClickHint>
+
+  <!-- ── 提示增强 ────────────────────────────────────────── -->
+  <NXT_AlsoCarriedBy>也由以下携带：</NXT_AlsoCarriedBy>
+  <NXT_NoOtherCarriers>没有其他殖民者携带此基因。</NXT_NoOtherCarriers>
+  <NXT_InStorageOne>储存中（1 个基因包）：</NXT_InStorageOne>
+  <NXT_InStorageMany>储存中（{0} 个基因包）：</NXT_InStorageMany>
+  <NXT_MoreSuffix>… +{0} 更多</NXT_MoreSuffix>
+  <NXT_NotInStorage>未在任何基因包储存中找到。</NXT_NotInStorage>
+  <NXT_Spawned>已生成</NXT_Spawned>
+
+  <!-- ── 基因定位器（最近来源追踪器） ─────────────────────── -->
+  <NXT_SourceScanFailed>来源扫描失败。</NXT_SourceScanFailed>
+  <NXT_SrcStorage>✔ 储存中：{0}</NXT_SrcStorage>
+  <NXT_SrcCarrier>◉ 地图上：{0} - 捕获并提取</NXT_SrcCarrier>
+  <NXT_SuffixPrisoner>（囚犯）</NXT_SuffixPrisoner>
+  <NXT_SrcQuest>★ 任务奖励：{0}</NXT_SrcQuest>
+  <NXT_SrcSettlement>➤ 最近的疑似来源：{0}（{1}），{2} 格 - {3} 名携带者，{4}</NXT_SrcSettlement>
+  <NXT_VerbRaid>袭击以捕获携带者</NXT_VerbRaid>
+  <NXT_VerbTrade>拜访 / 交易</NXT_VerbTrade>
+  <NXT_SrcNoSettlement>由异种人携带：{0} - 未找到匹配派系的定居点</NXT_SrcNoSettlement>
+  <NXT_SrcNone>无已知来源——留意商人、任务和袭击者的异种人。</NXT_SrcNone>
+
+  <!-- ── 效果行 ──────────────────────────────────────────────── -->
+  <NXT_FxHairColor>发色覆盖</NXT_FxHairColor>
+  <NXT_FxSkinBase>肤色（基础）</NXT_FxSkinBase>
+  <NXT_FxSkinOverride>肤色（覆盖）</NXT_FxSkinOverride>
+  <NXT_FxBodyType>体型：{0}</NXT_FxBodyType>
+  <NXT_FxHeadType>头型强制</NXT_FxHeadType>
+  <NXT_FxFur>毛发：{0}</NXT_FxFur>
+  <NXT_FxCustomAppearance>自定义外观</NXT_FxCustomAppearance>
+  <NXT_FxArchites>微型机械 ×{0}</NXT_FxArchites>
+  <NXT_FxTrait>特性：{0}</NXT_FxTrait>
+  <NXT_FxSuppresses>抑制：{0}</NXT_FxSuppresses>
+  <NXT_FxAptitude>{0} 天赋 {1}</NXT_FxAptitude>
+  <NXT_FxAbility>能力：{0}</NXT_FxAbility>
+  <NXT_FxToxImmune>对毒气免疫</NXT_FxToxImmune>
+  <NXT_FxVacuumImmune>对真空烧伤免疫</NXT_FxVacuumImmune>
+  <NXT_FxImmuneTo>免疫：{0}</NXT_FxImmuneTo>
+  <NXT_FxRawFood>不介意生食</NXT_FxRawFood>
+  <NXT_FxSterilized>已绝育</NXT_FxSterilized>
+  <NXT_FxFoodPoisonImmune>对食物中毒免疫</NXT_FxFoodPoisonImmune>
+  <NXT_FxFoodPoison>食物中毒几率 ×{0}</NXT_FxFoodPoison>
+  <NXT_FxLovin>爱爱频率 ×{0}</NXT_FxLovin>
+  <NXT_FxRomance>跨基因恋爱 ×{0}</NXT_FxRomance>
+  <NXT_FxWorkDisabled>工作禁用：{0}</NXT_FxWorkDisabled>
+  <NXT_FxSunlight>不喜欢阳光</NXT_FxSunlight>
+  <NXT_FxAgeing>自定义衰老速率</NXT_FxAgeing>
+  <NXT_FxResource>{0} {1}/天</NXT_FxResource>
+  <NXT_FxAddictionImmune>对 {0} 成瘾免疫</NXT_FxAddictionImmune>
+  <NXT_FxAddiction>{0} 成瘾 ×{1}</NXT_FxAddiction>
+  <NXT_FxNone>无机械效果</NXT_FxNone>
+
+
+  <!-- 系列对齐重排（2026-07-15 审计，示意图 01-10） -->
+  <NXT_DesiredEmptyHint>无计划 - 打开规划器</NXT_DesiredEmptyHint>
+  <NXT_EffectsHeader>效果</NXT_EffectsHeader>
+  <NXT_AcquisitionHeader>获取</NXT_AcquisitionHeader>
+  <NXT_RarityBarLabel>稀有度：{0} - {1}</NXT_RarityBarLabel>
+  <NXT_RarityCommon>常见</NXT_RarityCommon>
+  <NXT_RarityUncommon>罕见</NXT_RarityUncommon>
+  <NXT_RarityRare>稀有</NXT_RarityRare>
+  <NXT_RarityVeryRare>非常稀有</NXT_RarityVeryRare>
+  <NXT_CurrentSuffix>（当前）</NXT_CurrentSuffix>
+  <NXT_PlannerResetConfirm>清除 {0} 项暂存更改？</NXT_PlannerResetConfirm>
+  <NXT_NoneFromParents>这些父母没有</NXT_NoneFromParents>
+  <NXT_BarLegend>刻度 = 50%，均等概率</NXT_BarLegend>
+  <NXT_FooterHintPin>左键固定 - 右键信息</NXT_FooterHintPin>
+  <NXT_FooterHintPlan>左键暂存 - 右键信息</NXT_FooterHintPlan>
+  <NXT_FooterHintDev>Shift +异种基因 - Ctrl +内源基因（开发）</NXT_FooterHintDev>
+  <NXT_LegendCarried>已携带</NXT_LegendCarried>
+  <NXT_LegendPinned>已固定</NXT_LegendPinned>
+  <NXT_LegendStaged>已暂存</NXT_LegendStaged>
+  <NXT_LegendConflict>冲突</NXT_LegendConflict>
+  <NXT_OtherCategory>其他</NXT_OtherCategory>
+  <NXT_DropdownSearch>搜索...</NXT_DropdownSearch>
+</LanguageData>

@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 主编辑器窗口 -->
+  <MCE_AddedPawn>已添加 {0}</MCE_AddedPawn>
+  <MCE_CouldNotAddLoaded>无法添加已加载的小人（见日志）</MCE_CouldNotAddLoaded>
+  <MCE_DragToResizeTip>拖动以调整大小 - 双击重置</MCE_DragToResizeTip>
+  <MCE_UnsavedChanges>未保存的更改</MCE_UnsavedChanges>
+  <MCE_Undo>撤销</MCE_Undo>
+  <MCE_Redo>重做</MCE_Redo>
+  <MCE_Modules>模块</MCE_Modules>
+  <MCE_RosterColony>殖民地</MCE_RosterColony>
+  <MCE_RosterAnimals>动物</MCE_RosterAnimals>
+  <MCE_RosterWorld>世界</MCE_RosterWorld>
+  <MCE_RosterDead>已死亡</MCE_RosterDead>
+  <MCE_RosterDeadTip>此地图上未埋葬的死亡小人</MCE_RosterDeadTip>
+  <MCE_SearchPawns>搜索小人...</MCE_SearchPawns>
+  <MCE_GenerateNewPawn>生成新小人</MCE_GenerateNewPawn>
+  <MCE_GenerateNewPawnTip>生成一个随机殖民者并将其生成到地图上</MCE_GenerateNewPawnTip>
+  <MCE_GeneratedPawn>已生成 {0}</MCE_GeneratedPawn>
+  <MCE_PawnGenFailed>小人生成失败（见日志）</MCE_PawnGenFailed>
+  <MCE_CannotDeleteLastColonist>无法删除你的最后一位殖民者。</MCE_CannotDeleteLastColonist>
+  <MCE_ConfirmDeletePawn>永久删除 {0}？这会将该小人从游戏中移除，且无法撤销。</MCE_ConfirmDeletePawn>
+  <MCE_DeletedPawn>已删除 {0}</MCE_DeletedPawn>
+  <MCE_ConfirmNeuralyze>对 {0} 进行记忆清洗？这会清除他们的记忆、技能、特性、背景故事、关系和需求，仅保留姓名、身体、基因、健康和装备。</MCE_ConfirmNeuralyze>
+  <MCE_NeuralyzedPawn>已清洗 {0} 的记忆</MCE_NeuralyzedPawn>
+  <MCE_SelectPawnToEdit>选择一个小人进行编辑</MCE_SelectPawnToEdit>
+  <MCE_SaveLoad>保存/加载</MCE_SaveLoad>
+  <MCE_Randomize>随机化</MCE_Randomize>
+  <MCE_RandomizeTabTip>随机化当前标签页</MCE_RandomizeTabTip>
+  <MCE_RandomizeAllTip>随机化整个小人</MCE_RandomizeAllTip>
+  <MCE_RandomizeGenderTip>随机化整个小人，保持性别</MCE_RandomizeGenderTip>
+  <MCE_RandomizeGearTip>仅随机化装备</MCE_RandomizeGearTip>
+  <MCE_SkipTip>将所选小人跳跃到地图位置</MCE_SkipTip>
+  <MCE_HealAllTip>治愈所有伤病和状况</MCE_HealAllTip>
+  <MCE_PawnHealed>{0} 已治愈</MCE_PawnHealed>
+  <MCE_NeuralyzeTip>记忆清洗：清除记忆、技能、特性、背景故事和关系（保留姓名、身体、基因和装备）</MCE_NeuralyzeTip>
+  <MCE_DeletePawnTip>永久删除所选小人</MCE_DeletePawnTip>
+  <MCE_HotkeyHint>Ctrl+Z 撤销  -  Ctrl+Y 重做  -  Esc 取消</MCE_HotkeyHint>
+  <MCE_BalanceMeter>平衡：{0} / {1} 点</MCE_BalanceMeter>
+  <MCE_Revert>还原</MCE_Revert>
+  <MCE_Apply>应用</MCE_Apply>
+  <MCE_ChangesApplied>更改已应用</MCE_ChangesApplied>
+  <MCE_CannotSkipThere>无法跳跃到那里</MCE_CannotSkipThere>
+
+  <!-- 保存与加载小人对话框 -->
+  <MCE_PawnSaved>小人已保存：{0}</MCE_PawnSaved>
+  <MCE_CouldNotSavePawn>无法保存小人（见日志）</MCE_CouldNotSavePawn>
+  <MCE_SaveLoadPawnsTitle>保存与加载小人</MCE_SaveLoadPawnsTitle>
+  <MCE_PawnNamePlaceholder>小人名称...</MCE_PawnNamePlaceholder>
+  <MCE_Override>覆盖</MCE_Override>
+  <MCE_ConfirmOverride>覆盖已保存的小人「{0}」？\n\n现有保存将被替换。</MCE_ConfirmOverride>
+  <MCE_SavedPawnExistsTip>名为「{0}」的已保存小人已存在——「覆盖」会替换它。</MCE_SavedPawnExistsTip>
+  <MCE_OpenPawnsFolder>打开小人文件夹</MCE_OpenPawnsFolder>
+  <MCE_OpenPawnsFolderTip>打开存放已保存小人文件的文件夹。将朋友发给你的文件拖入这里即可加载，或从这里取文件发送。</MCE_OpenPawnsFolderTip>
+  <MCE_ImportShareCode>导入分享码</MCE_ImportShareCode>
+  <MCE_PawnImported>小人已导入：{0} - 从下方列表加载它</MCE_PawnImported>
+  <MCE_NoShareCode>剪贴板中没有可导入的现代角色编辑器分享码</MCE_NoShareCode>
+  <MCE_ImportShareCodeTip>粘贴另一位玩家发给你的分享码（已复制到你的剪贴板）。</MCE_ImportShareCodeTip>
+  <MCE_SavedPawnsHeader>已保存的小人</MCE_SavedPawnsHeader>
+  <MCE_SafeImport>安全导入</MCE_SafeImport>
+  <MCE_SafeImportTip>开启（推荐）时，加载小人会剥离其模组在此缺失的装备、健康状态、特性、能力和头衔，并修复损坏的外观引用——导入的小人绝不会把无效数据带入你的游戏。也位于模组设置中。</MCE_SafeImportTip>
+  <MCE_SearchSavedPawns>搜索已保存的小人...</MCE_SearchSavedPawns>
+  <MCE_NoSavedPawns>尚无已保存的小人</MCE_NoSavedPawns>
+  <MCE_CouldNotLoadPawn>无法加载「{0}」（见日志）</MCE_CouldNotLoadPawn>
+  <MCE_Share>分享</MCE_Share>
+  <MCE_ShareCodeCopied>「{0}」的分享码已复制到剪贴板</MCE_ShareCodeCopied>
+  <MCE_ShareTip>将分享码复制到剪贴板，将这个小人发送给另一位玩家。</MCE_ShareTip>
+  <MCE_DeleteSavedPawnTip>删除已保存的小人</MCE_DeleteSavedPawnTip>
+  <MCE_SavedPawnCaption>已保存的小人会捕获一切。加载会将其作为新殖民者添加回来。</MCE_SavedPawnCaption>
+  <MCE_SavedPawnCaptionTip>已保存的小人会捕获身份、外观、装备、健康、技能、特性和基因。加载会重建小人并将其作为新殖民者添加到你的殖民地。</MCE_SavedPawnCaptionTip>
+  <MCE_ImportFromCE>从角色编辑器导入</MCE_ImportFromCE>
+
+  <!-- 模块与 API 对话框 -->
+  <MCE_ModulesTitle>模块与 API</MCE_ModulesTitle>
+  <MCE_InstalledModules>已安装的模块</MCE_InstalledModules>
+  <MCE_OneModuleRequired>至少一个模块必须保持启用</MCE_OneModuleRequired>
+  <MCE_MultiRowTabs>多行标签条</MCE_MultiRowTabs>
+  <MCE_MultiRowTabsTip>将标签页堆叠成对齐的行（经典对话框风格）；活动标签页的行紧挨内容。关闭 = 带分页的单行。</MCE_MultiRowTabsTip>
+  <MCE_DragRowsHint>拖动行以重新排序编辑器标签页</MCE_DragRowsHint>
+  <MCE_SandboxHint>第三方模块错误绝不会阻止「应用」</MCE_SandboxHint>
+  <MCE_DocsLine>完整文档和模板：astryls.github.io/Modern-Character-Editor</MCE_DocsLine>
+  <MCE_TagInherited>继承</MCE_TagInherited>
+  <MCE_RequiresX>需要 {0}</MCE_RequiresX>
+  <MCE_RequiresModTip>需要模组「{0}」（{1}）</MCE_RequiresModTip>
+  <MCE_RequiresDlcTip>需要 {0} DLC</MCE_RequiresDlcTip>
+  <MCE_TagUnavailable>不可用</MCE_TagUnavailable>
+  <MCE_TagBuiltIn>内置</MCE_TagBuiltIn>
+  <MCE_ApiEditorModule>Draw(Rect, EditorSession)、Randomize、OnPawnChanged、VisibleFor——子类化并将一个 def 指向它；绘制是沙盒化的</MCE_ApiEditorModule>
+  <MCE_ApiEditorSession>PushUndo（可合并）、NotifyChanged、平衡点数、装备和健康还原跟踪器</MCE_ApiEditorSession>
+  <MCE_ApiPawnSnapshot>为撤销、还原和预设提供支持的完整小人状态捕获；注册一个扩展以随之运行</MCE_ApiPawnSnapshot>
+  <MCE_ApiPresetManager>全保真单小人保存/加载（通过 Scribe_Deep 保存整个小人），保存在 SaveData/MCEPawns 下；加载会添加一位新殖民者</MCE_ApiPresetManager>
+
+  <!-- 取色器 -->
+  <MCE_ChooseColor>选择颜色</MCE_ChooseColor>
+  <MCE_Brightness>亮度</MCE_Brightness>
+  <MCE_Palette>调色板</MCE_Palette>
+  <MCE_Hex>十六进制</MCE_Hex>
+  <MCE_CurrentColor>当前</MCE_CurrentColor>
+  <MCE_OldColor>旧色</MCE_OldColor>
+  <MCE_RestoreOldTip>点击恢复旧颜色</MCE_RestoreOldTip>
+
+  <!-- 从角色编辑器导入对话框 -->
+  <MCE_PastePawnString>粘贴小人字符串...</MCE_PastePawnString>
+  <MCE_Import>导入</MCE_Import>
+  <MCE_FoundPawns>找到的小人</MCE_FoundPawns>
+  <MCE_Rescan>重新扫描</MCE_Rescan>
+  <MCE_NoCEPawnsFound>未找到已保存的小人（角色编辑器槽位或桌面 pawnslots.txt）</MCE_NoCEPawnsFound>
+  <MCE_ImportPawnTip>将此小人作为新殖民者导入。\nShift+点击：改为将每个列出的小人复制到你的已保存小人中。</MCE_ImportPawnTip>
+  <MCE_ImportFooterTip>重建小人并将其作为新殖民者添加。Shift+点击「导入」可将每个列出的小人复制到你的已保存小人中。</MCE_ImportFooterTip>
+  <MCE_ImportCEModeTip>加载角色编辑器时这是 1:1 导入（健康、需求、记忆、记录和其他一切均包含在内）。没有它，只会导入可见角色。</MCE_ImportCEModeTip>
+  <MCE_ImportedPawn>已导入的小人</MCE_ImportedPawn>
+  <MCE_BulkSavedOk>已将 {0} 个小人保存到你的已保存小人中</MCE_BulkSavedOk>
+  <MCE_BulkSavedFail>已保存 {0} 个小人，{1} 个失败（见日志）</MCE_BulkSavedFail>
+
+  <!-- 异种人库 -->
+  <MCE_XenotypesTitle>异种人</MCE_XenotypesTitle>
+  <MCE_SaveGenesHeader>将这些基因保存为异种人</MCE_SaveGenesHeader>
+  <MCE_SaveGenesInfo>将此小人的 {0} 个基因命名保存为可复用的异种人（.xtp），与原版和角色编辑器共享。</MCE_SaveGenesInfo>
+  <MCE_NoGenesToSave>此小人还没有可保存的基因——请先在「基因」标签页添加基因。</MCE_NoGenesToSave>
+  <MCE_XenotypeNamePlaceholder>异种人名称...</MCE_XenotypeNamePlaceholder>
+  <MCE_XenoIconTip>异种人图标：{0}。点击更改。</MCE_XenoIconTip>
+  <MCE_IconLabel>图标：{0}</MCE_IconLabel>
+  <MCE_IconBasic>基础</MCE_IconBasic>
+  <MCE_InheritableGenes>可遗传基因</MCE_InheritableGenes>
+  <MCE_InheritableGenesTip>开启：基因是可遗传的内源基因（传给后代）。关闭：异种基因（种系植入风格，不遗传）。</MCE_InheritableGenesTip>
+  <MCE_ImportXenoHeader>导入已保存的异种人</MCE_ImportXenoHeader>
+  <MCE_Refresh>刷新</MCE_Refresh>
+  <MCE_OpenFolder>打开文件夹</MCE_OpenFolder>
+  <MCE_XenoSourcesTip>来自此次和之前的游戏进程，以及角色编辑器。</MCE_XenoSourcesTip>
+  <MCE_NoXenosFound>未找到已保存的异种人。在上方创建一个，或在 RimWorld 或角色编辑器的异种人编辑器中保存异种人，它们就会出现在这里。</MCE_NoXenosFound>
+  <MCE_XenoFromCE>来自角色编辑器保存的小人</MCE_XenoFromCE>
+  <MCE_XenoFromProfile>来自你的主 RimWorld 配置文件夹（本次会话激活了不同的存档数据文件夹）。</MCE_XenoFromProfile>
+  <MCE_ConfirmDeleteXeno>永久删除异种人「{0}」？\n\n这会移除在所有游戏进程中共享的 .xtp 文件。</MCE_ConfirmDeleteXeno>
+  <MCE_DeleteXenoTip>删除此异种人文件</MCE_DeleteXenoTip>
+  <MCE_SavedXenotype>已保存异种人：{0}</MCE_SavedXenotype>
+  <MCE_ConfirmOverrideXeno>覆盖已保存的异种人「{0}」？</MCE_ConfirmOverrideXeno>
+  <MCE_CouldNotLoadX>无法加载「{0}」</MCE_CouldNotLoadX>
+  <MCE_AppliedXenotype>已应用异种人：{0}（{1} 个基因）</MCE_AppliedXenotype>
+  <MCE_XenoIconPickTitle>异种人图标</MCE_XenoIconPickTitle>
+
+  <!-- 过滤器栏与菜单 -->
+  <MCE_Filters>过滤器</MCE_Filters>
+  <MCE_ClearAll>全部清除</MCE_ClearAll>
+  <MCE_TriChipTip>点击循环：任意 → 要求（+） → 排除（-）</MCE_TriChipTip>
+  <MCE_FiltersActive>过滤器：{0} 个活跃（点击更改）</MCE_FiltersActive>
+  <MCE_Clear>清除</MCE_Clear>
+  <MCE_ClearX>清除 {0}</MCE_ClearX>
+  <MCE_Search>搜索...</MCE_Search>
+
+  <!-- 自定义背景故事 -->
+  <MCE_CreateBackstory>创建自定义背景故事</MCE_CreateBackstory>
+  <MCE_EditBackstory>编辑自定义背景故事</MCE_EditBackstory>
+  <MCE_IdentityHeader>身份</MCE_IdentityHeader>
+  <MCE_TitleField>标题</MCE_TitleField>
+  <MCE_ShortTitleField>短标题</MCE_ShortTitleField>
+  <MCE_Childhood>童年</MCE_Childhood>
+  <MCE_Adulthood>成年</MCE_Adulthood>
+  <MCE_BackstoryDescField>描述（此处支持 PAWN_nameDef 和 PAWN_pronoun）</MCE_BackstoryDescField>
+  <MCE_SkillGainsHeader>技能增益</MCE_SkillGainsHeader>
+  <MCE_IncapableHeader>无法从事</MCE_IncapableHeader>
+  <MCE_IconHeader>图标</MCE_IconHeader>
+  <MCE_NoIconPack>未检测到图标包——启用「特性与背景故事图标」以获得图标选择</MCE_NoIconPack>
+  <MCE_SearchIcons>搜索图标...</MCE_SearchIcons>
+  <MCE_BackstoryRemoved>自定义背景故事已移除（重启后完全消失）</MCE_BackstoryRemoved>
+  <MCE_BackstorySaved>自定义背景故事已保存：{0}</MCE_BackstorySaved>
+  <MCE_CustomTitleFallback>自定义</MCE_CustomTitleFallback>
+
+  <!-- 故事标签页 -->
+  <MCE_NoStoryTracker>此小人没有故事跟踪器，无法在此编辑。</MCE_NoStoryTracker>
+  <MCE_FirstName>名</MCE_FirstName>
+  <MCE_Nickname>昵称</MCE_Nickname>
+  <MCE_LastName>姓</MCE_LastName>
+  <MCE_NameField>姓名</MCE_NameField>
+  <MCE_RandomName>随机姓名</MCE_RandomName>
+  <MCE_RandomNameTip>使用右侧的命名惯例掷取一个新姓名。</MCE_RandomNameTip>
+  <MCE_NamesFrom>姓名来源：{0}</MCE_NamesFrom>
+  <MCE_ThisPawnsFaction>此小人的派系</MCE_ThisPawnsFaction>
+  <MCE_NamesFromTip>选择「随机姓名」从哪个派系或文化的命名惯例中提取。</MCE_NamesFromTip>
+  <MCE_Change>更改</MCE_Change>
+  <MCE_RandomizeBackstory>随机化背景故事</MCE_RandomizeBackstory>
+  <MCE_TagPlayer>玩家</MCE_TagPlayer>
+  <MCE_CannotChangeFaction>无法更改派系</MCE_CannotChangeFaction>
+  <MCE_EditCustomBackstoryTip>编辑此自定义背景故事</MCE_EditCustomBackstoryTip>
+  <MCE_CreateCustomBackstoryTip>创建自定义背景故事</MCE_CreateCustomBackstoryTip>
+  <MCE_SearchBackstories>搜索背景故事...</MCE_SearchBackstories>
+  <MCE_NBackstories>{0} 个背景故事</MCE_NBackstories>
+  <MCE_NoneTooYoung>无（太年轻）</MCE_NoneTooYoung>
+  <MCE_Custom>自定义</MCE_Custom>
+  <MCE_Vanilla>原版</MCE_Vanilla>
+  <MCE_FilterSkillBonus>技能加成</MCE_FilterSkillBonus>
+  <MCE_FilterSkillPenalty>技能减益</MCE_FilterSkillPenalty>
+  <MCE_FilterDisablesWork>禁用工作</MCE_FilterDisablesWork>
+  <MCE_FilterForcedTrait>强制特性</MCE_FilterForcedTrait>
+  <MCE_FilterEffect>效果</MCE_FilterEffect>
+  <MCE_FilterMod>模组</MCE_FilterMod>
+  <MCE_ThisPawnsFactionDefault>此小人的派系（默认）</MCE_ThisPawnsFactionDefault>
+  <MCE_FactionPrefix>派系：{0}</MCE_FactionPrefix>
+  <MCE_CulturePrefix>文化：{0}</MCE_CulturePrefix>
+
+  <!-- 外观标签页 -->
+  <MCE_BodyHeader>身体</MCE_BodyHeader>
+  <MCE_BodyType>体型</MCE_BodyType>
+  <MCE_SkinTone>肤色</MCE_SkinTone>
+  <MCE_HeadHeader>头部</MCE_HeadHeader>
+  <MCE_HeadShape>头型</MCE_HeadShape>
+  <MCE_BioAge>生理年龄</MCE_BioAge>
+  <MCE_ChronoAge>实际年龄</MCE_ChronoAge>
+  <MCE_ColorsHeader>颜色</MCE_ColorsHeader>
+  <MCE_Hair>发型</MCE_Hair>
+  <MCE_HairGene>发色基因</MCE_HairGene>
+  <MCE_NoHairColorGene>无发色基因（保持当前颜色）</MCE_NoHairColorGene>
+  <MCE_HairGradient>发色渐变</MCE_HairGradient>
+  <MCE_MaskButton>遮罩...</MCE_MaskButton>
+  <MCE_GradientMaskTip>渐变遮罩：{0}</MCE_GradientMaskTip>
+  <MCE_RandomPair>随机配对</MCE_RandomPair>
+  <MCE_RandomPairTip>掷取匹配的基础 + 渐变颜色对和新的遮罩（渐变发模组自己的随机器；也会重新着色基础发色）</MCE_RandomPairTip>
+  <MCE_GradientColor>渐变颜色</MCE_GradientColor>
+  <MCE_Eyes>眼睛</MCE_Eyes>
+  <MCE_StylesHeader>风格</MCE_StylesHeader>
+  <MCE_Beard>胡须</MCE_Beard>
+  <MCE_FaceTattoo>面部纹身</MCE_FaceTattoo>
+  <MCE_BodyTattoo>身体纹身</MCE_BodyTattoo>
+  <MCE_SearchStyles>搜索风格...</MCE_SearchStyles>
+  <MCE_NStyles>{0} 个风格</MCE_NStyles>
+  <MCE_GradientMaskTitle>渐变遮罩</MCE_GradientMaskTitle>
+  <MCE_CustomColorTip>自定义颜色</MCE_CustomColorTip>
+  <MCE_PawnIsDead>此小人已死亡</MCE_PawnIsDead>
+  <MCE_Resurrect>复活</MCE_Resurrect>
+  <MCE_ResurrectedMsg>{0} 已复活</MCE_ResurrectedMsg>
+  <MCE_ResurrectFailed>复活失败</MCE_ResurrectFailed>
+  <MCE_ResurrectFailedLog>复活失败（见日志）</MCE_ResurrectFailedLog>
+  <MCE_AgeHeader>年龄</MCE_AgeHeader>
+  <MCE_CurrentLifeStage>当前生命阶段：{0}</MCE_CurrentLifeStage>
+  <MCE_StorylessAppearanceNote>此小人没有故事跟踪器——外观和风格无法编辑，但年龄可以。</MCE_StorylessAppearanceNote>
+
+  <!-- 技能标签页 -->
+  <MCE_NoSkillsTracker>此小人没有技能跟踪器，无法在此编辑。</MCE_NoSkillsTracker>
+  <MCE_RandomizeSkills>随机化技能</MCE_RandomizeSkills>
+  <MCE_PointsLeft>剩余 {0} 点</MCE_PointsLeft>
+  <MCE_DisabledIncapable>已禁用（无能力）</MCE_DisabledIncapable>
+  <MCE_DisabledBy1>已禁用 - {0}</MCE_DisabledBy1>
+  <MCE_DisabledByN>已禁用 - {0} 个原因</MCE_DisabledByN>
+  <MCE_PassionTipVSE>热情：{0}\n左键点击循环，右键点击选择</MCE_PassionTipVSE>
+  <MCE_PassionTipCycle>热情：{0}（点击循环）</MCE_PassionTipCycle>
+  <MCE_PassionMinor>轻度</MCE_PassionMinor>
+  <MCE_PassionMajor>重度</MCE_PassionMajor>
+  <MCE_InnateLevel>基础（天生）等级：{0}</MCE_InnateLevel>
+  <MCE_EffectiveLevel>有效等级：{0}</MCE_EffectiveLevel>
+  <MCE_CauseBackstory>背景故事：{0}</MCE_CauseBackstory>
+  <MCE_CauseTrait>特性：{0}</MCE_CauseTrait>
+  <MCE_CauseGene>基因：{0}</MCE_CauseGene>
+  <MCE_CauseHealth>健康：{0}</MCE_CauseHealth>
+  <MCE_CauseTitle>头衔：{0}</MCE_CauseTitle>
+  <MCE_CauseIdeoRole>意识形态角色：{0}</MCE_CauseIdeoRole>
+  <MCE_CausePawnKind>小人类型：{0}</MCE_CausePawnKind>
+  <MCE_CausePawnKindTip>烘焙进小人类型（{0}）——无法在此编辑。</MCE_CausePawnKindTip>
+  <MCE_CauseMutant>突变体：{0}</MCE_CauseMutant>
+  <MCE_CauseMutantTip>由小人的突变体状态导致——无法在此编辑。</MCE_CauseMutantTip>
+  <MCE_CauseQuest>任务：{0}</MCE_CauseQuest>
+  <MCE_CauseQuestTip>由活跃任务强加——无法在此编辑。</MCE_CauseQuestTip>
+  <MCE_SkillDisabledFor>{0} 对此小人被禁用。</MCE_SkillDisabledFor>
+  <MCE_NoDisablingSource>无法识别禁用来源（可能来自另一个模组）。</MCE_NoDisablingSource>
+  <MCE_DisabledBy>由以下禁用：</MCE_DisabledBy>
+  <MCE_ClickOpenCauseTab>点击打开拥有此原因的标签页。</MCE_ClickOpenCauseTab>
+  <MCE_ClickPickCause>点击选择原因并跳转到其标签页。</MCE_ClickPickCause>
+
+  <!-- 装备标签页 -->
+  <MCE_Equipped>已装备</MCE_Equipped>
+  <MCE_Inventory>物品栏</MCE_Inventory>
+  <MCE_CopiedLoadout>已复制配置（{0} 件物品）</MCE_CopiedLoadout>
+  <MCE_CopyLoadoutTip>复制此小人的整个配置：服装、武器和携带物品，连同材料、品质、状态和颜色。</MCE_CopyLoadoutTip>
+  <MCE_PastedLoadout>已粘贴配置到 {0}</MCE_PastedLoadout>
+  <MCE_PasteLoadoutTip>用复制的配置替换此小人的服装、武器和物品栏。还原或取消可恢复原始服装。</MCE_PasteLoadoutTip>
+  <MCE_CopyLoadoutFirst>请先从一个小人复制配置。</MCE_CopyLoadoutFirst>
+  <MCE_GearRevertNote>装备通过「取消」还原，而不是 Ctrl+Z</MCE_GearRevertNote>
+  <MCE_RandomizeGear>随机化装备</MCE_RandomizeGear>
+  <MCE_NothingEquipped>未装备任何东西</MCE_NothingEquipped>
+  <MCE_ChangeColorTip>更改颜色</MCE_ChangeColorTip>
+  <MCE_AddGearHeader>添加装备</MCE_AddGearHeader>
+  <MCE_Apparel>服装</MCE_Apparel>
+  <MCE_Weapons>武器</MCE_Weapons>
+  <MCE_Items>物品</MCE_Items>
+  <MCE_NEntries>{0} 个条目</MCE_NEntries>
+  <MCE_Core>核心</MCE_Core>
+  <MCE_InvOverlay>物品栏</MCE_InvOverlay>
+  <MCE_AddToInvTipStack>添加到物品栏。点击：1 · Shift+点击：10 · Ctrl+点击：整堆（{0}）</MCE_AddToInvTipStack>
+  <MCE_AddToInvTip>添加到物品栏</MCE_AddToInvTip>
+  <MCE_AddedToInventory>{0} 已添加到物品栏</MCE_AddedToInventory>
+  <MCE_InvQtyNote>输入数量以调整堆叠大小 · 通过「取消」还原</MCE_InvQtyNote>
+  <MCE_NothingCarried>未携带任何东西</MCE_NothingCarried>
+  <MCE_QtyTip>数量：输入一个数字直接设置此堆叠的大小。</MCE_QtyTip>
+  <MCE_RemoveItemTip>移除物品</MCE_RemoveItemTip>
+  <MCE_Quality>品质</MCE_Quality>
+  <MCE_Material>材料</MCE_Material>
+  <MCE_HitPoints>耐久</MCE_HitPoints>
+  <MCE_Color>颜色</MCE_Color>
+  <MCE_NoMaterials>没有可用材料</MCE_NoMaterials>
+  <MCE_Weapon>武器</MCE_Weapon>
+  <MCE_Other>其他</MCE_Other>
+  <MCE_Ranged>远程</MCE_Ranged>
+  <MCE_Melee>近战</MCE_Melee>
+  <MCE_FilterClass>类别</MCE_FilterClass>
+  <MCE_FilterLayer>层位</MCE_FilterLayer>
+
+  <!-- 基因标签页 -->
+  <MCE_NameLockedTip>名称已锁定 - 点击编辑它。</MCE_NameLockedTip>
+  <MCE_NameEditableTip>名称可编辑 - 点击锁定它。</MCE_NameEditableTip>
+  <MCE_XenotypeHeader>异种人</MCE_XenotypeHeader>
+  <MCE_SaveManage>保存 / 管理</MCE_SaveManage>
+  <MCE_SaveManageTip>将此小人的基因保存为命名的异种人，或删除已保存的。要直接切换异种人，请使用「更改」。</MCE_SaveManageTip>
+  <MCE_GenesHeader>基因</MCE_GenesHeader>
+  <MCE_NGenes>{0} 个基因</MCE_NGenes>
+  <MCE_Xenogene>异种基因</MCE_Xenogene>
+  <MCE_Endogene>内源基因</MCE_Endogene>
+  <MCE_RerollGeneTip>重新掷取外观：移除并重新添加此基因，使具有视觉变体（耳朵、尾巴、花纹）的基因选择新外观。其他基因不受影响。</MCE_RerollGeneTip>
+  <MCE_AddGeneHeader>添加基因</MCE_AddGeneHeader>
+  <MCE_AsXenogene>作为异种基因</MCE_AsXenogene>
+  <MCE_AsEndogene>作为内源基因</MCE_AsEndogene>
+  <MCE_SearchGenes>搜索基因...</MCE_SearchGenes>
+  <MCE_NoXenosMatch>没有异种人匹配你的搜索</MCE_NoXenosMatch>
+  <MCE_SavedImported>已保存与已导入</MCE_SavedImported>
+  <MCE_FromCEPawn>来自角色编辑器：{0}</MCE_FromCEPawn>
+  <MCE_FilterStats>属性</MCE_FilterStats>
+  <MCE_FilterAbilities>能力</MCE_FilterAbilities>
+  <MCE_FilterAptitudes>天赋</MCE_FilterAptitudes>
+  <MCE_FilterMetabolism>新陈代谢</MCE_FilterMetabolism>
+  <MCE_FilterWork>工作</MCE_FilterWork>
+  <MCE_FilterCosmetic>外观</MCE_FilterCosmetic>
+  <MCE_FilterType>类型</MCE_FilterType>
+
+  <!-- 健康标签页 -->
+  <MCE_HealthConditions>健康状态</MCE_HealthConditions>
+  <MCE_HealthRevertNote>健康通过「取消」还原，而不是 Ctrl+Z</MCE_HealthRevertNote>
+  <MCE_NoHealthConditions>无健康状态</MCE_NoHealthConditions>
+  <MCE_WholeBody>全身</MCE_WholeBody>
+  <MCE_HealAll>全部治愈</MCE_HealAll>
+  <MCE_ShowHidden>显示隐藏</MCE_ShowHidden>
+  <MCE_NHidden>{0} 个隐藏</MCE_NHidden>
+  <MCE_SeverityLabel>严重度：{0}</MCE_SeverityLabel>
+  <MCE_AddPermanentScar>添加永久伤疤</MCE_AddPermanentScar>
+  <MCE_AddCondition>添加状态</MCE_AddCondition>
+  <MCE_ChooseBodyPart>选择身体部位</MCE_ChooseBodyPart>
+  <MCE_Conditions>状态</MCE_Conditions>
+  <MCE_PermanentScars>永久伤疤</MCE_PermanentScars>
+  <MCE_ScarModeTip>添加已愈合的永久伤害（旧伤口），就像割伤仪式那样：切割、烧伤、枪伤、裂纹……伤口永不愈合。严重度会安全地选择，添加后可通过选择上面的伤疤进行调整。</MCE_ScarModeTip>
+  <MCE_NScarTypes>{0} 种伤疤类型</MCE_NScarTypes>
+  <MCE_NConditions>{0} 个状态</MCE_NConditions>
+  <MCE_Adding>正在添加：{0}</MCE_Adding>
+  <MCE_PermScarSuffix>（永久伤疤）</MCE_PermScarSuffix>
+  <MCE_CompatSlotsSuffix>（兼容槽位）</MCE_CompatSlotsSuffix>
+  <MCE_GroupImplants>植入物与义肢</MCE_GroupImplants>
+  <MCE_GroupInjuries>伤害</MCE_GroupInjuries>
+  <MCE_GroupMissingParts>缺失部位</MCE_GroupMissingParts>
+  <MCE_GroupDiseases>疾病与状态</MCE_GroupDiseases>
+  <MCE_GroupAddictions>成瘾</MCE_GroupAddictions>
+
+  <!-- 特性标签页 -->
+  <MCE_NoTraitsTracker>此小人没有特性跟踪器，无法在此编辑。</MCE_NoTraitsTracker>
+  <MCE_RandomizeTraits>随机化特性</MCE_RandomizeTraits>
+  <MCE_MaxN>上限：{0}</MCE_MaxN>
+  <MCE_MaxTraitsTip>设置「随机化特性」将掷取的最大特性数（1 到 8）。当前：{0}。此小人有 {1} 个。</MCE_MaxTraitsTip>
+  <MCE_GeneTag>基因</MCE_GeneTag>
+  <MCE_AddTraitHeader>添加特性</MCE_AddTraitHeader>
+  <MCE_SearchTraits>搜索特性...</MCE_SearchTraits>
+  <MCE_FilterRarity>稀有度</MCE_FilterRarity>
+  <MCE_FilterMental>精神</MCE_FilterMental>
+  <MCE_RarityCommon>常见</MCE_RarityCommon>
+  <MCE_RarityUncommon>罕见</MCE_RarityUncommon>
+  <MCE_RarityRare>稀有</MCE_RarityRare>
+  <MCE_RarityEpic>史诗</MCE_RarityEpic>
+  <MCE_RarityLegendary>传奇</MCE_RarityLegendary>
+  <MCE_AlreadyHas>已拥有</MCE_AlreadyHas>
+  <MCE_HasOtherDegree>有其他等级</MCE_HasOtherDegree>
+  <MCE_ConflictsWith>冲突：{0}</MCE_ConflictsWith>
+
+  <!-- 社交标签页 -->
+  <MCE_MentalState>精神状态</MCE_MentalState>
+  <MCE_CurrentX>当前：{0}</MCE_CurrentX>
+  <MCE_EndState>结束状态</MCE_EndState>
+  <MCE_EndStateTip>结束当前精神状态。立即生效——不纳入撤销跟踪。</MCE_EndStateTip>
+  <MCE_NoStateToEnd>没有可结束的精神状态。</MCE_NoStateToEnd>
+  <MCE_StartState>开始...</MCE_StartState>
+  <MCE_StartStateTip>强制一种精神状态（狂兽、狂暴等）。小人通常不符合条件的状态会被标记（强制）。立即生效——不纳入撤销跟踪；使用「结束状态」来停止它。</MCE_StartStateTip>
+  <MCE_NoRelationsTracker>此小人没有关系跟踪器，因此无法编辑关系。</MCE_NoRelationsTracker>
+  <MCE_Relationships>关系</MCE_Relationships>
+  <MCE_NRelations>{0} 个关系</MCE_NRelations>
+  <MCE_NoDirectRelationships>没有直接关系</MCE_NoDirectRelationships>
+  <MCE_AddRelationship>添加关系</MCE_AddRelationship>
+  <MCE_ChooseOtherPawn>选择另一位小人</MCE_ChooseOtherPawn>
+  <MCE_ShowOnlyMale>仅显示男性小人</MCE_ShowOnlyMale>
+  <MCE_ShowOnlyFemale>仅显示女性小人</MCE_ShowOnlyFemale>
+  <MCE_AddedRelation>已添加 {0}：{1}</MCE_AddedRelation>
+  <MCE_CannotAddRelationship>无法添加该关系</MCE_CannotAddRelationship>
+  <MCE_StartedStateOn>已在 {1} 上开始 {0}</MCE_StartedStateOn>
+  <MCE_CouldNotStartState>无法开始 {0}</MCE_CouldNotStartState>
+  <MCE_CouldNotStartStateLog>无法开始 {0}（见日志）</MCE_CouldNotStartStateLog>
+
+  <!-- 能力标签页 -->
+  <MCE_PsyHeader>心灵</MCE_PsyHeader>
+  <MCE_Psyfocus>心灵聚焦</MCE_Psyfocus>
+  <MCE_NeuralHeat>神经热量</MCE_NeuralHeat>
+  <MCE_NAbilities>{0} 个能力</MCE_NAbilities>
+  <MCE_NoAbilities>没有能力</MCE_NoAbilities>
+  <MCE_LevelN>等级 {0}</MCE_LevelN>
+  <MCE_AddAbilityHeader>添加能力</MCE_AddAbilityHeader>
+  <MCE_SearchAbilities>搜索能力...</MCE_SearchAbilities>
+  <MCE_Psycast>心灵施法</MCE_Psycast>
+  <MCE_Innate>天生</MCE_Innate>
+  <MCE_PsycastTip>皇权/心灵树的心灵施法。</MCE_PsycastTip>
+  <MCE_InnateTip>游戏不归类到某个类别下的能力——通常由基因、健康状态或模组赋予。</MCE_InnateTip>
+
+  <!-- 意识形态标签页 -->
+  <MCE_IdeoligionHeader>意识形态</MCE_IdeoligionHeader>
+  <MCE_Certainty>信仰坚定度</MCE_Certainty>
+  <MCE_Role>角色</MCE_Role>
+  <MCE_NoRoleAssign>无（通过「意识形态」界面分配角色）</MCE_NoRoleAssign>
+  <MCE_FavoriteColor>最喜欢的颜色</MCE_FavoriteColor>
+  <MCE_NoIdeos>尚无意识形态存在</MCE_NoIdeos>
+
+  <!-- 皇权标签页 -->
+  <MCE_EmpireTitle>帝国头衔</MCE_EmpireTitle>
+  <MCE_EmpireNotPresent>这个世界中不存在帝国</MCE_EmpireNotPresent>
+  <MCE_Honor>荣耀</MCE_Honor>
+  <MCE_Psylink>心灵链接</MCE_Psylink>
+  <MCE_PsylinkLevel>心灵链接等级</MCE_PsylinkLevel>
+  <MCE_PsylinkNote>授予心灵施法等级和神经热量</MCE_PsylinkNote>
+  <MCE_OtherTitles>其他头衔</MCE_OtherTitles>
+
+  <!-- 想法标签页 -->
+  <MCE_Memories>记忆</MCE_Memories>
+  <MCE_NMemories>{0} 条记忆</MCE_NMemories>
+  <MCE_NoMemories>没有记忆</MCE_NoMemories>
+  <MCE_AddMemory>添加记忆</MCE_AddMemory>
+
+  <!-- 属性标签页 -->
+  <MCE_NoRecordsTracker>此小人没有记录跟踪器。</MCE_NoRecordsTracker>
+  <MCE_ConfirmClearStats>将 {0} 的每项属性都重置为零？\n\n这无法撤销。</MCE_ConfirmClearStats>
+  <MCE_ClearStatsTip>将每项属性设为零。立即生效且不纳入撤销跟踪。</MCE_ClearStatsTip>
+
+  <!-- 种族标签页 -->
+  <MCE_ResetToHuman>重置为人类</MCE_ResetToHuman>
+  <MCE_NativeSwapNote>使用现代角色编辑器的内置种族交换（未加载 Big and Small）。新种族缺少的身体部位上的植入物会被丢弃。</MCE_NativeSwapNote>
+  <MCE_BigSmallRaces>Big &amp; Small 种族</MCE_BigSmallRaces>
+  <MCE_HARRaces>Humanoid Alien Races 种族</MCE_HARRaces>
+  <MCE_NoRacesMatch>没有种族匹配你的搜索。</MCE_NoRacesMatch>
+
+  <!-- 异世界标签页 -->
+  <MCE_NoIsekaiData>此小人没有异世界数据。</MCE_NoIsekaiData>
+  <MCE_LevelRank>等级与阶级</MCE_LevelRank>
+  <MCE_RankN>阶级 {0}</MCE_RankN>
+  <MCE_Level>等级</MCE_Level>
+  <MCE_AddXPBtn1>+1,000 经验</MCE_AddXPBtn1>
+  <MCE_AddXPBtn2>+3,000 经验</MCE_AddXPBtn2>
+  <MCE_AddXPBtn3>+30,000 经验</MCE_AddXPBtn3>
+  <MCE_AddXP>添加经验</MCE_AddXP>
+  <MCE_Attributes>属性</MCE_Attributes>
+  <MCE_AutoDistribute>自动分配</MCE_AutoDistribute>
+  <MCE_ResetAttributes>重置属性</MCE_ResetAttributes>
+  <MCE_StarPoints>星点</MCE_StarPoints>
+  <MCE_Points>点数</MCE_Points>
+  <MCE_Respec>重新分配</MCE_Respec>
+  <MCE_FullRespec>完全重新分配</MCE_FullRespec>
+  <MCE_IsekaiTraits>异世界特性</MCE_IsekaiTraits>
+  <MCE_IsekaiNote>异世界编辑会立即生效并随游戏保存；不会被「取消」撤销。</MCE_IsekaiNote>
+
+  <!-- 需求标签页 -->
+  <MCE_Mood>心情</MCE_Mood>
+  <MCE_Needs>需求</MCE_Needs>
+  <MCE_NeedsHint>-/+ 步进 10%，心情步进所有需求</MCE_NeedsHint>
+  <MCE_ToAllNeeds>对所有需求</MCE_ToAllNeeds>
+
+  <!-- 模组设置 -->
+  <MCE_SettingSafeImportTip>加载或导入小人时，剥离任何其 def 已不存在的内容（来自未加载模组的装备、健康状态、特性、能力或头衔），并修复缺失的外观引用，而不是让损坏的数据在运行时出错。</MCE_SettingSafeImportTip>
+  <MCE_SettingMultiRowTip>将编辑器标签页显示为堆叠的对齐行（经典对话框风格），而不是单个分页行。活动标签页的行移到内容旁边。</MCE_SettingMultiRowTip>
+  <MCE_BalanceMode>平衡模式</MCE_BalanceMode>
+  <MCE_BalanceModeTip>用点数预算约束编辑，使创建的角色保持公平。</MCE_BalanceModeTip>
+  <MCE_PointBudget>点数预算：{0}</MCE_PointBudget>
+  <MCE_PointBudgetTip>技能等级 = 1 点，热情步进 = 4，添加特性 = 6，移除特性 = 3。外观和故事编辑免费。</MCE_PointBudgetTip>
+  <MCE_NotEnoughPoints>平衡模式：点数不足</MCE_NotEnoughPoints>
+
+  <!-- 小人舞台 -->
+  <MCE_NoPawnSelected>未选择小人</MCE_NoPawnSelected>
+  <MCE_BackdropDefault>背景：默认</MCE_BackdropDefault>
+  <MCE_BackdropBlack>背景：黑色</MCE_BackdropBlack>
+  <MCE_BackdropGray>背景：灰色</MCE_BackdropGray>
+  <MCE_BackdropLight>背景：浅色</MCE_BackdropLight>
+  <MCE_BackdropGreen>背景：绿色</MCE_BackdropGreen>
+  <MCE_ScrollToZoom>滚动缩放</MCE_ScrollToZoom>
+
+  <!-- 创建角色页面 -->
+  <MCE_OpenEditor>打开编辑器</MCE_OpenEditor>
+
+  <!-- 舒适标签页 -->
+  <MCE_ComfortsNoData>此小人没有可用的舒适数据。</MCE_ComfortsNoData>
+  <MCE_NoComfortsProfile>此小人没有舒适档案，无法在此编辑。</MCE_NoComfortsProfile>
+  <MCE_ComfortsHeader>舒适</MCE_ComfortsHeader>
+  <MCE_ResetToGenerated>重置为生成值</MCE_ResetToGenerated>
+  <MCE_Generated>已生成</MCE_Generated>
+  <MCE_FoodHeader>食物</MCE_FoodHeader>
+  <MCE_AddLikedFood>添加喜欢的食物</MCE_AddLikedFood>
+  <MCE_DislikedX>不喜欢：{0}</MCE_DislikedX>
+  <MCE_SetDislikedFood>设置不喜欢的食物</MCE_SetDislikedFood>
+  <MCE_AddLikedApparel>添加喜欢的服装</MCE_AddLikedApparel>
+  <MCE_NoFavoriteColor>没有最喜欢的颜色</MCE_NoFavoriteColor>
+  <MCE_ChooseColorBtn>选择颜色</MCE_ChooseColorBtn>
+  <MCE_NoWeaponPref>没有武器偏好</MCE_NoWeaponPref>
+  <MCE_PrefersMelee>偏好近战武器</MCE_PrefersMelee>
+  <MCE_PrefersRanged>偏好远程武器</MCE_PrefersRanged>
+  <MCE_LikesSpecificWeapon>喜欢一种特定武器</MCE_LikesSpecificWeapon>
+  <MCE_StrongPreference>强烈偏好</MCE_StrongPreference>
+  <MCE_StrongPrefTip>强烈到会介意携带错误的武器类别</MCE_StrongPrefTip>
+  <MCE_ChooseWeapon>选择武器</MCE_ChooseWeapon>
+  <MCE_Recreation>娱乐</MCE_Recreation>
+  <MCE_AddRecreation>添加娱乐</MCE_AddRecreation>
+  <MCE_Preferences>偏好</MCE_Preferences>
+  <MCE_LovesNature>热爱自然</MCE_LovesNature>
+  <MCE_LovesPreaching>热爱布道</MCE_LovesPreaching>
+  <MCE_WantsRole>想要领导角色</MCE_WantsRole>
+  <MCE_WantsLevels>想要升级</MCE_WantsLevels>
+  <MCE_WantsFineLoot>想要精良战利品</MCE_WantsFineLoot>
+  <MCE_TasteShifts>口味转变</MCE_TasteShifts>
+  <MCE_TasteShiftsOne>{0} 个后天口味转变（精神崩溃、悲伤、漂泊）</MCE_TasteShiftsOne>
+  <MCE_TasteShiftsMany>{0} 个后天口味转变（精神崩溃、悲伤、漂泊）</MCE_TasteShiftsMany>
+  <MCE_ClearTasteShifts>清除口味转变</MCE_ClearTasteShifts>
+  <MCE_OffProfileQuirkTip>档案外怪癖：与小人的性格冲突，会在提示中标记</MCE_OffProfileQuirkTip>
+
+  <!-- 进度标签页 -->
+  <MCE_ImmediateNote>编辑会立即生效并绕过撤销</MCE_ImmediateNote>
+  <MCE_BridgeError>桥接错误：{0}</MCE_BridgeError>
+  <MCE_EducationHeader>教育</MCE_EducationHeader>
+  <MCE_EduBridgeUnavailable>教育桥接不可用</MCE_EduBridgeUnavailable>
+  <MCE_NoProficiencies>此小人不能有熟练度</MCE_NoProficiencies>
+  <MCE_TherapyHeader>治疗</MCE_TherapyHeader>
+  <MCE_NoStabilityNeed>此小人没有心理稳定需求</MCE_NoStabilityNeed>
+  <MCE_MentalStability>心理稳定</MCE_MentalStability>
+  <MCE_TraumaIntegrityHeader>创伤与完整性</MCE_TraumaIntegrityHeader>
+  <MCE_TIBridgeUnavailable>创伤与完整性桥接不可用</MCE_TIBridgeUnavailable>
+  <MCE_DataError>数据错误：{0}</MCE_DataError>
+  <MCE_Integrity>完整性</MCE_Integrity>
+  <MCE_Trauma>创伤</MCE_Trauma>
+  <MCE_Betrayer>背叛者</MCE_Betrayer>
+  <MCE_Tempered>已锤炼</MCE_Tempered>
+  <MCE_NoTraumaticTrait>没有创伤性特性——在「特性」标签页添加一个</MCE_NoTraumaticTrait>
+  <MCE_TraumaticTraitX>创伤性特性：{0}（在「特性」标签页管理）</MCE_TraumaticTraitX>
+
+  <!-- 面部标签页 -->
+  <MCE_FANoFace>此小人身上没有面部动画的面部组件。</MCE_FANoFace>
+  <MCE_EyeColors>眼睛颜色</MCE_EyeColors>
+  <MCE_FirstEye>第一只眼睛</MCE_FirstEye>
+  <MCE_SecondEye>第二只眼睛</MCE_SecondEye>
+  <MCE_Copy12>复制 1 &gt; 2</MCE_Copy12>
+  <MCE_Copy21>复制 2 &gt; 1</MCE_Copy21>
+  <MCE_RandomOdd>随机异色</MCE_RandomOdd>
+  <MCE_EyeGene>眼睛基因</MCE_EyeGene>
+  <MCE_NoEyeGene>没有眼睛颜色基因：应用上方的手动颜色</MCE_NoEyeGene>
+  <MCE_SelectEyeGene>选择眼睛颜色基因</MCE_SelectEyeGene>
+  <MCE_CustomEyeColor>自定义颜色</MCE_CustomEyeColor>
+  <MCE_CustomEyeColorTip>为两只眼睛选择自定义颜色（清除任何眼睛颜色基因）</MCE_CustomEyeColorTip>
+  <MCE_FaceParts>面部部件</MCE_FaceParts>
+  <MCE_RerollPart>重新掷取部件</MCE_RerollPart>
+  <MCE_RerollFace>重新掷取面部</MCE_RerollFace>
+  <MCE_NTypes>{0} 种类型</MCE_NTypes>
+  <MCE_PartColor>部件颜色</MCE_PartColor>
+  <MCE_FollowsX>跟随 {0}</MCE_FollowsX>
+
+  <!-- 心灵标签页（缺少键时方面名称回退到英文 ID） -->
+  <MCE_NoPsycheData>此小人没有可用的 RimPsyche 数据</MCE_NoPsycheData>
+  <MCE_PsycheRawNote>原始方面值——特性和基因可能会钳制有效值</MCE_PsycheRawNote>
+  <MCE_PsycheDisabledNote>此小人的心灵已禁用（RimPsyche）——值仍可编辑</MCE_PsycheDisabledNote>
+  <MCE_RegeneratePersonality>重新生成性格</MCE_RegeneratePersonality>
+  <MCE_EffectiveClampTip>特性与基因钳制后的有效值</MCE_EffectiveClampTip>
+  <MCE_Psyche_Openness>开放性</MCE_Psyche_Openness>
+  <MCE_Psyche_Conscientiousness>尽责性</MCE_Psyche_Conscientiousness>
+  <MCE_Psyche_Extraversion>外向性</MCE_Psyche_Extraversion>
+  <MCE_Psyche_Agreeableness>宜人性</MCE_Psyche_Agreeableness>
+  <MCE_Psyche_Neuroticism>神经质</MCE_Psyche_Neuroticism>
+  <MCE_Psyche_Imagination>想象力</MCE_Psyche_Imagination>
+  <MCE_Psyche_Intellect>才智</MCE_Psyche_Intellect>
+  <MCE_Psyche_Curiosity>好奇心</MCE_Psyche_Curiosity>
+  <MCE_Psyche_Industriousness>勤奋</MCE_Psyche_Industriousness>
+  <MCE_Psyche_Orderliness>条理性</MCE_Psyche_Orderliness>
+  <MCE_Psyche_Integrity>正直</MCE_Psyche_Integrity>
+  <MCE_Psyche_Sociability>社交性</MCE_Psyche_Sociability>
+  <MCE_Psyche_Assertiveness>自信</MCE_Psyche_Assertiveness>
+  <MCE_Psyche_Enthusiasm>热情</MCE_Psyche_Enthusiasm>
+  <MCE_Psyche_Compassion>同情心</MCE_Psyche_Compassion>
+  <MCE_Psyche_Cooperation>合作</MCE_Psyche_Cooperation>
+  <MCE_Psyche_Humbleness>谦逊</MCE_Psyche_Humbleness>
+  <MCE_Psyche_Volatility>情绪波动</MCE_Psyche_Volatility>
+  <MCE_Psyche_Pessimism>悲观</MCE_Psyche_Pessimism>
+  <MCE_Psyche_Insecurity>不安全感</MCE_Psyche_Insecurity>
+
+  <!-- 怀孕标签页 -->
+  <MCE_Pregnancy>怀孕</MCE_Pregnancy>
+  <MCE_NBabies>{0} 个婴儿</MCE_NBabies>
+  <MCE_Gestation>妊娠期</MCE_Gestation>
+  <MCE_AdvanceToTerm>推进到足月</MCE_AdvanceToTerm>
+  <MCE_Parents>父母</MCE_Parents>
+  <MCE_Mother>母亲</MCE_Mother>
+  <MCE_Father>父亲</MCE_Father>
+  <MCE_NotPregnant>未怀孕</MCE_NotPregnant>
+  <MCE_NotPregnantInfo>此小人没有活跃的怀孕。在下方开始一个——然后在出生前可在此编辑未出生婴儿的基因（生物科技）。</MCE_NotPregnantInfo>
+  <MCE_StartPregnancyNoFather>开始怀孕（无父亲）</MCE_StartPregnancyNoFather>
+  <MCE_StartWithFather>以选定的父亲开始...</MCE_StartWithFather>
+  <MCE_LayEgg>产下受精卵</MCE_LayEgg>
+  <MCE_GWEggLayer>Gender Works 产卵者</MCE_GWEggLayer>
+  <MCE_NoPregnancyPossible>此小人无法开始怀孕（需要生物科技，或 Gender Works 产卵者）。</MCE_NoPregnancyPossible>
+  <MCE_UnbornGenes>未出生婴儿的基因</MCE_UnbornGenes>
+  <MCE_RerollFromParents>从父母重新掷取</MCE_RerollFromParents>
+  <MCE_CopyMotherGenes>复制母亲的基因</MCE_CopyMotherGenes>
+  <MCE_NoBabyGenes>没有基因——婴儿将是基准人。使用「添加基因」或「重新掷取」。</MCE_NoBabyGenes>
+  <MCE_AddBabyGene>添加婴儿基因</MCE_AddBabyGene>
+  <MCE_NoFather>（无父亲）</MCE_NoFather>
+  <MCE_ChooseFather>选择父亲</MCE_ChooseFather>
+
+  <!-- 安卓标签页 -->
+  <MCE_NotAndroid>此小人不是安卓</MCE_NotAndroid>
+  <MCE_AwakenedAndroidNote>觉醒的安卓——编辑会立即生效并绕过撤销</MCE_AwakenedAndroidNote>
+  <MCE_StandardAndroidNote>标准安卓——编辑会立即生效并绕过撤销</MCE_StandardAndroidNote>
+  <MCE_Awaken>觉醒</MCE_Awaken>
+  <MCE_NoAndroidData>安卓组件数据不可用</MCE_NoAndroidData>
+  <MCE_Components>组件</MCE_Components>
+  <MCE_CloseCatalog>关闭目录</MCE_CloseCatalog>
+  <MCE_AddComponent>添加组件</MCE_AddComponent>
+  <MCE_AllComponentsInstalled>每个安卓组件都已安装</MCE_AllComponentsInstalled>
+  <MCE_Subroutine>子程序</MCE_Subroutine>
+  <MCE_Hardware>硬件</MCE_Hardware>
+  <MCE_Subroutines>子程序</MCE_Subroutines>
+  <MCE_CouldNotAddComponent>无法添加组件：{0}</MCE_CouldNotAddComponent>
+  <MCE_NoneInstalled>未安装任何</MCE_NoneInstalled>
+  <MCE_NoSyntheticGene>此安卓没有可觉醒的合成体基因</MCE_NoSyntheticGene>
+  <MCE_HasAwakened>{0} 已觉醒。</MCE_HasAwakened>
+  <MCE_AwakeningFailed>觉醒失败：{0}</MCE_AwakeningFailed>
+
+  <!-- 性取向标签页 -->
+  <MCE_NoRJWData>此小人没有可用的 RimJobWorld 数据</MCE_NoRJWData>
+  <MCE_RerollParts>重新掷取部件</MCE_RerollParts>
+  <MCE_Orientation>取向</MCE_Orientation>
+  <MCE_BodyParts>身体部件</MCE_BodyParts>
+  <MCE_AddPart>添加部件</MCE_AddPart>
+  <MCE_NoParts>没有部件——使用「添加部件」或「重新掷取部件」</MCE_NoParts>
+  <MCE_NoPartSlot>此小人没有 {0} 的身体部件槽位</MCE_NoPartSlot>
+  <MCE_CouldNotAddPart>无法添加部件：{0}</MCE_CouldNotAddPart>
+
+  <!-- 志向（VAE）标签页 -->
+  <MCE_NoFulfillment>此小人没有「满足」需求（原版志向扩展），无法在此编辑。</MCE_NoFulfillment>
+  <MCE_Aspirations>志向</MCE_Aspirations>
+  <MCE_RerollAspirations>重新掷取志向</MCE_RerollAspirations>
+  <MCE_NGoals>{0} / {1} 个目标</MCE_NGoals>
+  <MCE_RemoveAspiration>移除志向</MCE_RemoveAspiration>
+  <MCE_NoAspirations>没有志向——在下方添加一些。</MCE_NoAspirations>
+  <MCE_AddAspiration>添加志向</MCE_AddAspiration>
+  <MCE_NoMatchingAspirations>没有可用的匹配此小人的志向。</MCE_NoMatchingAspirations>
+
+  <!-- 性格（SPM）标签页 -->
+  <MCE_RerollPersonality>重新掷取性格</MCE_RerollPersonality>
+  <MCE_Personality>性格</MCE_Personality>
+  <MCE_Root>根源</MCE_Root>
+  <MCE_Variant>变体</MCE_Variant>
+  <MCE_MainTrait>主要特性</MCE_MainTrait>
+  <MCE_SecondTrait>次要特性</MCE_SecondTrait>
+  <MCE_OptionalTrait>可选特性</MCE_OptionalTrait>
+  <MCE_DescriptionHeader>描述</MCE_DescriptionHeader>
+  <MCE_NoDescription>未生成描述。</MCE_NoDescription>
+  <MCE_ChooseX>选择 {0}</MCE_ChooseX>
+
+  <!-- 亲密标签页 -->
+  <MCE_IntimacyNeed>亲密需求</MCE_IntimacyNeed>
+  <MCE_NoIntimacyData>此小人没有可用的亲密数据</MCE_NoIntimacyData>
+  <MCE_ReproductiveOrgans>生殖器官</MCE_ReproductiveOrgans>
+  <MCE_OrganImmediateNote>器官编辑会立即生效并绕过撤销</MCE_OrganImmediateNote>
+  <MCE_AddWomb>添加子宫</MCE_AddWomb>
+  <MCE_AddPenis>添加阴茎</MCE_AddPenis>
+  <MCE_Neuter>阉割</MCE_Neuter>
+  <MCE_RemoveAll>全部移除</MCE_RemoveAll>
+  <MCE_NoOrgans>没有生殖器官。</MCE_NoOrgans>
+
+  <!-- 恋爱标签页 -->
+  <MCE_NoRomanceData>此小人没有可用的 Romance On The Rim 数据</MCE_NoRomanceData>
+  <MCE_RomanceNeed>恋爱需求</MCE_RomanceNeed>
+  <MCE_DesireX>渴望：{0}</MCE_DesireX>
+  <MCE_NeedDisabled>需求已禁用</MCE_NeedDisabled>
+  <MCE_NeedEnabled>需求已启用</MCE_NeedEnabled>
+  <MCE_RomanceOffNote>此小人的恋爱需求已关闭（立即生效，不纳入撤销跟踪）。</MCE_RomanceOffNote>
+  <MCE_RomanceActiveNote>活跃——此小人在同一张地图上有一位殖民者恋爱伴侣。</MCE_RomanceActiveNote>
+  <MCE_RomanceDormantNote>休眠——该需求只在殖民者恋爱伴侣位于同一张地图时计时。</MCE_RomanceDormantNote>
+  <MCE_LovePartners>恋爱伴侣</MCE_LovePartners>
+  <MCE_NoLovePartners>没有恋爱伴侣。在「关系」标签页添加关系。</MCE_NoLovePartners>
+
+  <!-- CE 导入内部 -->
+  <MCE_NYrs>{0} 岁</MCE_NYrs>
+  <MCE_ImportFailed>导入失败（见日志）</MCE_ImportFailed>
+  <MCE_ImportedValues>已导入 {0} 个值</MCE_ImportedValues>
+  <MCE_SkippedDefsN>已跳过 {0} 个未知 def</MCE_SkippedDefsN>
+  <MCE_ManualImportNote>（角色编辑器未加载——健康、需求和记忆未导入）</MCE_ManualImportNote>
+  <MCE_Unnamed>未命名</MCE_Unnamed>
+
+  <!-- 继承的编辑器 -->
+  <MCE_InheritedNote>来自 {0} 的编辑器工具——编辑会立即生效并绕过撤销</MCE_InheritedNote>
+  <MCE_NotInline>此编辑器无法内联显示</MCE_NotInline>
+  <MCE_OpenAsWindow>作为窗口打开</MCE_OpenAsWindow>
+  <MCE_CouldNotOpenEditor>无法打开编辑器：{0}</MCE_CouldNotOpenEditor>
+  <MCE_RetryInline>重试内联</MCE_RetryInline>
+
+  <!-- 桥接显示字符串 -->
+  <MCE_EyeFollowsGene>眼睛颜色跟随基因：{0}</MCE_EyeFollowsGene>
+  <MCE_EyeForcedBy>眼睛颜色由以下强制：{0}</MCE_EyeForcedBy>
+  <MCE_RomSatisfied>已满足</MCE_RomSatisfied>
+  <MCE_RomContent>满足</MCE_RomContent>
+  <MCE_RomWants>渴望恋爱</MCE_RomWants>
+  <MCE_RomWithdrawal>戒断</MCE_RomWithdrawal>
+  <MCE_PregBiotech>生物科技怀孕</MCE_PregBiotech>
+  <MCE_PregRJW>RimJobWorld 怀孕</MCE_PregRJW>
+  <MCE_PregEgg>Gender Works 卵</MCE_PregEgg>
+  <MCE_PregMech>机械体怀孕</MCE_PregMech>
+
+  <!-- 最终扫描 -->
+  <MCE_ModuleFailed>此模块失败并在本次会话中被禁用。详情见日志。</MCE_ModuleFailed>
+  <MCE_BustView>半身视图</MCE_BustView>
+  <MCE_FullBodyView>全身视图</MCE_FullBodyView>
+  <MCE_ShowClothes>显示衣服</MCE_ShowClothes>
+  <MCE_ShowHeadgear>显示头饰</MCE_ShowHeadgear>
+  <MCE_ForcedSuffix>（强制）</MCE_ForcedSuffix>
+  <MCE_WornByPawn>目前由此小人穿着。</MCE_WornByPawn>
+  <MCE_EquippedWeapon>目前装备为此小人的武器。</MCE_EquippedWeapon>
+  <MCE_AlreadyInInventory>已在此小人的物品栏中。</MCE_AlreadyInInventory>
+  <MCE_CannotWearX>无法穿着：{0}</MCE_CannotWearX>
+  <MCE_CannotAddX>无法添加：{0}</MCE_CannotAddX>
+  <MCE_NoGenesToSaveMsg>此小人没有可保存为异种人的基因</MCE_NoGenesToSaveMsg>
+
+  <!-- 心灵施法标签页（原版心灵施法扩展） -->
+  <MCE_VPE_NotPsycaster>此小人不是心灵施法者。</MCE_VPE_NotPsycaster>
+  <MCE_VPE_MakePsycaster>成为心灵施法者</MCE_VPE_MakePsycaster>
+  <MCE_VPE_Progression>进度</MCE_VPE_Progression>
+  <MCE_VPE_PsylinkLevel>心灵链接等级</MCE_VPE_PsylinkLevel>
+  <MCE_VPE_AbilityPoints>能力点数</MCE_VPE_AbilityPoints>
+  <MCE_VPE_StatPoints>属性点数</MCE_VPE_StatPoints>
+  <MCE_VPE_Experience>经验</MCE_VPE_Experience>
+  <MCE_VPE_ToNext>下一等级在 {0}</MCE_VPE_ToNext>
+  <MCE_VPE_MaxLevelNote>上限 {0}</MCE_VPE_MaxLevelNote>
+  <MCE_VPE_LevelTip>更改心灵链接等级会添加或移除匹配的能力点数，就像游戏内升级一样。</MCE_VPE_LevelTip>
+  <MCE_VPE_Paths>路径</MCE_VPE_Paths>
+  <MCE_VPE_Psycasts>心灵施法</MCE_VPE_Psycasts>
+  <MCE_VPE_AddPsycast>添加心灵施法...</MCE_VPE_AddPsycast>
+  <MCE_VPE_NoPsycasts>未学会任何心灵施法。</MCE_VPE_NoPsycasts>
+  <MCE_VPE_RemovePsycastTip>移除此心灵施法。</MCE_VPE_RemovePsycastTip>
+  <MCE_VPE_Reset>重置心灵施法</MCE_VPE_Reset>
+  <MCE_VPE_ResetConfirm>重置 {0} 的全部心灵施法进度？这会移除每个已学会的心灵施法和已解锁的路径，并将能力点数重置为心灵链接等级。</MCE_VPE_ResetConfirm>
+
+  <!-- Psycasts² 标签页 -->
+  <MCE_PS2_Specialization>专精</MCE_PS2_Specialization>
+  <MCE_PS2_SpecPoints>专精点数</MCE_PS2_SpecPoints>
+  <MCE_PS2_SpecXp>专精经验</MCE_PS2_SpecXp>
+  <MCE_PS2_Nodes>节点</MCE_PS2_Nodes>
+  <MCE_PS2_NodeTip>{0} - 花费 {1}</MCE_PS2_NodeTip>
+  <MCE_PS2_Mastery>精通</MCE_PS2_Mastery>
+  <MCE_PS2_Discipline>纪律</MCE_PS2_Discipline>
+  <MCE_PS2_Attunement>协调</MCE_PS2_Attunement>
+  <MCE_PS2_ChoosePick>选择...</MCE_PS2_ChoosePick>
+  <MCE_PS2_SkillLevels>技能等级</MCE_PS2_SkillLevels>
+  <MCE_PS2_NoPsycasts>未学会任何心灵施法——请先在心灵施法标签页学会心灵施法。</MCE_PS2_NoPsycasts>
+  <MCE_PS2_Enlightenment>启蒙</MCE_PS2_Enlightenment>
+  <MCE_PS2_TierNone>无</MCE_PS2_TierNone>
+  <MCE_PS2_NoOptions>没有可用选项。</MCE_PS2_NoOptions>
+  <MCE_PS2_Reset>重置 Psycasts²</MCE_PS2_Reset>
+  <MCE_PS2_ResetConfirm>重置 {0} 的全部 Psycasts² 进度？这会清除技能等级、专精节点和启蒙等级。</MCE_PS2_ResetConfirm>
+
+  <!-- 词缀标签页（Itemization Overhaul） -->
+  <MCE_IO_Items>物品</MCE_IO_Items>
+  <MCE_IO_NoItems>没有装备或携带可加词缀的装备。</MCE_IO_NoItems>
+  <MCE_IO_SelectItem>在上面选择一件物品进行编辑。</MCE_IO_SelectItem>
+  <MCE_IO_Rarity>稀有度</MCE_IO_Rarity>
+  <MCE_IO_TierLocked>此物品的稀有度固定（顶端或派系圣物）。</MCE_IO_TierLocked>
+  <MCE_IO_Affixes>词缀</MCE_IO_Affixes>
+  <MCE_IO_Reroll>重新掷取</MCE_IO_Reroll>
+  <MCE_IO_AddAffix>添加词缀</MCE_IO_AddAffix>
+  <MCE_IO_NoAffixes>此物品上没有词缀。</MCE_IO_NoAffixes>
+  <MCE_IO_Greater>更高级</MCE_IO_Greater>
+  <MCE_IO_GreaterTip>将此词缀提升为更高级掷取。</MCE_IO_GreaterTip>
+  <MCE_IO_Artifact>神器</MCE_IO_Artifact>
+  <MCE_IO_ArtifactTip>将此词缀提升为神器掷取（最强一级）。</MCE_IO_ArtifactTip>
+  <MCE_IO_Sockets>插槽</MCE_IO_Sockets>
+  <MCE_IO_SocketCount>已使用 {0} / {1} 个插槽</MCE_IO_SocketCount>
+  <MCE_IO_SocketRune>镶嵌符文...</MCE_IO_SocketRune>
+  <MCE_IO_ClearRunes>清除符文</MCE_IO_ClearRunes>
+  <MCE_IO_SocketFailed>无法在此镶嵌该符文。</MCE_IO_SocketFailed>
+  <MCE_IO_NoRunes>没有可用符文。</MCE_IO_NoRunes>
+  <MCE_IO_Runeword>符文之语：{0}</MCE_IO_Runeword>
+  <MCE_IO_Set>套装</MCE_IO_Set>
+  <MCE_IO_NoSet>（无套装）</MCE_IO_NoSet>
+  <MCE_IO_Unique>独特...</MCE_IO_Unique>
+  <MCE_IO_Mythic>神话...</MCE_IO_Mythic>
+  <MCE_IO_NoIdentities>没有匹配此物品槽位的身份。</MCE_IO_NoIdentities>
+  <MCE_IO_RandomAffix>随机词缀</MCE_IO_RandomAffix>
+  <MCE_IO_Tier_Relic>圣物</MCE_IO_Tier_Relic>
+  <MCE_IO_Tier_Broken>破损</MCE_IO_Tier_Broken>
+  <MCE_IO_Tier_LowQuality>低品质</MCE_IO_Tier_LowQuality>
+  <MCE_IO_Tier_White>白色</MCE_IO_Tier_White>
+  <MCE_IO_Tier_Magic>魔法</MCE_IO_Tier_Magic>
+  <MCE_IO_Tier_Rare>稀有</MCE_IO_Tier_Rare>
+  <MCE_IO_Tier_Legendary>传奇</MCE_IO_Tier_Legendary>
+
+</LanguageData>

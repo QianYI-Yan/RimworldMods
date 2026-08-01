@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modern History Menu 历史自动记录器分组 Def 汉化（DefInjected 注入） -->
+<Defs>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_Power</defName>
+    <label>电力</label>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_Food</defName>
+    <label>食物</label>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_Animals</defName>
+    <label>动物</label>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_Health</defName>
+    <label>殖民地健康</label>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_TimePlayed</defName>
+    <label>游戏时长</label>
+  </HistoryAutoRecorderGroupDef>
+
+  <HistoryAutoRecorderGroupDef>
+    <defName>NHM_Crops</defName>
+    <label>作物</label>
+  </HistoryAutoRecorderGroupDef>
+
+</Defs>

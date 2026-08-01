@@ -1,0 +1,1 @@
+行1693: private static void DrawPawnCard(Rect card, Pawn selPawn, SocialEntry entry, bool selected = false)

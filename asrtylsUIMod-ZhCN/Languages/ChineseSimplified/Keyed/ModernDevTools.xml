@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 窗口部件 -->
+  <MDT_Title>调试日志</MDT_Title>
+  <MDT_Shown>显示 {0} 条</MDT_Shown>
+  <MDT_EmptyList>没有可显示的消息。</MDT_EmptyList>
+  <MDT_SelectHint>选择一条消息进行查看。</MDT_SelectHint>
+  <MDT_SearchPlaceholder>搜索日志...</MDT_SearchPlaceholder>
+
+  <!-- 过滤器 -->
+  <MDT_Errors>错误</MDT_Errors>
+  <MDT_Warnings>警告</MDT_Warnings>
+  <MDT_Messages>消息</MDT_Messages>
+
+  <!-- 状态开关 -->
+  <MDT_On>开</MDT_On>
+  <MDT_Off>关</MDT_Off>
+  <MDT_AutoOpen>自动打开</MDT_AutoOpen>
+  <MDT_AutoOpenTip>记录到错误时自动打开此日志（开发者模式）。</MDT_AutoOpenTip>
+  <MDT_PauseOnError>出错时暂停</MDT_PauseOnError>
+  <MDT_PauseOnErrorTip>每当记录到错误时暂停游戏。</MDT_PauseOnErrorTip>
+  <MDT_OpenOnWarnings>出现警告时打开</MDT_OpenOnWarnings>
+  <MDT_OpenOnWarningsTip>也为此日志打开警告，而不仅仅是错误。</MDT_OpenOnWarningsTip>
+
+  <!-- 操作 -->
+  <MDT_Clear>清除</MDT_Clear>
+  <MDT_ClearTip>清除所有日志消息。</MDT_ClearTip>
+  <MDT_CopyAll>全部复制</MDT_CopyAll>
+  <MDT_CopyAllTip>将每条消息和堆栈跟踪复制到剪贴板。</MDT_CopyAllTip>
+  <MDT_CopyMessage>复制消息</MDT_CopyMessage>
+  <MDT_CopyTrace>复制堆栈跟踪</MDT_CopyTrace>
+  <MDT_CopyReport>复制报告</MDT_CopyReport>
+  <MDT_Copied>已复制到剪贴板。</MDT_Copied>
+  <MDT_Modules>模块</MDT_Modules>
+  <MDT_ModulesTip>管理分析模块和被忽略的警告。</MDT_ModulesTip>
+  <MDT_Ignore>忽略</MDT_Ignore>
+  <MDT_IgnoreTip>从日志中隐藏此类无害警告。可通过「模块」按钮撤销。</MDT_IgnoreTip>
+  <MDT_HiddenSuffix>（{0} 已隐藏）</MDT_HiddenSuffix>
+  <MDT_OpenModPage>打开模组的页面</MDT_OpenModPage>
+
+  <!-- 消息类型 -->
+  <MDT_TypeError>错误</MDT_TypeError>
+  <MDT_TypeWarning>警告</MDT_TypeWarning>
+  <MDT_TypeMessage>消息</MDT_TypeMessage>
+
+  <!-- 检查器区块 -->
+  <MDT_SectionSource>可能来源</MDT_SectionSource>
+  <MDT_SectionMeaning>含义</MDT_SectionMeaning>
+  <MDT_SectionReport>向社区报告</MDT_SectionReport>
+  <MDT_SectionTrace>堆栈跟踪</MDT_SectionTrace>
+  <MDT_FramesFmt>{0} 帧</MDT_FramesFmt>
+  <MDT_NoCulprit>没有明确牵涉的模组。这看起来像原版代码或模组之间的深层交互。请查看下面的堆栈跟踪。</MDT_NoCulprit>
+  <MDT_NoLibraryMatch>尚未有库条目与此错误匹配。请使用上面的可能来源和下面的堆栈跟踪来缩小范围。</MDT_NoLibraryMatch>
+  <MDT_FixLabel>修复：</MDT_FixLabel>
+
+  <!-- 来源名称 -->
+  <MDT_VanillaName>RimWorld（原版）</MDT_VanillaName>
+  <MDT_UnityName>Unity 引擎</MDT_UnityName>
+
+  <!-- 归因原因 -->
+  <MDT_ReasonInStack>在堆栈跟踪中运行代码</MDT_ReasonInStack>
+  <MDT_ReasonNamespaceOwned>拥有堆栈跟踪中的一个命名空间</MDT_ReasonNamespaceOwned>
+  <MDT_ReasonHarmonyFrame>通过 Harmony 补丁到达</MDT_ReasonHarmonyFrame>
+  <MDT_ReasonVanillaFrame>堆栈跟踪中的原版代码</MDT_ReasonVanillaFrame>
+  <MDT_ReasonUnityFrame>堆栈跟踪中的引擎代码</MDT_ReasonUnityFrame>
+  <MDT_ReasonNamedProblem>被指名为有问题的模组</MDT_ReasonNamedProblem>
+  <MDT_ReasonDependency>被引用为依赖项</MDT_ReasonDependency>
+  <MDT_ReasonPackageRef>其 packageId 在消息中</MDT_ReasonPackageRef>
+  <MDT_ReasonInPath>在文件路径中被命名</MDT_ReasonInPath>
+  <MDT_ReasonLogPrefix>在日志消息上盖了它的名字</MDT_ReasonLogPrefix>
+  <MDT_ReasonLogMention>在日志消息中作为标签被提及</MDT_ReasonLogMention>
+  <MDT_ReasonKnownPattern>由已知问题模式识别</MDT_ReasonKnownPattern>
+  <MDT_ReasonHarmonyPatch>修补了堆栈跟踪中的方法</MDT_ReasonHarmonyPatch>
+  <MDT_ReasonCorpusCorrelation>与许多安装中的此错误相关联</MDT_ReasonCorpusCorrelation>
+
+  <!-- 来源状态标签 -->
+  <MDT_StateActive>活跃</MDT_StateActive>
+  <MDT_StateInactive>已安装，未激活</MDT_StateInactive>
+  <MDT_StateNotInstalled>未安装</MDT_StateNotInstalled>
+
+  <!-- 设置 -->
+  <MDT_SettingsGeneral>通用</MDT_SettingsGeneral>
+  <MDT_NoMainMenuLog>不在主菜单打开日志</MDT_NoMainMenuLog>
+  <MDT_NoMainMenuLogDesc>避免在主菜单或加载期间记录到启动错误时自动打开调试日志。进入游戏后它仍会自动打开，你随时可以手动打开。默认关闭。</MDT_NoMainMenuLogDesc>
+  <MDT_SettingsIntro>分析模块。可随时开关它们。模组作者可以添加自己的模块来扩展归因、诊断和报告。</MDT_SettingsIntro>
+  <MDT_SettingsUnavailable>不可用</MDT_SettingsUnavailable>
+
+  <!-- 现代开发者操作窗口 -->
+  <MDT_DevToolsTitle>开发者工具</MDT_DevToolsTitle>
+  <MDT_DevSearchPlaceholder>搜索操作...</MDT_DevSearchPlaceholder>
+  <MDT_Back>返回</MDT_Back>
+  <MDT_EmptyNode>这里什么都没有。</MDT_EmptyNode>
+  <MDT_DevMenuError>无法读取开发者操作列表。请查看调试日志。</MDT_DevMenuError>
+  <MDT_SpawnHint>选择一件物品，然后点击地图放置它。</MDT_SpawnHint>
+  <MDT_PinTip>固定到开发者调色板以便快速访问。</MDT_PinTip>
+  <MDT_BrokenTip>此操作之前出错。请查看调试日志。</MDT_BrokenTip>
+  <MDT_ActionFailed>{0} 失败，请查看调试日志。</MDT_ActionFailed>
+
+  <!-- 影响横幅（严重度 + 性能 + 已知/未知） -->
+  <MDT_Critical>严重</MDT_Critical>
+  <MDT_High>高</MDT_High>
+  <MDT_Moderate>中等</MDT_Moderate>
+  <MDT_Low>低</MDT_Low>
+  <MDT_Info>信息</MDT_Info>
+  <MDT_ImpactOneOff>一次性，无性能影响</MDT_ImpactOneOff>
+  <MDT_ImpactRepeats>重复 x{0}</MDT_ImpactRepeats>
+  <MDT_ImpactTps>影响模拟（TPS）</MDT_ImpactTps>
+  <MDT_ImpactFps>影响渲染（FPS）</MDT_ImpactFps>
+  <MDT_ImpactBoth>影响 TPS 和 FPS</MDT_ImpactBoth>
+  <MDT_Known>已知问题</MDT_Known>
+  <MDT_Unknown>不在库中</MDT_Unknown>
+  <MDT_Benign>无需担心</MDT_Benign>
+  <MDT_BenignNoSource>这是普通的 RimWorld 消息。没有牵涉任何模组——可以安全忽略。</MDT_BenignNoSource>
+
+  <!-- 版本不匹配 -->
+  <MDT_VerTitle>模组可能不支持你的游戏版本</MDT_VerTitle>
+  <MDT_VerExplain>{0} 声明支持 {1}，但你的 RimWorld 版本是 {2}。版本不匹配是常见的错误来源。</MDT_VerExplain>
+  <MDT_VerFix>更新该模组，或寻找一个继续维护或更新的版本。如果它运行正常，你可以忽略这一点。</MDT_VerFix>
+  <MDT_VerUnspecified>无版本</MDT_VerUnspecified>
+
+  <!-- 社区：替代品 + 不兼容性 -->
+  <MDT_ReplaceTitle>存在更新的替代版本</MDT_ReplaceTitle>
+  <MDT_ReplaceExplain>{0} 看起来已过时。社区将「{1}」列为更新版本。</MDT_ReplaceExplain>
+  <MDT_ReplaceFix>切换到 {0}。上面的链接会在创意工坊打开它。</MDT_ReplaceFix>
+  <MDT_IncompatTitle>已知模组不兼容</MDT_IncompatTitle>
+  <MDT_IncompatExplain>{0} 已知与 {1} 不兼容，且两者都已激活。这可能会导致错误。</MDT_IncompatExplain>
+  <MDT_IncompatFix>移除这两个模组之一，或查看它们的页面是否有兼容性补丁。</MDT_IncompatFix>
+  <!-- Circinus 语料库（仅在 Circinus 激活时显示；正文来自 Circinus） -->
+  <MDT_CorpusTitle>此错误的常见程度</MDT_CorpusTitle>
+
+  <MDT_AboutIncompatTitle>声明的模组不兼容</MDT_AboutIncompatTitle>
+  <MDT_AboutIncompatExplain>{0} 在模组自己的 About.xml 中被标记为与 {1} 不兼容，且两者都已激活。不兼容的模组是此类错误的常见原因。</MDT_AboutIncompatExplain>
+
+  <!-- 模组自带的已知问题 -->
+  <MDT_ModShippedBy>由 {0} 提供。</MDT_ModShippedBy>
+
+  <!-- 社区数据控件 -->
+  <MDT_SectionCommunity>社区数据</MDT_SectionCommunity>
+  <MDT_CommEnable>使用社区数据库</MDT_CommEnable>
+  <MDT_CommUpdate>更新信息</MDT_CommUpdate>
+  <MDT_CommUpdateTip>下载最新的社区数据库（更新的模组替代品和已知不兼容性）。自愿加入，后台运行，缓存供离线使用。</MDT_CommUpdateTip>
+  <MDT_CommUpdating>正在更新...</MDT_CommUpdating>
+  <MDT_CommUpdated>已更新 {0}</MDT_CommUpdated>
+  <MDT_CommError>更新失败：{0}</MDT_CommError>
+  <MDT_CommDisabled>社区数据已关闭。开启它以检查已知不兼容性和更新的替代品。</MDT_CommDisabled>
+  <MDT_CommCached>正在使用缓存数据。</MDT_CommCached>
+  <MDT_CommNoData>尚无数据。按「更新信息」下载。</MDT_CommNoData>
+  <MDT_CommEnabledMsg>社区数据已启用。</MDT_CommEnabledMsg>
+  <MDT_CommunityReportedBy>由 {0} 报告。</MDT_CommunityReportedBy>
+
+  <!-- 社区报告（打开预填的 GitHub issue 表单） -->
+  <MDT_ReportBlurb>帮助社区：报告此错误以便加入已知问题数据库，如果你已经知道修复方法也可以提交修复。会在 GitHub 上打开一个预填表单——你用自己的账户提交。</MDT_ReportBlurb>
+  <MDT_ReportKnown>此错误已在社区数据库中（见上面的修复）。如果该修复无效，请添加细节以便改进它。</MDT_ReportKnown>
+  <MDT_ReportBtn>报告此错误</MDT_ReportBtn>
+  <MDT_ReportAddDetail>添加细节</MDT_ReportAddDetail>
+  <MDT_ReportTip>在 GitHub 上打开预填的错误报告。异常、涉嫌模组和签名会为你填好，完整报告会复制到你的剪贴板以便粘贴。</MDT_ReportTip>
+  <MDT_SubmitFix>提交修复</MDT_SubmitFix>
+  <MDT_SubmitFixTip>知道原因和修复方法？打开结构化的修复提交表单。被接受的修复会并入已知问题数据库并展示给所有人。</MDT_SubmitFixTip>
+  <MDT_ReportOpened>已在你的浏览器中打开预填的错误报告。完整报告也已复制到你的剪贴板，如果你想粘贴更多细节。</MDT_ReportOpened>
+  <MDT_FixFormOpened>已在你的浏览器中打开修复提交表单。</MDT_FixFormOpened>
+
+  <!-- 报告合成器对话框（推送到 GitHub 前添加信息） -->
+  <MDT_ReportDialogTitle>报告错误</MDT_ReportDialogTitle>
+  <MDT_FixDialogTitle>提交修复</MDT_FixDialogTitle>
+  <MDT_ReportInfo_Exception>异常</MDT_ReportInfo_Exception>
+  <MDT_ReportInfo_Version>RimWorld</MDT_ReportInfo_Version>
+  <MDT_ReportInfo_Implicated>涉嫌模组</MDT_ReportInfo_Implicated>
+  <MDT_ReportInfo_Signature>签名</MDT_ReportInfo_Signature>
+  <MDT_ReportField_Summary>发生此事时你在做什么？（什么坏了，如何复现）</MDT_ReportField_Summary>
+  <MDT_FixField_Explanation>说明——发生了什么问题？</MDT_FixField_Explanation>
+  <MDT_FixField_Fix>你是如何修复的？（或应该如何修复？）</MDT_FixField_Fix>
+  <MDT_FixField_Credit>致谢（可选）</MDT_FixField_Credit>
+  <MDT_ReportTracePreview>预览（这就是将要被复制 / 提交的内容）</MDT_ReportTracePreview>
+  <MDT_ReportCopy>复制报告</MDT_ReportCopy>
+  <MDT_ReportCopyTip>将上面的完整报告复制到你的剪贴板。粘贴到任何地方——GitHub issue、Discord 消息、论坛帖子。</MDT_ReportCopyTip>
+  <MDT_ReportOpenGitHub>在 GitHub 上打开</MDT_ReportOpenGitHub>
+  <MDT_ReportOpenGitHubTip>在 GitHub 上打开包含上述所有内容的预填 issue，并将完整报告复制到你的剪贴板。你用自己的账户提交。</MDT_ReportOpenGitHubTip>
+
+  <!-- 报告目标：先到涉嫌模组自己的渠道，社区作为「另外」 -->
+  <MDT_ReportToModGithub>报告给 {0}（GitHub）</MDT_ReportToModGithub>
+  <MDT_ReportToModGithubTip>打开 {0} 自己 GitHub 上的预填 issue——这个很可能导致问题的模组，也是真正能做出修复的地方。报告也会复制到你的剪贴板。</MDT_ReportToModGithubTip>
+  <MDT_ReportToModWorkshop>报告给 {0}（Steam）</MDT_ReportToModWorkshop>
+  <MDT_ReportToModWorkshopTip>打开 {0} 的 Steam 创意工坊页面。报告会复制到你的剪贴板——将其粘贴到那里的评论中。</MDT_ReportToModWorkshopTip>
+  <MDT_ReportToModSite>报告给 {0}</MDT_ReportToModSite>
+  <MDT_ReportToCommunity>另外报告给社区</MDT_ReportToCommunity>
+  <MDT_ReportToCommunityOnly>报告给社区数据库</MDT_ReportToCommunityOnly>
+  <MDT_ReportToCommunityTip>也将此添加到现代开发者工具的社区已知问题数据库中，让此模组的每个用户都受益于修复。</MDT_ReportToCommunityTip>
+  <MDT_ReportSentToMod>正在打开 {0} 的 issue 跟踪器。报告已复制到你的剪贴板。</MDT_ReportSentToMod>
+  <MDT_ReportPasteToPage>正在打开 {0} 的页面。报告已复制到你的剪贴板——将其粘贴到评论中。</MDT_ReportPasteToPage>
+  <MDT_ReportClose>关闭</MDT_ReportClose>
+  <MDT_ReportCopied>报告已复制到剪贴板。</MDT_ReportCopied>
+
+  <!-- Harmony 补丁归因与冲突 -->
+  <MDT_HarmonyConflictTitle>可能的 Harmony 补丁冲突</MDT_HarmonyConflictTitle>
+  <MDT_HarmonyConflictExplain>此错误中的方法 {0} 被 {2} 个使用 Harmony 的模组修改：{1}。当两个模组修改同一个方法时，一个可能破坏另一个，这通常会产生堆栈跟踪看起来像原版代码的错误。</MDT_HarmonyConflictExplain>
+  <MDT_HarmonyConflictFix>逐一禁用这些模组以找出冲突的那对，然后连同此堆栈跟踪报告给两位作者。补丁加载顺序或兼容性模组也可能解决它。</MDT_HarmonyConflictFix>
+  <MDT_HarmonyPatchedTitle>某个模组修改了此错误中的方法</MDT_HarmonyPatchedTitle>
+  <MDT_HarmonyPatchedExplain>此错误中的方法 {0} 被 {1} 使用 Harmony 修改。即使堆栈跟踪显示的是原版代码，错误也可能来自该修改。</MDT_HarmonyPatchedExplain>
+  <MDT_HarmonyPatchedFix>如果错误重复出现，禁用该模组以确认它是原因，然后连同此堆栈跟踪报告给作者。</MDT_HarmonyPatchedFix>
+
+  <!-- 缺失依赖与加载顺序（主动扫描） -->
+  <MDT_DepMissingTitle>缺少或未激活所需模组</MDT_DepMissingTitle>
+  <MDT_DepMissingExplain>{0} 需要 {1}，但它未激活。缺少必需模组是缺少 def、缺少类型和未解析引用等错误的最常见原因。</MDT_DepMissingExplain>
+  <MDT_DepMissingFix>安装或激活所需模组，然后重启。模组列表排序器也可以为你添加并放置它。</MDT_DepMissingFix>
+  <MDT_DepInactive>{0}（已安装但未激活）</MDT_DepInactive>
+  <MDT_DepOrderTitle>某个模组加载顺序错误</MDT_DepOrderTitle>
+  <MDT_DepOrderExplain>{0} 以错误的顺序加载：</MDT_DepOrderExplain>
+  <MDT_DepOrderFix>按上面所述移动它，或在模组列表中按「排序」以自动修复加载顺序。</MDT_DepOrderFix>
+  <MDT_DepSummaryTitle>缺少必需模组可能导致此问题</MDT_DepSummaryTitle>
+  <MDT_DepSummaryExplain>{0} 个活跃模组缺少所需模组，这是缺少 def、缺少类型和未解析引用错误的常见根本原因：</MDT_DepSummaryExplain>
+  <MDT_DepLine>{0} 需要 {1}</MDT_DepLine>
+  <MDT_DepSummaryFix>安装或激活上面列出的模组，然后重启。模组列表排序器可以为你添加和排序依赖项。</MDT_DepSummaryFix>
+
+  <!-- 通俗语言术语表（「此错误中的术语」） -->
+  <MDT_SectionTerms>此错误中的术语</MDT_SectionTerms>
+  <MDT_GlHarmony>Harmony</MDT_GlHarmony>
+  <MDT_GlHarmonyDef>一个共享库，允许模组在运行时修改游戏的内置代码。大多数代码模组使用它。当两个模组修改同一个东西时，它们可能会冲突。</MDT_GlHarmonyDef>
+  <MDT_GlTranspiler>Transpiler</MDT_GlTranspiler>
+  <MDT_GlTranspilerDef>最侵入性的一种 Harmony 补丁：它直接重写方法的指令。功能强大，但在游戏或其他模组更新时最可能损坏。</MDT_GlTranspilerDef>
+  <MDT_GlCrossRef>交叉引用</MDT_GlCrossRef>
+  <MDT_GlCrossRefDef>一条游戏数据按名称指向另一条。未解析的交叉引用意味着它指向的东西未找到，通常是缺少模组或顺序错误的模组。</MDT_GlCrossRefDef>
+  <MDT_GlDef>Def</MDT_GlDef>
+  <MDT_GlDefDef>模组 XML 中定义的一条游戏数据：一件物品、建筑、配方、动物等。其 defName 是它的唯一 ID。</MDT_GlDefDef>
+  <MDT_GlXpath>XPath</MDT_GlXpath>
+  <MDT_GlXpathDef>模组补丁用来定位它想更改的确切游戏数据的寻址语言。失败的补丁通常意味着其 XPath 不再匹配任何内容。</MDT_GlXpathDef>
+  <MDT_GlPatchOp>补丁操作</MDT_GlPatchOp>
+  <MDT_GlPatchOpDef>模组中在加载时编辑另一个模组或游戏 XML 数据的规则。当其目标已移动或另一个模组先更改了它时会静默失败。</MDT_GlPatchOpDef>
+  <MDT_GlStackTrace>堆栈跟踪</MDT_GlStackTrace>
+  <MDT_GlStackTraceDef>错误发生时游戏正在运行的方法列表，最新的在前。它是找出涉及哪个模组代码的主要线索。</MDT_GlStackTraceDef>
+  <MDT_GlNullRef>空引用</MDT_GlNullRef>
+  <MDT_GlNullRefDef>代码尝试使用不存在的东西。最常见的错误，通常是模组遇到了其作者没有预料到的情况。</MDT_GlNullRefDef>
+  <MDT_GlTps>TPS</MDT_GlTps>
+  <MDT_GlTpsDef>每秒 tick 数：模拟运行的速度。每 tick 都触发的错误会拖低 TPS，即使在很高的 FPS 下也会让游戏感觉缓慢。</MDT_GlTpsDef>
+  <MDT_GlFps>FPS</MDT_GlFps>
+  <MDT_GlFpsDef>每秒帧数：屏幕绘制的流畅度。绘制代码中的错误每帧都会触发，可能拉低 FPS。</MDT_GlFpsDef>
+  <MDT_GlLoadOrder>加载顺序</MDT_GlLoadOrder>
+  <MDT_GlLoadOrderDef>模组加载的顺序。必须在其依赖的模组之后加载的模组，如果加载太早会出错。排序器可修复大多数此类问题。</MDT_GlLoadOrderDef>
+  <MDT_GlPackageId>packageId</MDT_GlPackageId>
+  <MDT_GlPackageIdDef>模组的唯一 ID，例如 author.modname。游戏用它来匹配依赖项和加载顺序，而不是显示名称。</MDT_GlPackageIdDef>
+  <MDT_GlHugsLib>HugsLib</MDT_GlHugsLib>
+  <MDT_GlHugsLibDef>许多其他模组依赖的常见库模组。如果它缺失或过时，每个需要它的模组都可能失败。</MDT_GlHugsLibDef>
+  <MDT_GlTypeLoad>类型加载失败</MDT_GlTypeLoad>
+  <MDT_GlTypeLoadDef>模组的代码无法加载，因此其所有功能和数据都被禁用。通常是缺少依赖项或版本不匹配，常与 Harmony 相关。</MDT_GlTypeLoadDef>
+  <MDT_GlComp>Comp（组件）</MDT_GlComp>
+  <MDT_GlCompDef>模组附加到某物（一件物品、建筑或小人）上以赋予其额外能力的可复用行为片段。有问题的 comp 是重复每 tick 错误的常见来源。</MDT_GlCompDef>
+  <MDT_GlHediff>Hediff（健康状态）</MDT_GlHediff>
+  <MDT_GlHediffDef>health diff 的缩写：小人健康标签页上的任何内容，例如伤口、疾病、植入物或药物效果。损坏的 hediff 可能在小人每次更新时出错。</MDT_GlHediffDef>
+  <MDT_GlTick>Tick</MDT_GlTick>
+  <MDT_GlTickDef>模拟的最小步骤；游戏在正常速度下每秒运行 60 次。每 tick 都触发的错误会非常快地重复并使游戏变慢。</MDT_GlTickDef>
+  <MDT_GlScribe>Scribe（存档系统）</MDT_GlScribe>
+  <MDT_GlScribeDef>RimWorld 的保存和加载系统。提及 Scribe 的错误发生在写入或读取你的存档时，通常是因为存档创建后模组发生了变化。</MDT_GlScribeDef>
+  <MDT_GlLoadId>loadID</MDT_GlLoadId>
+  <MDT_GlLoadIdDef>存档用来将一个已保存对象链接到另一个的唯一 ID。未解析的 loadID 意味着链接的对象在存档中缺失，通常来自已移除或更改的模组。</MDT_GlLoadIdDef>
+  <MDT_GlDefOf>DefOf</MDT_GlDefOf>
+  <MDT_GlDefOfDef>模组按名称获取特定 def 的代码快捷方式。在 defs 完成加载之前使用它会返回空值，这是一个常见的启动时序错误。</MDT_GlDefOfDef>
+  <MDT_GlGizmo>Gizmo</MDT_GlGizmo>
+  <MDT_GlGizmoDef>选择某物时左下角的命令按钮之一（征召、设置区域、切换电源）。模组的 gizmo 代码可能在按钮绘制时抛出。</MDT_GlGizmoDef>
+  <MDT_GlITab>ITab（检查标签页）</MDT_GlITab>
+  <MDT_GlITabDef>选择某物时打开的面板上的标签页之一（健康、装备、需求）。损坏的标签页在你打开它时会出错。</MDT_GlITabDef>
+  <MDT_GlMote>Mote</MDT_GlMote>
+  <MDT_GlMoteDef>小的、短暂的可视效果，例如文本弹窗、烟团或爱心。单独无害；mote 错误通常是外观性的。</MDT_GlMoteDef>
+  <MDT_GlAssembly>程序集（DLL）</MDT_GlAssembly>
+  <MDT_GlAssemblyDef>模组的编译代码，以 .dll 文件形式提供。如果程序集无法加载，该模组的每个功能和 def 会同时被禁用。</MDT_GlAssemblyDef>
+  <MDT_GlPrePostfix>前缀 / 后缀</MDT_GlPrePostfix>
+  <MDT_GlPrePostfixDef>两种较温和的 Harmony 补丁：前缀在原始代码之前运行，后缀在其之后。当多个模组修补同一个东西时，它们比 transpiler 更能共存——但前缀也可以完全跳过原始方法，这会让其他模组的补丁静默挨饿，是冲突的常见来源。</MDT_GlPrePostfixDef>
+  <MDT_GlDlc>DLC</MDT_GlDlc>
+  <MDT_GlDlcDef>官方付费扩展（皇权、意识形态、生物科技、异象）。需要某个 DLC 的模组，如果该 DLC 未安装且未激活会出错。</MDT_GlDlcDef>
+
+  <!-- 实验性窗口加固 -->
+  <MDT_Hardening>实验性：关闭破坏 UI 的窗口</MDT_Hardening>
+  <MDT_HardeningDesc>如果窗口持续出错（黑色或冻结的窗口），捕获它使其无法冻结界面的其余部分，然后在几秒后关闭它。实验性：它改变原版行为，默认关闭。</MDT_HardeningDesc>
+  <MDT_WindowClosed>已关闭损坏的窗口：{0}</MDT_WindowClosed>
+  <MDT_MapHardening>实验性：恢复损坏的世界和地图 UI</MDT_MapHardening>
+  <MDT_MapHardeningDesc>如果世界地图或地图内 UI 抛出（通常是模组在模组列表更改后遇到缺失派系或空数据），捕获它使界面其余部分仍能绘制，而不是加载到空白或损坏的世界地图。实验性：它改变原版行为，默认关闭。</MDT_MapHardeningDesc>
+  <MDT_SectionHardening>实验性加固</MDT_SectionHardening>
+  <MDT_HardeningShort>关闭破坏 UI 的窗口</MDT_HardeningShort>
+  <MDT_MapHardeningShort>恢复损坏的世界/地图 UI</MDT_MapHardeningShort>
+
+  <!-- 已更新模组跟踪 -->
+  <MDT_ModsChangedBtn>模组已更改（{0}）</MDT_ModsChangedBtn>
+  <MDT_ModsChangedTip>自创建此存档以来模组发生了变化，这是存档错误的常见原因。点击查看详情。</MDT_ModsChangedTip>
+  <MDT_ModsChangedTitle>自此存档以来模组已更改</MDT_ModsChangedTitle>
+  <MDT_ModsChangedIntro>自创建此存档以来，这些模组已更新、移除或添加。已更新和已移除的模组是现有存档上错误的常见原因。</MDT_ModsChangedIntro>
+  <MDT_ChangeUpdated>已更新</MDT_ChangeUpdated>
+  <MDT_ChangeRemoved>已移除</MDT_ChangeRemoved>
+  <MDT_ChangeAdded>已添加</MDT_ChangeAdded>
+
+  <!-- 更新说明 -->
+  <MDT_UpdateNotesTitle>现代开发者工具的新内容</MDT_UpdateNotesTitle>
+  <MDT_UpdateNotesVersion>已更新到版本 {0}</MDT_UpdateNotesVersion>
+  <MDT_UpdateNotesClose>知道了</MDT_UpdateNotesClose>
+  <MDT_UpdateNotesBody>欢迎使用现代开发者工具，这是对 RimWorld 开发者工具的一次现代化改造。\n\n1.3 版新增——与他人良好协作\n- 其他日志模组继续正常工作：HugsLib 和 Archotech Logs 会向 RimWorld 原始调试日志添加自己的按钮。由于本模组替换了该窗口，这些按钮过去会静默消失。现在它们出现在现代日志底部的附加托盘中——包括 HugsLib 的共享日志、文件和复制——并重新设计以匹配窗口其余部分。\n- Archotech Logs 集成：其诊断和导出窗口可直接从托盘打开，并跟随你选择的任意消息。\n- 「原版日志」按钮可随时打开 RimWorld 的原始窗口，新的「日志窗口」设置可将日志完全交还给原版，如果你更愿意让其他模组拥有它。\n\n日志刷屏节流（可选，默认关闭）\n- 当同一个错误无限重复时，RimWorld 仍会为每次重复构建完整堆栈跟踪并写入日志文件。更糟的是，它只折叠连续出现的重复，因此两个交替出现的错误永远不会被折叠。\n- 开启此项可在最初几条之后停止写入。最初几条总是会显示，被拦截的数量显示在消息旁边，并计入错误的严重度——因此不会向你隐藏任何内容。\n- 这隐藏的是症状，不是原因。请修复根本错误。\n\n更快的面板\n- 文本测量、错误分析和模组排名现在会被缓存，而不是每帧重新计算多次。\n- 知识库只绘制你实际能看到的行，因此长列表在屏幕外不再花费任何开销。\n- 两个实验性加固功能和刷屏节流只在开启时安装补丁，而不是始终运行。\n\n面向模组作者\n- 公共 API v2：添加你自己的知识来源、向日志窗口添加按钮，或监听已完成的分析。按钮签名与 HugsLib 匹配，因此一个方法可同时适用于两者。\n- 更多内容见完整更新日志。</MDT_UpdateNotesBody>
+
+  <!-- 开发者调色板 -->
+  <MDT_DevPaletteTitle>开发者调色板</MDT_DevPaletteTitle>
+  <MDT_DevPaletteEmpty>从开发者工具窗口固定操作以添加到此。</MDT_DevPaletteEmpty>
+  <MDT_Unpin>取消固定</MDT_Unpin>
+
+  <!-- 模块与过滤器窗口 -->
+  <MDT_ModulesTitle>模块与过滤器</MDT_ModulesTitle>
+  <MDT_SectionModules>分析模块</MDT_SectionModules>
+  <MDT_SectionIgnored>已忽略的警告</MDT_SectionIgnored>
+  <MDT_SectionExtend>扩展此模组</MDT_SectionExtend>
+  <MDT_NoIgnored>没有正在被忽略的警告。打开一个警告并按「忽略」以静音一类无害警告。</MDT_NoIgnored>
+  <MDT_Remove>移除</MDT_Remove>
+  <MDT_ClearIgnores>全部清除</MDT_ClearIgnores>
+  <MDT_ExtendHint>添加你自己的分析：在 XML 中提供 ModernDevTools.ErrorModuleDef 或 ModernDevTools.KnownIssueDef，或用你自己的 ErrorModule 子类在 C# 中调用 ModernDevToolsAPI.RegisterModule。完整指南：Documentation/RootCauseAnalysis.md。</MDT_ExtendHint>
+  <MDT_TagBuiltIn>内置</MDT_TagBuiltIn>
+  <MDT_TagRequires>需要 {0}</MDT_TagRequires>
+  <MDT_TagUnavailable>不可用</MDT_TagUnavailable>
+
+  <!-- 知识库（现代开发者工具知道的一切的全局浏览器） -->
+  <MDT_KbButton>知识库</MDT_KbButton>
+  <MDT_KbButtonTip>浏览现代开发者工具知道的一切：问题库、社区数据库、你的模组的兼容性和依赖、实时 Harmony 补丁，以及术语表——每个都带有来源。</MDT_KbButtonTip>
+  <MDT_KbTitle>知识库</MDT_KbTitle>
+  <MDT_KbSearchPlaceholder>搜索此部分...</MDT_KbSearchPlaceholder>
+  <MDT_KbNoResults>没有匹配你的搜索的内容。</MDT_KbNoResults>
+
+  <!-- 知识库：标签页名称 -->
+  <MDT_KbTabSources>来源</MDT_KbTabSources>
+  <MDT_KbTabKnown>已知问题</MDT_KbTabKnown>
+  <MDT_KbTabBenign>良性日志行</MDT_KbTabBenign>
+  <MDT_KbTabCommunity>社区错误</MDT_KbTabCommunity>
+  <MDT_KbTabCompat>兼容性</MDT_KbTabCompat>
+  <MDT_KbTabDeps>依赖</MDT_KbTabDeps>
+  <MDT_KbTabHarmony>Harmony 补丁</MDT_KbTabHarmony>
+  <MDT_KbTabGlossary>术语表</MDT_KbTabGlossary>
+
+  <!-- 知识库：来源仪表盘 -->
+  <MDT_KbSourcesIntro>现代开发者工具向你展示的一切都来自下面的来源。选择一个以浏览其条目。</MDT_KbSourcesIntro>
+  <MDT_KbSourceKnown>已知问题库</MDT_KbSourceKnown>
+  <MDT_KbSourceKnownDesc>常见引擎和模组错误的精选通俗语言说明。</MDT_KbSourceKnownDesc>
+  <MDT_KbSourceBenign>良性日志行库</MDT_KbSourceBenign>
+  <MDT_KbSourceBenignDesc>被识别为无过错的普通 RimWorld 日志行，因此绝不会被归咎于模组。</MDT_KbSourceBenignDesc>
+  <MDT_KbSourceCommunity>社区错误数据库</MDT_KbSourceCommunity>
+  <MDT_KbSourceCommunityDesc>自愿加入的在线已知错误和修复数据库，以及你的模组内自带的 issue。</MDT_KbSourceCommunityDesc>
+  <MDT_KbSourceCompat>模组兼容性</MDT_KbSourceCompat>
+  <MDT_KbSourceCompatDesc>你的模组已声明的和社区已知的不兼容性及更新替代品。</MDT_KbSourceCompatDesc>
+  <MDT_KbSourceDeps>依赖与加载顺序</MDT_KbSourceDeps>
+  <MDT_KbSourceDepsDesc>你活跃模组列表中缺失的必需模组和加载顺序问题。</MDT_KbSourceDepsDesc>
+  <MDT_KbSourceHarmony>Harmony 补丁注册表</MDT_KbSourceHarmony>
+  <MDT_KbSourceHarmonyDesc>模组在运行时修改的游戏方法实时列表，以及多处冲突的位置。</MDT_KbSourceHarmonyDesc>
+  <MDT_KbSourceGlossary>术语表</MDT_KbSourceGlossary>
+  <MDT_KbSourceGlossaryDesc>错误中出现的行话的通俗语言定义。</MDT_KbSourceGlossaryDesc>
+  <MDT_KbEntries>{0} 个条目</MDT_KbEntries>
+  <MDT_KbSourceOff>关闭</MDT_KbSourceOff>
+  <MDT_KbNotScanned>尚未扫描</MDT_KbNotScanned>
+
+  <!-- 知识库：条目来源标签 -->
+  <MDT_KbTagShipped>由 {0} 提供</MDT_KbTagShipped>
+  <MDT_KbTagCommunityBug>社区数据库</MDT_KbTagCommunityBug>
+  <MDT_KbTagAbout>在 About.xml 中声明</MDT_KbTagAbout>
+  <MDT_KbTagCommunityRule>社区规则数据库</MDT_KbTagCommunityRule>
+  <MDT_KbTagReplace>Use This Instead 数据库</MDT_KbTagReplace>
+  <MDT_KbTagYourMods>你的活跃模组列表</MDT_KbTagYourMods>
+  <MDT_KbTagHarmony>实时 Harmony 注册表</MDT_KbTagHarmony>
+  <MDT_KbSignals>触发条件：{0}</MDT_KbSignals>
+
+  <!-- 知识库：区块标题与空状态 -->
+  <MDT_KbSecCommunityDb>社区数据库</MDT_KbSecCommunityDb>
+  <MDT_KbSecShipped>由你的模组提供</MDT_KbSecShipped>
+  <MDT_KbSecAbout>声明的不兼容性（About.xml）</MDT_KbSecAbout>
+  <MDT_KbSecRules>已知不兼容性（社区）</MDT_KbSecRules>
+  <MDT_KbSecReplace>更新替代品</MDT_KbSecReplace>
+  <MDT_KbEmptyKnown>没有加载已知问题条目。</MDT_KbEmptyKnown>
+  <MDT_KbEmptyBenign>没有加载良性日志行条目。</MDT_KbEmptyBenign>
+  <MDT_KbCommOff>社区数据已关闭。开启以下载在线错误、不兼容性和替代品数据库。它在后台运行并缓存供离线使用。</MDT_KbCommOff>
+  <MDT_KbCommEnable>启用并更新</MDT_KbCommEnable>
+  <MDT_KbNoCommunityBugs>尚未加载社区错误条目。按「启用并更新」或「更新信息」以下载它们。</MDT_KbNoCommunityBugs>
+  <MDT_KbNoShipped>你的活跃模组中没有一个自带已知问题文件。</MDT_KbNoShipped>
+  <MDT_KbNoCompat>没有为你的模组找到不兼容性或替代品。</MDT_KbNoCompat>
+  <MDT_KbNoDeps>你的活跃模组中没有缺失依赖或加载顺序问题。</MDT_KbNoDeps>
+  <MDT_KbNoConflicts>没有游戏方法被两个或更多不同模组修补。</MDT_KbNoConflicts>
+
+  <!-- 知识库：兼容性条目 -->
+  <MDT_KbIncompatPair>{0} 对比 {1}</MDT_KbIncompatPair>
+  <MDT_KbBothActive>两者在你的模组列表中都处于活跃状态。</MDT_KbBothActive>
+  <MDT_KbReplacePair>{0}  -&gt;  {1}</MDT_KbReplacePair>
+  <MDT_KbReplaceBlurb>社区为这个模组列出了一个更新替代品。</MDT_KbReplaceBlurb>
+  <MDT_KbReplaceVersions>支持：{0}</MDT_KbReplaceVersions>
+
+  <!-- 知识库：依赖条目 -->
+  <MDT_KbDepMissingLine>缺失：{0}</MDT_KbDepMissingLine>
+  <MDT_KbDepInstalledInactive>已安装但未激活</MDT_KbDepInstalledInactive>
+  <MDT_KbDepNotInstalled>未安装</MDT_KbDepNotInstalled>
+
+  <!-- 知识库：Harmony 条目 -->
+  <MDT_KbHarmonySummary>模组修补了 {0} 个游戏方法。其中 {1} 个被两个或更多不同模组修改，可能会冲突（在下方高亮）。</MDT_KbHarmonySummary>
+  <MDT_KbHarmonyEmpty>当前没有模组修补任何游戏方法。</MDT_KbHarmonyEmpty>
+  <MDT_KbHarmonyPatchers>修补方：{0}</MDT_KbHarmonyPatchers>
+  <MDT_KbHarmonyShowing>正在显示 {1} 个中的前 {0} 个。</MDT_KbHarmonyShowing>
+
+  <!-- 日志窗口归属 / 与装饰原版日志的模组兼容 -->
+  <MDT_VanillaLog>原版日志</MDT_VanillaLog>
+  <MDT_VanillaLogTip>打开 RimWorld 原始调试日志窗口。\n\n{0} 在那里添加了自己的按钮，而这些按钮只出现在原始窗口上。</MDT_VanillaLogTip>
+  <MDT_CompatHint>{0} 也向 RimWorld 原始调试日志添加按钮。这些按钮只出现在原始窗口上——随时可用「原版日志」按钮打开它。</MDT_CompatHint>
+  <MDT_CompatDismiss>知道了</MDT_CompatDismiss>
+  <MDT_CompatHugsLibDetail>共享日志、文件和复制按钮，以及其他模组通过 HugsLib 添加的任何日志按钮。</MDT_CompatHugsLibDetail>
+  <MDT_CompatArchotechDetail>诊断、导出和日志着色按钮。</MDT_CompatArchotechDetail>
+  <MDT_SectionLogWindow>日志窗口</MDT_SectionLogWindow>
+  <MDT_YieldLogWindow>使用原版日志窗口</MDT_YieldLogWindow>
+  <MDT_YieldLogWindowDesc>将调试日志交还给 RimWorld。热键、开发者工具栏按钮和自动打开都会再次打开原始窗口，因此向它添加按钮的模组会像没有本模组时一样工作。现代日志仍可从开发者工具窗口访问。</MDT_YieldLogWindowDesc>
+  <MDT_LogDecorators>在原版日志窗口上检测到：{0}</MDT_LogDecorators>
+
+  <!-- 重复日志行节流 -->
+  <MDT_SectionThrottle>日志刷屏</MDT_SectionThrottle>
+  <MDT_Throttle>节流重复的日志行</MDT_Throttle>
+  <MDT_ThrottleDesc>当同一条日志行一遍又一遍重复时，在最初几条之后停止写入。RimWorld 会为每次重复构建完整堆栈跟踪并写入日志文件，即使是它随后丢弃的那些，因此失控的错误会在已有的问题之上额外消耗速度。最初几条总是会显示，被拦截的数量显示在消息旁边。这隐藏的是症状，不是原因。</MDT_ThrottleDesc>
+  <MDT_ThrottleSummary>在最初 {1} 条之后拦截了同一条日志行的 {0} 次重复。修复根本错误以停止它。</MDT_ThrottleSummary>
+  <MDT_SuppressedTip>日志刷屏节流拦截了 {0} 次更多重复。</MDT_SuppressedTip>
+
+  <!-- 到其他模组的声明式反射桥接 -->
+  <MDT_BridgeTitle>{0}</MDT_BridgeTitle>
+  <MDT_ReasonBridge>由 {0} 命名</MDT_ReasonBridge>
+
+  <!-- Archotech Logs 桥接（托盘按钮） -->
+  <MDT_ArchotechDiagnostics>诊断</MDT_ArchotechDiagnostics>
+  <MDT_ArchotechDiagnosticsTip>为所选消息打开 Archotech Logs 的诊断视图。</MDT_ArchotechDiagnosticsTip>
+  <MDT_ArchotechExport>导出</MDT_ArchotechExport>
+  <MDT_ArchotechExportTip>打开 Archotech Logs 的日志导出窗口。</MDT_ArchotechExportTip>
+
+</LanguageData>
+

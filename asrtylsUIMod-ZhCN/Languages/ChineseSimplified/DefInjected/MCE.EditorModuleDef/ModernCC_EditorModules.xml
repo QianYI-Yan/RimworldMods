@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modern CC 编辑器模块 Def 汉化（DefInjected 注入） -->
+<Defs>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Appearance</defName>
+    <label>外观</label>
+    <description>身体、头部、发型和年龄编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Face</defName>
+    <label>面部</label>
+    <description>用于面部动画的面部部件和眼睛颜色编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Story</defName>
+    <label>故事</label>
+    <description>姓名、性别和背景故事编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Traits</defName>
+    <label>特性</label>
+    <description>添加和移除特性，并检查冲突。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Skills</defName>
+    <label>技能</label>
+    <description>技能等级和热情。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Gear</defName>
+    <label>装备</label>
+    <description>服装、武器和物品栏物品。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Health</defName>
+    <label>健康</label>
+    <description>健康状态、植入物和伤害。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Needs</defName>
+    <label>需求</label>
+    <description>需求等级，包括心情。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Thoughts</defName>
+    <label>想法</label>
+    <description>记忆及其心情效果。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Relations</defName>
+    <label>社交</label>
+    <description>精神状态和小人之间的直接关系。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Records</defName>
+    <label>属性</label>
+    <description>小人记录：战斗击杀、工作总量、时间和社交计数器。编辑数值或全部清除。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Genes</defName>
+    <label>基因</label>
+    <description>异种人和基因编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Race</defName>
+    <label>种族</label>
+    <description>在小人、Humanoid Alien Races 和 Big and Small 种族之间切换小人的种族。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Pregnancy</defName>
+    <label>怀孕</label>
+    <description>怀孕和未出生婴儿的基因编辑。自动检测生物科技、RimJobWorld 或亲密（Gender Works 卵 / 机械体）怀孕。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Ideoligion</defName>
+    <label>意识形态</label>
+    <description>意识形态、信仰坚定度和最喜欢的颜色。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Royalty</defName>
+    <label>皇权</label>
+    <description>帝国头衔、荣耀和心灵链接。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Abilities</defName>
+    <label>能力</label>
+    <description>能力、心灵施法、心灵聚焦和神经热量。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Psyche</defName>
+    <label>心灵</label>
+    <description>面向 RimPsyche 的性格方面编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Sexuality</defName>
+    <label>性取向</label>
+    <description>面向 RimJobWorld 的取向和身体部件编辑。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Progression</defName>
+    <label>进度</label>
+    <description>来自进度模组家族的熟练度、心理稳定、创伤和完整性。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Aspirations</defName>
+    <label>志向</label>
+    <description>为原版志向扩展添加和移除人生目标。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Comforts</defName>
+    <label>舒适</label>
+    <description>面向舒适模组的个人口味：食物、服装、最喜欢的颜色、武器风格和娱乐。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Isekai</defName>
+    <label>异世界</label>
+    <description>面向 ISEKAI RPG Leveling 的等级、阶级、属性、经验、星点和特性。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Romance</defName>
+    <label>恋爱</label>
+    <description>面向 Romance On The Rim 的恋爱需求等级、渴望等级和恋爱伴侣。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Intimacy</defName>
+    <label>亲密</label>
+    <description>面向亲密模组家族（Friends n' Lovers、Gender Works）的亲密需求和生殖器官。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Personality</defName>
+    <label>性格</label>
+    <description>面向 1-2-3 Personalities 的九型人格根源、变体和性格特性。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Psycasts</defName>
+    <label>心灵施法</label>
+    <description>面向原版心灵施法扩展的心灵链接等级、能力和属性点数、已解锁路径和已学会的心灵施法。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Psycasts2</defName>
+    <label>心灵施法²</label>
+    <description>面向 Psycasts² 的逐心灵施法技能等级、专精节点和点数，以及启蒙等级。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Itemization</defName>
+    <label>词缀</label>
+    <description>面向 Itemization Overhaul 的已装备和携带装备上的稀有度、词缀、符文/插槽和套装成员。</description>
+  </MCE.EditorModuleDef>
+
+  <MCE.EditorModuleDef>
+    <defName>MCE_Androids</defName>
+    <label>安卓</label>
+    <description>面向 Vanilla Races Expanded - Android 的安卓组件和觉醒。</description>
+  </MCE.EditorModuleDef>
+
+</Defs>

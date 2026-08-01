@@ -1,0 +1,9 @@
+行360 :: 方法 SortModeLabel :: text = "Opinion";
+行369 :: 方法 SortModeLabel :: text = "Relation";
+行886 :: 方法 DrawGraphPane :: SocialTabDrawer._graphCacheLbl = "Standing";
+行1831 :: 方法 if :: stringBuilder2.AppendLine(ColoredText.Colorize("Relations", ColoredText.TipSecti
+行1842 :: 方法 if :: SocialTabDrawer.DrawOpinionBar(new Rect(num5, num19, num6, 13f), entry.OpinionOf
+行1843 :: 方法 if :: SocialTabDrawer.DrawOpinionBar(new Rect(num5, num19 + 13f + num18, num6, 13f), e
+行2147 :: 方法 WhereIs :: return "unknown";
+行2151 :: 方法 WhereIs :: return "deceased";
+行2424 :: 方法 DrawRomanceRow :: [TupleElementNames(new string[] { "section", "detail", "opinion" })]

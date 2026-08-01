@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <ModernPawnTabs_ResetOrder>重置标签页顺序</ModernPawnTabs_ResetOrder>
+  <ModernPawnTabs_HideTabTip>隐藏此标签页</ModernPawnTabs_HideTabTip>
+  <ModernPawnTabs_ResetOrderDesc>清除已保存的标签页顺序并恢复所有隐藏的标签页。</ModernPawnTabs_ResetOrderDesc>
+  <ModernPawnTabs_GroupTip>标签页选项：锁定/解锁、打开隐藏标签页、恢复、重置。</ModernPawnTabs_GroupTip>
+  <ModernPawnTabs_LockOrder>锁定标签页顺序</ModernPawnTabs_LockOrder>
+  <ModernPawnTabs_UnlockOrder>解锁标签页顺序</ModernPawnTabs_UnlockOrder>
+  <ModernPawnTabs_NoHiddenTabs>（无隐藏标签页）</ModernPawnTabs_NoHiddenTabs>
+  <ModernPawnTabs_RestoreAllHidden>恢复所有隐藏标签页</ModernPawnTabs_RestoreAllHidden>
+  <ModernPawnTabs_ShowGroupButton>显示标签页选项（分组）按钮</ModernPawnTabs_ShowGroupButton>
+</LanguageData>

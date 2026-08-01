@@ -1,0 +1,111 @@
+ModernSocialTabGameComp.cs:22: Scribe_Collections.Look<Pawn>(ref this.PinnedPawns, "pinnedPawns", 3, Array.Empty<object>());
+ModernSocialTabMod.cs:25: return "Modern Social Tab";
+ModernSocialTabMod.cs:34: ModernSocialTabMod.Section(listing_Standard, "Appearance");
+ModernSocialTabMod.cs:41: ModernSocialTabMod.Section(listing_Standard, "Relation list");
+ModernSocialTabMod.cs:50: ModernSocialTabMod.Section(listing_Standard, "Social stats");
+ModernSocialTabMod.cs:60: ModernSocialTabMod.Section(listing_Standard, "Performance");
+ModernSocialTabMod.cs:63: Widgets.CheckboxLabeled(rect3, "Record standing history", ref ModernSocialTabMod.Settings.opinionHistoryEnabled, false, null, null, false, false);
+ModernSocialTabMod.cs:88: if (Widgets.ButtonText(GenUI.LeftPart(rect7, 0.5f), "Reset to defaults", true, true, true, default(TextAnchor?)))
+ModernSocialTabSettings.cs:22: this.statDefNames.Add("SocialImpact");
+ModernSocialTabSettings.cs:23: this.statDefNames.Add("NegotiationAbility");
+ModernSocialTabSettings.cs:24: this.statDefNames.Add("TradePriceImprovement");
+ModernSocialTabSettings.cs:32: Scribe_Values.Look<float>(ref this.windowScale, "windowScale", 0.7f, false);
+ModernSocialTabSettings.cs:33: Scribe_Values.Look<int>(ref this.relSortMode, "relSortMode", 0, false);
+ModernSocialTabSettings.cs:34: Scribe_Values.Look<int>(ref this.relFilterMode, "relFilterMode", 0, false);
+ModernSocialTabSettings.cs:35: Scribe_Values.Look<float>(ref this.leftStatsFrac, "leftStatsFrac", 0.28f, false);
+ModernSocialTabSettings.cs:36: Scribe_Values.Look<bool>(ref this.opinionHistoryEnabled, "opinionHistoryEnabled", true, false);
+ModernSocialTabSettings.cs:37: Scribe_Values.Look<int>(ref this.opinionSampleHours, "opinionSampleHours", 1, false);
+ModernSocialTabSettings.cs:38: Scribe_Values.Look<int>(ref this.opinionHistoryDays, "opinionHistoryDays", 15, false);
+ModernSocialTabSettings.cs:39: Scribe_Values.Look<int>(ref this.relListRefreshFrames, "relListRefreshFrames", 20, false);
+ModernSocialTabSettings.cs:40: Scribe_Collections.Look<string>(ref this.statDefNames, "statDefNames", 1, Array.Empty<object>());
+ModernSocialTabSettings.cs:41: Scribe_Collections.Look<string, string>(ref this.topBarLayout, "topBarLayout", 1, 1);
+ModIntegration.cs:42: ModIntegration._sexualityTrackerField = AccessTools.Field(type, "sexuality");
+ModIntegration.cs:48: ModIntegration._attractionProp = AccessTools.Property(type2, "Attraction");
+ModIntegration.cs:49: ModIntegration._showOnUIProp = AccessTools.Method(type2, "ShowOnUI", null, null);
+ModIntegration.cs:50: ModIntegration._getOrientationReport = AccessTools.Method(type2, "GetOrientationReport", null, null);
+ModIntegration.cs:55: [return: TupleElementNames(new string[] { "attraction", "orientation" })]
+ModIntegration.cs:75: ThingComp thingComp = GenCollection.FirstOrDefault<ThingComp>(pawn.AllComps, (ThingComp c) => c.GetType().Name == "CompPsyche");
+ModIntegration.cs:115: ModIntegration._rjwPresent = new bool?(ModLister.HasActiveModWithName("RimJobWorld"));
+ModIntegration.cs:133: ModIntegration._sexFrequencyDef = DefDatabase<StatDef>.GetNamedSilentFail("SexFrequency");
+ModIntegration.cs:149: ModIntegration._rotrBreakupInteraction = DefDatabase<InteractionDef>.GetNamedSilentFail("Breakup");
+ModIntegration.cs:150: ModIntegration._rotrProposalInteraction = DefDatabase<InteractionDef>.GetNamedSilentFail("MarriageProposal");
+NudityMattersBridge.cs:29: NudityMattersBridge._getMemory = AccessTools.Method(type, "GetOrCreatePawnOpinionMemory", new Type[] { typeof(Pawn) }, null);
+NudityMattersBridge.cs:30: NudityMattersBridge._getNudity = AccessTools.Method(type, "GetNudityStatus", new Type[] { typeof(Pawn) }, null);
+NudityMattersBridge.cs:31: NudityMattersBridge._getPart = AccessTools.Method(type, "GetOpinionDataForPart", null, null);
+NudityMattersBridge.cs:32: NudityMattersBridge._fText = AccessTools.Field(type2, "OpinionText");
+NudityMattersBridge.cs:33: NudityMattersBridge._fSize = AccessTools.Field(type2, "SizeLabel");
+NudityMattersBridge.cs:90: NudityMattersBridge.<TryGetBodyOpinions>g__Add|10_0("Chest", (CS$<>8__locals1.observed.gender == 2) ? "Breasts" : "Chest", ref CS$<>8__locals1, ref CS$<>8__locals2);
+OpinionHistoryComp.cs:65: Scribe_Collections.Look<string, OpinionSeries>(ref this._series, "opinionSeries", 1, 2);
+OpinionHistoryComp.cs:66: Scribe_Values.Look<int>(ref this._lastSampleTick, "lastSampleTick", -1, false);
+Patch_InspectTabBase_UpdateSize.cs:11: [HarmonyPatch(typeof(InspectTabBase), "UpdateSize")]
+Patch_ITab_Pawn_Social_FillTab.cs:13: [HarmonyPatch(typeof(ITab_Pawn_Social), "FillTab")]
+Patch_ITab_Pawn_Social_FillTab.cs:48: TooltipHandler.TipRegion(rect, "Switch to Modern Social Tab");
+SocialTabCache.cs:131: text = Translator.Translate((socialEntry.OpinionOfOther < -20) ? "Rival" : ((socialEntry.OpinionOfOther > 20) ? "Friend" : "Acquaintance"));
+SocialTabCache.cs:184: stringBuilder.Append(ColoredText.Colorize("Not possible", ColorLibrary.RedReadable));
+SocialTabCache.cs:194: stringBuilder.AppendLine(ColoredText.Colorize("Factors", ColoredText.SubtleGrayColor));
+SocialTabDrawer.cs:344: TooltipHandler.TipRegion(r, Translator.Translate("TryRomanceButtonLabel"));
+SocialTabDrawer.cs:360: text = "Opinion";
+SocialTabDrawer.cs:369: text = "Relation";
+SocialTabDrawer.cs:568: if (!(key == "ideoLabel"))
+SocialTabDrawer.cs:570: if (!(key == "roleIcon"))
+SocialTabDrawer.cs:572: if (!(key == "roleTitle"))
+SocialTabDrawer.cs:574: if (!(key == "certBar"))
+SocialTabDrawer.cs:656: TooltipHandler.TipRegion(r, "Switch to vanilla Social tab");
+SocialTabDrawer.cs:667: Rect elemRect = SocialTabDrawer.GetElemRect("roleIcon", strip);
+SocialTabDrawer.cs:668: Rect elemRect2 = SocialTabDrawer.GetElemRect("roleTitle", strip);
+SocialTabDrawer.cs:669: Rect elemRect3 = SocialTabDrawer.GetElemRect("ideoLabel", strip);
+SocialTabDrawer.cs:670: Rect elemRect4 = SocialTabDrawer.GetElemRect("certBar", strip);
+SocialTabDrawer.cs:821: list.Add(new FloatMenuOption(Translator.Translate("RemoveCurrentRole"), delegate
+SocialTabDrawer.cs:886: SocialTabDrawer._graphCacheLbl = "Standing";
+SocialTabDrawer.cs:950: (num5 != null) ? (((num5.Value >= 0) ? "+" : "") + num5.Value.ToString()) : "unknown",
+SocialTabDrawer.cs:952: ColoredText.Colorize("Current contributors", ColoredText.SubtleGrayColor),
+SocialTabDrawer.cs:1209: Widgets.Label(new Rect(inner.x + 2f, inner.y, inner.width - 4f, num), "Recent interactions");
+SocialTabDrawer.cs:1393: Widgets.Label(new Rect(rect.x + 2f, rect.y, rect.width * 0.6f, num), "Social stats");
+SocialTabDrawer.cs:1405: TooltipHandler.TipRegion(rect2, "Choose which social stats to display");
+SocialTabDrawer.cs:1494: stringBuilder.Append("\n\n").Append(ColoredText.Colorize("How this is calculated", ColoredText.SubtleGrayColor)).Append('\n')
+SocialTabDrawer.cs:1520: if (defName == "SocialImpact")
+SocialTabDrawer.cs:1526: else if (defName == "SexFrequency")
+SocialTabDrawer.cs:1533: if (defName == "ConversionPower")
+SocialTabDrawer.cs:1539: if (defName == "SuppressionPower")
+SocialTabDrawer.cs:1545: if (defName == "NegotiationAbility")
+SocialTabDrawer.cs:1551: if (defName == "ArrestSuccessChance")
+SocialTabDrawer.cs:1557: if (defName == "TradePriceImprovement")
+SocialTabDrawer.cs:1571: if (def.defName == "TradePriceImprovement")
+SocialTabDrawer.cs:1652: StatCategoryDef namedSilentFail = DefDatabase<StatCategoryDef>.GetNamedSilentFail("PawnSocial");
+SocialTabDrawer.cs:1727: string text2 = ((other.Faction != null) ? (GenText.CapitalizeFirst(other.Faction.Name) + " (" + other.Faction.def.LabelCap + ")") : "No faction");
+SocialTabDrawer.cs:1831: stringBuilder2.AppendLine(ColoredText.Colorize("Relations", ColoredText.TipSectionTitleColor));
+SocialTabDrawer.cs:1842: SocialTabDrawer.DrawOpinionBar(new Rect(num5, num19, num6, 13f), entry.OpinionOfOther, Style.IconViewOut, "Your opinion of them", selPawn, other);
+SocialTabDrawer.cs:1843: SocialTabDrawer.DrawOpinionBar(new Rect(num5, num19 + 13f + num18, num6, 13f), entry.OpinionOfMe, Style.IconViewIn, "Their opinion of you", other, selPawn);
+SocialTabDrawer.cs:1889: pinButton.tooltip = (flag ? "Unpin (return to normal sort order)" : "Pin to the top of the list");
+SocialTabDrawer.cs:1910: tooltip = (flag ? "Unpin (return to normal sort order)" : "Pin to the top of the list"),
+SocialTabDrawer.cs:1960: tooltip = "Break up with " + other.LabelShortCap + "\n\n" + ColoredText.Colorize("Romance On the Rim", ColoredText.SubtleGrayColor),
+SocialTabDrawer.cs:1981: ColoredText.Colorize("Romance On the Rim", ColoredText.SubtleGrayColor)
+SocialTabDrawer.cs:2002: ColoredText.Colorize("Nudity Matters More", ColoredText.SubtleGrayColor)
+SocialTabDrawer.cs:2105: acceptanceReport = TranslatorFormattedStringExtensions.Translate("PawnIsAway", NamedArgumentUtility.Named(selPawn, "PAWN"));
+SocialTabDrawer.cs:2114: ColoredText.Colorize(Translator.Translate("PregnancyApproach"), ColoredText.TipSectionTitleColor),
+SocialTabDrawer.cs:2118: ColoredText.Colorize(Translator.Translate("ClickToChangePregnancyApproach"), ColoredText.SubtleGrayColor)
+SocialTabDrawer.cs:2119: }) : (Translator.Translate("PregnancyNotPossible").Resolve() + ": " + GenText.CapitalizeFirst(acceptanceReport.Reason)));
+SocialTabDrawer.cs:2138: Messages.Message(Translator.Translate("PregnancyNotPossible"), null, MessageTypeDefOf.RejectInput, false);
+SocialTabDrawer.cs:2147: return "unknown";
+SocialTabDrawer.cs:2151: return "deceased";
+SocialTabDrawer.cs:2155: return "on the current map";
+SocialTabDrawer.cs:2164: return "travelling in a caravan";
+SocialTabDrawer.cs:2168: return "elsewhere in the world";
+SocialTabDrawer.cs:2424: [TupleElementNames(new string[] { "section", "detail", "opinion" })]
+VanillaSocialBridge.cs:27: VanillaSocialBridge._entryType = typeof(SocialCardUtility).GetNestedType("CachedSocialTabEntry", 48);
+VanillaSocialBridge.cs:29: VanillaSocialBridge._fOther = ((entryType != null) ? entryType.GetField("otherPawn", 52) : null);
+VanillaSocialBridge.cs:31: VanillaSocialBridge._fApproach = ((entryType2 != null) ? entryType2.GetField("pregnancyApproach", 52) : null);
+VanillaSocialBridge.cs:33: VanillaSocialBridge._fRelations = ((entryType3 != null) ? entryType3.GetField("relations", 52) : null);
+VanillaSocialBridge.cs:35: VanillaSocialBridge._fOpinionOther = ((entryType4 != null) ? entryType4.GetField("opinionOfOtherPawn", 52) : null);
+VanillaSocialBridge.cs:36: VanillaSocialBridge._draw = typeof(SocialCardUtility).GetMethod("DrawPregnancyApproach", 56);
+VanillaSocialBridge.cs:37: VanillaSocialBridge._getRelStr = typeof(SocialCardUtility).GetMethod("GetRelationsString", 56);
+VanillaSocialBridge.cs:38: VanillaSocialBridge._canRomance = typeof(SocialCardUtility).GetMethod("CanDrawTryRomance", 56);
+VanillaSocialBridge.cs:39: VanillaSocialBridge._drawRomance = typeof(SocialCardUtility).GetMethod("DrawTryRomance", 56);
+VanillaSocialBridge.cs:40: VanillaSocialBridge._recacheEntryInt = typeof(SocialCardUtility).GetMethod("RecacheEntryInt", 56);
+VanillaSocialBridge.cs:41: VanillaSocialBridge._shouldShow = typeof(SocialCardUtility).GetMethod("ShouldShowPawnRelations", 56);
+VanillaSocialBridge.cs:42: VanillaSocialBridge._romanceOptions = typeof(SocialCardUtility).GetMethod("RomanceOptions", 56);
+VanillaSocialBridge.cs:215: Messages.Message(TranslatorFormattedStringExtensions.Translate("TryRomanceNoOptsMessage", selPawn), MessageTypeDefOf.RejectInput, false);
+AssemblyInfo.cs:8: [assembly: AssemblyCompany("ModernSocialTab")]
+AssemblyInfo.cs:9: [assembly: AssemblyConfiguration("Release")]
+AssemblyInfo.cs:12: [assembly: AssemblyProduct("ModernSocialTab")]
+AssemblyInfo.cs:13: [assembly: AssemblyTitle("ModernSocialTab")]

@@ -1,0 +1,335 @@
+===== Circinus / MainButtons_Circinus.xml / MainButtonDef / MDS_Circinus
+  label: dev suite
+  desc: Record test runs, watch performance live, and review run history.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Appearance
+  label: appearance
+  desc: Body, head, hair and age editing.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Face
+  label: face
+  desc: Face part and eye color editing for Facial Animation.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Story
+  label: story
+  desc: Name, gender and backstory editing.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Traits
+  label: traits
+  desc: Add and remove traits with conflict checking.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Skills
+  label: skills
+  desc: Skill levels and passions.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Gear
+  label: gear
+  desc: Apparel, weapons and inventory items.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Health
+  label: health
+  desc: Health conditions, implants and injuries.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Needs
+  label: needs
+  desc: Need levels including mood.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Thoughts
+  label: thoughts
+  desc: Memories and their mood effects.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Relations
+  label: social
+  desc: Mental state and direct relationships between pawns.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Records
+  label: stats
+  desc: Pawn records: combat kills, work totals, time and social counters. Edit values or clear them all.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Genes
+  label: genes
+  desc: Xenotype and gene editing.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Race
+  label: race
+  desc: Switch the pawn's race between Human, Humanoid Alien Races and Big and Small races.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Pregnancy
+  label: pregnancy
+  desc: Pregnancy and unborn-baby gene editing. Auto-detects Biotech, RimJobWorld or Intimacy (Gender Works eggs / mech) pregnancy.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Ideoligion
+  label: ideoligion
+  desc: Ideoligion, certainty and favorite color.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Royalty
+  label: royalty
+  desc: Empire titles, honor and psylink.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Abilities
+  label: abilities
+  desc: Abilities, psycasts, psyfocus and neural heat.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Psyche
+  label: psyche
+  desc: Personality facet editing for RimPsyche.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Sexuality
+  label: sexuality
+  desc: Orientation and body part editing for RimJobWorld.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Progression
+  label: progression
+  desc: Proficiencies, mental stability, trauma and integrity from the Progression mod family.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Aspirations
+  label: aspirations
+  desc: Add and remove life goals for Vanilla Aspirations Expanded.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Comforts
+  label: comforts
+  desc: Personal tastes for the Comforts mod: foods, apparel, favorite color, weapon style and recreation.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Isekai
+  label: isekai
+  desc: Level, rank, attributes, XP, star points and traits for ISEKAI RPG Leveling.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Romance
+  label: romance
+  desc: Romance need level, desire tier and love partners for Romance On The Rim.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Intimacy
+  label: intimacy
+  desc: Intimacy need and reproductive organs for the Intimacy mod family (Friends n' Lovers, Gender Works).
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Personality
+  label: personality
+  desc: Enneagram root, variant and personality traits for 1-2-3 Personalities.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Psycasts
+  label: psycasts
+  desc: Psylink level, ability and stat points, unlocked paths and learned psycasts for Vanilla Psycasts Expanded.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Psycasts2
+  label: psycasts²
+  desc: Per-psycast skill levels, specialization nodes and points, and enlightenment tier for Psycasts².
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Itemization
+  label: itemization
+  desc: Rarity, affixes, runes/sockets and set membership on equipped and carried gear for Itemization Overhaul.
+===== ModernCC / EditorModules.xml / MCE.EditorModuleDef / MCE_Androids
+  label: androids
+  desc: Android components and awakening for Vanilla Races Expanded - Android.
+===== ModernCC / MainButton.xml / MainButtonDef / MCE_CharacterEditor
+  label: editor
+  desc: Open Modern CC.
+===== ModernColonistBar / KeyBindings.xml / KeyBindingDef / MCB_FollowCam
+  label: follow selected pawn (Modern Colonist Bar)
+===== ModernColonistBar / MCB_KeyBindings.xml / KeyBindingCategoryDef / MCB_Warband
+  label: Modern Colonist Bar
+  desc: Warband hero-hotbar ability keys.
+===== ModernColonistBar / MCB_KeyBindings.xml / KeyBindingDef / MCB_Hotbar1
+  label: warband hotbar slot 1
+===== ModernColonistBar / MCB_KeyBindings.xml / KeyBindingDef / MCB_Hotbar2
+  label: warband hotbar slot 2
+===== ModernColonistBar / MCB_KeyBindings.xml / KeyBindingDef / MCB_Hotbar3
+  label: warband hotbar slot 3
+===== ModernColonistBar / MCB_KeyBindings.xml / KeyBindingDef / MCB_Hotbar4
+  label: warband hotbar slot 4
+===== ModernDevTools / BenignLogDefs.xml / ModernDevTools.KnownIssueDef / MDT_BenignVersionBanner
+  label: the game version banner
+  desc: This is the version line RimWorld prints at startup so the log records exactly which build you are on. It is purely informational.
+===== ModernDevTools / BenignLogDefs.xml / ModernDevTools.KnownIssueDef / MDT_BenignCommandLine
+  label: the command-line arguments line
+  desc: RimWorld records the launch options it was started with (for example a custom save-data folder set by a mod manager or launcher). It is a normal startup note, not a problem.
+===== ModernDevTools / BenignLogDefs.xml / ModernDevTools.KnownIssueDef / MDT_BenignSaveDataFolder
+  label: save-data folder was redirected
+  desc: You launched with a custom save-data folder, so RimWorld is reading and writing its configs and saves there instead of the default location. A mod manager, a launcher, or a test tool does this on purpose. Nothing is wrong.
+===== ModernDevTools / BenignLogDefs.xml / ModernDevTools.KnownIssueDef / MDT_BenignNewGameMods
+  label: the active mod list for a new game
+  desc: When you start a new game, RimWorld lists the mods that are loaded so the log has a record of them. The packageIds after it are just that list; none of them are being blamed for anything.
+===== ModernDevTools / BenignLogDefs.xml / ModernDevTools.KnownIssueDef / MDT_BenignLoadGameMods
+  label: the active mod list for a loaded save
+  desc: When you load a save, RimWorld lists the mods it is loading with so the log has a record of them. The packageIds after it are just that list; none of them are being blamed for anything.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_StackTrace
+  label: stack trace attribution
+  desc: Blames the mods whose code appears in the error's stack trace, and notes vanilla, Harmony and Unity frames.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_MessageMentions
+  label: message attribution
+  desc: Blames the mods named in the message text, including load-time warnings whose stack trace is pure vanilla (dependency and packageId validation, file paths).
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_LogPrefix
+  label: log prefix attribution
+  desc: Blames the mod that stamped its own name on the log line, e.g. "[Giddy-Up] ..." or "[Map Preview] ...". Matches the bracket tag to a single active installed mod; ambiguous or non-mod tags are ignored.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_HarmonyPatches
+  label: Harmony patch attribution
+  desc: Reads the live Harmony registry and names the mods that patch a method in the error, even when the stack trace is pure vanilla. When two or more mods patch the same method, it flags a likely conflict by name. Local, always on.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_DependencyCheck
+  label: missing requirements and load order
+  desc: Checks every active mod's declared dependencies and load order against your modlist, and explains missing or inactive required mods and wrong load order, the usual root cause of missing def, missing type and unresolved reference errors. Local, always on.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_VersionMismatch
+  label: version mismatch
+  desc: Flags a mod that does not list support for your RimWorld version, a common cause of errors. Local, no internet.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_ModIssues
+  label: mod-shipped known issues
+  desc: Explains errors using known-issue files that mods ship inside their own folder (ModernDevTools/known-issues.json), same format as the community database. Local, always on.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_AboutIncompat
+  label: declared incompatibilities
+  desc: Flags when two active mods declare each other incompatible in their own About.xml, a common cause of errors the community databases may not list. Local, always on.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_Community
+  label: community databases
+  desc: Uses the opt-in community databases to suggest replacements for outdated mods and flag known incompatibilities. Enable community data in the Modules window.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_CommunityBugs
+  label: community bug database
+  desc: Matches errors against the community bug and fix database (our own contributor-editable JSON on GitHub). Enable community data in the Modules window.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_KnownIssues
+  label: knowledge library
+  desc: Explains the error in plain language, and suggests a fix, using the shipped and third-party knowledge library.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_CircinusCorpus
+  label: corpus prevalence
+  desc: Reports how many installs see this error, using the shared corpus at circinus.sh. Requires Circinus.
+===== ModernDevTools / ErrorModules.xml / ModernDevTools.ErrorModuleDef / MDT_Module_Glossary
+  label: plain-language glossary
+  desc: Adds a short "Terms in this error" card that defines any modding jargon in the error or its explanations (Harmony, def, xpath, TPS, load order and more), so the log is readable without prior knowledge.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_DepMissingUrl
+  label: mod dependency has no download link
+  desc: A mod lists another mod as a dependency but did not add a download or Workshop link for it. This is harmless. The game still runs and nothing is broken.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_PackageIdFormat
+  label: mod has an invalid packageId
+  desc: A mod's packageId is not in the expected author.modname format (letters, numbers and dots). The game still loads it, but a malformed packageId can confuse dependency and load-order checks.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_ModMetaWarning
+  label: mod dependency metadata is incomplete
+  desc: A mod's About.xml has a dependency entry that is incomplete: a missing packageId, an invalid packageId, or an empty display name. Harmless to play, but the dependency may not resolve correctly.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_NullReference
+  label: null reference exception
+  desc: A piece of code tried to use something that did not exist (a null value). This is the most common error type and usually means a mod ran into a situation its author did not expect.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_MissingMember
+  label: missing method or member
+  desc: Code called a method or field that does not exist in the version that is loaded. This almost always means two mods expect different versions of the same code, or a mod was built against a different game or library version than you have.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_TypeLoad
+  label: a mod failed to load its code
+  desc: A mod's assembly could not be loaded fully. Every feature from that mod is disabled and its defs may fail to load, which often cascades into many more errors.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_MissingTexture
+  label: missing texture
+  desc: The game tried to load an image that is not there. The item, pawn, or UI element that needs it will show a pink and black placeholder.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_MissingAudio
+  label: missing sound
+  desc: The game tried to load a sound file that is not present. The sound simply will not play.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_StaticConstructor
+  label: a mod's startup code threw an error
+  desc: A mod's start-of-game initialization (a static constructor) threw an exception, so part or all of that mod is left half set up. This often breaks one feature while the rest of the mod appears to work.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_UninitializedDefOf
+  label: a def shortcut was used too early
+  desc: A mod read a DefOf (a code shortcut to a specific def) before defs finished loading, so the value was empty. This is a startup-timing bug in the mod, and the feature that needed the def will not work.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_ConfigErrors
+  label: a def's validation code threw
+  desc: While checking a def for problems, the game's validation code itself threw an exception. The def is often built anyway, but the error hides whatever real problem the check was trying to report.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_CrossRef
+  label: unresolved def reference
+  desc: A def refers to another def by name that does not exist. The referring content is broken or missing until the reference resolves.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_UnknownType
+  label: unknown type in XML
+  desc: A def or patch names a C# class that is not loaded, so RimWorld cannot build that def and the content it defines will not appear.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_UnknownField
+  label: unknown XML field
+  desc: A def or patch sets a field that does not exist on that type, so the value is ignored and the intended effect is missing.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_DuplicateDef
+  label: duplicate defName
+  desc: Two defs share the same name, so RimWorld keeps only one and the other is silently overridden. This can make a mod behave as if a feature is missing.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_XmlError
+  label: XML error in a mod
+  desc: A mod's XML is malformed or uses a field the game does not recognise, so the affected def or patch is skipped.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_CustomXmlLoader
+  label: a mod's custom XML failed to load
+  desc: A mod uses its own code to read one of its XML nodes, and that code threw, so the value is skipped and the content that needed it is missing or misconfigured.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_MissingTranslation
+  label: missing translation key
+  desc: A translation problem: the game had no active language for a lookup, a translated string blew up while formatting its arguments, or a translation file tried to translate a field that does not allow it. A simple missing key never logs anything - the game silently falls back to English.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_PatchFailed
+  label: a patch could not apply
+  desc: A mod's XML patch did not apply, usually because its target no longer exists or another mod changed it first, so the patched change did not happen.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_LoadReference
+  label: could not load a saved reference
+  desc: While loading, the game could not find something it referenced by name. In a save this usually means a mod that was present before is now missing or changed.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_LoadIdReference
+  label: a saved object reference could not be found
+  desc: While loading a save, the game could not find an object another object pointed at by its saved id. The thing was removed, not saved correctly, or belonged to a mod that is no longer present, so the reference is dropped.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_SaveVersionMismatch
+  label: save is from a different game version
+  desc: You loaded a save, config, or mod list created on a different RimWorld version than you are running now. Within the same major version this is usually fine; across major versions some content may not load cleanly.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_LongEventException
+  label: a loading step threw an error
+  desc: Code running during a loading screen (a long event, such as generating a map or loading a save) threw an exception. Whatever that step was setting up may be incomplete, which can cascade into later errors.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_RaidArrivalFallback
+  label: raid used a default arrival mode
+  desc: The game could not pick an arrival mode for a raid, so it sent the raiders in on foot from the map edge instead. This happens when none of the arrival modes allowed by that raid strategy can be used with this particular faction and map - for example when a faction cannot use drop pods, or a raid strategy lists arrival modes that do not fit the situation. The raid itself still runs normally; only how the attackers arrive changed.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_RaidStrategyFallback
+  label: raid used a default strategy
+  desc: A raid was created without a strategy, so the game fell back to a straightforward immediate attack. The raid still happens; only the tactics the attackers were meant to use were lost.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_PawnGroupFallback
+  label: a pawn group used a cheap fallback
+  desc: The game could not build the intended group of pawns for a faction at the requested point value, so it spawned a single random cheap group instead. This usually means the faction has no pawn kinds that fit the points or group type - common with modded factions. The event still happens, just with weaker or different pawns than intended.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_WeatherFallback
+  label: weather fell back to clear
+  desc: No weather type had a positive chance for the current conditions, so the game defaulted to clear weather. Usually a modded biome or weather mod left no valid weather for this map's situation. The game continues normally.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_HarmonyConflict
+  label: the error passes through a modified method
+  desc: A method in this error's path was replaced at runtime by Harmony, the library mods use to change game behaviour. That is normal - a single mod's patch produces the same frames - and does not by itself mean two mods conflict. It does mean a mod's change is in the code path, and the stack trace can show the original method name even when a mod's rewrite caused the error.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_ExceptionFillingWindow
+  label: a UI window threw an error
+  desc: A window's draw code threw an exception, so RimWorld closed or skipped the window. A UI panel may vanish or misbehave.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_RootOnGUI
+  label: a per-frame game loop hook threw an error
+  desc: A top-level per-frame hook threw, so RimWorld aborted the rest of that frame's drawing (OnGUI) or update logic (Update). Symptoms are often several unrelated UI elements flickering or not updating at once, or the same error repeating every frame.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_Reservation
+  label: a pawn could not reserve its target
+  desc: A pawn failed to claim (reserve) the thing it wanted to work on, so the job was cancelled. A burst of these can leave pawns standing idle. With mods that move pawns between maps, it usually means a job aimed at something on a different map.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_JobLoop
+  label: a pawn is stuck starting jobs
+  desc: A pawn started many jobs in a single tick, which RimWorld stops to avoid a freeze. The pawn's AI is caught in a loop, usually from a mod job or work giver that never completes.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_JobException
+  label: a job or tick threw an error
+  desc: Code running a pawn's job, or a per-tick update, threw an exception. The pawn may drop the job, freeze, or repeat the error every tick.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_SpawnState
+  label: spawn or despawn state error
+  desc: Something tried to spawn a thing that is already in the world, or despawn one that was not, so the world state is inconsistent for that object.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_CollectionModified
+  label: a list changed while it was being read
+  desc: Code changed a collection while another piece of code was looping over it, which throws and aborts whatever was running.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_IndexRange
+  label: index out of range
+  desc: Code asked for an item past the end of a list or array, so the operation that needed it fails.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_InvalidCast
+  label: invalid cast
+  desc: Code treated an object as a type it is not. In modding this is often a Harmony patch on a generic method firing for the wrong type, which can spam every frame in a window.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_KeyNotFound
+  label: a lookup key was missing
+  desc: Code looked up a key in a dictionary that did not contain it. This often means a mod's cache was built before all data was ready, or another mod removed something it expected.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_Argument
+  label: a bad value was passed to a method
+  desc: A method was given an argument it does not accept (null, or out of the allowed range), so it throws instead of continuing.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_QuestGrammar
+  label: a quest failed to build its text
+  desc: A quest could not resolve its description text, usually because a mod quest part left a value unset. The quest may show placeholder text like ERR: or broken tags.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_Incompatible
+  label: mod compatibility or load-order warning
+  desc: A mod declared it is incompatible with another, or that it should load before or after another mod, and that condition is not met.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_DefInstantiate
+  label: a def or its components could not be built
+  desc: RimWorld could not create a def from XML, or could not create one of the runtime components a def asks for (a comp, verb, or inspector tab). The item, building, or feature that needed it will be missing or incomplete.
+===== ModernDevTools / KnownIssueDefs.xml / ModernDevTools.KnownIssueDef / MDT_GuiState
+  label: a UI drawing bug
+  desc: A mod's UI code left the text or GUI state wrong at the end of a frame, or mismatched its scroll or group calls. RimWorld reports it once per frame.
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_Slaves
+  label: slaves
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_PowerGeneration
+  label: generation (W)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_PowerUsage
+  label: usage (W)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_PowerStored
+  label: stored (Wd)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_Power
+  label: power
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_EdibleNutrition
+  label: edible nutrition
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_Meals
+  label: meals
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_Food
+  label: food
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_ColonyAnimals
+  label: colony animals
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_WildAnimals
+  label: wild animals
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_Animals
+  label: animals
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_AvgColonistHealth
+  label: average health (%)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_NeedingTend
+  label: colonists needing tending
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_Health
+  label: colony health
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_SownCrops
+  label: sown crops
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_HarvestableCrops
+  label: harvestable now
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_RealPlaytime
+  label: real time (hours)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderDef / NHM_IngameDays
+  label: in-game (days)
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_TimePlayed
+  label: time played
+===== ModernHistoryMenu / HistoryAutoRecorders.xml / HistoryAutoRecorderGroupDef / NHM_Crops
+  label: crops
+===== ModernLearningMenu / MainButtonDef.xml / MainButtonDef / ModernLearningMenu_Button
+  label: progress
+  desc: Colony progression dashboard — skills, growth, education.

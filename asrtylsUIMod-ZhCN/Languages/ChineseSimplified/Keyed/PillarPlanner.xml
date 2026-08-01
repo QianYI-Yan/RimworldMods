@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <PillarPlanner_TipOff>屋顶规划器：已关闭。\n\n点击可显示整张地图的屋顶支撑缺口。视图会考虑待进行的采矿、拆除和卸载命令，以及规划中的墙壁和柱子。</PillarPlanner_TipOff>
+  <PillarPlanner_TipMap>屋顶规划器：地图视图。\n\n待处理命令完成后，着色单元格将失去屋顶支撑。橙色标记薄屋顶，红色标记悬空山体。幽灵柱标记建议的支撑位置。\n\n点击切换到房间视图。</PillarPlanner_TipMap>
+  <PillarPlanner_TipRoom>屋顶规划器：房间视图。\n\n指向一个封闭房间，查看哪些单元格无法保持屋顶以及柱子可修复的位置。蓝色轮廓确认房间已被识别。\n\n点击关闭规划器。</PillarPlanner_TipRoom>
+</LanguageData>

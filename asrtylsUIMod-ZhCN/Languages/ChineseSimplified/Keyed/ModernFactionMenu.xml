@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 设置 -->
+  <MFM.SettingsCategory>现代派系菜单</MFM.SettingsCategory>
+  <MFM.Settings.Enabled>用现代派系菜单替换原版「派系」标签页</MFM.Settings.Enabled>
+  <MFM.Settings.EnabledTip>启用后，打开「派系」标签页将改为打开现代派系菜单窗口。两种视图中也都提供切换按钮。</MFM.Settings.EnabledTip>
+  <MFM.Settings.ShowHidden>在列表中显示隐藏的派系</MFM.Settings.ShowHidden>
+  <MFM.Settings.ShowHiddenTip>包括通常从原版「派系」标签页中隐藏的派系（机械族、虫族等）。</MFM.Settings.ShowHiddenTip>
+
+  <!-- 窗口部件 -->
+  <MFM.Close>关闭</MFM.Close>
+  <MFM.SwitchToVanilla>切换回原版「派系」标签页</MFM.SwitchToVanilla>
+  <MFM.OpenModern>打开现代派系菜单</MFM.OpenModern>
+  <MFM.Search>搜索…</MFM.Search>
+
+  <!-- 区块标题 -->
+  <MFM.Section.Trends>趋势</MFM.Section.Trends>
+  <MFM.Section.Diplomacy>外交</MFM.Section.Diplomacy>
+  <MFM.Section.Senate>议会</MFM.Section.Senate>
+  <MFM.Section.Language>语言</MFM.Section.Language>
+  <MFM.Section.TerritoryVassalage>领土与附庸</MFM.Section.TerritoryVassalage>
+  <MFM.Section.Capital>首都</MFM.Section.Capital>
+  <MFM.Section.Empire>帝国</MFM.Section.Empire>
+  <MFM.Section.Airspace>领空</MFM.Section.Airspace>
+  <MFM.Section.EconomyDemographics>经济与人口</MFM.Section.EconomyDemographics>
+  <MFM.Section.PowerRankings>实力排名</MFM.Section.PowerRankings>
+  <MFM.Section.Perks>特权</MFM.Section.Perks>
+  <MFM.Section.EraCornerstones>时代与基石</MFM.Section.EraCornerstones>
+
+  <!-- 过滤标签：{0} = 敌对/中立/结盟 -->
+  <MFM.Filter.Show>显示{0}派系</MFM.Filter.Show>
+  <MFM.Filter.Hide>隐藏{0}派系</MFM.Filter.Hide>
+  <MFM.Filter.Hostile>敌对</MFM.Filter.Hostile>
+  <MFM.Filter.Neutral>中立</MFM.Filter.Neutral>
+  <MFM.Filter.Allied>结盟</MFM.Filter.Allied>
+
+  <!-- 通用标签 -->
+  <MFM.Label.Relation>关系</MFM.Label.Relation>
+  <MFM.Label.Stability>稳定度</MFM.Label.Stability>
+  <MFM.Label.Settlements>定居点</MFM.Label.Settlements>
+  <MFM.Label.OurColony>我们的殖民地</MFM.Label.OurColony>
+  <MFM.Label.OurFaction>我们的派系</MFM.Label.OurFaction>
+
+</LanguageData>

@@ -1,0 +1,29 @@
+Circinus.xml	Circ.SettingsCategory	Circinus
+Circinus.xml	Circ.DiffResult	{0}：{1}
+ModernDevTools.xml	MDT_ReportInfo_Version	RimWorld
+ModernDevTools.xml	MDT_GlHarmony	Harmony
+ModernDevTools.xml	MDT_GlTranspiler	Transpiler
+ModernDevTools.xml	MDT_GlDef	Def
+ModernDevTools.xml	MDT_GlXpath	XPath
+ModernDevTools.xml	MDT_GlTps	TPS
+ModernDevTools.xml	MDT_GlFps	FPS
+ModernDevTools.xml	MDT_GlPackageId	packageId
+ModernDevTools.xml	MDT_GlHugsLib	HugsLib
+ModernDevTools.xml	MDT_GlTick	Tick
+ModernDevTools.xml	MDT_GlLoadId	loadID
+ModernDevTools.xml	MDT_GlDefOf	DefOf
+ModernDevTools.xml	MDT_GlGizmo	Gizmo
+ModernDevTools.xml	MDT_GlMote	Mote
+ModernDevTools.xml	MDT_GlDlc	DLC
+ModernDevTools.xml	MDT_KbReplacePair	{0}  -&gt;  {1}
+ModernDevTools.xml	MDT_BridgeTitle	{0}
+ModernHistoryMenu.xml	MHM_PctFormat	{0}%
+ModernIdeologyMenu.xml	MIM_Dev	DEV
+ModernIdeologyMenu.xml	MIM_IOHeader	Itemization Overhaul
+ModernIdeologyMenu.xml	MIM_VirtuesHeader	Cybranian Virtues
+ModernIdeologyMenu.xml	MIM_MIIHeader	More Informative Ideology
+ModernNotifications.xml	MN_TempUnit_Both	C&amp;F
+ModernNotifications.xml	MN_ILE_Upcoming	{0}：{1}
+ModernNotifications.xml	MN_ILE_Tip	{0}，{1}
+ModernNotifications.xml	MN_ILE_PastTip	{0} {1}
+ModernQuestMenu.xml	MQM_SnipTitleOne	{0}：{1}

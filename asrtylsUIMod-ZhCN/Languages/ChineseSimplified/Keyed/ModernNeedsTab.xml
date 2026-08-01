@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ════════════ 模组设置面板 ════════════ -->
+  <NNT_SettingsCategory>现代需求标签页</NNT_SettingsCategory>
+  <NNT_Settings_DisplayHeader>显示</NNT_Settings_DisplayHeader>
+  <NNT_Settings_BehaviorHeader>行为</NNT_Settings_BehaviorHeader>
+  <NNT_Settings_PerformanceHeader>性能</NNT_Settings_PerformanceHeader>
+  <NNT_Settings_IntegrationHeader>集成</NNT_Settings_IntegrationHeader>
+  <NNT_Setting_WantsIconsDesc>「舒适 / 喜好」卡片和每个需求图标行显示多少个偏好图标，按每行 6 个计。</NNT_Setting_WantsIconsDesc>
+  <NNT_Setting_Enabled>使用现代需求标签页</NNT_Setting_Enabled>
+  <NNT_Setting_EnabledDesc>关闭时显示原版需求标签页（其角落的发光按钮可切换回来）。</NNT_Setting_EnabledDesc>
+  <NNT_Setting_VanillaTheme>原版主题</NNT_Setting_VanillaTheme>
+  <NNT_Setting_VanillaThemeDesc>用原版更浅的面板颜色、边框和中性的高亮重新装饰标签页，呈现更接近原版的感觉。双栏布局、图表和卡片保持不变。</NNT_Setting_VanillaThemeDesc>
+  <NNT_Setting_SizeStagger>错落卡片尺寸</NNT_Setting_SizeStagger>
+  <NNT_Setting_SizeStaggerDesc>让顶部三个生存需求（食物、休息、卫生）以三级阶梯形式更高；其他需求使用标准紧凑尺寸。关闭 = 所有卡片同高。</NNT_Setting_SizeStaggerDesc>
+  <NNT_Setting_GeneResources>显示基因资源</NNT_Setting_GeneResources>
+  <NNT_Setting_GeneResourcesDesc>将生物科技基因资源（血原质等）作为条状卡片列在需求下方。这些不是需求——它们依附于基因，游戏本身只在「基因」标签页显示它们。</NNT_Setting_GeneResourcesDesc>
+  <NNT_Setting_WindowScale>窗口缩放：{0}</NNT_Setting_WindowScale>
+  <NNT_Setting_WindowScaleDesc>整体缩小整个标签页。100% = 自动适应屏幕。</NNT_Setting_WindowScaleDesc>
+  <NNT_Setting_WantsIcons>显示喜好图标：{0}（每行 6 个）</NNT_Setting_WantsIcons>
+  <NNT_Setting_ColorByImpact>按心情影响为条着色</NNT_Setting_ColorByImpact>
+  <NNT_Setting_ColorByImpactDesc>将所有需求条从红色（当前损害此小人的心情）经中性到绿色（有益）着色，而不是按需求类型。也可通过标签页标题中的色板按钮切换。</NNT_Setting_ColorByImpactDesc>
+  <NNT_Setting_MoodBoxHeight>心情块最小高度：{0} px</NNT_Setting_MoodBoxHeight>
+  <NNT_Setting_MoodBoxHeightDesc>增益/减益框会增长以填满上方面板不需要的任何空间；这是它的最小值（当所选需求的详情填满面板时使用）。</NNT_Setting_MoodBoxHeightDesc>
+  <NNT_Setting_ResetOrder>重置卡片顺序</NNT_Setting_ResetOrder>
+  <NNT_Setting_ColonistBarPins>在殖民者栏固定需求条</NNT_Setting_ColonistBarPins>
+  <NNT_Setting_ColonistBarPinsDesc>在顶栏每个殖民者肖像内为固定的需求绘制细等级条。关闭则跳过这种逐帧绘制；你的固定设置会保留并仍在标签页中显示。</NNT_Setting_ColonistBarPinsDesc>
+  <NNT_Setting_TrackHistory>记录需求历史</NNT_Setting_TrackHistory>
+  <NNT_Setting_TrackHistoryDesc>每个游戏小时为每位殖民者采样一次需求，以便显示图表、速率卡片和 24 小时变化。关闭则每 tick 零后台工作：标签页仍显示实时需求，但图表、速率和事件流会变空。</NNT_Setting_TrackHistoryDesc>
+  <NNT_Setting_EventDetection>检测需求事件</NNT_Setting_EventDetection>
+  <NNT_Setting_EventDetectionDesc>监视需求的突然变化（进食、娱乐、休息）并将其列在近期活动流中，标注小人在做什么。关闭则跳过定期检查和任务捕获。需要开启需求记录。</NNT_Setting_EventDetectionDesc>
+  <NNT_Setting_UIRefresh>数据刷新间隔：{0} 秒</NNT_Setting_UIRefresh>
+  <NNT_Setting_UIRefreshDesc>打开的标签页以多高的频率根据最新数据重建其图表、速率和心情行。标签页打开时越长越省；实时需求水平总是每帧更新。</NNT_Setting_UIRefreshDesc>
+  <NNT_Setting_HistoryNote>需求历史为所有殖民者、囚犯和奴隶每游戏小时采样一次；保留最近 15 天并随游戏保存。</NNT_Setting_HistoryNote>
+
+  <!-- ════════════ 现代 / 原版视图切换 ════════════ -->
+  <NNT_SwitchToModernTip>切换回现代需求视图（会记住——随时可通过其角落的列表按钮切回）</NNT_SwitchToModernTip>
+  <NNT_SwitchToVanillaTip>切换到原版需求视图（会记住——随时可通过其角落的发光按钮切回）</NNT_SwitchToVanillaTip>
+  <NNT_PerPawnOn>按殖民者布局：开\n此殖民者使用自己的卡片顺序和固定设置。点击切换回共享（全局）布局——此殖民者的自定义设置会保留，供下次使用。</NNT_PerPawnOn>
+  <NNT_PerPawnOff>按殖民者布局：关\n此殖民者使用共享（全局）卡片顺序和固定设置。点击为这位殖民者提供自己的顺序和固定设置，以便精细管理。</NNT_PerPawnOff>
+  <NNT_On>开</NNT_On>
+  <NNT_Off>关</NNT_Off>
+  <NNT_ImpactTip>{0}：按心情影响为条着色\n红色 = 此需求此刻正在损害小人的心情，绿色 = 有益。点击切换。</NNT_ImpactTip>
+
+  <!-- ════════════ 需求卡片 / 列表 ════════════ -->
+  <NNT_NoNeeds>没有可显示的需求</NNT_NoNeeds>
+  <NNT_DragToReorder>拖动以重新排序</NNT_DragToReorder>
+  <NNT_WantsCardLabel>喜好</NNT_WantsCardLabel>
+  <NNT_WantsCardTip>个人偏好——此小人想要的装备、颜色和武器。点击查看详情。</NNT_WantsCardTip>
+  <NNT_OfSatisfied>{0} / {1} 已满足</NNT_OfSatisfied>
+  <NNT_WantsDesc>没有对应需求支撑的个人偏好——此小人想要的服装、颜色和武器。拥有或使用它们会提供小幅心情加成。</NNT_WantsDesc>
+  <NNT_Preferences>偏好</NNT_Preferences>
+
+  <!-- ════════════ 集成偏好行（提示） ════════════ -->
+  <NNT_PrefFulfilled>当前已满足。</NNT_PrefFulfilled>
+  <NNT_PrefUnfulfilled>近期未满足。</NNT_PrefUnfulfilled>
+  <NNT_PrefDisliked>不喜欢——接触会带来心情减益；请避免。</NNT_PrefDisliked>
+  <NNT_PrefFulfilledBy>由以下满足：{0}</NNT_PrefFulfilledBy>
+  <NNT_PrefTriggeredBy>由以下触发：{0}</NNT_PrefTriggeredBy>
+  <NNT_VAEAspirationsDesc>{0} 已满足 {1} / {2} 个志向。满足一个志向会永久提升此需求。</NNT_VAEAspirationsDesc>
+
+  <!-- ════════════ 殖民者栏固定 ════════════ -->
+  <NNT_UnpinTip>已固定到殖民者栏——点击取消固定。</NNT_UnpinTip>
+  <NNT_PinTip>将此需求固定到殖民者栏。\n每个殖民者肖像下方会出现一个迷你等级条，卡片会浮动到列表顶部。</NNT_PinTip>
+
+  <!-- ════════════ 开发者控制 ════════════ -->
+  <NNT_DevAdjustLevel>DEV：调整等级</NNT_DevAdjustLevel>
+  <NNT_DevAdjustAll>DEV：调整所有需求</NNT_DevAdjustAll>
+  <NNT_DevAllNeedsTip>所有需求 {0}</NNT_DevAllNeedsTip>
+
+  <!-- ════════════ 详情面板 ════════════ -->
+  <NNT_MoreCount>+{0} 更多</NNT_MoreCount>
+  <NNT_Range24h>24 小时</NNT_Range24h>
+  <NNT_Range5d>5 天</NNT_Range5d>
+  <NNT_Range15d>15 天</NNT_Range15d>
+  <NNT_OverlayAll>叠加显示所有需求</NNT_OverlayAll>
+  <NNT_CurrentRate>当前速率</NNT_CurrentRate>
+  <NNT_24hChange>24 小时变化</NNT_24hChange>
+  <NNT_RelatedThoughts>相关想法</NNT_RelatedThoughts>
+  <NNT_RecentActivity>近期活动</NNT_RecentActivity>
+  <NNT_CollapseGraph>折叠图表</NNT_CollapseGraph>
+  <NNT_ExpandGraph>展开图表</NNT_ExpandGraph>
+  <NNT_CollectingHistory>正在收集历史…（每游戏小时采样一次）</NNT_CollectingHistory>
+  <NNT_NothingRecorded>尚无记录——此需求的突然变化（进食、娱乐等）将出现在这里。</NNT_NothingRecorded>
+  <NNT_Ago>{0} 前</NNT_Ago>
+
+  <!-- ════════════ 概览（未选择卡片） ════════════ -->
+  <NNT_Mood>心情</NNT_Mood>
+  <NNT_AllNeeds>所有需求</NNT_AllNeeds>
+  <NNT_Tracked>{0} 已跟踪</NNT_Tracked>
+  <NNT_OverviewHint>点击卡片检查需求——再次点击返回此处。</NNT_OverviewHint>
+
+  <!-- ════════════ 持续心情 / 心情块 ════════════ -->
+  <NNT_MoodHeader>心情</NNT_MoodHeader>
+  <NNT_NoThoughts>没有活跃的想法。</NNT_NoThoughts>
+  <NNT_WearsOffIn>{0} 后消退</NNT_WearsOffIn>
+
+  <!-- ════════════ 统计辅助 ════════════ -->
+  <NNT_Steady>稳定</NNT_Steady>
+  <NNT_RatePerHour>{0}% / 小时</NNT_RatePerHour>
+  <NNT_RatePerHourShort>{0}%/小时</NNT_RatePerHourShort>
+  <NNT_NoDataYet>暂无数据</NNT_NoDataYet>
+  <NNT_TimeToFull>预计充满时间</NNT_TimeToFull>
+  <NNT_TimeToEmpty>预计耗尽时间</NNT_TimeToEmpty>
+  <NNT_Over15Days>&gt; 15 天</NNT_Over15Days>
+
+  <!-- ════════════ 图表轴 ════════════ -->
+  <NNT_DayAxisShort>第{0}天</NNT_DayAxisShort>
+  <NNT_HourAxisShort>{0}时</NNT_HourAxisShort>
+
+</LanguageData>

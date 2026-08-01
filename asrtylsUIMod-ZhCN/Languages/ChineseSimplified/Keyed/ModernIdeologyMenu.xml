@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 窗口部件 -->
+  <MIM_WindowTitle>意识形态</MIM_WindowTitle>
+  <MIM_Close>关闭</MIM_Close>
+  <MIM_NoIdeoSelected>未选择意识形态</MIM_NoIdeoSelected>
+  <MIM_Search>搜索...</MIM_Search>
+  <MIM_SwitchToVanilla>切换到原版意识形态视图（会记住，随时可通过其角落的发光按钮切回）</MIM_SwitchToVanilla>
+  <MIM_SwitchToModern>切换到现代意识形态菜单（会记住，意识形态链接将再次打开它）</MIM_SwitchToModern>
+  <MIM_TagPrimary>主要</MIM_TagPrimary>
+  <MIM_TagFluid>流动</MIM_TagFluid>
+
+  <!-- 区块标题 -->
+  <MIM_Overview>概览</MIM_Overview>
+  <MIM_Leadership>领导层</MIM_Leadership>
+  <MIM_Memes>思潮</MIM_Memes>
+  <MIM_Precepts>戒律</MIM_Precepts>
+  <MIM_Roles>角色</MIM_Roles>
+  <MIM_Followers>信徒（{0}）</MIM_Followers>
+  <MIM_Styles>风格</MIM_Styles>
+  <MIM_Expand>展开</MIM_Expand>
+  <MIM_Collapse>折叠</MIM_Collapse>
+
+  <!-- 概览 -->
+  <MIM_Believers>信徒（殖民者）</MIM_Believers>
+  <MIM_MembersCalled>成员称谓</MIM_MembersCalled>
+  <MIM_LeaderTitle>领袖头衔</MIM_LeaderTitle>
+  <MIM_DevelopmentPoints>发展点数</MIM_DevelopmentPoints>
+  <MIM_ReformTooltip>改革此流动意识形态：更改思潮、戒律和风格。</MIM_ReformTooltip>
+  <MIM_ReformNeed>需要 {0} 发展点数才能改革（现有 {1}）。</MIM_ReformNeed>
+
+  <!-- 领导层 -->
+  <MIM_Governance>治理</MIM_Governance>
+  <MIM_CurrentLeader>现任领袖</MIM_CurrentLeader>
+  <MIM_VacantSeat>空缺席位</MIM_VacantSeat>
+  <MIM_DesignatedHeir>指定继承人</MIM_DesignatedHeir>
+  <MIM_NextLeadershipEvent>下一次领导权事件</MIM_NextLeadershipEvent>
+  <MIM_Election>选举</MIM_Election>
+  <MIM_VoteUnderway>投票正在进行中</MIM_VoteUnderway>
+  <MIM_ReignHistory>统治历史</MIM_ReignHistory>
+  <MIM_LastElection>上一次选举</MIM_LastElection>
+  <MIM_LeaderDefiant>效忠</MIM_LeaderDefiant>
+  <MIM_LeaderIgnoring>领袖正在无视戒律</MIM_LeaderIgnoring>
+  <MIM_ClickToSelect>点击选择 {0}</MIM_ClickToSelect>
+  <MIM_Leader>领袖</MIM_Leader>
+  <MIM_Reigning>在位中</MIM_Reigning>
+  <MIM_Ended>已结束</MIM_Ended>
+  <MIM_ReigningFor>在位 {0}</MIM_ReigningFor>
+  <MIM_OpenMemorial>打开 {0} 的纪念碑</MIM_OpenMemorial>
+
+  <!-- 开发者栏 -->
+  <MIM_Dev>DEV</MIM_Dev>
+  <MIM_EditModeOn>编辑模式已开启。在英雄处重命名，点击戒律进行编辑，X 移除思潮，+ 添加。点击关闭。</MIM_EditModeOn>
+  <MIM_EditMode>编辑模式：在此窗口内直接编辑此意识形态。</MIM_EditMode>
+  <MIM_RandomizePrecepts>随机化戒律：重新生成整套戒律。</MIM_RandomizePrecepts>
+  <MIM_RegenDesc>重新生成程序化故事文本。</MIM_RegenDesc>
+  <MIM_SinglePrecept>单一戒律：清除所有戒律并只安装一个。</MIM_SinglePrecept>
+  <MIM_GrantPointsNow>授予改革点数：填充至改革阈值（当前 {0}/{1}）。如有需要会使意识形态变为流动。</MIM_GrantPointsNow>
+  <MIM_GrantPointsEmpty>授予改革点数：使此意识形态变为流动并填充至改革阈值。</MIM_GrantPointsEmpty>
+
+  <!-- 编辑 -->
+  <MIM_ClickToEdit>点击编辑</MIM_ClickToEdit>
+  <MIM_AddMeme>添加思潮（结构思潮会替换当前的思潮）。</MIM_AddMeme>
+  <MIM_MemeStructureReplaces>（结构，替换当前）</MIM_MemeStructureReplaces>
+  <MIM_RemoveMeme>移除此思潮（保留兼容的戒律）。</MIM_RemoveMeme>
+  <MIM_NoMemesToAdd>没有可添加的思潮</MIM_NoMemesToAdd>
+  <MIM_NoPreceptsInCategory>此类别中没有可用的戒律</MIM_NoPreceptsInCategory>
+  <MIM_NothingEditable>此戒律无可编辑内容</MIM_NothingEditable>
+  <MIM_AddCategory>添加{0}：点击任何现有图块以编辑、替换、重新生成或移除。</MIM_AddCategory>
+  <MIM_Unassigned>未分配</MIM_Unassigned>
+  <MIM_AddRole>添加角色：点击「戒律」网格中角色的图块以编辑或移除。</MIM_AddRole>
+  <MIM_AddStyle>添加风格类别</MIM_AddStyle>
+  <MIM_NoMoreStyles>没有更多风格类别</MIM_NoMoreStyles>
+  <MIM_ReplaceWith>替换为 {0}</MIM_ReplaceWith>
+  <MIM_NoFollowers>没有已知信徒。</MIM_NoFollowers>
+
+  <!-- 戒律类别 -->
+  <MIM_CatGeneral>通用</MIM_CatGeneral>
+  <MIM_CatVirtues>美德</MIM_CatVirtues>
+  <MIM_CatRoles>角色</MIM_CatRoles>
+  <MIM_CatRituals>仪式</MIM_CatRituals>
+  <MIM_CatBuildings>神圣建筑</MIM_CatBuildings>
+  <MIM_CatRelics>圣物</MIM_CatRelics>
+  <MIM_CatWeapons>武器</MIM_CatWeapons>
+  <MIM_CatAnimals>受崇敬动物</MIM_CatAnimals>
+  <MIM_CatXenotypes>偏好异种人</MIM_CatXenotypes>
+  <MIM_CatApparel>服装</MIM_CatApparel>
+  <MIM_CatOther>其他</MIM_CatOther>
+
+  <!-- 创建页 -->
+  <MIM_EditInModern>在现代菜单中编辑</MIM_EditInModern>
+  <MIM_EditInModernTip>在现代意识形态菜单中编辑此意识形态：思潮、戒律、角色和重命名，全部在一个窗口中完成。</MIM_EditInModernTip>
+
+  <!-- 设置 -->
+  <MIM_SettingsCategory>现代意识形态菜单</MIM_SettingsCategory>
+  <MIM_SettingEnabled>启用现代意识形态菜单</MIM_SettingEnabled>
+  <MIM_SettingEnabledTip>启用后，UI 中任何位置的意识形态链接都将打开现代意识形态菜单，而不是原版「意识形态」标签页。</MIM_SettingEnabledTip>
+
+  <!-- Itemization Overhaul 兼容 -->
+  <MIM_IOHeader>Itemization Overhaul</MIM_IOHeader>
+  <MIM_IORelicTier>圣物级物品</MIM_IORelicTier>
+  <MIM_IODesiredBy>渴望者：{0}</MIM_IODesiredBy>
+  <MIM_IOCleansed>已净化、祝圣的圣物</MIM_IOCleansed>
+  <MIM_IOCorrupted>腐化</MIM_IOCorrupted>
+  <MIM_IOEthereal>以太</MIM_IOEthereal>
+  <MIM_IOIndestructible>不可摧毁</MIM_IOIndestructible>
+  <MIM_IOAffixes>词缀：</MIM_IOAffixes>
+
+  <!-- Cybranian Virtues 兼容 -->
+  <MIM_VirtuesHeader>Cybranian Virtues</MIM_VirtuesHeader>
+  <MIM_VirtuesDegree>第 {0} 级</MIM_VirtuesDegree>
+
+  <!-- More Informative Ideology 兼容 -->
+  <MIM_MIIHeader>More Informative Ideology</MIM_MIIHeader>
+  <MIM_MIILocked>已锁定：必需，无法移除</MIM_MIILocked>
+  <MIM_MIIManual>手动选择：随机化绝不会选中此项</MIM_MIIManual>
+  <MIM_MIIRandom>符合随机化条件</MIM_MIIRandom>
+  <MIM_MIIDevOnly>仅开发者模式</MIM_MIIDevOnly>
+  <MIM_MIIMemeFor>相关思潮：{0}</MIM_MIIMemeFor>
+  <MIM_MIIMemeAgainst>偏好另一选项的思潮：{0}</MIM_MIIMemeAgainst>
+  <MIM_MIIFactionLocked>已锁定：{0} 必需</MIM_MIIFactionLocked>
+
+</LanguageData>

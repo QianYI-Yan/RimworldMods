@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 模组设置 -->
+  <MQM_SettingsCategory>现代任务菜单</MQM_SettingsCategory>
+  <MQM_WindowScale>窗口缩放：{0}</MQM_WindowScale>
+  <MQM_WindowScaleDesc>整体缩小整个标签页。100% = 自动适应屏幕。</MQM_WindowScaleDesc>
+  <MQM_LockLayout>锁定面板布局</MQM_LockLayout>
+  <MQM_LockLayoutTip>防止意外拖动、调整大小或最小化面板。</MQM_LockLayoutTip>
+  <MQM_HideBroken>隐藏损坏 / 半生成的任务</MQM_HideBroken>
+  <MQM_HideBrokenTip>过滤掉描述生成失败的任务（显示为"ERR:..."或空白）。默认关闭，因此游戏列出的每个任务都会显示。</MQM_HideBrokenTip>
+  <MQM_ResetLayout>将布局重置为默认值</MQM_ResetLayout>
+
+  <!-- 顶栏 -->
+  <MQM_Quests>任务</MQM_Quests>
+  <MQM_Counts>{0} 可用，{1} 进行中，{2} 历史</MQM_Counts>
+
+  <!-- 面板标题 -->
+  <MQM_PanelQuestList>任务列表</MQM_PanelQuestList>
+  <MQM_PanelQuestDetails>任务详情</MQM_PanelQuestDetails>
+  <MQM_PanelRewards>奖励</MQM_PanelRewards>
+  <MQM_PanelAllRewards>所有可用奖励</MQM_PanelAllRewards>
+  <MQM_PanelPinned>已固定</MQM_PanelPinned>
+
+  <!-- 过滤标签 -->
+  <MQM_TabAvailable>可用</MQM_TabAvailable>
+  <MQM_TabActive>进行中</MQM_TabActive>
+  <MQM_TabHistorical>历史</MQM_TabHistorical>
+
+  <!-- 标题栏按钮 -->
+  <MQM_Prefs>偏好</MQM_Prefs>
+  <MQM_ClearAll>全部清除</MQM_ClearAll>
+  <MQM_ClearAllTip>取消固定所有任务</MQM_ClearAllTip>
+  <MQM_RestorePanel>恢复面板</MQM_RestorePanel>
+  <MQM_MinimisePanel>最小化面板</MQM_MinimisePanel>
+
+  <!-- 工具栏 -->
+  <MQM_Close>关闭</MQM_Close>
+  <MQM_SwitchToVanilla>切换到原版任务窗口</MQM_SwitchToVanilla>
+  <MQM_SwitchToModern>切换到现代任务菜单</MQM_SwitchToModern>
+  <MQM_LockLocked>布局已锁定。左键点击解锁。</MQM_LockLocked>
+  <MQM_LockUnlocked>布局已解锁。左键点击锁定。</MQM_LockUnlocked>
+  <MQM_LockResetHint>右键点击将布局重置为默认值。</MQM_LockResetHint>
+  <MQM_ModeFloating>浮动窗口模式。点击停靠到菜单栏。</MQM_ModeFloating>
+  <MQM_ModeDocked>停靠（菜单绑定）模式。点击弹出为可调整大小的窗口。</MQM_ModeDocked>
+
+  <!-- 所选任务操作 -->
+  <MQM_Pin>固定</MQM_Pin>
+  <MQM_Unpin>取消固定</MQM_Unpin>
+  <MQM_PinQuest>固定任务</MQM_PinQuest>
+  <MQM_UnpinQuest>取消固定任务</MQM_UnpinQuest>
+  <MQM_DismissQuest>放弃任务</MQM_DismissQuest>
+  <MQM_ResumeQuest>恢复任务</MQM_ResumeQuest>
+  <MQM_PinSelectFirst>固定任务（请先选择任务）</MQM_PinSelectFirst>
+  <MQM_DismissSelectFirst>放弃任务（请先选择任务）</MQM_DismissSelectFirst>
+  <MQM_QuestDismissedResume>任务已放弃。点击恢复。</MQM_QuestDismissedResume>
+  <MQM_AcceptSelectFirst>接受任务（请先选择任务）</MQM_AcceptSelectFirst>
+  <MQM_AcceptAlready>接受任务（已接受或已结束）</MQM_AcceptAlready>
+  <MQM_AcceptViaRewardTip>此任务有奖励选项。可通过「奖励」面板中的「接受以换取：」按钮接受。</MQM_AcceptViaRewardTip>
+
+  <!-- 面板主体 -->
+  <MQM_AcceptViaReward>通过「奖励」面板中的奖励选择接受。</MQM_AcceptViaReward>
+  <MQM_ClickToOpen>点击打开此任务</MQM_ClickToOpen>
+  <MQM_NoQuestSelected>（未选择任务）</MQM_NoQuestSelected>
+  <MQM_NoQuests>（无任务）</MQM_NoQuests>
+  <MQM_NoPinned>（无固定任务，点击任务的固定图标）</MQM_NoPinned>
+  <MQM_NoRewardChoices>（没有可提供的奖励选择）</MQM_NoRewardChoices>
+  <MQM_NoSelectableRewards>（此任务没有可选择的奖励）</MQM_NoSelectableRewards>
+
+  <!-- 结果标签 -->
+  <MQM_OutcomeCompleted>任务已完成</MQM_OutcomeCompleted>
+  <MQM_OutcomeFailed>任务已失败</MQM_OutcomeFailed>
+  <MQM_OutcomeEnded>任务已结束</MQM_OutcomeEnded>
+
+  <!-- 行内副线标记 -->
+  <MQM_FlagDismissed>已放弃</MQM_FlagDismissed>
+  <MQM_FlagSuccess>成功</MQM_FlagSuccess>
+  <MQM_FlagFailed>失败</MQM_FlagFailed>
+  <MQM_FlagEnded>已结束</MQM_FlagEnded>
+
+  <!-- 时间信息 -->
+  <MQM_ExpiresIn>{0} 后过期</MQM_ExpiresIn>
+  <MQM_FinishedAgo>{0} 前完成</MQM_FinishedAgo>
+  <MQM_AcceptedAgo>{0} 前接受</MQM_AcceptedAgo>
+
+  <!-- 开发者工具 -->
+  <MQM_DevShowHidden>DEV：显示隐藏任务（{0}）</MQM_DevShowHidden>
+  <MQM_DevOn>开</MQM_DevOn>
+  <MQM_DevOff>关</MQM_DevOff>
+  <MQM_DevAcceptInstant>DEV：立即接受所选任务（随机奖励选择，随机接受者）</MQM_DevAcceptInstant>
+  <MQM_DevGenerate>DEV：生成任务...</MQM_DevGenerate>
+  <MQM_DevDelete>DEV：删除所选任务</MQM_DevDelete>
+  <MQM_DevGenerated>DEV：已生成任务「{0}」</MQM_DevGenerated>
+
+  <!-- 任务发布方状态栏（GiverSnips） -->
+  <MQM_SnipRelicOne>我们持有 {0}</MQM_SnipRelicOne>
+  <MQM_SnipRelicTheir>他们的圣物</MQM_SnipRelicTheir>
+  <MQM_SnipRelicMany>我们持有他们的 {0} 件圣物</MQM_SnipRelicMany>
+  <MQM_SnipMoveOne>{0} 正在途中</MQM_SnipMoveOne>
+  <MQM_SnipMoveMany>{0} 个队伍正在移动</MQM_SnipMoveMany>
+  <MQM_SnipQuestAlso>还有：{0}</MQM_SnipQuestAlso>
+  <MQM_SnipTitleOne>{0}：{1}</MQM_SnipTitleOne>
+  <MQM_SnipTitleMany>{0} 名殖民者持有他们的爵位</MQM_SnipTitleMany>
+  <MQM_SnipRelicGrudge>持有另一个派系的意识形态圣物会招致怨恨：敌意和夺回袭击。</MQM_SnipRelicGrudge>
+  <MQM_SnipClickView>点击查看。</MQM_SnipClickView>
+  <MQM_TagRelic>圣物</MQM_TagRelic>
+  <MQM_TagMovement>移动</MQM_TagMovement>
+  <MQM_TagQuest>任务</MQM_TagQuest>
+  <MQM_TagEvent>事件</MQM_TagEvent>
+  <MQM_TagTitle>爵位</MQM_TagTitle>
+  <MQM_TagTitles>爵位</MQM_TagTitles>
+
+</LanguageData>

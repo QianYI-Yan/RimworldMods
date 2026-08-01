@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 设置 -->
+  <Circ.SettingsCategory>Circinus</Circ.SettingsCategory>
+  <Circ.Settings.AutoStart>自动启动性能分析器</Circ.Settings.AutoStart>
+  <Circ.Settings.AutoStartTip>地图加载完成后立即开始一轮记录，而不是手动开始。默认关闭：记录会占用帧时间，因此应该是有意的选择，而不是每次会话都发生。</Circ.Settings.AutoStartTip>
+  <Circ.Consent.Title>分享性能数据？</Circ.Consent.Title>
+  <Circ.Consent.Body>Circinus 会记录你的模组性能表现。如果你分享这些运行数据，其他玩家可以将他们的结果与你的机器进行对比，模组作者可以看到某个版本何时变慢，已知错误也能匹配到导致它们的模组。该网站免费、开放且非商业。</Circ.Consent.Body>
+  <Circ.Consent.SentHeader>将会发送的内容</Circ.Consent.SentHeader>
+  <Circ.Consent.Sent>计时样本、每个模组和每个补丁的开销、你已安装模组的包 ID，以及粗略的硬件描述，例如「Ryzen 7 9850X3D，128 GB，Windows 11」。</Circ.Consent.Sent>
+  <Circ.Consent.NotSentHeader>绝不会发送的内容</Circ.Consent.NotSentHeader>
+  <Circ.Consent.NotSent>文件路径、你的用户名、你的存档、你的殖民地或小人名称，以及模组的名称、版本和加载顺序。不会创建任何账户。</Circ.Consent.NotSent>
+  <Circ.Consent.Recheck>再次询问此问题是因为之前的描述有误：它说只发送模组列表的哈希，而实际上发送的是完整列表。</Circ.Consent.Recheck>
+  <Circ.Consent.Yes>分享我的运行数据</Circ.Consent.Yes>
+  <Circ.Consent.No>全部保持本地</Circ.Consent.No>
+  <Circ.Consent.Footer>你可以在模组设置中随时更改。</Circ.Consent.Footer>
+  <Circ.Copied>已将 {0} 复制到剪贴板。</Circ.Copied>
+  <Circ.Settings.SecRecording>记录</Circ.Settings.SecRecording>
+  <Circ.Settings.SecSharing>分享</Circ.Settings.SecSharing>
+  <Circ.Settings.InstallId>你的安装 ID：{0}</Circ.Settings.InstallId>
+  <Circ.Settings.CopyId>复制安装 ID</Circ.Settings.CopyId>
+  <Circ.Settings.CopiedId>安装 ID 已复制到剪贴板。</Circ.Settings.CopiedId>
+  <Circ.Settings.InstallIdHint>在此机器上创建的随机 ID。不基于你的硬件、账户或姓名。在 circinus.sh/authors 引用它，即可删除你提交的所有内容。</Circ.Settings.InstallIdHint>
+  <Circ.Settings.SecProfiling>性能分析</Circ.Settings.SecProfiling>
+  <Circ.Settings.SecData>数据</Circ.Settings.SecData>
+  <Circ.Settings.WarmupHint>预热窗口内的样本会被记录，但被排除在所有聚合之外，因为它们带有武装分析器的单次开销。</Circ.Settings.WarmupHint>
+  <Circ.Settings.IngestEndpointLabel>端点</Circ.Settings.IngestEndpointLabel>
+  <Circ.Settings.IngestSent>已发送：计时样本、每个模组和每个补丁的开销、你已安装模组的包 ID，以及粗略硬件信息。</Circ.Settings.IngestSent>
+  <Circ.Settings.IngestNotSent>未发送：文件路径、你的用户名、存档，或殖民地和小人名称。</Circ.Settings.IngestNotSent>
+  <Circ.Settings.IngestOff>不会有任何内容离开这台机器。运行记录仅保存在本地。</Circ.Settings.IngestOff>
+  <Circ.Settings.MaxPatches>要插桩的最大补丁数：{0}</Circ.Settings.MaxPatches>
+  <Circ.Settings.MaxPatchesHint>这是安全网，不是主要防线。请单独武装目标，而不是对所有内容插桩：在大型模组列表上这样做会产生持续一分钟以上的帧。</Circ.Settings.MaxPatchesHint>
+  <Circ.Settings.AutoRecord>在地图加载时自动记录一轮运行</Circ.Settings.AutoRecord>
+  <Circ.Settings.AutoRecordTip>每当地图加载时开始记录，这样无需记得按任何按钮就会累积运行数据。记录仅限本地；发布是下面单独的选项。</Circ.Settings.AutoRecordTip>
+  <Circ.Settings.Ingest>与 circinus.sh 分享已完成的运行</Circ.Settings.Ingest>
+  <Circ.Settings.IngestTip>默认关闭。开启后，已完成的运行会被上传，以便其他玩家与你的机器进行对比。只有至少包含 60 个样本且具有校准分数的运行才会被发送，因为较短的运行无法归入对照群体。</Circ.Settings.IngestTip>
+  <Circ.Settings.IngestStatus>状态：{0}</Circ.Settings.IngestStatus>
+  <Circ.Settings.AutoArm>加载时重新武装分析器目标</Circ.Settings.AutoArm>
+  <Circ.Settings.AutoArmTip>恢复上次关闭游戏时武装的分析器目标。与开始记录是分开的：每次会话观察相同目标很常见，但每次会话都记录则不常见。</Circ.Settings.AutoArmTip>
+  <Circ.Settings.WarmupNotice>显示预热提示</Circ.Settings.WarmupNotice>
+  <Circ.Settings.WarmupNoticeTip>当分析器插桩 Harmony 补丁时显示简短提示，让缓慢的开场几秒变得可预期而不是令人困惑。</Circ.Settings.WarmupNoticeTip>
+  <Circ.Settings.WarmupSeconds>预热窗口：{0} 秒</Circ.Settings.WarmupSeconds>
+  <Circ.Settings.RegressPct>回归阈值：{0}%</Circ.Settings.RegressPct>
+  <Circ.Settings.WebOpen>在浏览器中打开仪表盘</Circ.Settings.WebOpen>
+  <Circ.Settings.Storage>运行数据文件夹：{0}</Circ.Settings.Storage>
+  <Circ.Settings.RunCount>已记录运行：{0}</Circ.Settings.RunCount>
+
+  <!-- 运行控制 -->
+  <Circ.RunStarted>记录开始：{0}</Circ.RunStarted>
+  <Circ.RunAlreadyActive>已在记录一轮运行。</Circ.RunAlreadyActive>
+  <Circ.RunStopped>运行已保存：{0}</Circ.RunStopped>
+  <Circ.RunStoppedDetail>{0} 个样本，{1} 个错误类，{2} 个标记。</Circ.RunStoppedDetail>
+  <Circ.NoActiveRun>当前没有正在记录运行。</Circ.NoActiveRun>
+  <Circ.RunStartFailed>无法开始运行。请检查日志。</Circ.RunStartFailed>
+  <Circ.MarkerAdded>已添加标记：{0}</Circ.MarkerAdded>
+  <Circ.MarkerLabel>标记 {0}</Circ.MarkerLabel>
+
+  <!-- 索引与对比 -->
+  <Circ.IndexRebuilt>运行索引已重建：{0} 轮运行。</Circ.IndexRebuilt>
+  <Circ.NeedTwoRuns>至少需要两轮已记录运行才能对比。</Circ.NeedTwoRuns>
+  <Circ.DiffResult>{0}：{1}</Circ.DiffResult>
+  <Circ.RunStatus>记录 {0}：{1} 个样本，{2} 个错误类。</Circ.RunStatus>
+
+  <!-- 适配器 -->
+  <Circ.AdapterStatus>{0} 个适配器已报告。详情见日志。</Circ.AdapterStatus>
+  <Circ.HarmonyIndex>Harmony 索引：{0} 个补丁，{1} 个未归属。</Circ.HarmonyIndex>
+  <Circ.TestsUnavailable>没有可用的测试：{0}</Circ.TestsUnavailable>
+  <Circ.TestsRun>{0} 项测试：{1} 通过，{2} 失败。</Circ.TestsRun>
+  <Circ.Calibrated>校准完成。这台机器得分 {0}。</Circ.Calibrated>
+  <Circ.SweepDone>全面扫描完成。{0}</Circ.SweepDone>
+  <Circ.SpeedSweepStarted>速度扫描开始：普通、快速、超快速、极速，持续 {0} 秒。请保持游戏运行。</Circ.SpeedSweepStarted>
+  <Circ.SpeedSweepRefused>无法开始速度扫描：{0}。</Circ.SpeedSweepRefused>
+  <Circ.StressRanAll>{0} 个压力场景已完成。</Circ.StressRanAll>
+  <Circ.SearchIndexed>方法索引已构建：{0} 个方法。</Circ.SearchIndexed>
+  <Circ.SearchArmFailed>无法插桩 {0}。</Circ.SearchArmFailed>
+  <Circ.ProfilerArmed>已武装 {0}：{1} 个方法已插桩。</Circ.ProfilerArmed>
+  <Circ.ProfilerDisarmed>分析器已解除武装，数据已清除。</Circ.ProfilerDisarmed>
+  <Circ.ProfilerNoData>尚无分析器数据。请先武装目标。</Circ.ProfilerNoData>
+  <Circ.ProfilerDumped>{0} 个分析器已转储到日志。</Circ.ProfilerDumped>
+  <Circ.TestsNoneRan>没有运行任何测试程序集。未发现可执行内容。</Circ.TestsNoneRan>
+
+</LanguageData>

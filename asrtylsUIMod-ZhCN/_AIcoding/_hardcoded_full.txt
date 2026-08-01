@@ -1,0 +1,610 @@
+##### Circinus : 1198 处
+KnownIssues.cs:20: Known issue - 
+KnownIssues.cs:20:  install
+KnownIssues.cs:20:  installs
+KnownIssues.cs:23: ).Append(issue.ShareOfInstalls.ToString(
+KnownIssues.cs:23: )).Append(
+KnownIssues.cs:29:  Present in 
+KnownIssues.cs:29: 0.#
+KnownIssues.cs:29: % of runs with 
+KnownIssues.cs:32: 0.#
+KnownIssues.cs:33: % without it.
+KnownIssues.cs:71: Fetching known issues from circinus.sh...
+KnownIssues.cs:75:  known error classes, fetched 
+KnownIssues.cs:79: Known issues unavailable: 
+KnownIssues.cs:81: No known-issue index held yet.
+AdapterRegistry.cs:162:  + (devAdapter.Available ? 
+AdapterRegistry.cs:162:  : (
+MdtAdapter.cs:27: Modern Dev Tools
+MdtAdapter.cs:45: ModernDevTools.ModernDevToolsAPI
+MdtAdapter.cs:48: not installed or not active
+CircinusSettings.cs:29: https://circinus.sh
+CircinusSettings.cs:67: https://circinus.sh
+CircinusStartup.cs:49: the game is quitting
+CircinusStartup.cs:53: [Circinus] uploaded 
+CircinusStartup.cs:53:  run(s) on exit.
+CircinusStartup.cs:62: [Circinus] ready. 
+CircinusStartup.cs:64:  run(s) indexed, 
+CircinusStartup.cs:66:  patch class(es) applied
+CircinusStartup.cs:67:  + CircinusStartup.PatchClassesSkipped.ToString() + 
+CircinusStartup.cs:67: ) : 
+CircinusStartup.cs:73: [Circinus] 
+CircinusStartup.cs:88: [Circinus] the previous session ended while arming profiler target \
+CircinusStartup.cs:88:  + text + 
+CircinusStartup.cs:88: . That target crashed the game without logging. It is not armed automatically; arm it again only if you expect it to be fixed.
+CircinusStartup.cs:110: [Circinus] 
+CircinusStartup.cs:110:  run(s) recovered from interrupted sessions. They are marked incomplete in the Runs tab.
+CircinusStartup.cs:149: [Circinus] skipped patch class 
+DebugActions.cs:22: Start run
+DebugActions.cs:40: Stop run and save
+DebugActions.cs:60: Add marker
+DebugActions.cs:75: Run status
+
+##### ModernBioTab : 442 处
+BioTabDrawer.cs:137: SkillGraph.ITab_Pawn_SkillHistory
+BioTabDrawer.cs:579: Mostly Het.
+BioTabDrawer.cs:582: Leaning Het.
+BioTabDrawer.cs:588: Leaning Homo.
+BioTabDrawer.cs:591: Mostly Homo.
+BioTabDrawer.cs:624: Maux36.RimPsyche.Pawn_SexualityTracker
+BioTabDrawer.cs:776: Maux36.RimPsyche.PsycheInfoCard
+BioTabDrawer.cs:827: SlimeSenpai.EndlessGrowth.EndlessGrowthMod
+BioTabDrawer.cs:837: SlimeSenpai.EndlessGrowth.EndlessGrowthModSettings
+BioTabDrawer.cs:1387: All panels hidden — open the layout menu (top-right) to show panels.
+BioTabDrawer.cs:1453: [Modern Bio Tab] External panel '{0}:{1}' availability check threw, disabling it: {2}
+BioTabDrawer.cs:1717: [Modern Bio Tab] External panel '{0}:{1}' threw while drawing, disabling it: {2}
+BioTabDrawer.cs:1749: Drag a panel here to pin it to the bottom row
+BioTabDrawer.cs:2197:  : 
+BioTabDrawer.cs:2203: Collapse RimPsyche panel
+BioTabDrawer.cs:2203: Expand RimPsyche panel
+BioTabDrawer.cs:2252: No psyche data for this pawn.
+BioTabDrawer.cs:2281: No psyche data for this pawn.
+BioTabDrawer.cs:2305: RimPsyche draw error:\n
+BioTabDrawer.cs:2386:  : 
+BioTabDrawer.cs:2388:  / 50
+BioTabDrawer.cs:2420:  : 
+BioTabDrawer.cs:2420: ) + val.ToString(
+BioTabDrawer.cs:2499:    ·   Kinsey 
+BioTabDrawer.cs:2499: ) : 
+BioTabDrawer.cs:2622: Maux36.RimPsyche.RimpsycheDatabase
+BioTabDrawer.cs:2624: Maux36.RimPsyche.Pawn_InterestTracker
+BioTabDrawer.cs:2634: Maux36.RimPsyche.Pawn_SexualityTracker
+BioTabDrawer.cs:2645: Maux36.RimPsyche.PreferenceWorker
+BioTabDrawer.cs:2867: Sex drive
+BioTabDrawer.cs:2947: Switch to vanilla Character tab
+BioTabDrawer.cs:2961: Layout menu — hidden panels, lock / unlock, reset.
+BioTabDrawer.cs:2961: \n\nLayout is locked.
+BioTabDrawer.cs:2982: Icons only
+BioTabDrawer.cs:2982: Icons + text
+BioTabDrawer.cs:2982: Text only
+BioTabDrawer.cs:2984: Info bar display: 
+BioTabDrawer.cs:2984: \n\nClick to cycle.
+BioTabDrawer.cs:3000: View information
+BioTabDrawer.cs:3226: Lakuna.BoundedRationality.Utility.KnowledgeUtility
+
+##### ModernCC : 322 处
+CEImport.cs:23: Character Editor
+CEImport.cs:27: Character Editor
+CEImport.cs:43: [MCE] CE desktop scan failed: 
+CEImport.cs:68: Unnamed pawn
+CEImport.cs:139: Not a Character Editor pawn string
+CEImport.cs:149: Imported 1:1 via Character Editor
+CEImport.cs:155: [MCE] CE native reconstruct failed, falling back: 
+CEImport.cs:176: [MCE] CE manual import failed: 
+CEImport.cs:179: Import failed (see log)
+CEImport.cs:597: [MCE] CE desktop scan failed: 
+CEReconstruct.cs:49: [MCE] Character Editor reconstruct bridge: member mismatch, using manual import.
+CEReconstruct.cs:55: [MCE] Character Editor reconstruct bridge failed to resolve: 
+CEReconstruct.cs:99: [MCE] Character Editor reconstruct threw: 
+CESlots.cs:73: [MCE] CE API slot read failed: 
+CESlots.cs:94: [MCE] CE slot-file read failed: 
+CESlots.cs:114: [MCE] CE profile slot-file read failed: 
+ComfortsBridge.cs:60: [MCE] Comforts bridge resolve error: 
+ComfortsBridge.cs:65: [MCE] Comforts is active but its bridge failed to resolve; the Comforts tab will be empty.
+ComfortsBridge.cs:127: [MCE] Comforts LoadWork failed: 
+ComfortsBridge.cs:177: [MCE] Comforts commit failed: 
+CustomBackstories.cs:50: [MCE] Could not load custom backstories: 
+CustomBackstories.cs:72: [MCE] Could not register custom backstory '
+CustomBackstories.cs:72: ': 
+CustomBackstories.cs:78: [MCE] Registered 
+CustomBackstories.cs:78:  custom backstories.
+CustomBackstories.cs:93: [MCE] Could not save custom backstories: 
+Dialog_BackstoryCreator.cs:143: +0;-0;0
+Dialog_ImportCE.cs:196: [MCE] Bulk import of \
+Dialog_ImportCE.cs:196:  + entry.label + 
+Dialog_ImportCE.cs:196:  failed: 
+Dialog_Modules.cs:211: XML: add an editor tab from any mod
+Dialog_Modules.cs:234: C# API surface
+Dialog_Modules.cs:356: \n\n
+Dialog_Modules.cs:396: <MCE.EditorModuleDef>
+Dialog_Modules.cs:397:   <defName>MyMod_CyberneticsTab</defName>
+Dialog_Modules.cs:398:   <label>cybernetics</label>
+Dialog_Modules.cs:399:   <order>75</order>
+Dialog_Modules.cs:400:   <workerClass>MyMod.CyberneticsModule</workerClass>
+Dialog_Modules.cs:401:   <!-- optional gates -->
+Dialog_Modules.cs:402:   <requiresDlc>biotech</requiresDlc>
+
+##### ModernColonistBar : 406 处
+AggroRadar.cs:20: UI/MCB_FX_Skull
+AggroRadar.cs:187: Targeted by 
+AggroRadar.cs:187:  hostile
+AggroRadar.cs:187:  : 
+AutoCombatBridge.cs:21: BigAndSmall.DraftedActionHolder
+AwayIndicator.cs:104: With caravan: 
+AwayIndicator.cs:104: \n\nClick to jump there.
+AwayIndicator.cs:120: On another map.\n\nClick to jump there.
+AwayIndicator.cs:120: On another map: 
+AwayIndicator.cs:120: \n\nClick to jump there.
+AwayIndicator.cs:124: In transit.
+AwayIndicator.cs:136: UI/MCB_Away_Map
+AwayIndicator.cs:139: UI/MCB_Ctx_Caravan
+BarControls.cs:109: Bar controls - views, hidden pawns, squads, settings\nRight-click: open the Command center
+BarControls.cs:109: \nBar is filtered: 
+BarControls.cs:109:  + get.hidden.Count.ToString() + 
+BarControls.cs:109: ) : 
+BarControls.cs:109: )) : 
+BarControls.cs:185: Hide the prisoner section from the bar
+BarControls.cs:187: Show 
+BarControls.cs:189:  prisoner
+BarControls.cs:190:  : 
+BarControls.cs:191:  on the bar
+BarControls.cs:214: Hide the slave section from the bar
+BarControls.cs:216: Show 
+BarControls.cs:218:  slave
+BarControls.cs:219:  : 
+BarControls.cs:220:  on the bar
+BarControls.cs:301: Command center...
+BarControls.cs:305: View: 
+BarControls.cs:310: Unhide all (
+BarControls.cs:315: Manage squads...
+BarControls.cs:320:  : 
+BarControls.cs:320: ) + 
+BarControls.cs:325:  : 
+BarControls.cs:325: ) + 
+BarControls.cs:330:  : 
+BarControls.cs:330: ) + 
+BarControls.cs:335: Modern Colonist Bar settings
+BarControls.cs:355: Squad: 
+
+##### ModernDevTools : 346 处
+AboutIncompatIndex.cs:70: [Modern Dev Tools] About.xml incompatibility scan failed: 
+ActionSearchIndex.cs:88: [Modern Dev Tools] search index build failed: 
+ArchotechBridge.cs:34: KKArchotechLogs.UI.Dialog_ArchotechInfoView
+ArchotechBridge.cs:35: KKArchotechLogs.UI.ArchotechExportWindow
+ArchotechBridge.cs:52: [Modern Dev Tools] Archotech Logs' diagnostics window constructor did not match the expected shape, so that button is not hosted. Use \
+ArchotechBridge.cs:52:  to reach it.
+ArchotechBridge.cs:57: [Modern Dev Tools] Archotech Logs' export window constructor did not match the expected shape, so that button is not hosted. Use \
+ArchotechBridge.cs:57:  to reach it.
+ArchotechBridge.cs:65: [Modern Dev Tools] Archotech Logs bridge probe failed: 
+ArchotechBridge.cs:216: [Modern Dev Tools] could not open an Archotech Logs window: 
+ArchotechBridge.cs:262: [Modern Dev Tools] Archotech Logs bridge registration failed: 
+ArchotechBridge.cs:267: KKArchotechLogs.UI.Dialog_ArchotechInfoView
+ArchotechBridge.cs:270: KKArchotechLogs.UI.ArchotechExportWindow
+Bootstrap.cs:38: [Modern Dev Tools] skipped patch class 
+Bootstrap.cs:48: [Modern Dev Tools] hardening init failed: 
+Bootstrap.cs:115: [Modern Dev Tools] update notes check failed: 
+CommunityData.cs:165: https://raw.githubusercontent.com/emipa606/UseThisInstead/master/replacements.json.gz
+CommunityData.cs:188: [Modern Dev Tools] community data update failed: 
+CommunityData.cs:238: wid:
+CommunityData.cs:365: wid:
+CommunityData.cs:419: [Modern Dev Tools] bundled community snapshot load failed: 
+CommunityData.cs:517: [Modern Dev Tools] community bug match failed: 
+CommunityData.cs:590: [Modern Dev Tools] failed reading 
+CommunityData.cs:603: ModernDevTools/1.0
+CommunityData.cs:663: [Modern Dev Tools] community bg task failed: 
+CommunityData.cs:675: https://raw.githubusercontent.com/emipa606/UseThisInstead/master/replacements.json.gz
+DebugActions_Testing.cs:16: Modern Dev Tools
+DebugActions_Testing.cs:19: Modern Dev Tools
+DebugActions_Testing.cs:24: [Modern Dev Tools] could not register debug category order: 
+DebugActions_Testing.cs:29: Modern Dev Tools
+DebugActions_Testing.cs:29: Log test message
+DebugActions_Testing.cs:32: [Modern Dev Tools test] informational message. This is a benign Message-level entry used to check the log's message filter and list rendering.
+DebugActions_Testing.cs:36: Modern Dev Tools
+DebugActions_Testing.cs:36: Log test warning
+DebugActions_Testing.cs:39: [Modern Dev Tools test] warning. Warning-level entries show the report card and the impact banner, and can be muted with Ignore.
+DebugActions_Testing.cs:43: Modern Dev Tools
+DebugActions_Testing.cs:43: Log test error
+DebugActions_Testing.cs:46: [Modern Dev Tools test] error. A plain Error-level entry with no exception - use it to check the impact banner and the 'Report this error' flow.
+DebugActions_Testing.cs:50: Modern Dev Tools
+DebugActions_Testing.cs:50: Log error with jargon (glossary demo)
+
+##### ModernFactionMenu : 339 处
+CapitalPreview.cs:24: No locations
+CapitalPreview.cs:41: \n\nClick to view on the world map.
+GraphSeries.cs:20: 0.#
+ModernFactionTex.cs:12: UI/MFM_ModernViewIcon
+ModernFactionTex.cs:15: UI/MFM_VanillaViewIcon
+ModernFactionTex.cs:18: UI/MFM_Pin
+ModernFactionTex.cs:21: UI/MFM_FilterHostile
+ModernFactionTex.cs:24: UI/MFM_FilterNeutral
+ModernFactionTex.cs:27: UI/MFM_FilterAlly
+ModernFactionTex.cs:30: UI/MFM_GraphEconomy
+ModernFactionTex.cs:33: UI/MFM_GraphInflation
+ModernFactionTex.cs:36: UI/MFM_GraphRelations
+ModernFactionTex.cs:39: UI/MFM_GraphSettlements
+ModernFactionTex.cs:42: UI/MFM_GraphPopulation
+ModernFactionTex.cs:45: UI/MFM_GraphTerritory
+ModernFactionTex.cs:48: UI/MFM_MapFrame
+ModernFactionTex.cs:51: UI/MFM_Capital
+ModernFactionTex.cs:54: UI/MFM_ArrowLeft
+ModernFactionTex.cs:57: UI/MFM_ArrowRight
+ModernFactionTex.cs:60: UI/MFM_SnipMove
+ModernFactionTex.cs:63: UI/MFM_SnipQuest
+ModernFactionTex.cs:66: UI/MFM_SnipEvent
+ModernFactionTex.cs:69: UI/MFM_SnipRelic
+ModernFactionTex.cs:72: UI/MFM_ActCaravan
+ModernFactionTex.cs:75: UI/MFM_ActTrade
+ModernFactionTex.cs:78: UI/MFM_ActComms
+ModernFactionTex.cs:81: UI/MFM_ActGift
+ModernFactionTex.cs:84: UI/MFM_ActAid
+ModernFactionTex.cs:87: UI/MFM_GraphStability
+ModernFactionTex.cs:90: UI/MFM_GraphMilitary
+ModernGraph.cs:267:   ·  
+Palette.cs:24: 0.#
+Palette.cs:31: 0.#
+Palette.cs:35: 0.#
+PerkUI.cs:43: \n\n
+Window_ModernEmpireSettlements.cs:65:  — Settlements
+Window_ModernEmpireSettlements.cs:75: No settlements.
+Window_ModernEmpireSettlements.cs:97:  : 
+Window_ModernEmpireSettlements.cs:97: ) : 
+Window_ModernEmpireSettlements.cs:101: Sort by 
+
+##### ModernHistoryMenu : 60 处
+GraphSeries.cs:23: 0.#
+HEAssets.cs:189: HistoryExpanded/Stats/Skull
+HEAssets.cs:192: HistoryExpanded/Stats/Sword
+HEAssets.cs:195: HistoryExpanded/Stats/Shield
+HEAssets.cs:198: HistoryExpanded/Stats/Crosshair
+HEAssets.cs:201: HistoryExpanded/Stats/Hammer
+HEAssets.cs:204: HistoryExpanded/Stats/Pickaxe
+HEAssets.cs:207: HistoryExpanded/Stats/Crate
+HEAssets.cs:210: HistoryExpanded/Stats/Pot
+HEAssets.cs:213: HistoryExpanded/Stats/Leaf
+HEAssets.cs:216: HistoryExpanded/Stats/Medical
+HEAssets.cs:219: HistoryExpanded/Stats/Social
+HEAssets.cs:222: HistoryExpanded/Stats/Paw
+HEAssets.cs:225: HistoryExpanded/Stats/Flask
+HEAssets.cs:228: HistoryExpanded/Stats/Flame
+HEAssets.cs:231: HistoryExpanded/Stats/Clock
+HEAssets.cs:234: HistoryExpanded/Stats/Star
+HEAssets.cs:237: HistoryExpanded/Stats/TrendUp
+HEAssets.cs:240: HistoryExpanded/Stats/Chart
+HEAssets.cs:243: HistoryExpanded/UI/Chevron
+HEAssets.cs:246: HistoryExpanded/UI/Swap
+HEAssets.cs:249: HistoryExpanded/UI/Range30
+HEAssets.cs:252: HistoryExpanded/UI/Range100
+HEAssets.cs:255: HistoryExpanded/UI/Range300
+HEAssets.cs:258: HistoryExpanded/UI/RangeAll
+HEAssets.cs:261: HistoryExpanded/Stats/Coins
+HEAssets.cs:264: HistoryExpanded/Stats/People
+HEAssets.cs:267: HistoryExpanded/Stats/Mood
+HEAssets.cs:270: HistoryExpanded/Stats/Bed
+HEAssets.cs:273: HistoryExpanded/Stats/Drumstick
+HEAssets.cs:276: HistoryExpanded/Stats/Die
+HEAssets.cs:279: HistoryExpanded/Stats/LevelUp
+HEAssets.cs:282: HistoryExpanded/Stats/Bolt
+HEAssets.cs:285: HistoryExpanded/UI/Pin
+HEAssets.cs:288: HistoryExpanded/UI/PinOutline
+HEAssets.cs:291: HistoryExpanded/UI/Dialog
+HEAssets.cs:294: HistoryExpanded/UI/Heart
+HEAssets.cs:297: HistoryExpanded/UI/Close
+HEAssets.cs:300: HistoryExpanded/UI/IconDock
+HEAssets.cs:303: HistoryExpanded/UI/IconPopout
+
+##### ModernIdeologyMenu : 66 处
+ModernIdeoTex.cs:195: UI/ModernViewIcon
+ModernIdeoTex.cs:198: UI/VanillaViewIcon
+ModernIdeoTex.cs:201: UI/Status_Exalted
+ModernIdeoTex.cs:204: UI/Status_Approved
+ModernIdeoTex.cs:207: UI/Status_Disapproved
+ModernIdeoTex.cs:210: UI/Status_Horrible
+ModernIdeoTex.cs:213: UI/Status_Abhorrent
+ModernIdeoTex.cs:216: UI/Dev_Edit
+ModernIdeoTex.cs:219: UI/Dev_Random
+ModernIdeoTex.cs:222: UI/Dev_RegenDesc
+ModernIdeoTex.cs:225: UI/Dev_SinglePrecept
+ModernIdeoTex.cs:228: UI/Dev_GrantPoints
+ModernIdeoTex.cs:231: UI/Chevron_Down
+ModernIdeoTex.cs:234: UI/Chevron_Right
+ModernIdeoTex.cs:237: UI/Modern_Search
+ModernIdeoTex.cs:240: UI/Modern_Close
+ModernIdeoTex.cs:243: UI/Reform
+Window_ModernIdeo.cs:440:  · 
+Window_ModernIdeo.cs:445:  · 
+Window_ModernIdeo.cs:605: [ModernIdeologyMenu] add style failed: 
+Window_ModernIdeo.cs:640: [ModernIdeologyMenu] remove style failed: 
+Window_ModernIdeo.cs:670: [ModernIdeologyMenu] replace style failed: 
+Window_ModernIdeo.cs:731: [ModernIdeologyMenu] RandomizePrecepts failed: 
+Window_ModernIdeo.cs:749: [ModernIdeologyMenu] RegenDescription failed: 
+Window_ModernIdeo.cs:753: Regenerate the procedural story text
+Window_ModernIdeo.cs:797: [ModernIdeologyMenu] GrantPoints failed: 
+Window_ModernIdeo.cs:836: [ModernIdeologyMenu] meme edit failed: 
+Window_ModernIdeo.cs:907: ) : 
+Window_ModernIdeo.cs:917: [ModernIdeologyMenu] add precept failed: 
+Window_ModernIdeo.cs:979: [ModernIdeologyMenu] regenerate precept failed: 
+Window_ModernIdeo.cs:1015: [ModernIdeologyMenu] replace precept failed: 
+Window_ModernIdeo.cs:1037: [ModernIdeologyMenu] remove precept failed: 
+Window_ModernIdeo.cs:1136:  / 
+Window_ModernIdeo.cs:1258:   (
+Window_ModernIdeo.cs:1258:  + t.Item2.ToString())) + 
+Window_ModernIdeo.cs:1406:  — now
+Window_ModernIdeo.cs:1406:  — 
+Window_ModernIdeo.cs:1464: \n\n
+Window_ModernIdeo.cs:1666: \n\n
+Window_ModernIdeo.cs:1899: <b>
+
+##### ModernLearningMenu : 138 处
+Assets.cs:61: UI/LockClosed
+Assets.cs:64: UI/LockOpen
+Assets.cs:67: UI/MainButtons/ProgressionDash
+DashboardDrawer.cs:27: Colony Skills
+DashboardDrawer.cs:30: Child Development
+DashboardDrawer.cs:33: Growth Moments
+DashboardDrawer.cs:39: Learning Summary
+DashboardDrawer.cs:42: VSE Expertise
+DashboardDrawer.cs:45: Active Training
+DashboardDrawer.cs:67: Every colonist's skill levels at a glance.\n\nColumns are colonists, rows are the 12 skills. Each cell shows the level, an XP progress bar, and a passion icon (fire = vanilla, custom icons from Vanilla Skills Expanded). Hover any cell for XP detail. Scrolls horizontally for large colonies.
+DashboardDrawer.cs:70: Child development tracking (requires Biotech).\n\nOne card per child colonist: growth tier (0–8) shown as diamonds, growth-point progress to the next tier, the Learning need bar, active learning desires, and — with Children School & Learning — their school schedule. A ⚡ badge appears when a growth moment is ready.
+DashboardDrawer.cs:73: Growth Moments timeline (requires Biotech).\n\nPending birthday trait/passion choices appear at the top — click to open the choice dialog. Below, each child's upcoming milestone ages (7, 10, 13) are listed with a preview of how many traits and passions the next tier grants.
+DashboardDrawer.cs:76: Formal education systems.\n\nRim Education: each colonist's education level + progress to the next.\nProgression: Education: scheduled classes with teacher, students, and progress.\nChildren School & Learning: each child's school hours and current status.
+DashboardDrawer.cs:79: A colony-wide skills & passions summary.\n\nPassion breakdown across all colonists, skill milestone counts (maxed / expert / skilled), and how many colonists are actively learning right now. Derived entirely from your colonists' skills — not the vanilla tutorial Learning Helper.
+DashboardDrawer.cs:82: Vanilla Skills Expanded — Expertise (requires VSE).\n\nExpertise is a separate progression system from the 12 normal skills: specialized knowledge tracks, each with its own level (0–20) and XP. Pick a colonist from the pill row to see their expertise records.
+DashboardDrawer.cs:85: Active skill-training in progress.\n\nGrowth-vat learning (Biotech / Enhanced Vat Learning): vat occupants and their progress toward the next skill XP award.\nSimple Learning: who is at a learning desk and what they're studying.\nMisc. Training: who is using training equipment and the skill they're practising.
+DashboardDrawer.cs:357: Modern Learning Menu
+DashboardDrawer.cs:384: ⚠ {0} Growth Moment{1} Pending!
+DashboardDrawer.cs:384:  : 
+DashboardDrawer.cs:430: Layout locked — left-click to unlock (enables drag / resize / minimise)
+DashboardDrawer.cs:430: Layout unlocked — left-click to lock (prevents accidental changes)
+DashboardDrawer.cs:430: \n\nRight-click to reset the layout to defaults.
+DashboardDrawer.cs:436: Progression Dashboard layout reset to defaults.
+DashboardDrawer.cs:480: \nActive — data shown in the dashboard.
+DashboardDrawer.cs:480: \nNot loaded — install/enable to see its data here.
+DashboardDrawer.cs:618: \n\n
+DashboardDrawer.cs:627:  : 
+DashboardDrawer.cs:683: Error: 
+DashboardDrawer.cs:699: No colonists on map.
+DashboardDrawer.cs:842: \nPassion: {0}
+DashboardDrawer.cs:910: Requires Biotech DLC.
+DashboardDrawer.cs:918: No child colonists on map.
+DashboardDrawer.cs:952: Age {0}
+DashboardDrawer.cs:962: Tier {0}
+DashboardDrawer.cs:983: Growth points: {0:F1} / {1:F0}
+DashboardDrawer.cs:990: ★ Maximum growth tier reached
+DashboardDrawer.cs:1001: Learning:
+DashboardDrawer.cs:1013: Desires:
+DashboardDrawer.cs:1041: \ud83d\udcda In school now
+DashboardDrawer.cs:1041: \ud83d\udcda {0}h/day scheduled
+
+##### ModernNeedsTab : 45 处
+GameComponent_NeedHistory.cs:190: [Modern Needs Tab] history tracking hit an error and was disabled for this session (needs still display live): 
+GraphSeries.cs:20: 0.#
+ModernGraph.cs:220:   ·  
+NeedsTabDrawer.cs:502:  : 
+NeedsTabDrawer.cs:869: [Modern Needs Tab] error drawing card for need 
+NeedsTabDrawer.cs:924: [Modern Needs Tab] gene resource card error: 
+NeedsTabDrawer.cs:1458:  · 
+NeedsTabDrawer.cs:1489: \n\n
+NeedsTabDrawer.cs:1520:  : ((r.Item3 == -1) ? 
+NeedsTabDrawer.cs:1520:  : 
+NeedsTabDrawer.cs:1697:  : 
+NeedsTabDrawer.cs:1697: ) + Mathf.RoundToInt(delta * 100f).ToString() + 
+NeedsTabDrawer.cs:1901:  / 
+NeedsTabDrawer.cs:1932: \n\n
+NeedsTabDrawer.cs:2307:  : 
+NeedsTabDrawer.cs:2449: ) + 
+NeedsTabDrawer.cs:2511: ±0%
+NeedsTabDrawer.cs:2516:  : 
+NeedsTabDrawer.cs:2516: ) + (num * 100f).ToString(
+NeedsTabDrawer.cs:2516: ) + 
+NeedsTabDrawer.cs:2608:  : 
+NeedsTabDrawer.cs:2608: ) + (needEventRecord.delta * 100f).ToString(
+NeedsTabDrawer.cs:2608: ) + 
+NeedsTabDrawer.cs:2755: \n\n
+NeedsTabDrawer.cs:2769: +##0;-##0;0
+NeedsTabDrawer.cs:3077: ▲▲▲
+NeedsTabDrawer.cs:3080: ▼▼▼
+NeedsTabIntegration.cs:86: [Modern Needs Tab] integration provider threw: 
+NeedsTabIntegration.cs:188: [Modern Needs Tab] integration icon provider threw: 
+NeedsTabIntegration.cs:237: [Modern Needs Tab] integration description provider threw: 
+NNTTex.cs:12: UI/NNT_ModernView
+NNTTex.cs:15: UI/NNT_VanillaView
+NNTTex.cs:18: UI/NNT_Pin
+NNTTex.cs:21: UI/NNT_Plus
+NNTTex.cs:24: UI/NNT_Minus
+NNTTex.cs:27: UI/NNT_PerPawn
+Palette.cs:108: 0.#
+Palette.cs:115: 0.#
+Palette.cs:119: 0.#
+Patch_ColonistBar_PinnedNeeds.cs:94: [Modern Needs Tab] colonist-bar pin bars hit an error and were disabled for this session: 
+
+##### ModernNotifications : 185 处
+AASBCompat.cs:32: [Modern Notifications] As above, So below compat resolve failed: 
+AASBCompat.cs:57: [Modern Notifications] As above, So below level readout failed (compat disabled): 
+AlertRenderer.cs:255: \n\n
+AlertRenderer.cs:370: Custom_Alerts.Alert_QuerySearch
+AlertRenderer.cs:469: [Modern Notifications] OnClick: 
+CalendarAPI.cs:253: [Modern Notifications] calendar API provider '
+CalendarAPI.cs:255: ' threw: 
+CECompat.cs:69: [Modern Notifications] Combat Extended wind-direction readout failed (direction disabled): 
+Compat.cs:89: Declutter_Main_Buttons_Bar.ModSettings
+DevTools.cs:15: Modern Notifications
+DevTools.cs:15: Message: short (neutral)
+DevTools.cs:18: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:22: Modern Notifications
+DevTools.cs:22: Message: medium (neutral)
+DevTools.cs:25: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+DevTools.cs:29: Modern Notifications
+DevTools.cs:29: Message: long (neutral)
+DevTools.cs:32: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:36: Modern Notifications
+DevTools.cs:36: Message: all types (short)
+DevTools.cs:39: [ThreatBig] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:40: [ThreatSmall] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:41: [NegativeHealthEvent] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:42: [NegativeEvent] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:43: [NeutralEvent] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:44: [TaskCompletion] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:45: [PositiveEvent] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:46: [SituationResolved] Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:50: Modern Notifications
+DevTools.cs:50: Message: stack of 5 long
+DevTools.cs:53: [1/5] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:54: [2/5] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:55: [3/5] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:56: [4/5] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:57: [5/5] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+DevTools.cs:61: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+DevTools.cs:64: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+DevTools.cs:67: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
+ExplicitTimingsCompat.cs:105: Leoltron.ExplicitTimings.Utilities.RightSideUiLabelDrawer
+ExplicitTimingsCompat.cs:106: Leoltron.ExplicitTimings.Utilities.LabelModel
+
+##### ModernPawnTabs : 11 处
+ModernPawnTabsMod.cs:24: [Modern Pawn Tabs] loaded.
+ModernPawnTabsMod.cs:30: Modern Pawn Tabs
+ModernPawnTabsMod.cs:38: Locked (prevents accidental reordering)
+RimHUDCompat.cs:30: RimHUD.Interface.Screen.InspectPaneTabs
+RimHUDCompat.cs:44: [ModernPawnTabs] RimHUD compatibility patch failed: 
+RimHUDCompat.cs:91: [ModernPawnTabs] Error in RimHUD tab input: 
+RimHUDCompat.cs:114: [ModernPawnTabs] Error in RimHUD tab overlay: 
+TabBarInteraction.cs:29: UI/ArrowUp
+TabBarInteraction.cs:44: UI/ArrowDown
+TabBarInteraction.cs:335: UI/Group
+TabBarInteraction.cs:387:  : 
+
+##### ModernQuestMenu : 47 处
+GiverSnips.cs:71:  : 
+NfmBridge.cs:24: ModernFactionMenu.Compat.WDCompat
+NfmBridge.cs:26: ModernFactionMenu.Compat.IOCompat
+NfmBridge.cs:28: ModernFactionMenu.Compat.IOCompat+RelicHolding
+QuestTabDrawer.cs:700: [Modern Quest Menu] DEV instant accept failed: 
+QuestTabDrawer.cs:728: [Modern Quest Menu] DEV quest generation failed for 
+QuestTabDrawer.cs:789:  : 
+QuestTabDrawer.cs:1224: ERR:
+QuestTabDrawer.cs:1565: [Modern Quest Menu] Accept via vanilla interface failed: 
+QuestTabDrawer.cs:1710: Unpin quest
+QuestTabDrawer.cs:1710: Pin quest
+QuestTabDrawer.cs:1748:  · 
+QuestTabDrawer.cs:1777:  · 
+QuestTabDrawer.cs:2214: \n\n
+QuestTabDrawer.cs:2396:   (option {0}/{1})
+QuestTabDrawer.cs:2664: UI/Icons/ChallengeRatingIcon
+QuestTabDrawer.cs:2667: UI/ModernQuestMenu/IconDecline
+QuestTabDrawer.cs:2670: UI/ModernQuestMenu/IconResume
+QuestTabDrawer.cs:2673: UI/Icons/DismissedQuestIcon
+QuestTabDrawer.cs:2676: UI/Icons/CharityQuestIcon
+QuestTabDrawer.cs:2679: UI/ModernQuestMenu/PinIcon
+QuestTabDrawer.cs:2682: UI/LockClosed
+QuestTabDrawer.cs:2685: UI/LockOpen
+QuestTabDrawer.cs:2688: UI/ModernQuestMenu/IconAccept
+QuestTabDrawer.cs:2691: UI/ModernQuestMenu/AcceptForIcon
+QuestTabDrawer.cs:2694: UI/ModernQuestMenu/DevEye
+QuestTabDrawer.cs:2697: UI/Icons/Icon_Bolt
+QuestTabDrawer.cs:2700: UI/ModernQuestMenu/DevPlus
+QuestTabDrawer.cs:2703: UI/ModernQuestMenu/DevTrash
+QuestTabDrawer.cs:2706: UI/ModernQuestMenu/SnipMove
+QuestTabDrawer.cs:2709: UI/ModernQuestMenu/SnipQuest
+QuestTabDrawer.cs:2712: UI/ModernQuestMenu/SnipEvent
+QuestTabDrawer.cs:2715: UI/ModernQuestMenu/SnipRelic
+QuestTabDrawer.cs:2718: UI/ModernQuestMenu/SnipTitle
+QuestTabDrawer.cs:2721: UI/ModernQuestMenu/SwapView
+QuestTabDrawer.cs:2724: UI/ModernQuestMenu/IconBookClosed
+QuestTabDrawer.cs:2727: UI/ModernQuestMenu/IconBookOpen
+QuestTabDrawer.cs:2730: UI/ModernQuestMenu/IconChest
+QuestTabDrawer.cs:2733: UI/ModernQuestMenu/PinIcon
+QuestTabDrawer.cs:2736: UI/Icons/Icon_Star4
+
+##### ModernSocialTab : 170 处
+ModernSocialTabMod.cs:25: Modern Social Tab
+ModernSocialTabMod.cs:36: Sets the Social tab's width (60% to 100% of its base width); the height is always full. The tab also auto-fits to your resolution and UI scale, so it never runs off-screen.
+ModernSocialTabMod.cs:38: Panel width: 
+ModernSocialTabMod.cs:41: Relation list
+ModernSocialTabMod.cs:42: Default sort
+ModernSocialTabMod.cs:42: How relation cards are ordered. Pinned pawns always stay on top; off-map pawns sink to the bottom.
+ModernSocialTabMod.cs:46: Default filter
+ModernSocialTabMod.cs:46: Which relationships to show: everyone, blood family, lovers (lover/fiancé/spouse), or rivals (negative opinion either way).
+ModernSocialTabMod.cs:50: Social stats
+ModernSocialTabMod.cs:52: Choose which social stats appear in the bottom-left strip from inside the Social tab — open a pawn's tab and click \
+ModernSocialTabMod.cs:56: Pick displayed stats via the \
+ModernSocialTabMod.cs:56:  button in the tab.
+ModernSocialTabMod.cs:62: Records each colonist's social standing every few in-game hours so the graph can show history. Turn this off to remove all per-tick work from this mod; the graph then shows only the live value.
+ModernSocialTabMod.cs:63: Record standing history
+ModernSocialTabMod.cs:67: How often social standing is sampled. Longer intervals cost less performance in large colonies.
+ModernSocialTabMod.cs:69: Sample interval: 
+ModernSocialTabMod.cs:69:  hour
+ModernSocialTabMod.cs:69:  hours
+ModernSocialTabMod.cs:73: How many days of standing history to keep. Shorter windows use less memory and save space.
+ModernSocialTabMod.cs:75: History kept: 
+ModernSocialTabMod.cs:75:  days
+ModernSocialTabMod.cs:80: How often the relationship list refreshes while the tab is open, in frames. Higher is lighter on frame rate; lower updates opinions and relationships more responsively.
+ModernSocialTabMod.cs:82: List refresh: every 
+ModernSocialTabMod.cs:82:  frames
+ModernSocialTabMod.cs:87: Restore window scale, sort/filter, and the displayed social stats to defaults.
+ModernSocialTabMod.cs:88: Reset to defaults
+ModIntegration.cs:24: Rimpsyche - Personality Core
+ModIntegration.cs:43: Maux36.RimPsyche.Pawn_SexualityTracker
+ModIntegration.cs:148: RomanceOnTheRim_MarriageProposal
+ModIntegration.cs:151: RomanceOnTheRim_Breakup_Arranged
+ModIntegration.cs:152: RomanceOnTheRim_MarriageProposal_Arranged
+NudityMattersBridge.cs:25: NudityMattersMore_opinions.OpinionHelper
+NudityMattersBridge.cs:25: NudityMattersMore_opinions.OpinionHelper
+NudityMattersBridge.cs:26: NudityMattersMore_opinions.PartOpinionData
+NudityMattersBridge.cs:26: NudityMattersMore_opinions.PartOpinionData
+NudityMattersBridge.cs:36: shark510.nuditymattersmoreopinions
+NudityMattersBridge.cs:38: [ModernSocialTab] NMM bridge not wired: type={0} data={1} mem={2} nud={3} part={4} text={5}
+NudityMattersBridge.cs:52: [ModernSocialTab] NMM bridge init threw: 
+NudityMattersBridge.cs:123: N/A
+NudityMattersBridge.cs:123:  : (
+
+##### ModernXenotypeTab : 68 处
+GeneEffectBuilder.cs:95:  + GenText.ToStringPercent(statModifier2.value, 
+GeneEffectBuilder.cs:107:  + (pawnCapacityModifier.offset * 100f).ToString(
+GeneEffectBuilder.cs:107: ) + 
+GeneEffectBuilder.cs:112:  + GenText.ToStringPercent(pawnCapacityModifier.postFactor, 
+GeneLocator.cs:169:  + thing2.LabelShortCap + 
+GeneTooltipEnricher.cs:53:   - 
+GeneTooltipEnricher.cs:86:  + thing2.LabelShortCap + 
+GeneTooltipEnricher.cs:102:   - 
+HoverHighlight.cs:316:  + (flag8 ? 
+HoverHighlight.cs:316:  : (flag9 ? 
+HoverHighlight.cs:316:  : 
+HoverHighlight.cs:320: node:
+InheritancePreview.cs:81: ) + 
+InheritancePreview.cs:370: 100%
+InheritancePreview.cs:382: \n\n
+InheritancePreview.cs:384: \n\n
+ModCompat.cs:36: XenotypeSummary.Window_XenotypeSummary
+ModCompat.cs:71: [Modern Xenotype Tab] Failed to open Xenotype Summary: 
+ModCompat.cs:219: [Modern Xenotype Tab] Embedded Xenotype Summary panel failed: falling back to the header button. 
+ModCompat.cs:246: RandomsGeneAssistant.SettingsRef
+ModCompat.cs:541: [Modern Xenotype Tab] VRE-Android integration failed - reverting to vanilla gene naming. 
+ModCompat.cs:552: Hardware components
+ModCompat.cs:576: Power efficiency
+ModCompat.cs:588: Power efficiency determines how much power an android draws.
+ModCompat.cs:600: Power drain
+ModCompat.cs:711: [Modern Xenotype Tab] Big and Small mechanical detection failed - reverting to vanilla born-not-built handling. 
+ModernXenotypeTabMod.cs:27: Modern Xenotype Tab
+XenotypePlanner.cs:109:  + num.ToString(), Assets.BuffColor) + 
+XenotypePlanner.cs:109:  + ColoredText.Colorize(
+XenotypePlanner.cs:141:  + ColoredText.Colorize(
+XenotypePlanner.cs:148: \n\n
+XenotypePlanner.cs:283:  : 
+XenotypeTabAssets.cs:15: UI/Icons/Genes/GeneBackground_ArchiteGene
+XenotypeTabAssets.cs:18: UI/Icons/Genes/GeneBackground_Xenogene
+XenotypeTabAssets.cs:21: UI/Icons/Genes/GeneBackground_Endogene
+XenotypeTabAssets.cs:24: UI/ModernXenotypeTab/SwapView
+XenotypeTabAssets.cs:27: UI/ModernXenotypeTab/BrainIcon
+XenotypeTabAssets.cs:30: UI/ModernXenotypeTab/PinIcon
+XenotypeTabAssets.cs:33: UI/ModernXenotypeTab/LockOpen
+XenotypeTabAssets.cs:36: UI/ModernXenotypeTab/LockClosed
+
+##### PillarPlanner : 7 处
+HarmonyBoot.cs:25: [Pillar Planner] Skipped patch class 
+MapComponent_PillarPlanner.cs:31: the overlay update
+Patch_PlaySettings_Widget.cs:33: the widget row
+PlannerState.cs:45: [Pillar Planner] Disabled after an error in 
+PlannerTex.cs:12: UI/PillarPlanner/WidgetOff
+PlannerTex.cs:15: UI/PillarPlanner/WidgetMap
+PlannerTex.cs:18: UI/PillarPlanner/WidgetRoom
+

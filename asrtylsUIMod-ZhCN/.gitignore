@@ -1,0 +1,17 @@
+# .NET 构建中间文件
+bin/
+obj/
+
+# VS Code / IDE
+.vscode/
+.idea/
+*.user
+*.sln.DotSettings.user
+
+# 原始模组参考文件（非我们原创，不上传）
+OriginalMods/
+OriginalSRC-SDK/
+
+# 系统文件
+Thumbs.db
+.DS_Store

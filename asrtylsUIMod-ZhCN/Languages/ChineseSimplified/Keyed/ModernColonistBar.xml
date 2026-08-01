@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ================= 模组选项入口 ================= -->
+  <MCB_SettingsCategory>现代殖民者栏</MCB_SettingsCategory>
+
+  <!-- ================= 窗口部件 ================= -->
+  <MCB_Setting_MasterEnabled>启用现代殖民者栏（关闭 = 原版殖民者栏）</MCB_Setting_MasterEnabled>
+  <MCB_Setting_MasterDisabled>现代殖民者栏已禁用。请在上方启用以进行配置。</MCB_Setting_MasterDisabled>
+  <MCB_Setting_ConfiguringView>正在配置{0}视图。</MCB_Setting_ConfiguringView>
+  <MCB_Setting_GlobalNote>全局设置——适用于所有视图。</MCB_Setting_GlobalNote>
+
+  <MCB_Tab_Content>内容</MCB_Tab_Content>
+  <MCB_Tab_Effects>效果</MCB_Tab_Effects>
+  <MCB_Tab_Text>文本</MCB_Tab_Text>
+  <MCB_Tab_General>通用</MCB_Tab_General>
+  <MCB_Tab_Camera>镜头</MCB_Tab_Camera>
+  <MCB_Tab_Popout>弹出</MCB_Tab_Popout>
+  <MCB_Tab_Layout>布局</MCB_Tab_Layout>
+
+  <MCB_View_TopBar>顶栏</MCB_View_TopBar>
+  <MCB_View_PartyCards>小队卡片</MCB_View_PartyCards>
+  <MCB_View_Warband>战团</MCB_View_Warband>
+
+  <!-- ================= 视图选择器 ================= -->
+  <MCB_Setting_EditingView>正在编辑视图：</MCB_Setting_EditingView>
+  <MCB_Setting_ViewSelectorTip>查看并配置{0}布局。每个视图保留自己的设置。</MCB_Setting_ViewSelectorTip>
+  <MCB_Setting_ResetView>重置视图</MCB_Setting_ResetView>
+  <MCB_Setting_ResetViewConfirm>将{0}视图重置为默认值？</MCB_Setting_ResetViewConfirm>
+  <MCB_Setting_ResetAll>全部重置</MCB_Setting_ResetAll>
+  <MCB_Setting_ResetAllConfirm>将全部三个视图重置为默认值？全局设置会保留。</MCB_Setting_ResetAllConfirm>
+  <MCB_Setting_ViewNeedsLive>{0}需要启用「实时视图肖像」（通用标签页）才能渲染。</MCB_Setting_ViewNeedsLive>
+
+  <!-- ================= 内容标签页 ================= -->
+  <MCB_Setting_SecLabels>标签</MCB_Setting_SecLabels>
+  <MCB_Setting_LblName>姓名</MCB_Setting_LblName>
+  <MCB_Setting_LblRoyalTitle>爵位</MCB_Setting_LblRoyalTitle>
+  <MCB_Setting_LblJobTitle>职务</MCB_Setting_LblJobTitle>
+  <MCB_Setting_LblIdeoRole>意识形态角色</MCB_Setting_LblIdeoRole>
+  <MCB_Setting_LblCurrentTask>当前任务</MCB_Setting_LblCurrentTask>
+
+  <MCB_Setting_SecStatSlots>属性槽位</MCB_Setting_SecStatSlots>
+  <MCB_Setting_WarbandStatNote>战团图块在每个图块上方的栏上显示心情（固定），并将健康显示为低血量帧脉冲。</MCB_Setting_WarbandStatNote>
+  <MCB_Setting_PartyStatNote>左侧细条就是心情条。这两个量表是额外的——默认（无）。</MCB_Setting_PartyStatNote>
+  <MCB_Setting_CardGauge1>卡片量表 1</MCB_Setting_CardGauge1>
+  <MCB_Setting_CardGauge2>卡片量表 2</MCB_Setting_CardGauge2>
+  <MCB_Setting_ShowTopSlot>显示顶部槽位</MCB_Setting_ShowTopSlot>
+  <MCB_Setting_TopStat>顶部属性</MCB_Setting_TopStat>
+  <MCB_Setting_ShowBottomSlot>显示底部槽位</MCB_Setting_ShowBottomSlot>
+  <MCB_Setting_BottomStat>底部属性</MCB_Setting_BottomStat>
+  <MCB_Setting_HealthEkg>将健康显示为心电图轨迹</MCB_Setting_HealthEkg>
+  <MCB_Setting_HealthEkgTip>来自真实生命体征的实时 PQRST 心跳。替换顶栏健康槽位；在小队卡片上沿底部运行并带有心率读数。</MCB_Setting_HealthEkgTip>
+
+  <MCB_Setting_SecVitals>生命体征与指示器</MCB_Setting_SecVitals>
+  <MCB_Setting_ShowMedical>流血 / 医疗</MCB_Setting_ShowMedical>
+  <MCB_Setting_ShowBloodPressure>血压量表</MCB_Setting_ShowBloodPressure>
+  <MCB_Setting_ShowContextCorner>情境角标图标（瞄准 / 睡觉 / 医生 / ...）</MCB_Setting_ShowContextCorner>
+  <MCB_Setting_ShowStatusIndicators>状态指示器（崩溃 / 灵感 / 逃跑 / 危险）</MCB_Setting_ShowStatusIndicators>
+  <MCB_Setting_ShowSquadBadges>小队徽章（防御位置）</MCB_Setting_ShowSquadBadges>
+  <MCB_Setting_ShowSpeechBubbles>对话气泡</MCB_Setting_ShowSpeechBubbles>
+  <MCB_Setting_ShowSpeechBubblesTip>将小人最近的社会对话（原版闲聊 + RimTalk）显示为指向其肖像的气泡。</MCB_Setting_ShowSpeechBubblesTip>
+  <MCB_Setting_ResourceReadout>原版资源读数</MCB_Setting_ResourceReadout>
+  <MCB_Setting_ResourceReadoutTipCards>在此视图旁显示原版资源列表。它会自动重新定位（缓冲），因此绝不会位于我们的卡片下方（移到卡片列右侧）。</MCB_Setting_ResourceReadoutTipCards>
+  <MCB_Setting_ResourceReadoutTipWarband>在此视图旁显示原版资源列表。它会自动重新定位（缓冲），因此绝不会位于我们的图块下方（移到战团条下方）。</MCB_Setting_ResourceReadoutTipWarband>
+
+  <MCB_Setting_SecWeaponStrip>武器条</MCB_Setting_SecWeaponStrip>
+  <MCB_Setting_WeaponModeNever>从不</MCB_Setting_WeaponModeNever>
+  <MCB_Setting_WeaponModeDrafted>征召时</MCB_Setting_WeaponModeDrafted>
+  <MCB_Setting_WeaponModeAlways>始终</MCB_Setting_WeaponModeAlways>
+  <MCB_Setting_ShowWeaponIcon>显示武器图标</MCB_Setting_ShowWeaponIcon>
+  <MCB_Setting_WeaponSize>大小：{0}%</MCB_Setting_WeaponSize>
+  <MCB_Setting_WeaponOffsetX>X 偏移：{0}px</MCB_Setting_WeaponOffsetX>
+  <MCB_Setting_WeaponOffsetY>Y 偏移：{0}px</MCB_Setting_WeaponOffsetY>
+
+  <MCB_Setting_SecActivityIcons>原版活动图标</MCB_Setting_SecActivityIcons>
+  <MCB_Setting_ShowActivityIcons>显示原版活动图标</MCB_Setting_ShowActivityIcons>
+  <MCB_Setting_ShowActivityIconsTip>肖像内的原版状态图标。默认关闭——我们自己的状态系统取代了它们。</MCB_Setting_ShowActivityIconsTip>
+  <MCB_Setting_ActivityIconSize>图标大小：{0}%</MCB_Setting_ActivityIconSize>
+
+  <MCB_Setting_SquadIconsOnly>仅小队图标（在卡片上隐藏小队名称）</MCB_Setting_SquadIconsOnly>
+  <MCB_Setting_SquadIconsOnlyTip>显示小队图标而不显示小队名称文本。名称仍会在悬停时的指挥中心侧栏中显示。</MCB_Setting_SquadIconsOnlyTip>
+
+  <MCB_Setting_SecWarbandExtras>战团附加项</MCB_Setting_SecWarbandExtras>
+  <MCB_Setting_WarbandHideSelected>隐藏所选小人的图块</MCB_Setting_WarbandHideSelected>
+  <MCB_Setting_WarbandHideSelectedTip>D2 选择反转：所选小人的图块会清空，条带显示其他所有人。</MCB_Setting_WarbandHideSelectedTip>
+  <MCB_Setting_WarbandHidePerspective>隐藏 Perspective Shift 小人的图块</MCB_Setting_WarbandHidePerspective>
+  <MCB_Setting_WarbandBelt>消耗品腰带（治疗 / 药物 / 食物 / 啤酒）</MCB_Setting_WarbandBelt>
+  <MCB_Setting_WarbandBeltTip>每个图块下方有四个快捷使用槽。点击一个让小人使用它（一个真实任务）。</MCB_Setting_WarbandBeltTip>
+  <MCB_Setting_WarbandPips>增益指示点（崩溃 / 灵感 / 征召 / 治疗 / 能力）</MCB_Setting_WarbandPips>
+  <MCB_Setting_WarbandChampion>冠军金色边框（领袖 / 皇族）</MCB_Setting_WarbandChampion>
+  <MCB_Setting_WarbandHotbar>英雄快捷栏（能力 + F1-F4，当选择一个小人时）</MCB_Setting_WarbandHotbar>
+  <MCB_Setting_WarbandHotbarTip>按键可在「选项 &gt; 键盘」中重新绑定。</MCB_Setting_WarbandHotbarTip>
+  <MCB_Setting_WarbandInventory>Shift + 右键打开装备窗口</MCB_Setting_WarbandInventory>
+  <MCB_Setting_WarbandInventoryTip>Shift + 右键点击图块会以独立弹出窗口打开该小人的装备 / 服装 / 物品栏（安装了 True RPG Inventory 时使用其纸娃娃）。普通右键保持为命令菜单。</MCB_Setting_WarbandInventoryTip>
+
+  <!-- ================= 效果标签页 ================= -->
+  <MCB_Setting_PortraitFx>肖像效果</MCB_Setting_PortraitFx>
+  <MCB_Setting_PortraitFxTip>基于状态的覆盖层 + 肖像边缘边框。</MCB_Setting_PortraitFxTip>
+  <MCB_Setting_FxToxic>中毒 / 瘟疫绿色</MCB_Setting_FxToxic>
+  <MCB_Setting_FxToxicTip>绿色病态雾气 + 呼吸，用于中毒积累 / 瘟疫。</MCB_Setting_FxToxicTip>
+  <MCB_Setting_FxTemp>温度（霜冻 / 炎热 + 汗水）</MCB_Setting_FxTemp>
+  <MCB_Setting_FxBleed>流血的血迹</MCB_Setting_FxBleed>
+  <MCB_Setting_FxMoodShadow>低心情阴影</MCB_Setting_FxMoodShadow>
+  <MCB_Setting_FxMoodBox>心情崩溃辉光 + 框抖动</MCB_Setting_FxMoodBox>
+  <MCB_Setting_FxMoodBoxTip>心情接近崩溃时辉光加剧，崩溃期间出现红色狂怒抖动 / 蓝色啜泣摇摆。</MCB_Setting_FxMoodBoxTip>
+  <MCB_Setting_FxDust>污物 / 灰尘积累</MCB_Setting_FxDust>
+  <MCB_Setting_FxGearWear>破烂装备边缘</MCB_Setting_FxGearWear>
+  <MCB_Setting_FxCombat>战斗抖动 + 边框</MCB_Setting_FxCombat>
+  <MCB_Setting_FxLevelUp>升级爆发</MCB_Setting_FxLevelUp>
+  <MCB_Setting_FxLevelUpTip>小人的技能升级时出现金色爆发 + 浮动技能标签。</MCB_Setting_FxLevelUpTip>
+  <MCB_Setting_PulseOnDamage>受伤时帧变红脉冲</MCB_Setting_PulseOnDamage>
+
+  <!-- ================= 文本标签页 ================= -->
+  <MCB_Setting_TextIntro>为此视图上的每行文本设置样式：颜色、字体和字重。任务行始终保持在单行，并缩放以适应而不是被截断。</MCB_Setting_TextIntro>
+  <MCB_Setting_NameUseVanillaColor>使用小人的原版姓名颜色</MCB_Setting_NameUseVanillaColor>
+  <MCB_Setting_NameUseVanillaColorTip>基于派系的姓名颜色（殖民者白色、奴隶黄色等）。取消勾选以选择固定颜色。</MCB_Setting_NameUseVanillaColorTip>
+  <MCB_Setting_Color>颜色</MCB_Setting_Color>
+  <MCB_Setting_ColorChange>更改...</MCB_Setting_ColorChange>
+  <MCB_Setting_Font>字体</MCB_Setting_Font>
+  <MCB_Setting_Weight>字重</MCB_Setting_Weight>
+
+  <MCB_Font_Tiny>极小</MCB_Font_Tiny>
+  <MCB_Font_Small>小</MCB_Font_Small>
+  <MCB_Font_Medium>中</MCB_Font_Medium>
+  <MCB_Weight_Regular>常规</MCB_Weight_Regular>
+  <MCB_Weight_Bold>粗体</MCB_Weight_Bold>
+  <MCB_Weight_Italic>斜体</MCB_Weight_Italic>
+  <MCB_Weight_BoldItalic>粗斜体</MCB_Weight_BoldItalic>
+
+  <MCB_Color_White>白色</MCB_Color_White>
+  <MCB_Color_SoftGray>浅灰</MCB_Color_SoftGray>
+  <MCB_Color_DimGray>暗灰</MCB_Color_DimGray>
+  <MCB_Color_Slate>石板灰</MCB_Color_Slate>
+  <MCB_Color_Gold>金色</MCB_Color_Gold>
+  <MCB_Color_Amber>琥珀色</MCB_Color_Amber>
+  <MCB_Color_Orange>橙色</MCB_Color_Orange>
+  <MCB_Color_Red>红色</MCB_Color_Red>
+  <MCB_Color_Pink>粉色</MCB_Color_Pink>
+  <MCB_Color_Purple>紫色</MCB_Color_Purple>
+  <MCB_Color_Blue>蓝色</MCB_Color_Blue>
+  <MCB_Color_Cyan>青色</MCB_Color_Cyan>
+  <MCB_Color_Green>绿色</MCB_Color_Green>
+  <MCB_Color_Lime>青柠色</MCB_Color_Lime>
+  <MCB_Color_Tan>棕褐色</MCB_Color_Tan>
+  <MCB_Color_WarmWhite>暖白</MCB_Color_WarmWhite>
+
+  <!-- ================= 通用标签页 ================= -->
+  <MCB_Setting_LiveView>实时视图肖像</MCB_Setting_LiveView>
+  <MCB_Setting_LiveViewTip>用每个殖民者的实时动画视图替换静态原版肖像。小队卡片和战团需要此功能。</MCB_Setting_LiveViewTip>
+  <MCB_Setting_RenderMode>渲染模式</MCB_Setting_RenderMode>
+  <MCB_Setting_RenderLiveCameras>实时镜头</MCB_Setting_RenderLiveCameras>
+  <MCB_Setting_RenderLivingPortraits>活体肖像</MCB_Setting_RenderLivingPortraits>
+  <MCB_Setting_LiveCamerasWarning>[实验性] 实时镜头每帧渲染真实的逐小人镜头，可能影响性能。活体肖像是稳定的默认选项。</MCB_Setting_LiveCamerasWarning>
+  <MCB_Setting_RenderBudget>渲染预算：每帧 {0} 个小人</MCB_Setting_RenderBudget>
+  <MCB_Setting_LivingPortraitsNote>活体肖像：仪表盘图块上的干净、缓存的肖像。</MCB_Setting_LivingPortraitsNote>
+  <MCB_Setting_FaPortraits>肖像中的面部动画</MCB_Setting_FaPortraits>
+  <MCB_Setting_FaPortraitsTip>让 [NL] 面部动画在栏肖像、悬停弹出和指挥中心中播放。每 tick 通过游戏自己的肖像动画路径（闪烁小人使用的同一条路径）刷新每张动画面孔，因此眨眼和表情实时移动。关闭 = 静态面孔（更省性能）。这不受面部动画自身「在肖像中启用面部动画」选项的影响。</MCB_Setting_FaPortraitsTip>
+  <MCB_Setting_HiResPortraits>高分辨率肖像</MCB_Setting_HiResPortraits>
+  <MCB_Setting_HiResPortraitsTip>以更高的内部分辨率（最高 1024px）渲染小人肖像。更清晰的面孔和服装，代价是部分显存。</MCB_Setting_HiResPortraitsTip>
+
+  <MCB_Setting_SecTactical>战术覆盖层（所有视图）</MCB_Setting_SecTactical>
+  <MCB_Setting_SecTacticalNote>每个单位的实时战斗 / 后勤读数。数据驱动——有无肖像效果均可工作。</MCB_Setting_SecTacticalNote>
+  <MCB_Setting_AggroRadar>仇恨雷达（威胁 V 形 + 「被 N 个敌人锁定」）</MCB_Setting_AggroRadar>
+  <MCB_Setting_AggroRadarTip>边框上的红色箭头指向最近的敌对目标（靠近时更亮）；骷髅碎片统计正在攻击此小人的敌人数量。</MCB_Setting_AggroRadarTip>
+  <MCB_Setting_CastBar>施法条（武器预热 / 冷却）</MCB_Setting_CastBar>
+  <MCB_Setting_CastBarTip>肖像下方的细条在瞄准时填充（琥珀色），并在冷却期间排空（蓝色）。</MCB_Setting_CastBarTip>
+  <MCB_Setting_DestGhost>目的地幽灵（悬停时）</MCB_Setting_DestGhost>
+  <MCB_Setting_DestGhostTip>悬停小人会在其行走去往的任何地方绘制一面旗、一条线和预计到达时间。</MCB_Setting_DestGhostTip>
+  <MCB_Setting_AwayIndicator>离开指示器（其他地图 / 商队）</MCB_Setting_AwayIndicator>
+  <MCB_Setting_AwayIndicatorTip>不在你正在查看的地图上的小人会获得变暗的肖像、石板色边缘辉光和居中的位置图标——其他殖民地地图为地图图钉（按地图着色），商队为马车。悬停显示位置名称；点击跳转过去。替换每个栏组后面的原版灰色条带。</MCB_Setting_AwayIndicatorTip>
+  <MCB_Setting_FollowCam>跟随镜头（默认键：F5）</MCB_Setting_FollowCam>
+  <MCB_Setting_FollowCamTip>平滑地让镜头追逐所选小人。再次按下按键或平移镜头可停止。被搬运的小人会解析为其搬运者——镜头追逐救护车。缩放保持在你控制之下。可在「选项 &gt; 键盘配置 &gt; 镜头」中重新绑定按键。</MCB_Setting_FollowCamTip>
+  <MCB_Setting_FollowCamStabilize>稳定（斯坦尼康）</MCB_Setting_FollowCamStabilize>
+  <MCB_Setting_FollowCamStabilizeTip>摄像师操作感：当小人保持在屏幕中心附近时，镜头完全静止（一个小的死区窗口），并在确实追逐时带有重量和惯性移动——平滑加速和减速，而不是镜像每一个细微动作。关闭 = 紧密模式，直接粘在小人上。</MCB_Setting_FollowCamStabilizeTip>
+  <MCB_Setting_FollowCamSmooth>追逐紧密度：{0} 毫秒（越低越紧）</MCB_Setting_FollowCamSmooth>
+
+  <MCB_Setting_SecPerformance>性能</MCB_Setting_SecPerformance>
+  <MCB_Setting_SecPerformanceNote>缓存的小人数据（姓名、头衔、任务报告、状态）以此节奏刷新。实时数据——条、肖像、战斗效果——不受影响。</MCB_Setting_SecPerformanceNote>
+  <MCB_Setting_SnapshotFrames>小人数据刷新：每 {0} 帧（60 fps 时约 {1}/秒）</MCB_Setting_SnapshotFrames>
+  <MCB_Setting_EkgDetail>心电图轨迹细节</MCB_Setting_EkgDetail>
+  <MCB_Setting_EkgFull>完整</MCB_Setting_EkgFull>
+  <MCB_Setting_EkgHalf>一半</MCB_Setting_EkgHalf>
+  <MCB_Setting_EkgThird>三分之一</MCB_Setting_EkgThird>
+  <MCB_Setting_EkgDetailNote>「完整」以每像素一个样本重绘心跳轨迹；「一半」和「三分之一」在屏幕上有多个心电图条时每帧开销更小。</MCB_Setting_EkgDetailNote>
+
+  <MCB_Setting_SecMoodScheme>心情配色方案</MCB_Setting_SecMoodScheme>
+  <MCB_Setting_SecMoodSchemeNote>已安装 CM 彩色心情条。它自己的条无法与本条共存，因此现代殖民者栏会抑制它并借用其调色板。</MCB_Setting_SecMoodSchemeNote>
+  <MCB_Setting_UseCcmb>在肖像后显示彩色编码心情</MCB_Setting_UseCcmb>
+  <MCB_Setting_UseCcmbTip>在每个肖像后面以彩色填充显示心情（全部三个视图），使用你在彩色心情条模组选项中设置的六种心情颜色。开启时专用心情条 / 条带会隐藏，除非你将该槽位指向了不同属性。关闭 = 保留内置心情条及其绿色到青色方案。</MCB_Setting_UseCcmbTip>
+
+  <MCB_Setting_SecAutoHide>从栏中自动隐藏</MCB_Setting_SecAutoHide>
+  <MCB_Setting_HideSlaves>隐藏奴隶</MCB_Setting_HideSlaves>
+  <MCB_Setting_HideMechs>隐藏机械体和突变体</MCB_Setting_HideMechs>
+  <MCB_Setting_HideCorpses>隐藏尸体</MCB_Setting_HideCorpses>
+  <MCB_Setting_UnhideAll>全部取消隐藏栏小人（{0}）</MCB_Setting_UnhideAll>
+  <MCB_Setting_RightClickTip>提示：右键点击栏上的任何小人可获取命令、小队、隐藏/取消隐藏和这些设置。</MCB_Setting_RightClickTip>
+
+  <!-- ================= 镜头标签页 ================= -->
+  <MCB_Setting_CameraNeedsLive>请先在「通用」标签页启用「实时视图肖像」。</MCB_Setting_CameraNeedsLive>
+  <MCB_Setting_LiveWholeMap>整个地图的实时视图</MCB_Setting_LiveWholeMap>
+  <MCB_Setting_LiveWholeMapTip>为每个殖民地小人保持实时视图活动，包括屏幕外的小人。</MCB_Setting_LiveWholeMapTip>
+  <MCB_Setting_LiveZoom>实时视图缩放：{0} 倍</MCB_Setting_LiveZoom>
+  <MCB_Setting_LivePanX>水平平移：{0}</MCB_Setting_LivePanX>
+  <MCB_Setting_LivePanY>垂直平移（上 = 头部）：{0}</MCB_Setting_LivePanY>
+  <MCB_Setting_AutoZoomInteraction>互动期间拉远镜头</MCB_Setting_AutoZoomInteraction>
+  <MCB_Setting_InteractionWidth>互动视图宽度：{0} 格</MCB_Setting_InteractionWidth>
+  <MCB_Setting_InteractionRange>互动触发范围：{0} 格</MCB_Setting_InteractionRange>
+  <MCB_Setting_LiveResolution>渲染质量：{0}px</MCB_Setting_LiveResolution>
+  <MCB_Setting_ShowInteractions>显示互动（双方小人）</MCB_Setting_ShowInteractions>
+  <MCB_Setting_PortraitZoom>肖像缩放：{0} 倍</MCB_Setting_PortraitZoom>
+  <MCB_Setting_PortraitPanX>肖像水平平移：{0}</MCB_Setting_PortraitPanX>
+  <MCB_Setting_PortraitPanY>肖像垂直取景（上 = 头部）：{0}</MCB_Setting_PortraitPanY>
+
+  <!-- ================= 弹出标签页 ================= -->
+  <MCB_Setting_HoverPopout>悬停弹出（快速信息面板）</MCB_Setting_HoverPopout>
+  <MCB_Setting_HoverPopoutTip>悬停小人时的浮动面板：肖像、姓名 / 头衔 / 角色、心情 + 健康、状态、任务和快捷访问按钮。</MCB_Setting_HoverPopoutTip>
+  <MCB_Setting_PopoutOpacity>弹出不透明度：{0}%</MCB_Setting_PopoutOpacity>
+  <MCB_Setting_PopoutOpacityNote>0% 会隐藏面板和边框——内容漂浮在地图上。</MCB_Setting_PopoutOpacityNote>
+  <MCB_Setting_PopoutScale>弹出大小：{0}%</MCB_Setting_PopoutScale>
+  <MCB_Setting_PopoutPad>内边距：{0}px</MCB_Setting_PopoutPad>
+  <MCB_Setting_PopoutOffsetX>位置微调 X：{0}px（负值 = 左）</MCB_Setting_PopoutOffsetX>
+  <MCB_Setting_PopoutOffsetY>位置微调 Y：{0}px（负值 = 上）</MCB_Setting_PopoutOffsetY>
+  <MCB_Setting_PopoutReset>重置大小 / 内边距 / 位置</MCB_Setting_PopoutReset>
+  <MCB_Setting_QaShow>快捷访问按钮（最多显示 6 个，2 行 × 3）</MCB_Setting_QaShow>
+  <MCB_Setting_QaDraft>征召 / 解除征召</MCB_Setting_QaDraft>
+  <MCB_Setting_QaJump>跳转到小人</MCB_Setting_QaJump>
+  <MCB_Setting_QaHealth>打开健康标签页</MCB_Setting_QaHealth>
+  <MCB_Setting_QaBio>打开生物标签页</MCB_Setting_QaBio>
+  <MCB_Setting_QaSocial>打开社交标签页</MCB_Setting_QaSocial>
+  <MCB_Setting_QaGear>打开装备标签页</MCB_Setting_QaGear>
+  <MCB_Setting_QaPolicies>政策（服装 / 食物 / 药物）</MCB_Setting_QaPolicies>
+  <MCB_Setting_QaRename>重命名</MCB_Setting_QaRename>
+  <MCB_Setting_QaDefPos>防御位置</MCB_Setting_QaDefPos>
+
+  <!-- ================= 布局标签页 ================= -->
+  <MCB_Setting_PortraitScale>肖像大小：{0}%</MCB_Setting_PortraitScale>
+  <MCB_Setting_PortraitWidth>肖像宽度：{0}%</MCB_Setting_PortraitWidth>
+  <MCB_Setting_PortraitHeight>肖像高度：{0}%</MCB_Setting_PortraitHeight>
+  <MCB_Setting_HorizontalPadding>水平内边距：{0}px</MCB_Setting_HorizontalPadding>
+  <MCB_Setting_VerticalPadding>垂直内边距：{0}px</MCB_Setting_VerticalPadding>
+  <MCB_Setting_BarTopOffset>栏垂直偏移：{0}px</MCB_Setting_BarTopOffset>
+  <MCB_Setting_AvoidDevToolbar>将栏移到开发者工具栏下方</MCB_Setting_AvoidDevToolbar>
+  <MCB_Setting_ShowBarControls>栏控制按钮</MCB_Setting_ShowBarControls>
+  <MCB_Setting_ShowBarControlsTip>第一个肖像旁边的小按钮（栏视图、隐藏小人、小队、设置；右键 = 指挥中心）。隐藏它可获得更干净的栏——一切仍可通过右键点击栏上的任何小人（「现代殖民者栏」行）访问。囚犯 / 奴隶显示 V 形按钮会保留并移到它的位置。</MCB_Setting_ShowBarControlsTip>
+
+  <!-- ================= 属性槽位名称 ================= -->
+  <MCB_Stat_None>（无）</MCB_Stat_None>
+  <MCB_Stat_Health>健康</MCB_Stat_Health>
+  <MCB_Stat_Mood>心情</MCB_Stat_Mood>
+  <MCB_Stat_Readiness>战斗准备度</MCB_Stat_Readiness>
+  <MCB_Stat_Psyfocus>心灵聚焦</MCB_Stat_Psyfocus>
+  <MCB_Stat_Entropy>神经热量</MCB_Stat_Entropy>
+  <MCB_Stat_Mmb>心理健康（MMB）</MCB_Stat_Mmb>
+
+</LanguageData>

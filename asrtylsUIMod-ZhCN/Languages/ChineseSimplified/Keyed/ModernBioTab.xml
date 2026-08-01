@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ============ 面板标题 ============ -->
+  <ModernBioTab.Panel.Backstory>背景故事</ModernBioTab.Panel.Backstory>
+  <ModernBioTab.Panel.Skills>技能</ModernBioTab.Panel.Skills>
+  <ModernBioTab.Panel.Traits>特性</ModernBioTab.Panel.Traits>
+  <ModernBioTab.Panel.WorkHistory>工作经历</ModernBioTab.Panel.WorkHistory>
+  <ModernBioTab.Panel.SkillHistory>技能历史</ModernBioTab.Panel.SkillHistory>
+  <ModernBioTab.Panel.Aspirations>志向</ModernBioTab.Panel.Aspirations>
+  <ModernBioTab.Panel.Sexuality>性取向</ModernBioTab.Panel.Sexuality>
+  <ModernBioTab.Panel.Isekai>异世界</ModernBioTab.Panel.Isekai>
+  <ModernBioTab.Panel.Education>教育</ModernBioTab.Panel.Education>
+  <ModernBioTab.Panel.Abilities>能力</ModernBioTab.Panel.Abilities>
+  <ModernBioTab.Panel.Alignment>阵营</ModernBioTab.Panel.Alignment>
+  <ModernBioTab.Panel.Comforts>舒适</ModernBioTab.Panel.Comforts>
+  <ModernBioTab.Panel.Physique>体格</ModernBioTab.Panel.Physique>
+  <ModernBioTab.Panel.Portrait>肖像</ModernBioTab.Panel.Portrait>
+  <ModernBioTab.Panel.SexHistory>性经历</ModernBioTab.Panel.SexHistory>
+  <ModernBioTab.Panel.TraumaIntegrity>创伤与完整性</ModernBioTab.Panel.TraumaIntegrity>
+
+  <!-- ============ 概念页区块标题 ============ -->
+  <ModernBioTab.Concept.Skills>技能</ModernBioTab.Concept.Skills>
+  <ModernBioTab.Concept.Expertise>专精</ModernBioTab.Concept.Expertise>
+  <ModernBioTab.Concept.Capacities>能力</ModernBioTab.Concept.Capacities>
+
+  <!-- ============ 设置 ============ -->
+  <ModernBioTab.Settings.Display>显示</ModernBioTab.Settings.Display>
+  <ModernBioTab.Settings.Layout>布局</ModernBioTab.Settings.Layout>
+  <ModernBioTab.Settings.Integration>集成</ModernBioTab.Settings.Integration>
+
+  <ModernBioTab.Settings.WindowScale>窗口缩放：{0}</ModernBioTab.Settings.WindowScale>
+  <ModernBioTab.Settings.WindowScaleTip>整体缩小整个生物标签页。标签页也会自动适应你的分辨率和 UI 缩放，因此永远不会超出屏幕。</ModernBioTab.Settings.WindowScaleTip>
+
+  <ModernBioTab.Settings.InfoStrip>信息条显示</ModernBioTab.Settings.InfoStrip>
+  <ModernBioTab.Settings.InfoMode0>仅图标</ModernBioTab.Settings.InfoMode0>
+  <ModernBioTab.Settings.InfoMode1>图标 + 文本</ModernBioTab.Settings.InfoMode1>
+  <ModernBioTab.Settings.InfoMode2>仅文本</ModernBioTab.Settings.InfoMode2>
+
+  <ModernBioTab.Settings.ShowFullName>在信息条上方显示全名</ModernBioTab.Settings.ShowFullName>
+  <ModernBioTab.Settings.ShowFullNameTip>在顶栏与信息条之间的一行中显示小人的完整姓名（含昵称和爵位）。也可通过标签页内的 ☰ 菜单切换。</ModernBioTab.Settings.ShowFullNameTip>
+
+  <ModernBioTab.Settings.VanillaTheme>原版风格主题</ModernBioTab.Settings.VanillaTheme>
+  <ModernBioTab.Settings.VanillaThemeTip>用 RimWorld 原生的灰色菜单区块面板重新装饰整个标签页，取代扁平深色主题。适用于所有布局；功能颜色（稀有度、阵营、RimPsyche、概念页）不受影响。</ModernBioTab.Settings.VanillaThemeTip>
+
+  <ModernBioTab.Settings.LockLayout>锁定布局</ModernBioTab.Settings.LockLayout>
+  <ModernBioTab.Settings.LockLayoutTip>禁止拖动、交换、调整大小和最小化面板。也可通过标签页内的锁图标切换。</ModernBioTab.Settings.LockLayoutTip>
+
+  <ModernBioTab.Settings.ResetLayout>将布局重置为默认值</ModernBioTab.Settings.ResetLayout>
+  <ModernBioTab.Settings.LayoutNote>每个小人的布局和已保存的列默认值可通过标签页内的 ☰ 菜单管理。</ModernBioTab.Settings.LayoutNote>
+
+  <ModernBioTab.Settings.SuppressGizmo>隐藏 RJW 性经历小工具</ModernBioTab.Settings.SuppressGizmo>
+  <ModernBioTab.Settings.SuppressGizmoTip>隐藏 RJW Sexperience 的每个小人性状态按钮（由「性经历」面板取代）。立即生效。</ModernBioTab.Settings.SuppressGizmoTip>
+  <ModernBioTab.Settings.SuppressRandom>抑制出生时的随机性经历</ModernBioTab.Settings.SuppressRandom>
+  <ModernBioTab.Settings.SuppressRandomTip>阻止 RJW 在生成小人时随机填充虚构性经历，只追踪游戏中真实发生的性行为（修复首次伴侣追踪）。影响新生成的小人。</ModernBioTab.Settings.SuppressRandomTip>
+  <ModernBioTab.Settings.HidePanelTraits>隐藏面板自有特性</ModernBioTab.Settings.HidePanelTraits>
+  <ModernBioTab.Settings.HidePanelTraitsTip>当特性已有专属面板时，将其从「特性」面板隐藏：Progression：教育特性，以及 Isekai Leveling 等级特性。其他 Isekai 特性保持可见。</ModernBioTab.Settings.HidePanelTraitsTip>
+  <ModernBioTab.Settings.ShowTraitIcons>显示特性与背景故事图标</ModernBioTab.Settings.ShowTraitIcons>
+  <ModernBioTab.Settings.ShowTraitIconsTip>当「特性与背景故事图标」模组启用时，在「特性」面板、「背景故事」面板和概念视图中，在特性与背景故事旁显示其图标。</ModernBioTab.Settings.ShowTraitIconsTip>
+
+  <ModernBioTab.Settings.Performance>性能</ModernBioTab.Settings.Performance>
+  <ModernBioTab.Settings.CacheTtl>数据刷新间隔：{0}</ModernBioTab.Settings.CacheTtl>
+  <ModernBioTab.Settings.CacheTtlTip>标签页打开期间重新读取变化缓慢的数据（信息芯片、模组集成、状态快照、揭示检查）的频率。越低越实时，越高越省性能。选择另一个小人总是立即刷新。</ModernBioTab.Settings.CacheTtlTip>
+  <ModernBioTab.Settings.CachedPawns>缓存小人快照数：{0}</ModernBioTab.Settings.CachedPawns>
+  <ModernBioTab.Settings.CachedPawnsTip>有多少小人保留预构建的数据快照在内存中，以便在殖民者之间切换时跳过重建。更高会使用略多内存。</ModernBioTab.Settings.CachedPawnsTip>
+  <ModernBioTab.Settings.SnapshotFresh>快照复用窗口：{0}</ModernBioTab.Settings.SnapshotFresh>
+  <ModernBioTab.Settings.SnapshotFreshTip>在此窗口内切换回最近查看过的小人时，会按原样复用其缓存快照；更旧的快照会重建。提高它可让殖民者循环切换更省性能，降低它可更快捕获特性或背景故事的变化。</ModernBioTab.Settings.SnapshotFreshTip>
+
+</LanguageData>

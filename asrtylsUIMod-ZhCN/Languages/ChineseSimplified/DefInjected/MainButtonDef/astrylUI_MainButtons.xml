@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- astryl UI 模组 主按钮 Def 汉化（DefInjected 注入） -->
+<Defs>
+
+  <MainButtonDef>
+    <defName>MDS_Circinus</defName>
+    <label>开发套件</label>
+    <description>记录测试运行、实时观看性能，并查看运行历史。</description>
+  </MainButtonDef>
+
+  <MainButtonDef>
+    <defName>MCE_CharacterEditor</defName>
+    <label>编辑器</label>
+    <description>打开 Modern CC。</description>
+  </MainButtonDef>
+
+  <MainButtonDef>
+    <defName>ModernLearningMenu_Button</defName>
+    <label>进度</label>
+    <description>殖民地进度仪表盘——技能、成长、教育。</description>
+  </MainButtonDef>
+
+</Defs>
