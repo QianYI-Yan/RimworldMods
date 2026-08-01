@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ModMetaData>
-  <name>Modern RClick Menu</name>
-  <packageId>yintx.deepseek.modernRclickmenu</packageId>
+  <name>Modern Expand Menu</name>
+  <packageId>yintx.deepseek.modernexpandmenu</packageId>
   <author>yintx, deepseek</author>
   <description>
     [h1]Material Design 3 style grouped right-click menu[/h1]
@@ -24,7 +24,7 @@
     [i]当前仅作用于单格储物容器（如木箱、铁柜），其他右键目标仍使用原版菜单。[/i]
 
     [b]Repository[/b]
-    [url=https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernRClickMenu]github.com/QianYI-Yan/RimworldMods[/url]
+    [url=https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernExpandMenu]github.com/QianYI-Yan/RimworldMods[/url]
   </description>
   <modVersion>0.1</modVersion>
   <supportedVersions>

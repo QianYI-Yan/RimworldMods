@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>Show loading animation (top buffer bar + ring progress + overlay + staged entries)</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>Highlight target item and draw glowing arrow when hovering an action</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>Show total item count in group headers (xN)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_MaxMenuHeight>Max menu height (pixels)</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>Items processed per frame</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>Extra seconds to keep showing the progress bar after load (0 = off)</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>Haul to storage</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>Haul to storage: {0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>Other</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>Appearance</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>Performance</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>Loading animation</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>Reset to defaults</ModernExpandMenu_ResetDefaults>
+</LanguageData>

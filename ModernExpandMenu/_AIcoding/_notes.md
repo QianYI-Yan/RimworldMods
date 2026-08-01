@@ -1,8 +1,8 @@
-# ModernRClickMenu 开发笔记
+# ModernExpandMenu 开发笔记
 
 ## 模组信息
-- mod ID: `yintx.deepseek.modernRclickmenu`
-- 位置: `D:\Github\RimworldMods\ModernRClickMenu`
+- mod ID: `yintx.deepseek.modernexpandmenu`
+- 位置: `D:\Github\RimworldMods\ModernExpandMenu`
 - 目标: 单格储物容器右键 → MD3 风格分组悬浮窗
 
 ## 核心设计决策
@@ -47,4 +47,24 @@
 ## 接管范围变更
 - 原: 仅 `Building_Storage` 单格容器（用户实测发现右键的是地上物品堆，不接管）
 - 现: 右键命中 ≥2 种物品（ThingCategory.Item）即接管；选项用 `option.iconThing` 分组，原版功能零丢失
+
+## 加载动画体系（2026-08 增加）
+- 分帧生成操作（`pendingItems` + `ProcessPendingActions`，每帧 `MaxProcessedPerFrame` 个物品），避免大量物品右键卡死
+- 加载期间: 顶部缓冲加载条（脉冲呼吸 + 前端光标亮点）+ 半透明覆盖层 + 中央环形进度 + 百分比 + 操作项左侧渐入逐条载入（`appearTime` 排定，30ms 间隔 / 250ms 渐入）
+- 加载完成: `FinalizeGroups` + 自动滚动到顶端 + 解锁点击
+- 环形进度为**平滑圆环纹理**（64x64 逐像素生成、双线性过滤、顶部顺时针），非离散点
+
+## 悬停高亮 + 发光箭头（2026-08 增加）
+- 窗口持续高亮右键命中的**物品**（`GenDraw.DrawTargetHighlight`）+ 容器格（`DrawTargetHighlightWithLayer`），修复"右键物品堆无高亮"
+- 悬停操作项: hover 蓝层 + 目标物品白框高亮 + 从鼠标指向物品的黄色发光箭头（`DrawHoverArrow`: 粗淡黄光晕 + 细亮黄线 + V 形箭头尖，`GenDraw.DrawLineBetween` + `UI.MouseMapPosition()`）
+
+## 设置系统（2026-08 增加）
+- `ModernExpandMenuSettings : ModSettings`，游戏内"选项 → Mod 设置"
+- 可调: 显示加载动画、悬停高亮箭头、分组标题物品总数、悬浮窗最大高度（300~900）、每帧处理物品数（2~30）
+- 窗口读取 `ModernExpandMenuMod.Settings`
+
+## 日志清理（2026-08）
+- `FloatMenuOptionProvider_CarryingPawn`（InvalidCast）与 `FloatMenuOptionProvider_LoadCaravan`（NullRef）对容器内物品调用抛异常 → 加入 `ExcludedProviderTypes` 排除（面向 Pawn/车队，对物品无意义）
+- 其余 Provider 保留 try/catch 兜底，单个失败只警告不崩溃
+
 

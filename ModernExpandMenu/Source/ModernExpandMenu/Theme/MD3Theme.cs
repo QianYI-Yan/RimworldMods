@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ModernRClickMenu.Theme
+namespace ModernExpandMenu.Theme
 {
     // ═══════════════════════════════════════════════════
     // MD3（Material Design 3）主题 Token
@@ -35,6 +35,7 @@ namespace ModernRClickMenu.Theme
         public const float WindowCornerRadius = 8f;    // 悬浮窗外角圆角
         public const float HeaderCornerRadius = 10f;   // 物品组标题圆角
         public const float ActionCornerRadius = 8f;    // 操作项 hover 圆角
+        public const float CardCornerRadius = 10f;     // 设置界面分组卡片圆角
 
         public const float MenuWidth = 340f;           // 悬浮窗宽度
         public const float MaxMenuHeight = 560f;       // 悬浮窗最大高度（超出滚动）

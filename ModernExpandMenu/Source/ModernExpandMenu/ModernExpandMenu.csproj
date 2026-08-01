@@ -1,14 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyName>ModernRClickMenu</AssemblyName>
-    <RootNamespace>ModernRClickMenu</RootNamespace>
+    <AssemblyName>ModernExpandMenu</AssemblyName>
+    <RootNamespace>ModernExpandMenu</RootNamespace>
     <LangVersion>latest</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ModernRClickMenuMod.cs" />
+    <Compile Include="ModernExpandMenuMod.cs" />
+    <Compile Include="ModernExpandMenuSettings.cs" />
     <Compile Include="Patch_ItemGroupedFloatMenu.cs" />
     <Compile Include="ItemGrouping.cs" />
     <Compile Include="Theme\MD3Theme.cs" />

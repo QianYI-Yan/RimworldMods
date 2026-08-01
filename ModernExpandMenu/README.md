@@ -1,4 +1,4 @@
-# Modern RClick Menu
+# Modern Expand Menu
 
 > MD3（Material Design 3）风格的分组右键菜单模组
 
@@ -25,7 +25,7 @@
 
 ## 安装
 
-将 `ModernRClickMenu` 文件夹放入游戏 `Mods` 目录，在游戏内启用即可。
+将 `ModernExpandMenu` 文件夹放入游戏 `Mods` 目录，在游戏内启用即可。
 
 ## 构建
 
@@ -33,7 +33,7 @@
 build.bat
 ```
 
-构建产物自动复制到 `Assemblies/`，并部署到游戏 `Mods/ModernRClickMenu/`。
+构建产物自动复制到 `Assemblies/`，并部署到游戏 `Mods/ModernExpandMenu/`。
 
 ## 技术说明
 
@@ -50,4 +50,4 @@ build.bat
 
 ## 源码
 
-[github.com/QianYI-Yan/RimworldMods/tree/main/ModernRClickMenu](https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernRClickMenu)
+[github.com/QianYI-Yan/RimworldMods/tree/main/ModernExpandMenu](https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernExpandMenu)
