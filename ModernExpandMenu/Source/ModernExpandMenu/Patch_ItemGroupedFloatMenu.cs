@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using HarmonyLib;
-using ModernRClickMenu.UI;
+using ModernExpandMenu.UI;
 using RimWorld;
 using Verse;
 
-namespace ModernRClickMenu
+namespace ModernExpandMenu
 {
     // ═══════════════════════════════════════════════════
     // 拦截右键菜单生成流程：
@@ -18,6 +18,9 @@ namespace ModernRClickMenu
     [HarmonyPatch(typeof(FloatMenuMakerMap), nameof(FloatMenuMakerMap.GetOptions))]
     public static class Patch_ItemGroupedFloatMenu
     {
+        // 接管日志只输出一次（避免 DevMode 下每次右键刷屏）
+        private static bool loggedTakeover;
+
         private static void Postfix(
             List<Pawn> selectedPawns,
             FloatMenuContext context,
@@ -52,26 +55,42 @@ namespace ModernRClickMenu
                 __result = new List<FloatMenuOption>();
             }
 
-            // 按 iconThing 把原版选项分组；容器内物品原版不生成选项，会手动补全操作
-            List<StoredItemGroup> groups = StoredItemGroup.BuildGroups(__result, clickedItems, context);
+            // 按 iconThing 把原版选项分组；容器内物品放入待生成列表，由窗口分帧补全操作
+            List<StoredItemGroup> groups = StoredItemGroup.BuildGroups(__result, clickedItems);
             if (groups.Count == 0)
             {
                 return;
             }
 
-            // 抑制原版菜单，弹出 MD3 悬浮窗
+            // 抑制原版菜单，弹出 MD3 悬浮窗（传入右键的容器用于高亮显示，不改变选中）
             __result.Clear();
             if (Find.WindowStack.Windows.Any(window => window is MD3FloatMenuWindow))
             {
                 return;
             }
-            Find.WindowStack.Add(new MD3FloatMenuWindow(groups));
+            Building_Storage clickedStorage = FindClickedStorage(context);
+            // 传入右键命中的物品实例：窗口持续高亮这些物品（原版右键目标白框效果）
+            Find.WindowStack.Add(new MD3FloatMenuWindow(groups, context, clickedStorage, clickedItems));
 
-            // 静默：仅在开发者模式下输出极简日志，避免每次右键刷屏
-            if (Prefs.DevMode)
+            // 静默：仅首次在开发者模式下输出极简日志，避免每次右键刷屏
+            if (Prefs.DevMode && !loggedTakeover)
             {
-                Log.Message($"[ModernRClickMenu] 接管：{groups.Count} 组 / {distinctDefCount} 类");
+                loggedTakeover = true;
+                Log.Message($"[ModernExpandMenu] 接管：{groups.Count} 组 / {distinctDefCount} 类");
             }
+        }
+
+        /// <summary>查找右键命中的储物容器（用于高亮显示，不改变选中状态）。</summary>
+        private static Building_Storage FindClickedStorage(FloatMenuContext context)
+        {
+            foreach (Thing thing in context.ClickedThings)
+            {
+                if (thing is Building_Storage storage && storage.Spawned)
+                {
+                    return storage;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -80,23 +99,43 @@ namespace ModernRClickMenu
         /// </summary>
         private static List<Thing> CollectClickedItems(FloatMenuContext context)
         {
+            // 用 HashSet 去重：右键命中的物品可能与容器占地格收集的物品重复，
+            // 否则会导致数量翻倍、操作项重复
             var items = new List<Thing>();
+            var seen = new HashSet<Thing>();
             foreach (Thing thing in context.ClickedThings)
             {
                 if (thing.def.category == ThingCategory.Item)
                 {
-                    items.Add(thing);
+                    if (seen.Add(thing))
+                    {
+                        items.Add(thing);
+                    }
                 }
                 else if (thing is Building_Storage storage && storage.Spawned)
                 {
-                    // 容器：把它所有占地格上的物品都算进来
-                    foreach (IntVec3 cell in storage.AllSlotCells())
+                    // 若容器属于容器组（StorageGroup），收集组内所有容器的物品；
+                    // 否则只收集该容器所有占地格上的物品
+                    if (storage.storageGroup != null)
                     {
-                        foreach (Thing cellThing in storage.Map.thingGrid.ThingsListAt(cell))
+                        foreach (Thing heldThing in storage.storageGroup.HeldThings)
                         {
-                            if (cellThing.def.category == ThingCategory.Item)
+                            if (heldThing.def.category == ThingCategory.Item && seen.Add(heldThing))
                             {
-                                items.Add(cellThing);
+                                items.Add(heldThing);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (IntVec3 cell in storage.AllSlotCells())
+                        {
+                            foreach (Thing cellThing in storage.Map.thingGrid.ThingsListAt(cell))
+                            {
+                                if (cellThing.def.category == ThingCategory.Item && seen.Add(cellThing))
+                                {
+                                    items.Add(cellThing);
+                                }
                             }
                         }
                     }

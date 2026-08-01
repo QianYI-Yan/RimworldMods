@@ -1,11 +1,11 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("ModernRClickMenu")]
+[assembly: AssemblyTitle("ModernExpandMenu")]
 [assembly: AssemblyDescription("MD3 style grouped float menu for storage containers")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ModernRClickMenu")]
+[assembly: AssemblyProduct("ModernExpandMenu")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>显示加载动画（顶部缓冲条 + 环形进度 + 覆盖层 + 逐条载入）</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>悬停操作项时高亮目标物品并绘制发光箭头</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>分组标题显示物品总数（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_MaxMenuHeight>悬浮窗最大高度（像素）</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>每帧处理的物品实例数</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>进度条强制额外显示时间（秒，0 为不强制）</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>搬运到储物区</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>搬运到储物区：{0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>其他</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>外观</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>性能</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>加载动画</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>恢复默认设置</ModernExpandMenu_ResetDefaults>
+</LanguageData>
