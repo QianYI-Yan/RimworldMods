@@ -4,3 +4,11 @@
 # 系统文件
 Thumbs.db
 .DS_Store
+
+# 构建产物
+bin/
+obj/
+
+# 工具与临时目录
+_tools/
+projectE/
