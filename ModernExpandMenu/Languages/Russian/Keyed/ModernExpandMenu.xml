@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>Показывать анимацию загрузки (верхняя полоса + кольцевой прогресс + оверлей + поэтапное появление)</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>Подсвечивать целевой предмет и рисовать светящуюся стрелку при наведении на действие</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>Показывать общее количество предметов в заголовках групп (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>Включить мод (выкл. = полностью ванильное контекстное меню)</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>Отключить символы псевдоперевода в режиме разработчика (по умолчанию выкл.)</ModernExpandMenu_DisablePseudoTranslation>
+  <ModernExpandMenu_MaxMenuHeight>Максимальная высота меню (пиксели)</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>Предметов обрабатывается за кадр</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>Дополнительные секунды показа полосы прогресса после загрузки (0 = выкл.)</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>Перенести на склад</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>Перенести на склад: {0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>Прочее</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>Внешний вид</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>Производительность</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>Анимация загрузки</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>Сбросить к значениям по умолчанию</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>Общие</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>Цвета</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>Основной цвет</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>Поверхности</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>Текст</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>Полоса прокрутки</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>Тень</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>Основной цвет</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>Основной передний план</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>Поверхность окна</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>Вторичная поверхность</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>Акцентная поверхность</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>Основной текст</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>Вторичный текст</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>Контур</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>Неактивный текст</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>Тень</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>Дорожка прокрутки</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>Ползунок прокрутки</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>Перетаскивание прокрутки</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>Сбросить к значениям по умолчанию - просмотр изменений</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>Выбрать все</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>Снять все</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>Инвертировать выбор</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>Сбросить выбранные</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>Отмена</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>Палитры</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>Аква-синий</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>Кибер-фиолетовый</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>Изумрудный</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>Лавовый оранжевый</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_ColorCopyHint>Нажмите на образец, чтобы скопировать цвет</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>Вставить</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>Анимация</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>Скорость анимации</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>Длительность появления элемента (с)</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>Интервал между элементами (с)</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>Длительность появления окна (с)</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>Скорость раскрытия групп</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>Скорость следования прокрутки при загрузке</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>Скорость возврата прокрутки наверх</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>Предпросмотр анимации</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>{0} предметов / {1} действий загружено, {2}с, анимация всего {3}с</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>Общие</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>Анимация</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>Цвета</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>Длительность появления элемента</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>Интервал между элементами</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>Длительность появления окна</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>Скорость раскрытия</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>Скорость следования прокрутки</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>Скорость возврата наверх</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>Скорость анимации высоты окна</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Скорость анимации высоты окна</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>Главный переключатель</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>Включить анимации (выкл = отключить все анимации)</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>Включить анимации</ModernExpandMenu_ResetEnableAnimations>
+</LanguageData>

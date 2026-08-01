@@ -3,6 +3,8 @@
   <ModernExpandMenu_ShowLoadingAnimation>Show loading animation (top buffer bar + ring progress + overlay + staged entries)</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>Highlight target item and draw glowing arrow when hovering an action</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>Show total item count in group headers (xN)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>Enable mod (off = fully vanilla menu)</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>Disable dev mode pseudo-translation characters (default off)</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>Max menu height (pixels)</ModernExpandMenu_MaxMenuHeight>
   <ModernExpandMenu_MaxProcessedPerFrame>Items processed per frame</ModernExpandMenu_MaxProcessedPerFrame>
   <ModernExpandMenu_ExtraLoadingBarSeconds>Extra seconds to keep showing the progress bar after load (0 = off)</ModernExpandMenu_ExtraLoadingBarSeconds>
@@ -13,4 +15,63 @@
   <ModernExpandMenu_SectionPerformance>Performance</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>Loading animation</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>Reset to defaults</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>General</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>Colors</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>Primary colors</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>Surfaces</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>Text</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>Scrollbar</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>Shadow</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>Primary</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>On primary</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>Window surface</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>Container surface</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>High surface</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>Primary text</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>Secondary text</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>Outline</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>Disabled text</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>Shadow</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>Scrollbar track</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>Scrollbar thumb</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>Scrollbar dragging</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>Reset to defaults - review changes</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>Select all</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>Select none</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>Invert selection</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>Reset selected</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>Cancel</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>Palettes</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>Aqua Blue</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>Cyber Purple</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>Emerald</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>Lava Orange</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_PaletteRose>Rose Pink</ModernExpandMenu_PaletteRose>
+  <ModernExpandMenu_PaletteIceBlue>Ice Blue</ModernExpandMenu_PaletteIceBlue>
+  <ModernExpandMenu_ColorCopyHint>Click to copy color</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>Paste</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>Animation</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>Animation speed</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>Item slide-in duration (s)</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>Interval between items (s)</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>Window pop-in duration (s)</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>Group expand/collapse speed</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>Scroll follow speed while loading</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>Scroll return-to-top speed</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>Animation preview</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>{0} items / {1} actions loaded, took {2}s, animation total {3}s</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>General</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>Animation</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>Colors</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>Item slide-in duration</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>Item interval</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>Window pop-in duration</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>Expand animation speed</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>Scroll follow speed</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>Scroll return speed</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>Master switch</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>Enable animations (off = disable all animation effects)</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>Enable animations</ModernExpandMenu_ResetEnableAnimations>
 </LanguageData>

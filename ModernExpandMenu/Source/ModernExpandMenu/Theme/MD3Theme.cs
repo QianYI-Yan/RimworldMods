@@ -1,35 +1,111 @@
+using System;
 using UnityEngine;
 
 namespace ModernExpandMenu.Theme
 {
     // ═══════════════════════════════════════════════════
     // MD3（Material Design 3）主题 Token
-    // 集中管理颜色、圆角、间距等样式变量。
-    // 所有 UI 绘制只从这里取值，不硬编码颜色，
-    // 便于后续接入 CSS 解析器做外观自定义。
+    // 颜色全部可从模组设置读取 16 进制自定义（未配置时回退默认水影蓝）。
+    // 所有 UI 绘制只从这里取值，不硬编码颜色。
     // ═══════════════════════════════════════════════════
     public static class MD3Theme
     {
-        // ── 色板：水影（LiquidBounce）风格深色蓝色调 ──────
-        public static readonly Color Primary = new Color32(0, 168, 255, 255);            // 主色（水影标志蓝）
-        public static readonly Color OnPrimary = new Color32(0, 20, 33, 255);           // 主色上的前景
+        // ── 默认色板：水影（LiquidBounce）风格深色蓝色调 ──
+        public static readonly Color DefaultPrimary = new Color32(0, 168, 255, 255);
+        public static readonly Color DefaultOnPrimary = new Color32(0, 20, 33, 255);
+        public static readonly Color DefaultSurface = new Color32(22, 24, 33, 255);
+        public static readonly Color DefaultSurfaceContainer = new Color32(30, 33, 45, 255);
+        public static readonly Color DefaultSurfaceContainerHigh = new Color32(38, 42, 58, 255);
+        public static readonly Color DefaultOnSurface = new Color32(230, 230, 236, 255);
+        public static readonly Color DefaultOnSurfaceVariant = new Color32(154, 155, 166, 255);
+        public static readonly Color DefaultOutline = new Color32(99, 102, 118, 255);
+        public static readonly Color DefaultDisabledText = new Color32(128, 128, 140, 255);
+        public static readonly Color DefaultShadow = new Color32(0, 0, 0, 90);
+        public static readonly Color DefaultScrollbarTrack = new Color32(38, 38, 46, 64);
+        public static readonly Color DefaultScrollbarThumb = new Color32(82, 82, 97, 166);
+        public static readonly Color DefaultScrollbarThumbDragging = new Color32(115, 115, 133, 204);
 
-        public static readonly Color Surface = new Color32(22, 24, 33, 255);            // 窗口表面（深蓝黑）
-        public static readonly Color SurfaceContainer = new Color32(30, 33, 45, 255);   // 次级表面
-        public static readonly Color SurfaceContainerHigh = new Color32(38, 42, 58, 255); // 强调表面（组标题）
+        // ── 颜色（从设置读取 16 进制自定义；Settings 未初始化时用默认）──
+        public static Color Primary => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorPrimary, DefaultPrimary);
+        public static Color OnPrimary => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorOnPrimary, DefaultOnPrimary);
+        public static Color Surface => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorSurface, DefaultSurface);
+        public static Color SurfaceContainer => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorSurfaceContainer, DefaultSurfaceContainer);
+        public static Color SurfaceContainerHigh => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorSurfaceContainerHigh, DefaultSurfaceContainerHigh);
+        public static Color OnSurface => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorOnSurface, DefaultOnSurface);
+        public static Color OnSurfaceVariant => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorOnSurfaceVariant, DefaultOnSurfaceVariant);
+        public static Color Outline => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorOutline, DefaultOutline);
+        public static Color DisabledText => FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorDisabledText, DefaultDisabledText);
 
-        public static readonly Color OnSurface = new Color32(230, 230, 236, 255);       // 表面上的主文本（浅色）
-        public static readonly Color OnSurfaceVariant = new Color32(154, 155, 166, 255); // 表面上的次要文本
-        public static readonly Color Outline = new Color32(99, 102, 118, 255);          // 描边
+        // hover 状态层跟随主色（半透明）；阴影 / 滚动条仅自定义 RGB，透明度固定
+        public static Color HoverStateLayer
+        {
+            get
+            {
+                Color c = Primary;
+                c.a = 40f / 255f;
+                return c;
+            }
+        }
 
-        public static readonly Color HoverStateLayer = new Color32(0, 168, 255, 40);    // hover 状态层（蓝色半透明）
-        public static readonly Color Shadow = new Color(0f, 0f, 0f, 0.35f);             // 卡片阴影
-        public static readonly Color DisabledText = new Color(0.5f, 0.5f, 0.55f, 1f);   // 不可执行项文本
+        public static Color Shadow
+        {
+            get
+            {
+                Color c = FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorShadow, DefaultShadow);
+                c.a = 0.35f;
+                return c;
+            }
+        }
 
-        // 深灰细滚动条（更明显，支持鼠标拖动）
-        public static readonly Color ScrollbarTrack = new Color(0.15f, 0.15f, 0.18f, 0.25f);
-        public static readonly Color ScrollbarThumb = new Color(0.32f, 0.32f, 0.38f, 0.65f);
-        public static readonly Color ScrollbarThumbDragging = new Color(0.45f, 0.45f, 0.52f, 0.8f);
+        public static Color ScrollbarTrack
+        {
+            get
+            {
+                Color c = FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorScrollbarTrack, DefaultScrollbarTrack);
+                c.a = 0.25f;
+                return c;
+            }
+        }
+
+        public static Color ScrollbarThumb
+        {
+            get
+            {
+                Color c = FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorScrollbarThumb, DefaultScrollbarThumb);
+                c.a = 0.65f;
+                return c;
+            }
+        }
+
+        public static Color ScrollbarThumbDragging
+        {
+            get
+            {
+                Color c = FromHex(ModernExpandMenu.ModernExpandMenuMod.Settings?.colorScrollbarThumbDragging, DefaultScrollbarThumbDragging);
+                c.a = 0.8f;
+                return c;
+            }
+        }
+
+        /// <summary>解析 16 进制颜色（RRGGBB），失败返回兜底色。</summary>
+        public static Color FromHex(string hex, Color fallback)
+        {
+            if (string.IsNullOrEmpty(hex) || hex.Length < 6)
+            {
+                return fallback;
+            }
+            try
+            {
+                int r = Convert.ToInt32(hex.Substring(0, 2), 16);
+                int g = Convert.ToInt32(hex.Substring(2, 2), 16);
+                int b = Convert.ToInt32(hex.Substring(4, 2), 16);
+                return new Color32((byte)Mathf.Clamp(r, 0, 255), (byte)Mathf.Clamp(g, 0, 255), (byte)Mathf.Clamp(b, 0, 255), 255);
+            }
+            catch (Exception)
+            {
+                return fallback;
+            }
+        }
 
         // ── 尺寸 ───────────────────────────────────────
         public const float WindowCornerRadius = 8f;    // 悬浮窗外角圆角

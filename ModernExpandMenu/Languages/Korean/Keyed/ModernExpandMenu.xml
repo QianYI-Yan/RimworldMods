@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>로딩 애니메이션 표시 (상단 버퍼 바 + 링 진행 + 오버레이 + 단계별 표시)</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>작업 항목에 마우스를 올리면 대상 아이템을 강조하고 빛나는 화살표 표시</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>그룹 제목에 아이템 총 수 표시 (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>모드 활성화 (끄면 완전히 바닐라 우클릭 메뉴 사용)</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>개발자 모드의 유사 번역 문자 비활성화 (기본 꺼짐)</ModernExpandMenu_DisablePseudoTranslation>
+  <ModernExpandMenu_MaxMenuHeight>메뉴 최대 높이 (픽셀)</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>프레임당 처리할 아이템 수</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>로딩 완료 후 진행 바를 추가로 표시할 시간 (초, 0 = 끔)</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>저장 공간으로 운반</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>저장 공간으로 운반: {0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>기타</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>외관</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>성능</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>로딩 애니메이션</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>기본값으로 재설정</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>일반</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>색상</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>메인 색상</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>표면</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>텍스트</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>스크롤바</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>그림자</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>메인 색상</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>메인 색상 전경</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>창 표면</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>보조 표면</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>강조 표면</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>기본 텍스트</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>보조 텍스트</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>윤곽선</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>비활성 텍스트</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>그림자</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>스크롤바 트랙</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>스크롤바 손잡이</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>스크롤바 드래그 중</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>기본값으로 재설정 - 변경 사항 확인</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>모두 선택</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>모두 선택 해제</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>선택 반전</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>선택 항목 재설정</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>취소</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>팔레트</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>아쿠아 블루</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>사이버 퍼플</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>에메랄드</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>라바 오렌지</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_ColorCopyHint>색 견본 클릭 시 색상 복사</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>붙여넣기</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>애니메이션</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>애니메이션 속도</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>항목 슬라이드인 시간(초)</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>항목 간 간격(초)</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>창 팝업 애니메이션 시간(초)</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>그룹 펼치기·접기 속도</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>로딩 중 스크롤 추적 속도</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>로딩 후 맨 위로 복귀 속도</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>애니메이션 미리보기</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>{0}개 아이템 / {1}개 작업, {2}초 소요, 애니메이션 총 {3}초</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>일반</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>애니메이션</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>색상</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>항목 슬라이드인 시간</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>항목 간 간격</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>팝업 애니메이션 시간</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>펼치기 애니메이션 속도</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>스크롤 추적 속도</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>맨 위 복귀 속도</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>창 높이 애니메이션 속도</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>창 높이 애니메이션 속도</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>마스터 스위치</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>애니메이션 활성화 (끄면 모든 애니메이션 효과 비활성화)</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>애니메이션 활성화</ModernExpandMenu_ResetEnableAnimations>
+</LanguageData>

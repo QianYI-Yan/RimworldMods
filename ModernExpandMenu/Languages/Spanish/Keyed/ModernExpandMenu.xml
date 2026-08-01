@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <ModernExpandMenu_ShowLoadingAnimation>Mostrar animación de carga (barra superior + progreso circular + superposición + entradas escalonadas)</ModernExpandMenu_ShowLoadingAnimation>
+  <ModernExpandMenu_ShowHoverHighlight>Resaltar el objeto objetivo y dibujar una flecha brillante al pasar sobre una acción</ModernExpandMenu_ShowHoverHighlight>
+  <ModernExpandMenu_ShowItemCount>Mostrar el número total de objetos en los encabezados de grupo (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>Activar el mod (desactivado = menú contextual vanilla completo)</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>Desactivar los caracteres de pseudotraducción del modo desarrollador (desactivado por defecto)</ModernExpandMenu_DisablePseudoTranslation>
+  <ModernExpandMenu_MaxMenuHeight>Altura máxima del menú (píxeles)</ModernExpandMenu_MaxMenuHeight>
+  <ModernExpandMenu_MaxProcessedPerFrame>Objetos procesados por fotograma</ModernExpandMenu_MaxProcessedPerFrame>
+  <ModernExpandMenu_ExtraLoadingBarSeconds>Segundos extra para mostrar la barra de progreso tras cargar (0 = desactivado)</ModernExpandMenu_ExtraLoadingBarSeconds>
+  <ModernExpandMenu_HaulToStorage>Transportar al almacén</ModernExpandMenu_HaulToStorage>
+  <ModernExpandMenu_HaulToStorageLabeled>Transportar al almacén: {0}</ModernExpandMenu_HaulToStorageLabeled>
+  <ModernExpandMenu_OtherGroup>Otros</ModernExpandMenu_OtherGroup>
+  <ModernExpandMenu_SectionAppearance>Apariencia</ModernExpandMenu_SectionAppearance>
+  <ModernExpandMenu_SectionPerformance>Rendimiento</ModernExpandMenu_SectionPerformance>
+  <ModernExpandMenu_SectionLoading>Animación de carga</ModernExpandMenu_SectionLoading>
+  <ModernExpandMenu_ResetDefaults>Restablecer valores predeterminados</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>General</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>Colores</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>Color principal</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>Superficies</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>Texto</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>Barra de desplazamiento</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>Sombra</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>Color principal</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>Primer plano principal</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>Superficie de ventana</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>Superficie secundaria</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>Superficie acentuada</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>Texto principal</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>Texto secundario</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>Contorno</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>Texto deshabilitado</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>Sombra</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>Pista de desplazamiento</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>Control de desplazamiento</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>Arrastrando desplazamiento</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>Restablecer valores predeterminados - revisar cambios</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>Seleccionar todo</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>No seleccionar nada</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>Invertir selección</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>Restablecer seleccionados</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>Cancelar</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>Paletas</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>Azul agua</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>Púrpura cibernético</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>Esmeralda</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>Naranja lava</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_ColorCopyHint>Hacer clic en la muestra copia el color</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>Pegar</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>Animación</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>Velocidad de animación</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>Duración de aparición del elemento (s)</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>Intervalo entre elementos (s)</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>Duración de apertura de la ventana (s)</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>Velocidad de expandir grupos</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>Velocidad de seguimiento del desplazamiento al cargar</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>Velocidad de volver arriba tras cargar</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>Vista previa de la animación</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>{0} objetos / {1} acciones cargadas, {2}s, animación total {3}s</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>General</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>Animación</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>Colores</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>Duración de aparición del elemento</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>Intervalo entre elementos</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>Duración de apertura de la ventana</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>Velocidad de expansión</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>Velocidad de seguimiento del desplazamiento</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>Velocidad de volver arriba</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>Velocidad de animación de la altura de la ventana</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Velocidad de animación de la altura de la ventana</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>Interruptor principal</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>Activar animaciones (desactivado = todas las animaciones desactivadas)</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>Activar animaciones</ModernExpandMenu_ResetEnableAnimations>
+</LanguageData>

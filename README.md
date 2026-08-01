@@ -1,6 +1,6 @@
 # RimWorld Mods
 
-RimWorld 模组项目合集，包含多款模组的简体中文汉化以及 Bug 修复补丁。
+RimWorld 模组项目合集，包含多款模组的简体中文汉化、Bug 修复补丁以及功能模组。
 
 ## 项目列表
 
@@ -16,6 +16,12 @@ RimWorld 模组项目合集，包含多款模组的简体中文汉化以及 Bug 
 | 项目 | 说明 |
 |------|------|
 | [TailorMadeUnlockFix](./TailorMade-ZhCN/TailorMadeUnlockFix/) | 修复 TailorMade 的跨种族服装限制开关无效 |
+
+### 🔌 功能模组
+
+| 项目 | 说明 |
+|------|------|
+| [ModernExpandMenu](./ModernExpandMenu/) | MD3（Material Design 3）风格分组右键菜单，替代原版扁平菜单 |
 
 ---
 

@@ -3,6 +3,8 @@
   <ModernExpandMenu_ShowLoadingAnimation>显示加载动画（顶部缓冲条 + 环形进度 + 覆盖层 + 逐条载入）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>悬停操作项时高亮目标物品并绘制发光箭头</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>分组标题显示物品总数（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_ModEnabled>启用模组（关闭后完全使用原版右键菜单）</ModernExpandMenu_ModEnabled>
+  <ModernExpandMenu_DisablePseudoTranslation>禁用开发者模式的伪翻译字符（默认关闭）</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>悬浮窗最大高度（像素）</ModernExpandMenu_MaxMenuHeight>
   <ModernExpandMenu_MaxProcessedPerFrame>每帧处理的物品实例数</ModernExpandMenu_MaxProcessedPerFrame>
   <ModernExpandMenu_ExtraLoadingBarSeconds>进度条强制额外显示时间（秒，0 为不强制）</ModernExpandMenu_ExtraLoadingBarSeconds>
@@ -13,4 +15,63 @@
   <ModernExpandMenu_SectionPerformance>性能</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>加载动画</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>恢复默认设置</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabGeneral>常规</ModernExpandMenu_TabGeneral>
+  <ModernExpandMenu_TabColors>颜色</ModernExpandMenu_TabColors>
+  <ModernExpandMenu_SectionColorPrimary>主色</ModernExpandMenu_SectionColorPrimary>
+  <ModernExpandMenu_SectionColorSurface>表面</ModernExpandMenu_SectionColorSurface>
+  <ModernExpandMenu_SectionColorText>文本</ModernExpandMenu_SectionColorText>
+  <ModernExpandMenu_SectionColorScrollbar>滚动条</ModernExpandMenu_SectionColorScrollbar>
+  <ModernExpandMenu_SectionColorShadow>阴影</ModernExpandMenu_SectionColorShadow>
+  <ModernExpandMenu_ColorPrimary>主色</ModernExpandMenu_ColorPrimary>
+  <ModernExpandMenu_ColorOnPrimary>主色前景</ModernExpandMenu_ColorOnPrimary>
+  <ModernExpandMenu_ColorSurface>窗口表面</ModernExpandMenu_ColorSurface>
+  <ModernExpandMenu_ColorSurfaceContainer>次级表面</ModernExpandMenu_ColorSurfaceContainer>
+  <ModernExpandMenu_ColorSurfaceContainerHigh>强调表面</ModernExpandMenu_ColorSurfaceContainerHigh>
+  <ModernExpandMenu_ColorOnSurface>主文本</ModernExpandMenu_ColorOnSurface>
+  <ModernExpandMenu_ColorOnSurfaceVariant>次要文本</ModernExpandMenu_ColorOnSurfaceVariant>
+  <ModernExpandMenu_ColorOutline>描边</ModernExpandMenu_ColorOutline>
+  <ModernExpandMenu_ColorDisabledText>禁用文本</ModernExpandMenu_ColorDisabledText>
+  <ModernExpandMenu_ColorShadow>阴影</ModernExpandMenu_ColorShadow>
+  <ModernExpandMenu_ColorScrollbarTrack>滚动条轨道</ModernExpandMenu_ColorScrollbarTrack>
+  <ModernExpandMenu_ColorScrollbarThumb>滚动条滑块</ModernExpandMenu_ColorScrollbarThumb>
+  <ModernExpandMenu_ColorScrollbarThumbDragging>滚动条拖动</ModernExpandMenu_ColorScrollbarThumbDragging>
+  <ModernExpandMenu_ResetConfirmTitle>恢复默认设置 - 确认改动</ModernExpandMenu_ResetConfirmTitle>
+  <ModernExpandMenu_ResetSelectAll>全选</ModernExpandMenu_ResetSelectAll>
+  <ModernExpandMenu_ResetSelectNone>全不选</ModernExpandMenu_ResetSelectNone>
+  <ModernExpandMenu_ResetInvert>反选</ModernExpandMenu_ResetInvert>
+  <ModernExpandMenu_ResetConfirm>确定恢复</ModernExpandMenu_ResetConfirm>
+  <ModernExpandMenu_ResetCancel>取消</ModernExpandMenu_ResetCancel>
+  <ModernExpandMenu_PaletteTitle>调色板</ModernExpandMenu_PaletteTitle>
+  <ModernExpandMenu_PaletteAquaBlue>水影蓝</ModernExpandMenu_PaletteAquaBlue>
+  <ModernExpandMenu_PaletteCyberPurple>赛博紫</ModernExpandMenu_PaletteCyberPurple>
+  <ModernExpandMenu_PaletteEmerald>翡翠绿</ModernExpandMenu_PaletteEmerald>
+  <ModernExpandMenu_PaletteLavaOrange>熔岩橙</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_PaletteRose>粉彩玫瑰</ModernExpandMenu_PaletteRose>
+  <ModernExpandMenu_PaletteIceBlue>冰雪蓝</ModernExpandMenu_PaletteIceBlue>
+  <ModernExpandMenu_ColorCopyHint>点击色块复制颜色</ModernExpandMenu_ColorCopyHint>
+  <ModernExpandMenu_ColorPaste>粘贴</ModernExpandMenu_ColorPaste>
+  <ModernExpandMenu_TabAnimations>动画</ModernExpandMenu_TabAnimations>
+  <ModernExpandMenu_SectionAnimation>动画速度</ModernExpandMenu_SectionAnimation>
+  <ModernExpandMenu_ItemAppearDuration>单条滑入动画时长（秒）</ModernExpandMenu_ItemAppearDuration>
+  <ModernExpandMenu_ItemAppearInterval>相邻项就位间隔（秒）</ModernExpandMenu_ItemAppearInterval>
+  <ModernExpandMenu_PopAnimationDuration>窗口弹出动画时长（秒）</ModernExpandMenu_PopAnimationDuration>
+  <ModernExpandMenu_ExpandAnimationSpeed>分组展开折叠速度</ModernExpandMenu_ExpandAnimationSpeed>
+  <ModernExpandMenu_ScrollFollowSpeed>加载时滚动跟随速度</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollReturnSpeed>加载后滚动回顶速度</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_AnimationPreview>动画预览</ModernExpandMenu_AnimationPreview>
+  <ModernExpandMenu_LoadingStatsTooltip>已加载 {0} 件物品 / {1} 项操作，耗时 {2} 秒，动画总时长 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetSectionGeneral>常规</ModernExpandMenu_ResetSectionGeneral>
+  <ModernExpandMenu_ResetSectionAnimation>动画</ModernExpandMenu_ResetSectionAnimation>
+  <ModernExpandMenu_ResetSectionColors>颜色</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetItemAppearDuration>单条滑入时长</ModernExpandMenu_ResetItemAppearDuration>
+  <ModernExpandMenu_ResetItemAppearInterval>相邻项间隔</ModernExpandMenu_ResetItemAppearInterval>
+  <ModernExpandMenu_ResetPopAnimationDuration>弹出动画时长</ModernExpandMenu_ResetPopAnimationDuration>
+  <ModernExpandMenu_ResetExpandAnimationSpeed>展开动画速度</ModernExpandMenu_ResetExpandAnimationSpeed>
+  <ModernExpandMenu_ResetScrollFollowSpeed>滚动跟随速度</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollReturnSpeed>回顶速度</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_WindowHeightAnimationSpeed>窗口高度动画速度</ModernExpandMenu_WindowHeightAnimationSpeed>
+  <ModernExpandMenu_ResetWindowHeightAnimationSpeed>窗口高度动画速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
+  <ModernExpandMenu_SectionAnimationMaster>总开关</ModernExpandMenu_SectionAnimationMaster>
+  <ModernExpandMenu_EnableAnimations>启用动画（关闭后停用所有动画效果）</ModernExpandMenu_EnableAnimations>
+  <ModernExpandMenu_ResetEnableAnimations>启用动画</ModernExpandMenu_ResetEnableAnimations>
 </LanguageData>
