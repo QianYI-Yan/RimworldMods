@@ -111,4 +111,12 @@
 - **动画总开关** `enableAnimations`（默认 true）：动画 tab 顶部"总开关"卡片；关闭后停用弹出/出现消失/展开/滚动跟随回顶/高度/加载视觉（blockInteraction 与加载条条件也叠加开关）
 - 新增设置：`windowHeightAnimationSpeed`、`enableAnimations`；新增翻译键 5 个 × 9 语言（动画总开关区 + 启用动画 + 2 个重置项）
 
+## 源码整理与 Git 推送（2026-08-02）
+- **发现并修复 csproj 显式 Compile 列表问题**：`EnableDefaultItems=false` 下 csproj 曾引用根目录旧版 `Dialog_ResetDefaults.cs`（ResetEntry 平铺版），导致**树状对话框从未编译生效**；且 `Patch_Md3CloseButton.cs` 是废弃旧文件（功能已被 `Patch_ModSettingsUI.cs` 覆盖）但一直未删
+- 已删除：根目录旧版 `Dialog_ResetDefaults.cs`、`Patch_Md3CloseButton.cs`（含游戏部署目录 Source 残留）；csproj 改为 `<Compile Include="UI\Dialog_ResetDefaults.cs" />`，重新构建验证通过
+- **Git 推送**：
+  - `main`：`33c5eb7`（完整模组含 DLL/翻译/About/Preview/README/笔记），仅含 ModernExpandMenu 相关
+  - `source-only`：`1496366`（纯源码 + build.bat + 翻译 + About，不含 DLL/README/笔记/Preview），同步最新动画重构源码；**source-only 分支定位为"所有模组的源码"（TailorMade 等保留不动），本次只同步菜单模组**
+- 本次未推送（其他项目，留待各自处理）：`asrtylsUIMod-ZhCN/`、`NotificationsONWindowsNOW/`、`_templates/`
+
 
