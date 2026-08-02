@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ========== Dubs Bad Hygiene ========== -->
+  <AB_PlumbingJunction.label>管道立管</AB_PlumbingJunction.label>
+  <AB_PlumbingJunction.description>壁挂式管道接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的管网并入这一层。\n\n在用水设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_PlumbingJunction.description>
+
+  <AB_PlumbingBreaker.label>管道止水阀</AB_PlumbingBreaker.label>
+  <AB_PlumbingBreaker.description>壁挂式管道断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_PlumbingBreaker.description>
+
+  <AB_AirDuctJunction.label>风道立管</AB_AirDuctJunction.label>
+  <AB_AirDuctJunction.description>壁挂式风道接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的风道网络并入这一层。\n\n在通风设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_AirDuctJunction.description>
+
+  <AB_AirDuctBreaker.label>风道风门</AB_AirDuctBreaker.label>
+  <AB_AirDuctBreaker.description>壁挂式风道断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的风道网络便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_AirDuctBreaker.description>
+
+  <!-- ========== Rimefeller ========== -->
+  <AB_OilJunction.label>石油立管</AB_OilJunction.label>
+  <AB_OilJunction.description>壁挂式石油管道接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的输油管网并入这一层。\n\n在采油设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_OilJunction.description>
+
+  <AB_OilBreaker.label>石油闸阀</AB_OilBreaker.label>
+  <AB_OilBreaker.description>壁挂式石油管道断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的输油管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_OilBreaker.description>
+
+  <!-- ========== Luciferium Expanded ========== -->
+  <AB_ScarletSludgeJunction.label>猩红污泥立管</AB_ScarletSludgeJunction.label>
+  <AB_ScarletSludgeJunction.description>壁挂式猩红污泥接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的污泥管网并入这一层。\n\n在产污设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_ScarletSludgeJunction.description>
+
+  <AB_ScarletSludgeBreaker.label>污泥阀</AB_ScarletSludgeBreaker.label>
+  <AB_ScarletSludgeBreaker.description>壁挂式猩红污泥断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的污泥管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_ScarletSludgeBreaker.description>
+
+  <AB_CompressedSludgeJunction.label>高压污泥立管</AB_CompressedSludgeJunction.label>
+  <AB_CompressedSludgeJunction.description>壁挂式压缩污泥接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的高压污泥管网并入这一层。\n\n在炼化设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_CompressedSludgeJunction.description>
+
+  <AB_CompressedSludgeBreaker.label>泄压阀</AB_CompressedSludgeBreaker.label>
+  <AB_CompressedSludgeBreaker.description>壁挂式压缩污泥断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的高压污泥管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_CompressedSludgeBreaker.description>
+
+  <AB_MechanitesJunction.label>机械虫立管</AB_MechanitesJunction.label>
+  <AB_MechanitesJunction.description>壁挂式机械虫接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的机械虫管网并入这一层。\n\n在机械虫生产设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_MechanitesJunction.description>
+
+  <AB_MechanitesBreaker.label>机械虫隔离器</AB_MechanitesBreaker.label>
+  <AB_MechanitesBreaker.description>壁挂式机械虫断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的机械虫管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_MechanitesBreaker.description>
+
+  <!-- ========== Rimatomics ========== -->
+  <AB_ColdWaterJunction.label>冷水立管</AB_ColdWaterJunction.label>
+  <AB_ColdWaterJunction.description>壁挂式冷水接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的冷水管网并入这一层。\n\n在用水设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_ColdWaterJunction.description>
+
+  <AB_ColdWaterBreaker.label>冷水隔离器</AB_ColdWaterBreaker.label>
+  <AB_ColdWaterBreaker.description>壁挂式冷水断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的冷水管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_ColdWaterBreaker.description>
+
+  <AB_SteamJunction.label>蒸汽立管</AB_SteamJunction.label>
+  <AB_SteamJunction.description>壁挂式蒸汽接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的蒸汽管网并入这一层。\n\n在蒸汽设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_SteamJunction.description>
+
+  <AB_SteamBreaker.label>蒸汽隔离器</AB_SteamBreaker.label>
+  <AB_SteamBreaker.description>壁挂式蒸汽断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的蒸汽管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_SteamBreaker.description>
+
+  <AB_CoolantJunction.label>冷却液立管</AB_CoolantJunction.label>
+  <AB_CoolantJunction.description>壁挂式冷却液接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的冷却液管网并入这一层。\n\n在冷却设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_CoolantJunction.description>
+
+  <AB_CoolantBreaker.label>冷却液隔离器</AB_CoolantBreaker.label>
+  <AB_CoolantBreaker.description>壁挂式冷却液断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的冷却液管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_CoolantBreaker.description>
+
+  <AB_HighVoltageJunction.label>高压立管</AB_HighVoltageJunction.label>
+  <AB_HighVoltageJunction.description>壁挂式高压接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的高压电网并入这一层。\n\n在高压设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_HighVoltageJunction.description>
+
+  <AB_HighVoltageBreaker.label>高压隔离开关</AB_HighVoltageBreaker.label>
+  <AB_HighVoltageBreaker.description>壁挂式高压断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的高压电网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_HighVoltageBreaker.description>
+
+  <AB_LoomJunction.label>织机立管</AB_LoomJunction.label>
+  <AB_LoomJunction.description>壁挂式控制台织机接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的织机网络并入这一层。\n\n在织机设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_LoomJunction.description>
+
+  <AB_LoomBreaker.label>织机配线面板</AB_LoomBreaker.label>
+  <AB_LoomBreaker.description>壁挂式控制台织机断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的织机网络便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_LoomBreaker.description>
+
+  <!-- ========== Vanilla Chemfuel Expanded ========== -->
+  <AB_ChemfuelJunction.label>化工燃料立管</AB_ChemfuelJunction.label>
+  <AB_ChemfuelJunction.description>壁挂式化工燃料接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的化工燃料管网并入这一层。\n\n在储油设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_ChemfuelJunction.description>
+
+  <AB_ChemfuelBreaker.label>化工燃料截止阀</AB_ChemfuelBreaker.label>
+  <AB_ChemfuelBreaker.description>壁挂式化工燃料断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的化工燃料管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_ChemfuelBreaker.description>
+
+  <AB_DeepchemJunction.label>深化工燃料立管</AB_DeepchemJunction.label>
+  <AB_DeepchemJunction.description>壁挂式深化工燃料接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的深化工燃料管网并入这一层。\n\n在储油设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_DeepchemJunction.description>
+
+  <AB_DeepchemBreaker.label>深化工燃料截止阀</AB_DeepchemBreaker.label>
+  <AB_DeepchemBreaker.description>壁挂式深化工燃料断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的深化工燃料管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_DeepchemBreaker.description>
+
+  <!-- ========== Vanilla Temperature Expanded ========== -->
+  <AB_VentDuctJunction.label>通风立管</AB_VentDuctJunction.label>
+  <AB_VentDuctJunction.description>壁挂式通风管道接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的通风管网并入这一层。\n\n在通风设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_VentDuctJunction.description>
+
+  <AB_VentDuctBreaker.label>通风风门</AB_VentDuctBreaker.label>
+  <AB_VentDuctBreaker.description>壁挂式通风管道断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的通风管网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_VentDuctBreaker.description>
+
+</LanguageData>

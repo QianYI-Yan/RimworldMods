@@ -7,6 +7,9 @@
   <AB_RoofSurface.label>屋顶</AB_RoofSurface.label>
   <AB_RoofSurface.description>下一层屋顶上铺设的钢制顶面。足够坚固，可以在上面行走和建造。</AB_RoofSurface.description>
 
+  <AB_WallTop.label>墙顶</AB_WallTop.label>
+  <AB_WallTop.description>下一层墙壁的狭窄顶部。窄到无法行走，但足够坚固可以在上面建造——在这里再叠一面墙就能抬高结构。</AB_WallTop.description>
+
   <AB_MountainTop.label>山顶</AB_MountainTop.label>
   <AB_MountainTop.description>下方山体未被打碎的山顶。裸露的暗色岩石；这里什么也不生长，但可以在上面铺设地板。</AB_MountainTop.description>
 

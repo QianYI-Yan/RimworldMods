@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 电力接头盒 -->
+  <AB_PowerJunction.label>电力接头盒</AB_PowerJunction.label>
+  <AB_PowerJunction.description>壁挂式电力接头盒。它会与同一格上下楼层中对应的断路器盒桥接，将该层的电网并入这一层。\n\n在用电设备所在的位置建造接头盒；在你想要到达的每一层各建造一个断路器盒。</AB_PowerJunction.description>
+
+  <!-- 电力断路器盒 -->
+  <AB_PowerBreaker.label>电力断路器盒</AB_PowerBreaker.label>
+  <AB_PowerBreaker.description>壁挂式电力断路器盒。将其放置在上下楼层中与接头盒相同的格子上，两层的电网便会合并。\n\n拨动开关即可切断连接，无需拆除任何东西。</AB_PowerBreaker.description>
+
+</LanguageData>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- 下行楼梯 -->
+  <AB2_StairsDown.label>下行楼梯</AB2_StairsDown.label>
+  <AB2_StairsDown.description>通往下一层的楼梯井。建造完成后会开启下一层地下室带，并在那里生成对应的楼梯。殖民者跨过这条连接搬运、工作、睡觉和战斗，与穿过一条走廊完全一样。</AB2_StairsDown.description>
+
+  <!-- 上行楼梯 -->
+  <AB2_StairsUp.label>上行楼梯</AB2_StairsUp.label>
+  <AB2_StairsUp.description>通往上一层的楼梯井。建造完成后会开启上一层天空带，并在那里生成对应的楼梯。殖民者跨过这条连接搬运、工作、睡觉和战斗，与穿过一条走廊完全一样。</AB2_StairsUp.description>
+
+  <!-- 电梯 -->
+  <AB2_Elevator.label>电梯</AB2_Elevator.label>
+  <AB2_Elevator.description>一座配重的电梯井，通过一个 2x2 的占地连接殖民地的每一层。建造完成后会开启它到达的所有楼层，并在每层生成对应的轿厢。殖民者可在任意两层之间直接乘坐，并跨过这条连接搬运、工作、睡觉和战斗，与穿过一条走廊完全一样。</AB2_Elevator.description>
+
+  <!-- 下行大楼梯 -->
+  <AB2_GrandStairsDown.label>下行大楼梯</AB2_GrandStairsDown.label>
+  <AB2_GrandStairsDown.description>通往下一层的宽阔楼梯。三格宽，上下楼的殖民者不再争抢同一级台阶。建造完成后会开启下一层地下室带，并在那里生成对应的大楼梯。</AB2_GrandStairsDown.description>
+
+  <!-- 上行大楼梯 -->
+  <AB2_GrandStairsUp.label>上行大楼梯</AB2_GrandStairsUp.label>
+  <AB2_GrandStairsUp.description>通往上一层的宽阔楼梯。三格宽，上下楼的殖民者不再争抢同一级台阶。建造完成后会开启上一层天空带，并在那里生成对应的大楼梯。</AB2_GrandStairsUp.description>
+
+  <!-- 下行梯子 -->
+  <AB2_LadderDown.label>下行梯子</AB2_LadderDown.label>
+  <AB2_LadderDown.description>通往下一层的廉价梯子。建造完成后会开启下一层地下室带，并在那里生成对应的梯子。空间局促：仅一格宽，通行需要排队。</AB2_LadderDown.description>
+
+  <!-- 上行梯子 -->
+  <AB2_LadderUp.label>上行梯子</AB2_LadderUp.label>
+  <AB2_LadderUp.description>通往上一层的廉价梯子。建造完成后会开启上一层天空带，并在那里生成对应的梯子。空间局促：仅一格宽，通行需要排队。</AB2_LadderUp.description>
+
+  <!-- 测试装置：虫洞锚（仅开发模式生成） -->
+  <AB2_WormholeAnchor.label>虫洞锚</AB2_WormholeAnchor.label>
+  <AB2_WormholeAnchor.description>V2 测试装置。将其位置与地图上另一处的伙伴锚连接，在两条带之间形成单一连通图。</AB2_WormholeAnchor.description>
+
+</LanguageData>
