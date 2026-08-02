@@ -19,9 +19,17 @@
     [b]Requirement[/b]
     RimWorld 1.6
 
+    [b]Extras[/b]
+    - Fully customizable: animation speeds, menu max height, 16-hex colors with 6 palettes (menu palette &amp; misc palette are separate)
+    - Settings organized in two categories (Expansion Menu / Misc) with independent preview windows
+    - Optional global MD3 styling (default off): vanilla buttons / checkboxes / tabs / scrollbars / input fields / sliders
+    - Optional MD3 for vanilla UIs (default off): window borders, command buttons, menu sections &amp; list rows, schedule bar, inspect pane (also fixes status bar overlap), statistics grouped cards, ideology menu (culture rows &amp; meme cards)
+    - Misc: skip upload countdown, spacebar pauses only (never unpauses), reset-to-defaults with diff dialog, config export/import/manager, 3 languages (EN/SC/TC)
+    [i]全面可自定义：动画速度、菜单最大高度、16 进制颜色 + 6 套调色板（扩展菜单配色与杂项配色各自独立）；设置分两大类（扩展菜单/其他）并带独立预览窗口；可选全局 MD3 样式（原版按钮/复选框/tab/滚动条/输入框/滑块）；可选原版界面 MD3 化（窗口边框、命令按钮、菜单区块列表行、管制栏、信息卡（并修复状态栏重叠）、统计分组卡片、文化菜单）；杂项：跳过上传倒计时、空格仅暂停、恢复默认（差异勾选）、配置导出/导入/管理、三语言。[/i]
+
     [b]Notes[/b]
-    Currently applies to single-cell storage containers (e.g. wooden box, metal cabinet). Other right-click targets keep the vanilla menu.
-    [i]当前仅作用于单格储物容器（如木箱、铁柜），其他右键目标仍使用原版菜单。[/i]
+    The mod takes over when right-clicking 2+ item types (ThingCategory.Item) and groups them; right-clicking colonists etc. keeps the vanilla menu.
+    [i]右键命中 2 种及以上物品类型时接管并分组；右键殖民者等非物品目标保持原版菜单。[/i]
 
     [b]Repository[/b]
     [url=https://github.com/QianYI-Yan/RimworldMods/tree/main/ModernExpandMenu]github.com/QianYI-Yan/RimworldMods[/url]

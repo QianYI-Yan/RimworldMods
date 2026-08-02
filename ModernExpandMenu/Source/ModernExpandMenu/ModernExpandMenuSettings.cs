@@ -15,7 +15,16 @@ namespace ModernExpandMenu
         public bool showItemCount = true;               // 分组标题显示物品总数（×N）
         public bool md3StyleAllInputs = false;          // 可选：原版输入框全部改为 MD3 样式（全局替换 Text.CurTextFieldStyle）
         public bool md3StyleAllButtons = false;         // 可选：原版按钮/复选框/tab/滚动条全部改为 MD3 样式（全局替换）
+        // ── 原版 UI 可选 MD3 风格化（默认全关，开启后逐个替换外观，交互保持不变）──
+        public bool md3StyleWindows = false;        // 窗口边框：所有原版窗口圆角 MD3 卡片 + 主色描边
+        public bool md3StyleCommands = false;       // 命令按钮（征召/解散/攻击等底部按钮条）MD3 圆角
+        public bool md3StyleMenuSections = false;   // 菜单区块/列表行（药物食物限制/手术清单/文化列表等）MD3 圆角
+        public bool md3StyleSchedule = false;       // 管制栏（时间表 tab 的管制按钮）MD3
+        public bool md3StyleInspectPane = false;    // 信息卡：内容 MD3 卡片化 + 修复状态栏与标题重叠
+        public bool md3StyleStatistics = false;     // 统计界面：分组卡片块美化
+        public bool md3StyleIdeo = false;           // 文化菜单：文化行 + 模因大方块 MD3 描边
         public bool skipUploadWait = false;             // 跳过创意工坊上传确认的 6 秒等待倒计时
+        public bool spaceOnlyPauses = false;            // 空格键仅暂停不解除暂停（解除需用其他方式）
         public int maxMenuHeight = 560;                 // 悬浮窗最大高度（像素，超出滚动）
         public int maxProcessedPerFrame = 6;            // 每帧处理的物品实例数（越大加载越快，卡顿风险越高）
         public float extraLoadingBarSeconds = 0.5f;     // 加载完成后进度条强制额外显示时长（秒，0 为不强制）
@@ -44,6 +53,21 @@ namespace ModernExpandMenu
         public string colorScrollbarThumb = "#525261";
         public string colorScrollbarThumbDragging = "#737385";
 
+        // ── 杂项配色（全局 MD3 替换功能：按钮/tab/滚动条/输入框/滑块用，与扩展菜单配色分开）──
+        public string miscColorPrimary = "#00A8FF";
+        public string miscColorOnPrimary = "#001421";
+        public string miscColorSurface = "#161821";
+        public string miscColorSurfaceContainer = "#1E212D";
+        public string miscColorSurfaceContainerHigh = "#262A3A";
+        public string miscColorOnSurface = "#E6E6EC";
+        public string miscColorOnSurfaceVariant = "#9A9BA6";
+        public string miscColorOutline = "#636676";
+        public string miscColorDisabledText = "#80808C";
+        public string miscColorShadow = "#000000";
+        public string miscColorScrollbarTrack = "#26262E";
+        public string miscColorScrollbarThumb = "#525261";
+        public string miscColorScrollbarThumbDragging = "#737385";
+
         public override void ExposeData()
         {
             Scribe_Values.Look(ref modEnabled, "modEnabled", true);
@@ -54,7 +78,15 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref showItemCount, "showItemCount", true);
             Scribe_Values.Look(ref md3StyleAllInputs, "md3StyleAllInputs", false);
             Scribe_Values.Look(ref md3StyleAllButtons, "md3StyleAllButtons", false);
+            Scribe_Values.Look(ref md3StyleWindows, "md3StyleWindows", false);
+            Scribe_Values.Look(ref md3StyleCommands, "md3StyleCommands", false);
+            Scribe_Values.Look(ref md3StyleMenuSections, "md3StyleMenuSections", false);
+            Scribe_Values.Look(ref md3StyleSchedule, "md3StyleSchedule", false);
+            Scribe_Values.Look(ref md3StyleInspectPane, "md3StyleInspectPane", false);
+            Scribe_Values.Look(ref md3StyleStatistics, "md3StyleStatistics", false);
+            Scribe_Values.Look(ref md3StyleIdeo, "md3StyleIdeo", false);
             Scribe_Values.Look(ref skipUploadWait, "skipUploadWait", false);
+            Scribe_Values.Look(ref spaceOnlyPauses, "spaceOnlyPauses", false);
             Scribe_Values.Look(ref maxMenuHeight, "maxMenuHeight", 560);
             Scribe_Values.Look(ref maxProcessedPerFrame, "maxProcessedPerFrame", 6);
             Scribe_Values.Look(ref extraLoadingBarSeconds, "extraLoadingBarSeconds", 0.5f);
@@ -78,6 +110,19 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref colorScrollbarTrack, "colorScrollbarTrack", "#26262E");
             Scribe_Values.Look(ref colorScrollbarThumb, "colorScrollbarThumb", "#525261");
             Scribe_Values.Look(ref colorScrollbarThumbDragging, "colorScrollbarThumbDragging", "#737385");
+            Scribe_Values.Look(ref miscColorPrimary, "miscColorPrimary", "#00A8FF");
+            Scribe_Values.Look(ref miscColorOnPrimary, "miscColorOnPrimary", "#001421");
+            Scribe_Values.Look(ref miscColorSurface, "miscColorSurface", "#161821");
+            Scribe_Values.Look(ref miscColorSurfaceContainer, "miscColorSurfaceContainer", "#1E212D");
+            Scribe_Values.Look(ref miscColorSurfaceContainerHigh, "miscColorSurfaceContainerHigh", "#262A3A");
+            Scribe_Values.Look(ref miscColorOnSurface, "miscColorOnSurface", "#E6E6EC");
+            Scribe_Values.Look(ref miscColorOnSurfaceVariant, "miscColorOnSurfaceVariant", "#9A9BA6");
+            Scribe_Values.Look(ref miscColorOutline, "miscColorOutline", "#636676");
+            Scribe_Values.Look(ref miscColorDisabledText, "miscColorDisabledText", "#80808C");
+            Scribe_Values.Look(ref miscColorShadow, "miscColorShadow", "#000000");
+            Scribe_Values.Look(ref miscColorScrollbarTrack, "miscColorScrollbarTrack", "#26262E");
+            Scribe_Values.Look(ref miscColorScrollbarThumb, "miscColorScrollbarThumb", "#525261");
+            Scribe_Values.Look(ref miscColorScrollbarThumbDragging, "miscColorScrollbarThumbDragging", "#737385");
         }
     }
 }

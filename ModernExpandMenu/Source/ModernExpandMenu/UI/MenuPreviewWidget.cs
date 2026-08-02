@@ -19,7 +19,6 @@ namespace ModernExpandMenu.UI
             public float expandProgress;               // 展开动画进度 0~1
             public readonly float[] itemAppearTime;    // 各子项目出现动画开始时间（-1=未排定）
             public float nextItemTime;                 // 下一条子项目可排定时间（组内串行）
-            public bool itemsEverAppeared;             // 是否已排定过（回归加速检测）
 
             public PreviewGroup(int index, int itemCount)
             {
@@ -70,12 +69,9 @@ namespace ModernExpandMenu.UI
                 {
                     if (g.itemAppearTime[i] < 0f)
                     {
-                        // 回归加速（曾排定过）：时长与间隔缩短，更快铺满
-                        float d = g.itemsEverAppeared ? duration * 0.4f : duration;
-                        float iv = g.itemsEverAppeared ? interval * 0.4f : interval;
+                        // 组内串行排定：匀速，每项动画时长一致
                         g.itemAppearTime[i] = now;
-                        g.nextItemTime = now + d + iv;
-                        g.itemsEverAppeared = true;
+                        g.nextItemTime = now + duration + interval;
                         break;
                     }
                 }
@@ -137,7 +133,6 @@ namespace ModernExpandMenu.UI
                 g.itemAppearTime[i] = -1f;
             }
             g.nextItemTime = 0f;
-            g.itemsEverAppeared = false;   // 重新展开：正常速度
         }
 
         /// <summary>预览内容总高度（标题 + 按展开进度显示的子项目 + 组间距）。</summary>

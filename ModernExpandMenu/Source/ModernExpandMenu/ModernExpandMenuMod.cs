@@ -24,9 +24,11 @@ namespace ModernExpandMenu
         private static Rect editingValueRect;
         private static int focusNumericFieldId = -1;   // 需要自动聚焦的数值输入框（进入编辑态后保证键盘可直接输入）
 
-        // 设置界面：当前 tab（0=常规，1=动画，2=杂项）
-        private static int settingsTab;
-        private static int miscSubTab;                   // 杂项 tab 内子 tab：0=全局样式，1=颜色
+        // 设置界面：当前大类（0=扩展菜单，1=其他）与各类的子 tab
+        private static int settingsCategory;
+        private static int menuSubTab;      // 扩展菜单类子 tab：0=常规，1=动画，2=颜色，3=预览
+        private static int miscSubTab;      // 其他类子 tab：0=全局样式，1=颜色，2=预览
+        private static int previewTab;      // 左侧实时预览区页签：0=扩展菜单，1=杂项
         private static Vector2 settingsScrollPosition;   // 设置内容滚动位置（内容超出窗口高度时可滚动）
 
         // 伪翻译开关的上次值（退出设置时检测变化并强制刷新 UI）
@@ -42,58 +44,50 @@ namespace ModernExpandMenu
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
-        /// <summary>游戏内"选项 → Mod 设置"界面（MD3 风格：tab 三页 + 深色卡片 + 安卓控件 + 16 进制颜色自定义；内容超出时可滚动）。</summary>
+        /// <summary>游戏内"选项 → Mod 设置"界面（两大类 + 子 tab，MD3 风格；左侧实时预览区 + 右侧设置内容；预览不再依赖独立窗口）。</summary>
         public override void DoSettingsWindowContents(Rect inRect)
         {
             // 整窗 MD3 表面背景
             MD3Widgets.DrawCard(inRect, MD3Theme.Surface, MD3Theme.WindowCornerRadius);
 
-            // ── 左侧固定预览栏（独立于设置页范围：所有 tab 共用，不随 tab 切换、不滚动）──
-            // 颜色与动画速度设置共用同一个可交互菜单预览（模拟游戏操作）
+            // ── 顶部：两大类 tab（扩展菜单 | 其他）──
+            const float categoryBarHeight = 36f;
+            const float categoryGap = 8f;
+            float categoryWidth = (inRect.width - 40f - categoryGap) / 2f;
+            var categoryMenuRect = new Rect(inRect.x + 20f, inRect.y + 14f, categoryWidth, categoryBarHeight);
+            var categoryMiscRect = new Rect(categoryMenuRect.xMax + categoryGap, inRect.y + 14f, categoryWidth, categoryBarHeight);
+            if (MD3Widgets.MD3Button(categoryMenuRect, "ModernExpandMenu_SettingsCategoryMenu".Translate(), settingsCategory == 0))
+            {
+                settingsCategory = 0;
+                editingSliderId = -1;
+            }
+            if (MD3Widgets.MD3Button(categoryMiscRect, "ModernExpandMenu_SettingsCategoryMisc".Translate(), settingsCategory == 1))
+            {
+                settingsCategory = 1;
+                editingSliderId = -1;
+            }
+
+            // ── 左侧实时预览区（独立区域，不单独开页面，实时联动当前配色 / 动画设置）──
             float previewWidth = inRect.width * 0.36f;
-            var previewRect = new Rect(inRect.x + 18f, inRect.y + 16f, previewWidth, inRect.height - 32f);
-            GUI.color = MD3Theme.OnSurface;
-            Text.Font = GameFont.Small;
-            Text.Anchor = TextAnchor.UpperLeft;
-            Text.WordWrap = false;
-            Widgets.Label(new Rect(previewRect.x, previewRect.y, previewRect.width, 20f), "ModernExpandMenu_AnimationPreview".Translate());
-            Text.Anchor = TextAnchor.UpperLeft;
-            Text.WordWrap = true;   // 帧末必须为 true
-            GUI.color = Color.white;
-            MenuPreviewWidget.Draw(new Rect(previewRect.x, previewRect.y + 24f, previewRect.width, previewRect.height - 24f));
+            var previewRect = new Rect(inRect.x + 20f, categoryMenuRect.yMax + 10f, previewWidth, inRect.yMax - categoryMenuRect.yMax - 24f);
+            DrawLivePreview(previewRect);
 
-            // ── 右侧：Tab 栏 + 内容滚动区 ──
+            // ── 右侧设置区：子 tab 栏 + 滚动区 ──
             float contentX = previewRect.xMax + 12f;
-            float contentWidth = inRect.xMax - contentX - 18f;
-            float y = inRect.y + 16f;
+            float contentWidth = inRect.xMax - contentX - 20f;
+            float y = categoryMenuRect.yMax + 10f;
 
-            // ── Tab 栏（固定顶部，MD3 风格胶囊按钮，选中主色填充）──
-            const float tabBarHeight = 34f;
-            const float tabGap = 8f;
-            float tabWidth = (contentWidth - tabGap * 2f) / 3f;
-            var tabGeneralRect = new Rect(contentX, y, tabWidth, tabBarHeight);
-            var tabAnimationRect = new Rect(contentX + (tabWidth + tabGap), y, tabWidth, tabBarHeight);
-            var tabMiscRect = new Rect(contentX + (tabWidth + tabGap) * 2f, y, tabWidth, tabBarHeight);
-            if (MD3Widgets.MD3Button(tabGeneralRect, "ModernExpandMenu_TabGeneral".Translate(), settingsTab == 0))
-            {
-                settingsTab = 0;
-                editingSliderId = -1;
-            }
-            if (MD3Widgets.MD3Button(tabAnimationRect, "ModernExpandMenu_TabAnimations".Translate(), settingsTab == 1))
-            {
-                settingsTab = 1;
-                editingSliderId = -1;
-            }
-            if (MD3Widgets.MD3Button(tabMiscRect, "ModernExpandMenu_TabMisc".Translate(), settingsTab == 2))
-            {
-                settingsTab = 2;
-                editingSliderId = -1;
-            }
-            float contentTop = y + tabBarHeight + 12f;
+            // 子 tab 栏（扩展菜单类 4 个 / 其他类 3 个）
+            const float subTabHeight = 32f;
+            const float subTabGap = 6f;
+            int subTabCount = settingsCategory == 0 ? 4 : 3;
+            float subTabWidth = (contentWidth - subTabGap * (subTabCount - 1)) / subTabCount;
+            DrawSubTabBar(contentX, y, subTabWidth, subTabHeight, subTabGap);
+            float contentTop = y + subTabHeight + 12f;
 
-            // ── 内容滚动区（各 tab 内容可能超出窗口高度，包 MD3 滚动视口）──
-            float contentTotal = ComputeSettingsContentHeight(contentWidth, settingsTab);
-            var scrollRect = new Rect(contentX, contentTop, contentWidth, inRect.yMax - contentTop);
+            // ── 内容滚动区（各子 tab 内容可能超出窗口高度，包 MD3 滚动视口）──
+            float contentTotal = ComputeSettingsContentHeight(contentWidth, settingsCategory);
+            var scrollRect = new Rect(contentX, contentTop, contentWidth, inRect.yMax - contentTop - 12f);
             var contentRect = new Rect(0f, 0f, contentWidth, contentTotal);
             MD3Widgets.MD3BeginScrollView(scrollRect, ref settingsScrollPosition, contentRect);
 
@@ -103,18 +97,14 @@ namespace ModernExpandMenu
                 editingSliderId = -1;
             }
 
-            // 各 tab 内容从视口局部 y=0 开始绘制
-            if (settingsTab == 0)
+            // 各子 tab 内容从视口局部 y=0 开始绘制
+            if (settingsCategory == 0)
             {
-                DrawGeneralTab(0f, contentWidth, 0f);
-            }
-            else if (settingsTab == 1)
-            {
-                DrawAnimationTab(0f, contentWidth, 0f);
+                DrawMenuCategoryContent(0f, contentWidth, 0f);
             }
             else
             {
-                DrawMiscTab(0f, contentWidth, 0f);
+                DrawMiscCategoryContent(0f, contentWidth, 0f);
             }
 
             MD3Widgets.MD3EndScrollView(scrollRect, ref settingsScrollPosition, contentTotal, 3000, MD3Theme.CardCornerRadius);
@@ -122,24 +112,167 @@ namespace ModernExpandMenu
             Settings.Write();
         }
 
-        /// <summary>估算各 tab 内容总高度（用于滚动视口内容区高度）。</summary>
-        private static float ComputeSettingsContentHeight(float contentWidth, int tab)
+        /// <summary>
+        /// 左侧实时预览区：标题 + 两个页签（扩展菜单预览 / 杂项预览）。
+        /// 扩展菜单预览 = 可交互模拟右键分组菜单（实时反映扩展菜单配色与动画速度）；
+        /// 杂项预览 = 模拟原版操作界面被 MD3 化后的样子（实时反映杂项配色）。
+        /// </summary>
+        private static void DrawLivePreview(Rect rect)
+        {
+            // 标题
+            GUI.color = MD3Theme.Primary;
+            Text.Font = GameFont.Small;
+            Text.Anchor = TextAnchor.UpperLeft;
+            Text.WordWrap = false;
+            Widgets.Label(new Rect(rect.x, rect.y, rect.width, 20f), "ModernExpandMenu_LivePreviewTitle".Translate());
+            Text.Anchor = TextAnchor.UpperLeft;
+            Text.WordWrap = true;
+            GUI.color = Color.white;
+
+            // 两个页签（扩展菜单 | 杂项）
+            const float tabHeight = 26f;
+            const float tabGap = 6f;
+            float tabWidth = (rect.width - tabGap) / 2f;
+            var tabMenu = new Rect(rect.x, rect.y + 24f, tabWidth, tabHeight);
+            var tabMisc = new Rect(tabMenu.xMax + tabGap, rect.y + 24f, tabWidth, tabHeight);
+            if (MD3Widgets.MD3Button(tabMenu, "ModernExpandMenu_PreviewMenuTab".Translate(), previewTab == 0))
+            {
+                previewTab = 0;
+            }
+            if (MD3Widgets.MD3Button(tabMisc, "ModernExpandMenu_PreviewMiscTab".Translate(), previewTab == 1))
+            {
+                previewTab = 1;
+            }
+
+            // 预览内容（菜单预览或杂项预览，实时读取对应配色 / 动画设置）
+            var contentRect = new Rect(rect.x, rect.y + 24f + tabHeight + 10f, rect.width, rect.yMax - (rect.y + 24f + tabHeight + 10f));
+            if (previewTab == 0)
+            {
+                MenuPreviewWidget.Draw(contentRect);
+            }
+            else
+            {
+                MiscPreviewWidget.Draw(contentRect);
+            }
+        }
+
+        /// <summary>绘制子 tab 栏（按大类显示对应的子 tab 名称）。</summary>
+        private static void DrawSubTabBar(float x, float y, float subTabWidth, float subTabHeight, float gap)
+        {
+            if (settingsCategory == 0)
+            {
+                // 扩展菜单类：常规 / 动画 / 颜色 / 预览
+                string[] labels =
+                {
+                    "ModernExpandMenu_TabGeneral".Translate(),
+                    "ModernExpandMenu_TabAnimations".Translate(),
+                    "ModernExpandMenu_TabColors".Translate(),
+                    "ModernExpandMenu_SubTabPreview".Translate()
+                };
+                for (int i = 0; i < labels.Length; i++)
+                {
+                    var rect = new Rect(x + (subTabWidth + gap) * i, y, subTabWidth, subTabHeight);
+                    if (MD3Widgets.MD3Button(rect, labels[i], menuSubTab == i))
+                    {
+                        menuSubTab = i;
+                        editingSliderId = -1;
+                    }
+                }
+            }
+            else
+            {
+                // 其他类：全局样式 / 颜色 / 预览
+                string[] labels =
+                {
+                    "ModernExpandMenu_MiscGlobalStyle".Translate(),
+                    "ModernExpandMenu_TabColors".Translate(),
+                    "ModernExpandMenu_SubTabPreview".Translate()
+                };
+                for (int i = 0; i < labels.Length; i++)
+                {
+                    var rect = new Rect(x + (subTabWidth + gap) * i, y, subTabWidth, subTabHeight);
+                    if (MD3Widgets.MD3Button(rect, labels[i], miscSubTab == i))
+                    {
+                        miscSubTab = i;
+                        editingSliderId = -1;
+                    }
+                }
+            }
+        }
+
+        /// <summary>扩展菜单类：按子 tab 分发内容。</summary>
+        private static void DrawMenuCategoryContent(float contentX, float contentWidth, float y)
+        {
+            switch (menuSubTab)
+            {
+                case 1: DrawAnimationTab(contentX, contentWidth, y); break;
+                case 2: DrawColorTab(contentX, contentWidth, y, miscPalette: false); break;
+                case 3: DrawMenuPreviewTab(contentX, contentWidth, y); break;
+                default: DrawGeneralTab(contentX, contentWidth, y); break;
+            }
+        }
+
+        /// <summary>其他类：按子 tab 分发内容。</summary>
+        private static void DrawMiscCategoryContent(float contentX, float contentWidth, float y)
+        {
+            switch (miscSubTab)
+            {
+                case 1: DrawColorTab(contentX, contentWidth, y, miscPalette: true); break;
+                case 2: DrawMiscPreviewTab(contentX, contentWidth, y); break;
+                default: DrawGlobalStyleTab(contentX, contentWidth, y); break;
+            }
+        }
+
+        /// <summary>扩展菜单类 → 预览子 tab：打开独立预览窗口（不在设置菜单内）。</summary>
+        private static void DrawMenuPreviewTab(float contentX, float contentWidth, float y)
+        {
+            const float rowHeight = 34f;
+            float height = 30f + rowHeight + 12f;
+            var card = new Rect(contentX, y, contentWidth, height);
+            MD3Widgets.DrawCard(card, MD3Theme.SurfaceContainer, MD3Theme.CardCornerRadius);
+            DrawSettingsTitle(card, "ModernExpandMenu_SubTabPreview".Translate());
+            var openRect = new Rect(card.x + 14f, card.y + 40f, Mathf.Min(300f, card.width - 28f), rowHeight);
+            if (MD3Widgets.MD3Button(openRect, "ModernExpandMenu_OpenMenuPreviewWindow".Translate(), true))
+            {
+                Find.WindowStack.Add(new Dialog_MenuPreview());
+            }
+        }
+
+        /// <summary>其他类 → 预览子 tab：打开杂项样式独立预览窗口（不在设置菜单内）。</summary>
+        private static void DrawMiscPreviewTab(float contentX, float contentWidth, float y)
+        {
+            const float rowHeight = 34f;
+            float height = 30f + rowHeight + 12f;
+            var card = new Rect(contentX, y, contentWidth, height);
+            MD3Widgets.DrawCard(card, MD3Theme.SurfaceContainer, MD3Theme.CardCornerRadius);
+            DrawSettingsTitle(card, "ModernExpandMenu_SubTabPreview".Translate());
+            var openRect = new Rect(card.x + 14f, card.y + 40f, Mathf.Min(300f, card.width - 28f), rowHeight);
+            if (MD3Widgets.MD3Button(openRect, "ModernExpandMenu_OpenMiscPreviewWindow".Translate(), true))
+            {
+                Find.WindowStack.Add(new Dialog_MiscPreview());
+            }
+        }
+
+        /// <summary>估算各子 tab 内容总高度（用于滚动视口内容区高度，取当前大类下各子 tab 的最大值）。</summary>
+        private static float ComputeSettingsContentHeight(float contentWidth, int category)
         {
             const float rowHeight = 30f;
-            switch (tab)
+            if (category == 1) // 其他类：全局样式 / 颜色 / 预览
             {
-                case 1: // 动画：总开关卡片 + 速度卡片(7 行)
-                    return (30f + rowHeight + 12f) + (30f + rowHeight * 7f + 12f) + 48f;
-                case 2: // 杂项：子 tab（全局样式 / 颜色），取较高者
-                    float globalStyle = (30f + rowHeight * 3f + 12f) + 42f;
-                    float colorSub = ComputeColorSettingsHeight(contentWidth) + 42f;
-                    return Mathf.Max(globalStyle, colorSub) + 48f;
-                default: // 常规：外观(5) + 性能(2) + 加载(1) + 恢复默认 + 分享
-                    float appearance = 30f + rowHeight * 5f + 12f;
-                    float performance = 30f + rowHeight * 2f + 12f;
-                    float loading = 30f + rowHeight + 12f;
-                    return appearance + performance + loading + (34f + 12f) + (30f + rowHeight + 12f) + 48f;
+                float globalStyleHeight = (30f + rowHeight * 11f + 12f) + 42f;
+                float colorSubHeight = ComputeColorSettingsHeight(contentWidth) + 42f;
+                float miscPreviewHeight = (30f + 34f + 12f) + 42f;
+                return Mathf.Max(Mathf.Max(globalStyleHeight, colorSubHeight), miscPreviewHeight) + 48f;
             }
+            // 扩展菜单类：常规 / 动画 / 颜色 / 预览
+            float appearance = 30f + rowHeight * 5f + 12f;
+            float performance = 30f + rowHeight * 2f + 12f;
+            float loading = 30f + rowHeight + 12f;
+            float general = appearance + performance + loading + (34f + 12f) + (30f + rowHeight + 12f) + 48f;
+            float animation = (30f + rowHeight + 12f) + (30f + rowHeight * 7f + 12f) + 48f;
+            float color = ComputeColorSettingsHeight(contentWidth) + 48f;
+            float menuPreviewHeight = (30f + 34f + 12f) + 48f;
+            return Mathf.Max(Mathf.Max(general, animation), Mathf.Max(color, menuPreviewHeight));
         }
 
         /// <summary>常规 tab：外观 / 性能 / 加载动画 / 恢复默认。</summary>
@@ -249,39 +382,11 @@ namespace ModernExpandMenu
             }
         }
 
-        /// <summary>杂项 tab：子 tab（全局样式 / 颜色），放与右键菜单无关的功能。</summary>
-        private static void DrawMiscTab(float contentX, float contentWidth, float y)
-        {
-            // 子 tab 栏（全局样式 / 颜色）
-            const float subTabHeight = 30f;
-            const float subTabGap = 6f;
-            float subTabWidth = (contentWidth - subTabGap) / 2f;
-            var subStyleRect = new Rect(contentX, y, subTabWidth, subTabHeight);
-            var subColorsRect = new Rect(contentX + subTabWidth + subTabGap, y, subTabWidth, subTabHeight);
-            if (MD3Widgets.MD3Button(subStyleRect, "ModernExpandMenu_MiscGlobalStyle".Translate(), miscSubTab == 0))
-            {
-                miscSubTab = 0;
-            }
-            if (MD3Widgets.MD3Button(subColorsRect, "ModernExpandMenu_TabColors".Translate(), miscSubTab == 1))
-            {
-                miscSubTab = 1;
-            }
-            float cy = y + subTabHeight + 12f;
-            if (miscSubTab == 0)
-            {
-                DrawGlobalStyleTab(contentX, contentWidth, cy);
-            }
-            else
-            {
-                DrawColorTab(contentX, contentWidth, cy);
-            }
-        }
-
-        /// <summary>杂项 → 全局样式：把原版输入框 / 按钮 / 复选框 / tab / 滚动条等全局替换为 MD3 样式的开关（与右键菜单无关）。</summary>
+        /// <summary>其他类 → 全局样式：把原版输入框 / 按钮 / 复选框 / tab / 滚动条等全局替换为 MD3 样式的开关（与右键菜单无关）。</summary>
         private static void DrawGlobalStyleTab(float contentX, float contentWidth, float y)
         {
             const float rowHeight = 30f;
-            float styleHeight = 30f + rowHeight * 3f + 12f;
+            float styleHeight = 30f + rowHeight * 11f + 12f;
             var styleCard = new Rect(contentX, y, contentWidth, styleHeight);
             MD3Widgets.DrawCard(styleCard, MD3Theme.SurfaceContainer, MD3Theme.CardCornerRadius);
             DrawSettingsTitle(styleCard, "ModernExpandMenu_MiscGlobalStyle".Translate());
@@ -289,6 +394,14 @@ namespace ModernExpandMenu
             DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleAllInputs".Translate(), ref Settings.md3StyleAllInputs, 21, "ModernExpandMenu_Md3StyleAllInputsDesc".Translate()); cy += rowHeight;
             DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleAllButtons".Translate(), ref Settings.md3StyleAllButtons, 22, "ModernExpandMenu_Md3StyleAllButtonsDesc".Translate()); cy += rowHeight;
             DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_SkipUploadWait".Translate(), ref Settings.skipUploadWait, 23, "ModernExpandMenu_SkipUploadWaitDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_SpaceOnlyPauses".Translate(), ref Settings.spaceOnlyPauses, 24, "ModernExpandMenu_SpaceOnlyPausesDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleWindows".Translate(), ref Settings.md3StyleWindows, 25, "ModernExpandMenu_Md3StyleWindowsDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleCommands".Translate(), ref Settings.md3StyleCommands, 26, "ModernExpandMenu_Md3StyleCommandsDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleMenuSections".Translate(), ref Settings.md3StyleMenuSections, 27, "ModernExpandMenu_Md3StyleMenuSectionsDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleSchedule".Translate(), ref Settings.md3StyleSchedule, 28, "ModernExpandMenu_Md3StyleScheduleDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleInspectPane".Translate(), ref Settings.md3StyleInspectPane, 29, "ModernExpandMenu_Md3StyleInspectPaneDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleStatistics".Translate(), ref Settings.md3StyleStatistics, 30, "ModernExpandMenu_Md3StyleStatisticsDesc".Translate()); cy += rowHeight;
+            DrawCheckboxRow(styleCard, cy, "ModernExpandMenu_Md3StyleIdeo".Translate(), ref Settings.md3StyleIdeo, 31, "ModernExpandMenu_Md3StyleIdeoDesc".Translate()); cy += rowHeight;
         }
 
         /// <summary>动画 tab：动画速度设置（串行滑入时长 / 间隔 / 弹出 / 展开 / 滚动速度）+ 实时预览区域。</summary>
@@ -333,7 +446,7 @@ namespace ModernExpandMenu
             Settings.windowHeightAnimationSpeed = heightSpeed;
         }
 
-        /// <summary>恢复默认颜色（16 进制，带 # 前缀）。</summary>
+        /// <summary>恢复默认颜色（扩展菜单配色 + 杂项配色，16 进制，带 # 前缀）。</summary>
         private static void ResetColorSettings()
         {
             Settings.colorPrimary = "#00A8FF";
@@ -349,51 +462,108 @@ namespace ModernExpandMenu
             Settings.colorScrollbarTrack = "#26262E";
             Settings.colorScrollbarThumb = "#525261";
             Settings.colorScrollbarThumbDragging = "#737385";
+            Settings.miscColorPrimary = "#00A8FF";
+            Settings.miscColorOnPrimary = "#001421";
+            Settings.miscColorSurface = "#161821";
+            Settings.miscColorSurfaceContainer = "#1E212D";
+            Settings.miscColorSurfaceContainerHigh = "#262A3A";
+            Settings.miscColorOnSurface = "#E6E6EC";
+            Settings.miscColorOnSurfaceVariant = "#9A9BA6";
+            Settings.miscColorOutline = "#636676";
+            Settings.miscColorDisabledText = "#80808C";
+            Settings.miscColorShadow = "#000000";
+            Settings.miscColorScrollbarTrack = "#26262E";
+            Settings.miscColorScrollbarThumb = "#525261";
+            Settings.miscColorScrollbarThumbDragging = "#737385";
         }
 
-        /// <summary>颜色 tab：调色板 + 按分类卡片列出所有可自定义颜色（16 进制输入）。</summary>
-        private static void DrawColorTab(float contentX, float contentWidth, float y)
+        /// <summary>读取当前配色的 13 个 16 进制值（miscPalette=true 读杂项配色，否则读扩展菜单配色）。</summary>
+        private static string[] GetColorValues(bool miscPalette)
         {
+            return miscPalette
+                ? new[] { Settings.miscColorPrimary, Settings.miscColorOnPrimary, Settings.miscColorSurface, Settings.miscColorSurfaceContainer, Settings.miscColorSurfaceContainerHigh, Settings.miscColorOnSurface, Settings.miscColorOnSurfaceVariant, Settings.miscColorOutline, Settings.miscColorDisabledText, Settings.miscColorShadow, Settings.miscColorScrollbarTrack, Settings.miscColorScrollbarThumb, Settings.miscColorScrollbarThumbDragging }
+                : new[] { Settings.colorPrimary, Settings.colorOnPrimary, Settings.colorSurface, Settings.colorSurfaceContainer, Settings.colorSurfaceContainerHigh, Settings.colorOnSurface, Settings.colorOnSurfaceVariant, Settings.colorOutline, Settings.colorDisabledText, Settings.colorShadow, Settings.colorScrollbarTrack, Settings.colorScrollbarThumb, Settings.colorScrollbarThumbDragging };
+        }
+
+        /// <summary>把 13 个 16 进制值写回当前配色的设置字段。</summary>
+        private static void SetColorValues(bool miscPalette, string[] v)
+        {
+            if (miscPalette)
+            {
+                Settings.miscColorPrimary = v[0]; Settings.miscColorOnPrimary = v[1]; Settings.miscColorSurface = v[2];
+                Settings.miscColorSurfaceContainer = v[3]; Settings.miscColorSurfaceContainerHigh = v[4]; Settings.miscColorOnSurface = v[5];
+                Settings.miscColorOnSurfaceVariant = v[6]; Settings.miscColorOutline = v[7]; Settings.miscColorDisabledText = v[8];
+                Settings.miscColorShadow = v[9]; Settings.miscColorScrollbarTrack = v[10]; Settings.miscColorScrollbarThumb = v[11];
+                Settings.miscColorScrollbarThumbDragging = v[12];
+            }
+            else
+            {
+                Settings.colorPrimary = v[0]; Settings.colorOnPrimary = v[1]; Settings.colorSurface = v[2];
+                Settings.colorSurfaceContainer = v[3]; Settings.colorSurfaceContainerHigh = v[4]; Settings.colorOnSurface = v[5];
+                Settings.colorOnSurfaceVariant = v[6]; Settings.colorOutline = v[7]; Settings.colorDisabledText = v[8];
+                Settings.colorShadow = v[9]; Settings.colorScrollbarTrack = v[10]; Settings.colorScrollbarThumb = v[11];
+                Settings.colorScrollbarThumbDragging = v[12];
+            }
+        }
+
+        /// <summary>读取当前配色的 13 个预览色（色块用，杂项配色用 MiscTheme）。</summary>
+        private static Color[] GetColorPreviews(bool miscPalette)
+        {
+            return miscPalette
+                ? new[] { MiscTheme.Primary, MiscTheme.OnPrimary, MiscTheme.Surface, MiscTheme.SurfaceContainer, MiscTheme.SurfaceContainerHigh, MiscTheme.OnSurface, MiscTheme.OnSurfaceVariant, MiscTheme.Outline, MiscTheme.DisabledText, MiscTheme.Shadow, MiscTheme.ScrollbarTrack, MiscTheme.ScrollbarThumb, MiscTheme.ScrollbarThumbDragging }
+                : new[] { MD3Theme.Primary, MD3Theme.OnPrimary, MD3Theme.Surface, MD3Theme.SurfaceContainer, MD3Theme.SurfaceContainerHigh, MD3Theme.OnSurface, MD3Theme.OnSurfaceVariant, MD3Theme.Outline, MD3Theme.DisabledText, MD3Theme.Shadow, MD3Theme.ScrollbarTrack, MD3Theme.ScrollbarThumb, MD3Theme.ScrollbarThumbDragging };
+        }
+
+        /// <summary>颜色子 tab：调色板 + 按分类卡片列出所有可自定义颜色（16 进制输入）。
+        /// miscPalette=true 编辑杂项配色（全局 MD3 替换功能用），否则编辑扩展菜单配色。</summary>
+        private static void DrawColorTab(float contentX, float contentWidth, float y, bool miscPalette)
+        {
+            string[] values = GetColorValues(miscPalette);
+            Color[] previews = GetColorPreviews(miscPalette);
+
             float sy = y;
-            sy = DrawPaletteCard(contentX, sy, contentWidth);
+            sy = DrawPaletteCard(contentX, sy, contentWidth, miscPalette, values);
 
             // 主色
             sy = DrawColorCard(contentX, sy, contentWidth, "ModernExpandMenu_SectionColorPrimary".Translate(), 2, card =>
             {
-                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorPrimary".Translate(), ref Settings.colorPrimary, MD3Theme.DefaultPrimary, MD3Theme.Primary);
-                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorOnPrimary".Translate(), ref Settings.colorOnPrimary, MD3Theme.DefaultOnPrimary, MD3Theme.OnPrimary);
+                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorPrimary".Translate(), values, 0, MD3Theme.DefaultPrimary, previews[0]);
+                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorOnPrimary".Translate(), values, 1, MD3Theme.DefaultOnPrimary, previews[1]);
             });
 
             // 表面
             sy = DrawColorCard(contentX, sy, contentWidth, "ModernExpandMenu_SectionColorSurface".Translate(), 3, card =>
             {
-                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorSurface".Translate(), ref Settings.colorSurface, MD3Theme.DefaultSurface, MD3Theme.Surface);
-                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorSurfaceContainer".Translate(), ref Settings.colorSurfaceContainer, MD3Theme.DefaultSurfaceContainer, MD3Theme.SurfaceContainer);
-                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorSurfaceContainerHigh".Translate(), ref Settings.colorSurfaceContainerHigh, MD3Theme.DefaultSurfaceContainerHigh, MD3Theme.SurfaceContainerHigh);
+                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorSurface".Translate(), values, 2, MD3Theme.DefaultSurface, previews[2]);
+                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorSurfaceContainer".Translate(), values, 3, MD3Theme.DefaultSurfaceContainer, previews[3]);
+                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorSurfaceContainerHigh".Translate(), values, 4, MD3Theme.DefaultSurfaceContainerHigh, previews[4]);
             });
 
             // 文本
             sy = DrawColorCard(contentX, sy, contentWidth, "ModernExpandMenu_SectionColorText".Translate(), 4, card =>
             {
-                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorOnSurface".Translate(), ref Settings.colorOnSurface, MD3Theme.DefaultOnSurface, MD3Theme.OnSurface);
-                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorOnSurfaceVariant".Translate(), ref Settings.colorOnSurfaceVariant, MD3Theme.DefaultOnSurfaceVariant, MD3Theme.OnSurfaceVariant);
-                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorOutline".Translate(), ref Settings.colorOutline, MD3Theme.DefaultOutline, MD3Theme.Outline);
-                DrawColorRow(card, card.y + 124f, "ModernExpandMenu_ColorDisabledText".Translate(), ref Settings.colorDisabledText, MD3Theme.DefaultDisabledText, MD3Theme.DisabledText);
+                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorOnSurface".Translate(), values, 5, MD3Theme.DefaultOnSurface, previews[5]);
+                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorOnSurfaceVariant".Translate(), values, 6, MD3Theme.DefaultOnSurfaceVariant, previews[6]);
+                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorOutline".Translate(), values, 7, MD3Theme.DefaultOutline, previews[7]);
+                DrawColorRow(card, card.y + 124f, "ModernExpandMenu_ColorDisabledText".Translate(), values, 8, MD3Theme.DefaultDisabledText, previews[8]);
             });
 
             // 滚动条
             sy = DrawColorCard(contentX, sy, contentWidth, "ModernExpandMenu_SectionColorScrollbar".Translate(), 3, card =>
             {
-                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorScrollbarTrack".Translate(), ref Settings.colorScrollbarTrack, MD3Theme.DefaultScrollbarTrack, MD3Theme.ScrollbarTrack);
-                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorScrollbarThumb".Translate(), ref Settings.colorScrollbarThumb, MD3Theme.DefaultScrollbarThumb, MD3Theme.ScrollbarThumb);
-                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorScrollbarThumbDragging".Translate(), ref Settings.colorScrollbarThumbDragging, MD3Theme.DefaultScrollbarThumbDragging, MD3Theme.ScrollbarThumbDragging);
+                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorScrollbarTrack".Translate(), values, 10, MD3Theme.DefaultScrollbarTrack, previews[10]);
+                DrawColorRow(card, card.y + 64f, "ModernExpandMenu_ColorScrollbarThumb".Translate(), values, 11, MD3Theme.DefaultScrollbarThumb, previews[11]);
+                DrawColorRow(card, card.y + 94f, "ModernExpandMenu_ColorScrollbarThumbDragging".Translate(), values, 12, MD3Theme.DefaultScrollbarThumbDragging, previews[12]);
             });
 
             // 阴影
             sy = DrawColorCard(contentX, sy, contentWidth, "ModernExpandMenu_SectionColorShadow".Translate(), 1, card =>
             {
-                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorShadow".Translate(), ref Settings.colorShadow, MD3Theme.DefaultShadow, MD3Theme.Shadow);
+                DrawColorRow(card, card.y + 34f, "ModernExpandMenu_ColorShadow".Translate(), values, 9, MD3Theme.DefaultShadow, previews[9]);
             });
+
+            // 写回设置（保存编辑结果）
+            SetColorValues(miscPalette, values);
         }
 
         /// <summary>颜色 tab 右侧设置内容总高（左预览区与其对齐）。</summary>
@@ -405,8 +575,8 @@ namespace ModernExpandMenu
             return palette + cards + 12f;
         }
 
-        /// <summary>调色板：预设配色一键应用（2 行 2 列，MD3 风格卡片）。</summary>
-        private static float DrawPaletteCard(float contentX, float y, float contentWidth)
+        /// <summary>调色板：预设配色一键应用（2 行 2 列，MD3 风格卡片；应用到当前编辑的配色）。</summary>
+        private static float DrawPaletteCard(float contentX, float y, float contentWidth, bool miscPalette, string[] values)
         {
             const float rowHeight = 34f;
             const int paletteCount = 6;
@@ -433,51 +603,42 @@ namespace ModernExpandMenu
                 float by = cy + (i / paletteColumns) * (rowHeight + 6f);
                 if (MD3Widgets.MD3Button(new Rect(bx, by, buttonWidth, rowHeight), paletteKeys[i].Translate(), false))
                 {
-                    ApplyPalette(i);
+                    ApplyPalette(miscPalette, values, i);
                 }
             }
             return card.yMax + 12f;
         }
 
-        /// <summary>应用预设调色板（全套 13 色 16 进制）。</summary>
-        private static void ApplyPalette(int index)
+        /// <summary>应用预设调色板（全套 13 色 16 进制，写入当前编辑的配色）。</summary>
+        private static void ApplyPalette(bool miscPalette, string[] values, int index)
         {
-            string[] palette;
+            string[] palette = GetPaletteColors(index);
+            for (int i = 0; i < 13 && i < values.Length; i++)
+            {
+                values[i] = palette[i];
+            }
+            SetColorValues(miscPalette, values);
+            Settings.Write();
+        }
+
+        /// <summary>返回指定索引的预设调色板（13 色，顺序同 GetColorValues）。</summary>
+        private static string[] GetPaletteColors(int index)
+        {
             switch (index)
             {
                 case 1: // 赛博紫
-                    palette = new[] { "#B388FF", "#1B1030", "#1B1124", "#26163A", "#2E1B47", "#E8E6F0", "#B3AEC4", "#7E7A8C", "#9A94A8", "#000000", "#2A2436", "#6E6680", "#8F86A6" };
-                    break;
+                    return new[] { "#B388FF", "#1B1030", "#1B1124", "#26163A", "#2E1B47", "#E8E6F0", "#B3AEC4", "#7E7A8C", "#9A94A8", "#000000", "#2A2436", "#6E6680", "#8F86A6" };
                 case 2: // 翡翠绿
-                    palette = new[] { "#00C853", "#00291A", "#0E2118", "#143327", "#1A3F2E", "#E0F2E9", "#A8C9B8", "#6E8F7F", "#8FAD9F", "#000000", "#1C2E24", "#5E7E6E", "#7FA093" };
-                    break;
+                    return new[] { "#00C853", "#00291A", "#0E2118", "#143327", "#1A3F2E", "#E0F2E9", "#A8C9B8", "#6E8F7F", "#8FAD9F", "#000000", "#1C2E24", "#5E7E6E", "#7FA093" };
                 case 3: // 熔岩橙
-                    palette = new[] { "#FF6D00", "#2B1500", "#221812", "#33221A", "#402A1F", "#F2E8E2", "#C4B5AC", "#8A7B72", "#AA968A", "#000000", "#2E221C", "#7A665A", "#9C8577" };
-                    break;
+                    return new[] { "#FF6D00", "#2B1500", "#221812", "#33221A", "#402A1F", "#F2E8E2", "#C4B5AC", "#8A7B72", "#AA968A", "#000000", "#2E221C", "#7A665A", "#9C8577" };
                 case 4: // 粉彩玫瑰（FFC0CE）
-                    palette = new[] { "#FFC0CE", "#3A1C24", "#2A1A1F", "#352027", "#412A32", "#F5E6EA", "#C5A9B1", "#8A6E76", "#A08890", "#000000", "#332027", "#8A5D68", "#B07A86" };
-                    break;
+                    return new[] { "#FFC0CE", "#3A1C24", "#2A1A1F", "#352027", "#412A32", "#F5E6EA", "#C5A9B1", "#8A6E76", "#A08890", "#000000", "#332027", "#8A5D68", "#B07A86" };
                 case 5: // 冰雪蓝（C0F3FF）
-                    palette = new[] { "#C0F3FF", "#0A2A33", "#16222A", "#1D2C36", "#263A47", "#E3F2F8", "#A8C3CE", "#6E8A96", "#8DA3AD", "#000000", "#1E2E38", "#4E7687", "#6F9CAD" };
-                    break;
+                    return new[] { "#C0F3FF", "#0A2A33", "#16222A", "#1D2C36", "#263A47", "#E3F2F8", "#A8C3CE", "#6E8A96", "#8DA3AD", "#000000", "#1E2E38", "#4E7687", "#6F9CAD" };
                 default: // 水影蓝
-                    palette = new[] { "#00A8FF", "#001421", "#161821", "#1E212D", "#262A3A", "#E6E6EC", "#9A9BA6", "#636676", "#80808C", "#000000", "#26262E", "#525261", "#737385" };
-                    break;
+                    return new[] { "#00A8FF", "#001421", "#161821", "#1E212D", "#262A3A", "#E6E6EC", "#9A9BA6", "#636676", "#80808C", "#000000", "#26262E", "#525261", "#737385" };
             }
-            Settings.colorPrimary = palette[0];
-            Settings.colorOnPrimary = palette[1];
-            Settings.colorSurface = palette[2];
-            Settings.colorSurfaceContainer = palette[3];
-            Settings.colorSurfaceContainerHigh = palette[4];
-            Settings.colorOnSurface = palette[5];
-            Settings.colorOnSurfaceVariant = palette[6];
-            Settings.colorOutline = palette[7];
-            Settings.colorDisabledText = palette[8];
-            Settings.colorShadow = palette[9];
-            Settings.colorScrollbarTrack = palette[10];
-            Settings.colorScrollbarThumb = palette[11];
-            Settings.colorScrollbarThumbDragging = palette[12];
-            Settings.Write();
         }
 
         /// <summary>绘制颜色分类卡片，返回下一行的 y 坐标。</summary>
@@ -492,9 +653,11 @@ namespace ModernExpandMenu
             return card.yMax + 12f;
         }
 
-        /// <summary>绘制单行颜色设置：色块（点击复制）+ 名称 + 粘贴按钮 + 16 进制输入框（非法时红色边框）。</summary>
-        private static void DrawColorRow(Rect card, float y, string label, ref string hex, Color fallback, Color preview)
+        /// <summary>绘制单行颜色设置：色块（点击复制）+ 名称 + 粘贴按钮 + 16 进制输入框（非法时红色边框）。
+        /// 通过 values[index] 读写当前编辑配色的对应颜色。</summary>
+        private static void DrawColorRow(Rect card, float y, string label, string[] values, int index, Color fallback, Color preview)
         {
+            string hex = values[index];
             var rowRect = new Rect(card.x + 14f, y, card.width - 28f, 30f);
 
             // 色块预览：点击一键复制 hex 到剪贴板
@@ -536,6 +699,9 @@ namespace ModernExpandMenu
             // 16 进制输入框（MD3 自实现外观：深色背景 + 主色描边环，非法时红色描边；内部原版可靠输入）
             var hexRect = new Rect(rowRect.xMax - 92f, rowRect.y + 3f, 92f, 24f);
             hex = MD3Widgets.MD3TextField(hexRect, hex, label.GetHashCode(), TryParseHex(hex, out _));
+
+            // 写回数组（随编辑更新当前配色的对应值）
+            values[index] = hex;
         }
 
         /// <summary>解析 16 进制颜色（可带 # 前缀，如 #RRGGBB 或 RRGGBB）。</summary>

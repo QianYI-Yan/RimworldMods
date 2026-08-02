@@ -13,18 +13,24 @@
     <Compile Include="Patch_DisablePseudoTranslation.cs" />
     <Compile Include="Patch_Md3StyleAllInputs.cs" />
     <Compile Include="Patch_Md3StyleAllButtons.cs" />
+    <Compile Include="Patch_Md3StyleMore.cs" />
     <Compile Include="Patch_SkipUploadDelay.cs" />
+    <Compile Include="Patch_SpaceOnlyPause.cs" />
     <Compile Include="Patch_ModSettingsUI.cs" />
     <Compile Include="Patch_ItemGroupedFloatMenu.cs" />
     <Compile Include="ItemGrouping.cs" />
     <Compile Include="SettingsShare.cs" />
     <Compile Include="Theme\MD3Theme.cs" />
+    <Compile Include="Theme\MiscTheme.cs" />
     <Compile Include="UI\Dialog_ResetDefaults.cs" />
     <Compile Include="UI\Dialog_ConfigManager.cs" />
     <Compile Include="UI\Dialog_RenameConfig.cs" />
+    <Compile Include="UI\Dialog_MenuPreview.cs" />
+    <Compile Include="UI\Dialog_MiscPreview.cs" />
     <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="UI\MD3FloatMenuWindow.cs" />
     <Compile Include="UI\MenuPreviewWidget.cs" />
+    <Compile Include="UI\MiscPreviewWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 

@@ -121,10 +121,14 @@ namespace ModernExpandMenu.UI
             this.highlightStorage = highlightStorage;
             this.highlightedItems = highlightedItems ?? new List<Thing>();
 
-            // 默认收起所有子项（ClickGUI 风格：点击标题展开）
+            // 默认收起所有子项（ClickGUI 风格：点击标题展开）；"其他"根组默认全展开
             foreach (StoredItemGroup group in groups)
             {
                 expandProgress[group] = 0f;
+                if (group.isOtherGroup)
+                {
+                    expandedTargets.Add(group);
+                }
             }
 
             // 记录待生成物品总数（用于环形加载进度）与加载开始时间（用于总时长百分比）
@@ -748,9 +752,6 @@ namespace ModernExpandMenu.UI
                     entry.disappearTime = -1f;
                     entry.hasAppeared = false;
                 }
-                // 首次展开：正常速度（回归加速状态清零，滚动离开再回归时才加速）
-                group.subItemsEverAppeared = false;
-                group.subItemsAccelerated = false;
             }
         }
 
@@ -758,20 +759,13 @@ namespace ModernExpandMenu.UI
         /// 组内串行排定一次出现动画：该组上一项就位（动画播完）后，下一项才开始（含可配置间隔）。
         /// 每组独立调度，组与组之间并行，互不等待。
         /// </summary>
-        private float ScheduleAppear(StoredItemGroup group, bool accelerated = false)
+        private float ScheduleAppear(StoredItemGroup group)
         {
             float now = Time.realtimeSinceStartup;
             float endTime = groupNextAppearEndTime.TryGetValue(group, out float value) ? value : -1f;
             float startTime = Mathf.Max(now, endTime);
-            float duration = CurrentItemAppearDuration;
-            float interval = CurrentItemAppearInterval;
-            if (accelerated)
-            {
-                // 滚动回归加速：动画时长与间隔都缩短（0.4 倍），更快铺满
-                duration *= 0.4f;
-                interval *= 0.4f;
-            }
-            groupNextAppearEndTime[group] = startTime + duration + interval;
+            // 严格串行：上一项动画播完（时长 + 间隔）后下一项开始；匀速，每项动画时长一致
+            groupNextAppearEndTime[group] = startTime + CurrentItemAppearDuration + CurrentItemAppearInterval;
             return startTime;
         }
 
@@ -804,8 +798,8 @@ namespace ModernExpandMenu.UI
             }
 
             // 已展开的组：滚动离开视口不收起（不播放消失 / 不重置），滚回直接显示，不重新加载；
-            // 未展开（折叠）的组标题滚动回归时正常重新播放出现动画（收起策略功能待后续重做）
-            if (expandedTargets.Contains(group))
+            // 但手动收起后再展开的子项目（hasAppeared=false）正常重放逐条出现动画
+            if (expandedTargets.Contains(group) && hasAppeared)
             {
                 appearTime = 0f;
                 disappearTime = -1f;
@@ -821,24 +815,12 @@ namespace ModernExpandMenu.UI
             float visibleBlockHeight = visibilityHeight < 0f ? height : visibilityHeight;
             float visiblePart = Mathf.Max(0f, Mathf.Min(top + visibleBlockHeight, viewBottom) - Mathf.Max(top, viewTop));
             float visibleRatio = Mathf.Clamp01(visiblePart / Mathf.Max(1f, visibleBlockHeight));
-            // 子项目回归加速：动画时长也缩短（更快播完）
             float duration = CurrentItemAppearDuration;
-            if (isSubItem && group.subItemsAccelerated)
-            {
-                duration *= 0.4f;
-            }
 
-            // 出现：未出现且过半可见 → 组内串行排定
+            // 出现：未出现且过半可见 → 组内串行排定（匀速，每项动画时长一致）
             if (!hasAppeared && visibleRatio > 0.5f && appearTime < 0f)
             {
-                // 滚动回归（组已展开、子项目曾排定过）：加速子项目动画
-                bool accelerated = isSubItem && group.subItemsEverAppeared && expandedTargets.Contains(group);
-                appearTime = ScheduleAppear(group, accelerated);
-                if (isSubItem)
-                {
-                    group.subItemsEverAppeared = true;
-                    group.subItemsAccelerated = accelerated;
-                }
+                appearTime = ScheduleAppear(group);
             }
             float appearProgress = appearTime < 0f ? 1f : Mathf.Clamp01((now - appearTime) / duration);
             if (appearTime >= 0f && appearProgress >= 1f && visibleRatio > 0.5f)

@@ -20,40 +20,6 @@ namespace ModernExpandMenu.UI
 
         private static readonly Texture2D roundedRectTexture = CreateRoundedRectTexture();
 
-        // 垂直渐变纹理（滚动内容顶部/底部淡出遮罩）：
-        // fadeTopTexture   —— 顶部不透明 → 向下渐透明（内容从顶部边缘淡入时遮挡硬截断）
-        // fadeBottomTexture—— 底部不透明 → 向上渐透明（内容从底部边缘淡出时遮挡硬截断）
-        private static readonly Texture2D fadeTopTexture = CreateFadeTexture(opaqueAtBottom: false);
-        private static readonly Texture2D fadeBottomTexture = CreateFadeTexture(opaqueAtBottom: true);
-
-        /// <summary>生成 1x16 垂直渐变遮罩纹理（pixels[0] 为纹理底部，GUI 中显示在 rect 底部）。</summary>
-        private static Texture2D CreateFadeTexture(bool opaqueAtBottom)
-        {
-            const int height = 16;
-            var texture = new Texture2D(1, height, TextureFormat.RGBA32, false);
-            var pixels = new Color[height];
-            for (int y = 0; y < height; y++)
-            {
-                float alpha = opaqueAtBottom ? (height - 1 - y) / (float)(height - 1) : y / (float)(height - 1);
-                pixels[y] = new Color(1f, 1f, 1f, alpha);
-            }
-            texture.SetPixels(pixels);
-            texture.Apply();
-            texture.hideFlags = HideFlags.HideAndDontSave;
-            return texture;
-        }
-
-        /// <summary>
-        /// 绘制垂直渐变遮罩（用于滚动内容上下边缘淡出，避免内容被窗口边缘硬截断）。
-        /// color 为遮罩色（通常取窗口表面色）；opaqueAtBottom=true 时底部不透明。
-        /// </summary>
-        public static void DrawVerticalFade(Rect rect, Color color, bool opaqueAtBottom)
-        {
-            GUI.color = color;
-            GUI.DrawTexture(rect, opaqueAtBottom ? fadeBottomTexture : fadeTopTexture);
-            GUI.color = Color.white;
-        }
-
         /// <summary>
         /// 绘制圆角矩形描边：先整块填充 outlineColor，再用 fillColor 内缩覆盖中间，留出描边环。
         /// 用于窗口外框上下左右描边（MD3 Outline token）。
@@ -197,10 +163,11 @@ namespace ModernExpandMenu.UI
 
         /// <summary>
         /// 绘制 hover 状态层（半透明主色覆盖在圆角区域上）。
+        /// hoverColor 可传入杂项配色（全局替换功能用），默认跟随扩展菜单主题色。
         /// </summary>
-        public static void DrawHoverState(Rect rect, float radius)
+        public static void DrawHoverState(Rect rect, float radius, Color? hoverColor = null)
         {
-            DrawRoundedRect(rect, Theme.MD3Theme.HoverStateLayer, radius);
+            DrawRoundedRect(rect, hoverColor ?? Theme.MD3Theme.HoverStateLayer, radius);
         }
 
         // 当前正在拖动的滚动条滑块 id（-1 表示无），避免多个滚动条拖动互相冲突
@@ -281,34 +248,42 @@ namespace ModernExpandMenu.UI
         /// MD3 安卓风格滑动开关：圆角轨道 + 白色圆形滑块，
         /// 开启时轨道主色、滑块靠右；关闭时轨道深灰描边、滑块靠左。
         /// 滑块位置有平滑滑动动画；点击返回切换后的值。
+        /// primaryColor 等可传入杂项配色（全局替换功能用），默认跟随扩展菜单主题色。
         /// </summary>
-        public static bool MD3ToggleSwitch(Rect rect, bool value, int switchId)
+        public static bool MD3ToggleSwitch(Rect rect, bool value, int switchId, Color? primaryColor = null, Color? trackColor = null, Color? surfaceColor = null)
         {
+            Color primary = primaryColor ?? Theme.MD3Theme.Primary;
+            Color track = trackColor ?? Theme.MD3Theme.SurfaceContainerHigh;
+            Color surface = surfaceColor ?? Theme.MD3Theme.Surface;
             const float trackWidth = 38f;
             const float trackHeight = 20f;
             const float knobSize = 16f;
-            var track = new Rect(rect.x, rect.y + (rect.height - trackHeight) / 2f, trackWidth, trackHeight);
+            var trackRect = new Rect(rect.x, rect.y + (rect.height - trackHeight) / 2f, trackWidth, trackHeight);
 
-            // 圆点滑动动画（0=左/关，1=右/开）
+            // 圆点滑动动画（0=左/关，1=右/开）：安卓 ease-out 曲线（快速起步、指数减速到位）
             float target = value ? 1f : 0f;
             float animated = switchAnimationProgress.TryGetValue(switchId, out float current) ? current : target;
-            animated = Mathf.MoveTowards(animated, target, Time.deltaTime * 8f);
+            animated += (target - animated) * Mathf.Min(1f, Time.deltaTime * 14f);
+            if (Mathf.Abs(animated - target) < 0.001f)
+            {
+                animated = target;
+            }
             switchAnimationProgress[switchId] = animated;
 
             // 轨道：开启主色 / 关闭深灰 + 描边
             if (value)
             {
-                DrawRoundedRect(track, Theme.MD3Theme.Primary, trackHeight / 2f);
+                DrawRoundedRect(trackRect, primary, trackHeight / 2f);
             }
             else
             {
-                DrawRoundedRect(track, Theme.MD3Theme.SurfaceContainerHigh, trackHeight / 2f);
-                DrawRoundedRect(track.ContractedBy(1f), Theme.MD3Theme.Surface, trackHeight / 2f - 1f);
+                DrawRoundedRect(trackRect, track, trackHeight / 2f);
+                DrawRoundedRect(trackRect.ContractedBy(1f), surface, trackHeight / 2f - 1f);
             }
 
             // 白色圆形滑块（带内侧阴影点）
-            float knobX = track.x + (track.width - knobSize) * animated;
-            var knob = new Rect(knobX, track.y + (track.height - knobSize) / 2f, knobSize, knobSize);
+            float knobX = trackRect.x + (trackRect.width - knobSize) * animated;
+            var knob = new Rect(knobX, trackRect.y + (trackRect.height - knobSize) / 2f, knobSize, knobSize);
             DrawRoundedRect(knob, Color.white, knobSize / 2f);
             DrawRoundedRect(knob.ContractedBy(4f), Theme.MD3Theme.OnSurface, (knobSize - 8f) / 2f);
 
@@ -320,26 +295,30 @@ namespace ModernExpandMenu.UI
             return value;
         }
 
+        // 滑块圆点 hover/拖动放大动画进度（key 为 sliderId）
+        private static readonly Dictionary<int, float> sliderKnobScaleProgress = new Dictionary<int, float>();
+
         /// <summary>
-        /// MD3 风格滑块：圆角轨道 + 主色填充 + 圆形滑块，支持点击轨道跳转与拖动。
+        /// MD3 风格滑块：圆角轨道 + 主色填充 + 圆形滑块，支持点击轨道跳转与按住拖动
+        /// （鼠标移出滑块区域后拖动仍持续跟随）；hover / 拖动时圆点平滑放大高亮，方便吸附抓取。
+        /// primaryColor / trackColor 可传入杂项配色（全局替换功能用），默认跟随扩展菜单主题色。
         /// </summary>
-        public static float MD3Slider(Rect rect, float value, float min, float max, int sliderId)
+        public static float MD3Slider(Rect rect, float value, float min, float max, int sliderId, Color? primaryColor = null, Color? trackColor = null)
         {
+            Color primary = primaryColor ?? Theme.MD3Theme.Primary;
+            Color trackFillColor = trackColor ?? Theme.MD3Theme.SurfaceContainerHigh;
             float t = Mathf.InverseLerp(min, max, value);
             var track = new Rect(rect.x, rect.y + (rect.height - 4f) / 2f, rect.width, 4f);
-            DrawRoundedRect(track, Theme.MD3Theme.SurfaceContainerHigh, 2f);
+            DrawRoundedRect(track, trackFillColor, 2f);
             var fill = new Rect(track.x, track.y, track.width * t, track.height);
-            if (fill.width > 1f)
+            if (fill.width > 2f)
             {
-                DrawRoundedRect(fill, Theme.MD3Theme.Primary, 2f);
+                DrawRoundedRect(fill, primary, 2f);
             }
-            const float knobSize = 16f;
-            var knob = new Rect(track.x + t * track.width - knobSize / 2f, rect.y + (rect.height - knobSize) / 2f, knobSize, knobSize);
-            DrawRoundedRect(knob, Theme.MD3Theme.Primary, knobSize / 2f);   // 正方形 + 半边长圆角 = 圆形
-            DrawRoundedRect(knob.ContractedBy(3f), Theme.MD3Theme.Surface, (knobSize - 6f) / 2f);
 
-            // 交互：点击轨道跳转 / 按住拖动
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
+            // 交互：点击轨道跳转 / 按住拖动（MouseDrag 持续，拖出 rect 后仍跟随鼠标）
+            bool hovering = Mouse.IsOver(rect);
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && hovering)
             {
                 draggingSliderId = sliderId;
                 Event.current.Use();
@@ -358,59 +337,17 @@ namespace ModernExpandMenu.UI
                     Event.current.Use();
                 }
             }
-            return value;
-        }
 
-        /// <summary>
-        /// MD3 多段滑块（离散档位）：轨道 + 分段圆点，点击任意位置吸附到最近档位。
-        /// 用于"排列组合"类离散选项（如滚动收起策略的 2×2 组合）。
-        /// segmentCount 为档位数；返回 0~segmentCount-1 的新档位。
-        /// </summary>
-        public static int MD3SegmentSlider(Rect rect, int value, int segmentCount, int sliderId)
-        {
-            int count = Mathf.Max(2, segmentCount);
-            float centerY = rect.y + rect.height / 2f;
-            float padX = 10f;
-            var trackRect = new Rect(rect.x + padX, centerY - 1f, rect.width - padX * 2f, 2f);
-            float step = trackRect.width / (count - 1);
-
-            // 交互：点击轨道任意位置吸附到最近档位（含拖动跟随）
-            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
-            {
-                draggingSliderId = sliderId;
-                Event.current.Use();
-            }
-            if (draggingSliderId == sliderId)
-            {
-                if (Event.current.type == EventType.MouseDrag || Event.current.type == EventType.MouseDown)
-                {
-                    float localX = Mathf.Clamp(Event.current.mousePosition.x - trackRect.x, 0f, trackRect.width);
-                    value = Mathf.Clamp(Mathf.RoundToInt(localX / step), 0, count - 1);
-                    Event.current.Use();
-                }
-                if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
-                {
-                    draggingSliderId = -1;
-                    Event.current.Use();
-                }
-            }
-
-            // 绘制：轨道（已选区段主色填充）+ 分段圆点（当前档位主色高亮）
-            DrawRoundedRect(trackRect, Theme.MD3Theme.SurfaceContainerHigh, 1f);
-            if (value > 0)
-            {
-                DrawRoundedRect(new Rect(trackRect.x, trackRect.y, step * value, trackRect.height), Theme.MD3Theme.Primary, 1f);
-            }
-            for (int i = 0; i < count; i++)
-            {
-                var dot = new Rect(trackRect.x + step * i - 5f, centerY - 5f, 10f, 10f);
-                bool selected = i == value;
-                DrawRoundedRect(dot, selected ? Theme.MD3Theme.Primary : Theme.MD3Theme.SurfaceContainerHigh, 5f);
-                if (selected)
-                {
-                    DrawRoundedRect(dot.ContractedBy(2f), Theme.MD3Theme.Surface, 3f);
-                }
-            }
+            // 圆点：hover 或拖动时平滑放大高亮（安卓风格，方便吸附抓取）
+            bool active = hovering || draggingSliderId == sliderId;
+            float targetScale = active ? 1f : 0f;
+            float animated = sliderKnobScaleProgress.TryGetValue(sliderId, out float cur) ? cur : targetScale;
+            animated = Mathf.MoveTowards(animated, targetScale, Time.deltaTime * 10f);
+            sliderKnobScaleProgress[sliderId] = animated;
+            float knobSize = Mathf.Lerp(16f, 22f, animated);
+            var knob = new Rect(track.x + t * track.width - knobSize / 2f, rect.y + (rect.height - knobSize) / 2f, knobSize, knobSize);
+            DrawRoundedRect(knob, primary, knobSize / 2f);   // 正方形 + 半边长圆角 = 圆形
+            DrawRoundedRect(knob.ContractedBy(3f), Theme.MD3Theme.Surface, (knobSize - 6f) / 2f);
             return value;
         }
 
@@ -439,8 +376,9 @@ namespace ModernExpandMenu.UI
         // 无边框透明文本输入样式（仅文字，背景与描边环由 MD3 自绘；文字/光标颜色跟随主题，每帧更新）
         private static GUIStyle md3TextFieldStyle;
 
-        private static GUIStyle GetMd3TextFieldStyle()
+        private static GUIStyle GetMd3TextFieldStyle(Color? textColor = null)
         {
+            Color text = textColor ?? Theme.MD3Theme.OnSurface;
             if (md3TextFieldStyle == null)
             {
                 md3TextFieldStyle = new GUIStyle(GUI.skin.textField)
@@ -457,8 +395,8 @@ namespace ModernExpandMenu.UI
                 md3TextFieldStyle.focused.background = null;
                 md3TextFieldStyle.active.background = null;
             }
-            md3TextFieldStyle.normal.textColor = Theme.MD3Theme.OnSurface;
-            md3TextFieldStyle.focused.textColor = Theme.MD3Theme.OnSurface;
+            md3TextFieldStyle.normal.textColor = text;
+            md3TextFieldStyle.focused.textColor = text;
             return md3TextFieldStyle;
         }
 
@@ -471,23 +409,17 @@ namespace ModernExpandMenu.UI
             public int GetHashCode(GUIStyle style) => System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(style);
         }
 
-        // MD3 输入框背景纹理（深色圆角背景 + 边缘反色 20% 边框色），随主题背景色缓存重建
-        private static Texture2D md3TextFieldBgTexture;
-        private static Color md3TextFieldBgCacheColor;
+        // MD3 输入框背景纹理（深色圆角背景 + 边缘反色 20% 边框色），按背景色缓存（菜单色/杂项色各一份）
+        private static readonly Dictionary<Color, Texture2D> md3TextFieldBgTextureCache = new Dictionary<Color, Texture2D>();
 
-        private static Texture2D GetMd3TextFieldBgTexture()
+        private static Texture2D GetMd3TextFieldBgTexture(Color bg)
         {
-            Color bg = Theme.MD3Theme.SurfaceContainerHigh;
-            if (md3TextFieldBgTexture == null || md3TextFieldBgCacheColor != bg)
+            if (!md3TextFieldBgTextureCache.TryGetValue(bg, out Texture2D texture))
             {
-                if (md3TextFieldBgTexture != null)
-                {
-                    Object.Destroy(md3TextFieldBgTexture);
-                }
-                md3TextFieldBgTexture = CreateMd3TextFieldBgTexture(bg);
-                md3TextFieldBgCacheColor = bg;
+                texture = CreateMd3TextFieldBgTexture(bg);
+                md3TextFieldBgTextureCache[bg] = texture;
             }
-            return md3TextFieldBgTexture;
+            return texture;
         }
 
         /// <summary>生成 MD3 输入框背景纹理：深色圆角背景 + 边缘反色 20% 边框（64x64，9-slice 拉伸用）。</summary>
@@ -518,14 +450,20 @@ namespace ModernExpandMenu.UI
 
         /// <summary>
         /// 把原版输入框样式转换为 MD3 样式（克隆原始样式保留字号/字体）：深色圆角背景
-        /// + 反色 20% 边框（9-slice 纹理，随主题色重建）；文字/光标颜色跟随主题，每帧更新。
+        /// + 反色 20% 边框（9-slice 纹理，随配色缓存）；文字/光标颜色跟随配色，每帧更新。
         /// 供"原版输入框全部改为 MD3 样式"可选功能使用（Text.CurTextFieldStyle 全局替换）。
+        /// textColor / bgColor 可传入杂项配色（全局替换功能用），默认跟随扩展菜单主题色。
         /// </summary>
-        public static GUIStyle ToMd3TextFieldStyle(GUIStyle original)
+        public static GUIStyle ToMd3TextFieldStyle(GUIStyle original, Color? textColor = null, Color? bgColor = null)
         {
+            Color text = textColor ?? Theme.MD3Theme.OnSurface;
+            Color bg = bgColor ?? Theme.MD3Theme.SurfaceContainerHigh;
             if (original == null)
             {
-                return GetMd3TextFieldStyle();
+                GUIStyle fallback = GetMd3TextFieldStyle();
+                fallback.normal.textColor = text;
+                fallback.focused.textColor = text;
+                return fallback;
             }
             if (!md3TextFieldStyleCache.TryGetValue(original, out GUIStyle style))
             {
@@ -537,15 +475,16 @@ namespace ModernExpandMenu.UI
                     alignment = TextAnchor.MiddleLeft,
                     wordWrap = false
                 };
-                Texture2D background = GetMd3TextFieldBgTexture();
-                style.normal.background = background;
-                style.hover.background = background;
-                style.focused.background = background;
-                style.active.background = background;
                 md3TextFieldStyleCache[original] = style;
             }
-            style.normal.textColor = Theme.MD3Theme.OnSurface;
-            style.focused.textColor = Theme.MD3Theme.OnSurface;
+            // 背景纹理按当前配色缓存重建（切换配色时更新）
+            Texture2D background = GetMd3TextFieldBgTexture(bg);
+            style.normal.background = background;
+            style.hover.background = background;
+            style.focused.background = background;
+            style.active.background = background;
+            style.normal.textColor = text;
+            style.focused.textColor = text;
             return style;
         }
 
@@ -553,15 +492,18 @@ namespace ModernExpandMenu.UI
         /// MD3 文本输入框：深色圆角背景 + 主色描边环（valid 为 false 时红色描边），
         /// 内部用无边框透明样式的原生 GUI.TextField 输入（不叠加原版输入框外观，纯 MD3）。
         /// fieldId 用于区分多个输入框（控件名）；返回编辑后的文本。
+        /// primaryColor / bgColor / textColor 可传入杂项配色（全局替换功能用），默认跟随扩展菜单主题色。
         /// </summary>
-        public static string MD3TextField(Rect rect, string text, int fieldId, bool valid)
+        public static string MD3TextField(Rect rect, string text, int fieldId, bool valid, Color? primaryColor = null, Color? bgColor = null, Color? textColor = null)
         {
+            Color primary = primaryColor ?? Theme.MD3Theme.Primary;
+            Color bg = bgColor ?? Theme.MD3Theme.SurfaceContainerHigh;
             string controlName = "MD3TextField" + fieldId;
 
             // MD3 外观：深色圆角背景 + 主色描边环（描边环不填充内部，不覆盖文字）
-            DrawRoundedRect(rect, Theme.MD3Theme.SurfaceContainerHigh, 6f);
-            Color outline = valid ? Theme.MD3Theme.Primary : new Color(1f, 0.3f, 0.3f, 0.85f);
-            DrawRoundedRectOutline(rect, outline, 6f, 1.5f, Theme.MD3Theme.SurfaceContainerHigh);
+            DrawRoundedRect(rect, bg, 6f);
+            Color outline = valid ? primary : new Color(1f, 0.3f, 0.3f, 0.85f);
+            DrawRoundedRectOutline(rect, outline, 6f, 1.5f, bg);
 
             // 点击聚焦（聚焦后原生控件才接收键盘输入 / 显示光标）
             if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
@@ -570,7 +512,7 @@ namespace ModernExpandMenu.UI
             }
             GUI.SetNextControlName(controlName);
             Text.Font = GameFont.Small;   // 让 GUI.skin.font 使用游戏字体
-            return GUI.TextField(rect.ContractedBy(6f), text, GetMd3TextFieldStyle());
+            return GUI.TextField(rect.ContractedBy(6f), text, GetMd3TextFieldStyle(textColor));
         }
 
         /// <summary>

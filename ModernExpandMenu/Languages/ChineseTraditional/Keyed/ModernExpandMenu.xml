@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <ModernExpandMenu_ShowLoadingAnimation>顯示載入動畫（頂部緩衝條 + 環形進度 + 覆蓋層 + 逐條載入）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>懸停操作項時高亮目標物品並繪製發光箭頭</ModernExpandMenu_ShowHoverHighlight>
@@ -9,6 +9,8 @@
   <ModernExpandMenu_Md3StyleAllButtonsDesc>開啟後，遊戲中所有原版按鈕（確定/關閉/載入等）、複選框、tab 分頁與滾動條統一換成 MD3 圓角樣式，僅外觀變化，點擊/互動不變</ModernExpandMenu_Md3StyleAllButtonsDesc>
   <ModernExpandMenu_SkipUploadWait>跳過上傳等待倒計時</ModernExpandMenu_SkipUploadWait>
   <ModernExpandMenu_SkipUploadWaitDesc>跳過創意工坊上傳確認的 6 秒等待，立即可上傳</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_SpaceOnlyPauses>空白鍵僅暫停、不解除暫停</ModernExpandMenu_SpaceOnlyPauses>
+  <ModernExpandMenu_SpaceOnlyPausesDesc>開啟後，空白鍵只觸發暫停；已暫停時再按空白鍵不會解除，需用其他方式（暫停按鈕 / 選單）恢復</ModernExpandMenu_SpaceOnlyPausesDesc>
   <ModernExpandMenu_PreviewGroup>組 {0}</ModernExpandMenu_PreviewGroup>
   <ModernExpandMenu_PreviewItem>選項 {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>啟用模組（關閉後完全使用原版右鍵選單）</ModernExpandMenu_ModEnabled>
@@ -45,17 +47,16 @@
   <ModernExpandMenu_ColorScrollbarTrack>捲軸軌道</ModernExpandMenu_ColorScrollbarTrack>
   <ModernExpandMenu_ColorScrollbarThumb>捲軸滑塊</ModernExpandMenu_ColorScrollbarThumb>
   <ModernExpandMenu_ColorScrollbarThumbDragging>捲軸拖曳</ModernExpandMenu_ColorScrollbarThumbDragging>
-  <ModernExpandMenu_ResetConfirmTitle>恢復預設設定 - 確認變更</ModernExpandMenu_ResetConfirmTitle>
   <ModernExpandMenu_ResetSelectAll>全選</ModernExpandMenu_ResetSelectAll>
-  <ModernExpandMenu_ResetSelectNone>全不選</ModernExpandMenu_ResetSelectNone>
   <ModernExpandMenu_ResetInvert>反向選擇</ModernExpandMenu_ResetInvert>
   <ModernExpandMenu_ResetConfirm>確定恢復</ModernExpandMenu_ResetConfirm>
-  <ModernExpandMenu_ResetCancel>取消</ModernExpandMenu_ResetCancel>
   <ModernExpandMenu_PaletteTitle>調色盤</ModernExpandMenu_PaletteTitle>
   <ModernExpandMenu_PaletteAquaBlue>水影藍</ModernExpandMenu_PaletteAquaBlue>
   <ModernExpandMenu_PaletteCyberPurple>賽博紫</ModernExpandMenu_PaletteCyberPurple>
   <ModernExpandMenu_PaletteEmerald>翡翠綠</ModernExpandMenu_PaletteEmerald>
   <ModernExpandMenu_PaletteLavaOrange>熔岩橙</ModernExpandMenu_PaletteLavaOrange>
+  <ModernExpandMenu_PaletteRose>粉彩玫瑰</ModernExpandMenu_PaletteRose>
+  <ModernExpandMenu_PaletteIceBlue>冰雪藍</ModernExpandMenu_PaletteIceBlue>
   <ModernExpandMenu_ColorCopyHint>點擊色塊複製顏色</ModernExpandMenu_ColorCopyHint>
   <ModernExpandMenu_ColorPaste>貼上</ModernExpandMenu_ColorPaste>
   <ModernExpandMenu_TabAnimations>動畫</ModernExpandMenu_TabAnimations>
@@ -83,6 +84,8 @@
   <ModernExpandMenu_ResetSectionGeneral>常規</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>動畫</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>顏色</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetSectionMiscColors>雜項顏色</ModernExpandMenu_ResetSectionMiscColors>
+  <ModernExpandMenu_ResetSpaceOnlyPauses>空格僅暫停</ModernExpandMenu_ResetSpaceOnlyPauses>
   <ModernExpandMenu_ResetItemAppearDuration>單條滑入時長</ModernExpandMenu_ResetItemAppearDuration>
   <ModernExpandMenu_ResetItemAppearInterval>相鄰項間隔</ModernExpandMenu_ResetItemAppearInterval>
   <ModernExpandMenu_ResetPopAnimationDuration>彈出動畫時長</ModernExpandMenu_ResetPopAnimationDuration>
@@ -115,4 +118,75 @@
   <ModernExpandMenu_RenameConfigConfirm>重新命名</ModernExpandMenu_RenameConfigConfirm>
   <ModernExpandMenu_RenameConfigInvalid>名稱無效（為空或含非法字元）</ModernExpandMenu_RenameConfigInvalid>
   <ModernExpandMenu_RenameConfigExists>同名檔案已存在</ModernExpandMenu_RenameConfigExists>
+
+  <ModernExpandMenu_SettingsCategoryMenu>擴展選單</ModernExpandMenu_SettingsCategoryMenu>
+  <ModernExpandMenu_SettingsCategoryMisc>其他</ModernExpandMenu_SettingsCategoryMisc>
+  <ModernExpandMenu_SubTabPreview>預覽</ModernExpandMenu_SubTabPreview>
+  <ModernExpandMenu_OpenMenuPreviewWindow>開啟擴展選單預覽視窗</ModernExpandMenu_OpenMenuPreviewWindow>
+  <ModernExpandMenu_OpenMiscPreviewWindow>開啟雜項樣式預覽視窗</ModernExpandMenu_OpenMiscPreviewWindow>
+  <ModernExpandMenu_MenuPreviewTitle>擴展選單預覽</ModernExpandMenu_MenuPreviewTitle>
+  <ModernExpandMenu_MiscPreviewTitle>雜項樣式預覽</ModernExpandMenu_MiscPreviewTitle>
+  <ModernExpandMenu_MiscPreviewButtons>按鈕</ModernExpandMenu_MiscPreviewButtons>
+  <ModernExpandMenu_MiscPreviewButtonNormal>普通按鈕</ModernExpandMenu_MiscPreviewButtonNormal>
+  <ModernExpandMenu_MiscPreviewButtonEmphasized>強調按鈕</ModernExpandMenu_MiscPreviewButtonEmphasized>
+  <ModernExpandMenu_MiscPreviewSwitch>滑動開關</ModernExpandMenu_MiscPreviewSwitch>
+  <ModernExpandMenu_MiscPreviewSlider>滑塊</ModernExpandMenu_MiscPreviewSlider>
+  <ModernExpandMenu_MiscPreviewInput>輸入框</ModernExpandMenu_MiscPreviewInput>
+  <ModernExpandMenu_MiscPreviewScrollbar>滾動條</ModernExpandMenu_MiscPreviewScrollbar>
+  <ModernExpandMenu_MiscPreviewScrollItem>範例條目 {0}</ModernExpandMenu_MiscPreviewScrollItem>
+
+  <ModernExpandMenu_Md3StyleWindows>原版視窗邊框 MD3 化</ModernExpandMenu_Md3StyleWindows>
+  <ModernExpandMenu_Md3StyleWindowsDesc>開啟後，所有原版視窗使用 MD3 圓角卡片背景 + 主色描邊。僅改變外觀。</ModernExpandMenu_Md3StyleWindowsDesc>
+  <ModernExpandMenu_Md3StyleCommands>命令按鈕（徵召/解散/攻擊等）MD3 化</ModernExpandMenu_Md3StyleCommands>
+  <ModernExpandMenu_Md3StyleCommandsDesc>開啟後，底部命令欄按鈕（徵召、解散、攻擊及各類小工具按鈕）使用 MD3 圓角背景。僅改變外觀。</ModernExpandMenu_Md3StyleCommandsDesc>
+  <ModernExpandMenu_Md3StyleMenuSections>選單區塊 / 列表行 MD3 化</ModernExpandMenu_Md3StyleMenuSections>
+  <ModernExpandMenu_Md3StyleMenuSectionsDesc>開啟後，原版選單區塊與列表塊（藥物/食物限制、手術清單、文化列表等）使用 MD3 圓角卡片。僅改變外觀。</ModernExpandMenu_Md3StyleMenuSectionsDesc>
+  <ModernExpandMenu_Md3StyleSchedule>管制欄（時間表）MD3 化</ModernExpandMenu_Md3StyleSchedule>
+  <ModernExpandMenu_Md3StyleScheduleDesc>開啟後，時間表 tab 的管制按鈕使用 MD3 膠囊樣式，選中項主色填充。僅改變外觀。</ModernExpandMenu_Md3StyleScheduleDesc>
+  <ModernExpandMenu_Md3StyleInspectPane>資訊卡內容 MD3 化 + 修復欄重疊</ModernExpandMenu_Md3StyleInspectPane>
+  <ModernExpandMenu_Md3StyleInspectPaneDesc>開啟後，左下資訊卡內容使用 MD3 卡片背景，並修復狀態欄與標題區域重疊的問題。僅改變外觀。</ModernExpandMenu_Md3StyleInspectPaneDesc>
+  <ModernExpandMenu_Md3StyleStatistics>統計介面分組卡片美化</ModernExpandMenu_Md3StyleStatistics>
+  <ModernExpandMenu_Md3StyleStatisticsDesc>開啟後，歷史 tab 的統計數據頁面按分組顯示為 MD3 卡片（基礎/財富/襲擊/傷亡/結局）。僅改變外觀。</ModernExpandMenu_Md3StyleStatisticsDesc>
+  <ModernExpandMenu_Md3StyleIdeo>文化選單（文化行 + 模因大方塊）MD3 化</ModernExpandMenu_Md3StyleIdeo>
+  <ModernExpandMenu_Md3StyleIdeoDesc>開啟後，文化 tab 的文化行與模因大方塊使用 MD3 圓角描邊（選中項主色）。僅改變外觀。</ModernExpandMenu_Md3StyleIdeoDesc>
+  <ModernExpandMenu_ResetMd3StyleWindows>原版視窗邊框 MD3 化</ModernExpandMenu_ResetMd3StyleWindows>
+  <ModernExpandMenu_ResetMd3StyleCommands>命令按鈕 MD3 化</ModernExpandMenu_ResetMd3StyleCommands>
+  <ModernExpandMenu_ResetMd3StyleMenuSections>選單區塊/列表行 MD3 化</ModernExpandMenu_ResetMd3StyleMenuSections>
+  <ModernExpandMenu_ResetMd3StyleSchedule>管制欄 MD3 化</ModernExpandMenu_ResetMd3StyleSchedule>
+  <ModernExpandMenu_ResetMd3StyleInspectPane>資訊卡 MD3 化</ModernExpandMenu_ResetMd3StyleInspectPane>
+  <ModernExpandMenu_ResetMd3StyleStatistics>統計介面 MD3 卡片</ModernExpandMenu_ResetMd3StyleStatistics>
+  <ModernExpandMenu_ResetMd3StyleIdeo>文化選單 MD3 化</ModernExpandMenu_ResetMd3StyleIdeo>
+  <ModernExpandMenu_StatsGroupBasics>基礎</ModernExpandMenu_StatsGroupBasics>
+  <ModernExpandMenu_StatsGroupWealth>財富</ModernExpandMenu_StatsGroupWealth>
+  <ModernExpandMenu_StatsGroupRaids>襲擊</ModernExpandMenu_StatsGroupRaids>
+  <ModernExpandMenu_StatsGroupCasualties>傷亡</ModernExpandMenu_StatsGroupCasualties>
+  <ModernExpandMenu_StatsGroupEnding>結局</ModernExpandMenu_StatsGroupEnding>
+
+  <ModernExpandMenu_MiscPreviewWindows>視窗邊框</ModernExpandMenu_MiscPreviewWindows>
+  <ModernExpandMenu_MiscPreviewWindowSampleTitle>範例視窗</ModernExpandMenu_MiscPreviewWindowSampleTitle>
+  <ModernExpandMenu_MiscPreviewWindowSample>MD3 圓角卡片 + 主色描邊</ModernExpandMenu_MiscPreviewWindowSample>
+  <ModernExpandMenu_MiscPreviewCommands>命令按鈕</ModernExpandMenu_MiscPreviewCommands>
+  <ModernExpandMenu_MiscPreviewCmdDraft>徵召</ModernExpandMenu_MiscPreviewCmdDraft>
+  <ModernExpandMenu_MiscPreviewCmdResign>解散</ModernExpandMenu_MiscPreviewCmdResign>
+  <ModernExpandMenu_MiscPreviewCmdAttack>攻擊</ModernExpandMenu_MiscPreviewCmdAttack>
+  <ModernExpandMenu_MiscPreviewCmdPrioritize>優先工作</ModernExpandMenu_MiscPreviewCmdPrioritize>
+  <ModernExpandMenu_MiscPreviewMenuSections>選單區塊 / 列表行</ModernExpandMenu_MiscPreviewMenuSections>
+  <ModernExpandMenu_MiscPreviewMenuRow>列表條目 {0}</ModernExpandMenu_MiscPreviewMenuRow>
+  <ModernExpandMenu_MiscPreviewSchedule>管制欄（時間表）</ModernExpandMenu_MiscPreviewSchedule>
+  <ModernExpandMenu_MiscPreviewInspectPane>資訊卡</ModernExpandMenu_MiscPreviewInspectPane>
+  <ModernExpandMenu_MiscPreviewInspectTitle>鋼錠</ModernExpandMenu_MiscPreviewInspectTitle>
+  <ModernExpandMenu_MiscPreviewInspectText>耐久 45/60\n質量：普通\n未燃燒</ModernExpandMenu_MiscPreviewInspectText>
+  <ModernExpandMenu_MiscPreviewStatistics>統計卡片</ModernExpandMenu_MiscPreviewStatistics>
+  <ModernExpandMenu_MiscPreviewIdeo>文化選單</ModernExpandMenu_MiscPreviewIdeo>
+  <ModernExpandMenu_MiscPreviewIdeoName>部落文化</ModernExpandMenu_MiscPreviewIdeoName>
+  <ModernExpandMenu_MiscPreviewMemeName>個人主義</ModernExpandMenu_MiscPreviewMemeName>
+  <ModernExpandMenu_ClickToEditHint>點擊編輯</ModernExpandMenu_ClickToEditHint>
+  <ModernExpandMenu_LivePreviewTitle>即時預覽</ModernExpandMenu_LivePreviewTitle>
+  <ModernExpandMenu_PreviewMenuTab>擴展選單</ModernExpandMenu_PreviewMenuTab>
+  <ModernExpandMenu_PreviewMiscTab>雜項</ModernExpandMenu_PreviewMiscTab>
+  <ModernExpandMenu_MiscPreviewWindowTitle>模擬設定視窗</ModernExpandMenu_MiscPreviewWindowTitle>
+  <ModernExpandMenu_MiscPreviewTabOverview>概況</ModernExpandMenu_MiscPreviewTabOverview>
+  <ModernExpandMenu_MiscPreviewTabSurgery>手術</ModernExpandMenu_MiscPreviewTabSurgery>
+  <ModernExpandMenu_MiscPreviewDropdownLabel>食物方案</ModernExpandMenu_MiscPreviewDropdownLabel>
+  <ModernExpandMenu_MiscPreviewDropdownValue>無限制</ModernExpandMenu_MiscPreviewDropdownValue>
 </LanguageData>

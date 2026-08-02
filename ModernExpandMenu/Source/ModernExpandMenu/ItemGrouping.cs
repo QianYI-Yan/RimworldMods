@@ -44,9 +44,6 @@ namespace ModernExpandMenu
         public float disappearTime = -1f;  // 组标题消失动画开始时间（realtimeSinceStartup，-1=未安排）
         public bool hasAppeared;           // 是否已完成出现动画（滚动进出时播放出现/消失动画）
 
-        public bool subItemsEverAppeared;  // 该组子项目是否曾排定过出现动画（滚动回归加速检测用）
-        public bool subItemsAccelerated;   // 当前子项目是否处于回归加速模式（动画时长/间隔缩短）
-
         public List<ItemActionEntry> actions = new List<ItemActionEntry>();
 
         public List<Thing> pendingItems = new List<Thing>();   // 待分帧生成操作的物品实例
@@ -100,11 +97,11 @@ namespace ModernExpandMenu
                     .Sum(thing => thing.stackCount);
             }
 
-            // 物品组按名称排序，"其他"组置于末尾
+            // 物品组按名称排序；"其他"根组置于最上方（非物品操作置顶，用户要求）
             groups.Sort((a, b) => string.Compare(a.headerLabel, b.headerLabel, StringComparison.Ordinal));
             if (otherGroup.actions.Count > 0)
             {
-                groups.Add(otherGroup);
+                groups.Insert(0, otherGroup);
             }
             return groups;
         }

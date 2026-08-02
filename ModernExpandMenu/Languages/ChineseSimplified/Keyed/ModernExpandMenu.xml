@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
   <ModernExpandMenu_ShowLoadingAnimation>显示加载动画（顶部缓冲条 + 环形进度 + 覆盖层 + 逐条载入）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>悬停操作项时高亮目标物品并绘制发光箭头</ModernExpandMenu_ShowHoverHighlight>
@@ -9,6 +9,8 @@
   <ModernExpandMenu_Md3StyleAllButtonsDesc>开启后，游戏中所有原版按钮（确定/关闭/载入等）、复选框、tab 分页与滚动条统一换成 MD3 圆角样式，仅外观变化，点击/交互不变</ModernExpandMenu_Md3StyleAllButtonsDesc>
   <ModernExpandMenu_SkipUploadWait>跳过上传等待倒计时</ModernExpandMenu_SkipUploadWait>
   <ModernExpandMenu_SkipUploadWaitDesc>跳过创意工坊上传确认的 6 秒等待，立即可上传</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_SpaceOnlyPauses>空格仅暂停、不解除暂停</ModernExpandMenu_SpaceOnlyPauses>
+  <ModernExpandMenu_SpaceOnlyPausesDesc>开启后，空格键只触发暂停；已暂停时再按空格不会解除，需用其他方式（暂停按钮 / 菜单）恢复</ModernExpandMenu_SpaceOnlyPausesDesc>
   <ModernExpandMenu_PreviewGroup>组 {0}</ModernExpandMenu_PreviewGroup>
   <ModernExpandMenu_PreviewItem>选项 {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>启用模组（关闭后完全使用原版右键菜单）</ModernExpandMenu_ModEnabled>
@@ -45,12 +47,9 @@
   <ModernExpandMenu_ColorScrollbarTrack>滚动条轨道</ModernExpandMenu_ColorScrollbarTrack>
   <ModernExpandMenu_ColorScrollbarThumb>滚动条滑块</ModernExpandMenu_ColorScrollbarThumb>
   <ModernExpandMenu_ColorScrollbarThumbDragging>滚动条拖动</ModernExpandMenu_ColorScrollbarThumbDragging>
-  <ModernExpandMenu_ResetConfirmTitle>恢复默认设置 - 确认改动</ModernExpandMenu_ResetConfirmTitle>
   <ModernExpandMenu_ResetSelectAll>全选</ModernExpandMenu_ResetSelectAll>
-  <ModernExpandMenu_ResetSelectNone>全不选</ModernExpandMenu_ResetSelectNone>
   <ModernExpandMenu_ResetInvert>反选</ModernExpandMenu_ResetInvert>
   <ModernExpandMenu_ResetConfirm>确定恢复</ModernExpandMenu_ResetConfirm>
-  <ModernExpandMenu_ResetCancel>取消</ModernExpandMenu_ResetCancel>
   <ModernExpandMenu_PaletteTitle>调色板</ModernExpandMenu_PaletteTitle>
   <ModernExpandMenu_PaletteAquaBlue>水影蓝</ModernExpandMenu_PaletteAquaBlue>
   <ModernExpandMenu_PaletteCyberPurple>赛博紫</ModernExpandMenu_PaletteCyberPurple>
@@ -85,6 +84,8 @@
   <ModernExpandMenu_ResetSectionGeneral>常规</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>动画</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>颜色</ModernExpandMenu_ResetSectionColors>
+  <ModernExpandMenu_ResetSectionMiscColors>杂项颜色</ModernExpandMenu_ResetSectionMiscColors>
+  <ModernExpandMenu_ResetSpaceOnlyPauses>空格仅暂停</ModernExpandMenu_ResetSpaceOnlyPauses>
   <ModernExpandMenu_ResetItemAppearDuration>单条滑入时长</ModernExpandMenu_ResetItemAppearDuration>
   <ModernExpandMenu_ResetItemAppearInterval>相邻项间隔</ModernExpandMenu_ResetItemAppearInterval>
   <ModernExpandMenu_ResetPopAnimationDuration>弹出动画时长</ModernExpandMenu_ResetPopAnimationDuration>
@@ -117,4 +118,75 @@
   <ModernExpandMenu_RenameConfigConfirm>重命名</ModernExpandMenu_RenameConfigConfirm>
   <ModernExpandMenu_RenameConfigInvalid>名称无效（为空或含非法字符）</ModernExpandMenu_RenameConfigInvalid>
   <ModernExpandMenu_RenameConfigExists>同名文件已存在</ModernExpandMenu_RenameConfigExists>
+
+  <ModernExpandMenu_SettingsCategoryMenu>扩展菜单</ModernExpandMenu_SettingsCategoryMenu>
+  <ModernExpandMenu_SettingsCategoryMisc>其他</ModernExpandMenu_SettingsCategoryMisc>
+  <ModernExpandMenu_SubTabPreview>预览</ModernExpandMenu_SubTabPreview>
+  <ModernExpandMenu_OpenMenuPreviewWindow>打开扩展菜单预览窗口</ModernExpandMenu_OpenMenuPreviewWindow>
+  <ModernExpandMenu_OpenMiscPreviewWindow>打开杂项样式预览窗口</ModernExpandMenu_OpenMiscPreviewWindow>
+  <ModernExpandMenu_MenuPreviewTitle>扩展菜单预览</ModernExpandMenu_MenuPreviewTitle>
+  <ModernExpandMenu_MiscPreviewTitle>杂项样式预览</ModernExpandMenu_MiscPreviewTitle>
+  <ModernExpandMenu_MiscPreviewButtons>按钮</ModernExpandMenu_MiscPreviewButtons>
+  <ModernExpandMenu_MiscPreviewButtonNormal>普通按钮</ModernExpandMenu_MiscPreviewButtonNormal>
+  <ModernExpandMenu_MiscPreviewButtonEmphasized>强调按钮</ModernExpandMenu_MiscPreviewButtonEmphasized>
+  <ModernExpandMenu_MiscPreviewSwitch>滑动开关</ModernExpandMenu_MiscPreviewSwitch>
+  <ModernExpandMenu_MiscPreviewSlider>滑块</ModernExpandMenu_MiscPreviewSlider>
+  <ModernExpandMenu_MiscPreviewInput>输入框</ModernExpandMenu_MiscPreviewInput>
+  <ModernExpandMenu_MiscPreviewScrollbar>滚动条</ModernExpandMenu_MiscPreviewScrollbar>
+  <ModernExpandMenu_MiscPreviewScrollItem>示例条目 {0}</ModernExpandMenu_MiscPreviewScrollItem>
+
+  <ModernExpandMenu_Md3StyleWindows>原版窗口边框 MD3 化</ModernExpandMenu_Md3StyleWindows>
+  <ModernExpandMenu_Md3StyleWindowsDesc>开启后，所有原版窗口使用 MD3 圆角卡片背景 + 主色描边。仅改变外观。</ModernExpandMenu_Md3StyleWindowsDesc>
+  <ModernExpandMenu_Md3StyleCommands>命令按钮（征召/解散/攻击等）MD3 化</ModernExpandMenu_Md3StyleCommands>
+  <ModernExpandMenu_Md3StyleCommandsDesc>开启后，底部命令栏按钮（征召、解散、攻击及各类小工具按钮）使用 MD3 圆角背景。仅改变外观。</ModernExpandMenu_Md3StyleCommandsDesc>
+  <ModernExpandMenu_Md3StyleMenuSections>菜单区块 / 列表行 MD3 化</ModernExpandMenu_Md3StyleMenuSections>
+  <ModernExpandMenu_Md3StyleMenuSectionsDesc>开启后，原版菜单区块与列表块（药物/食物限制、手术清单、文化列表等）使用 MD3 圆角卡片。仅改变外观。</ModernExpandMenu_Md3StyleMenuSectionsDesc>
+  <ModernExpandMenu_Md3StyleSchedule>管制栏（时间表）MD3 化</ModernExpandMenu_Md3StyleSchedule>
+  <ModernExpandMenu_Md3StyleScheduleDesc>开启后，时间表 tab 的管制按钮使用 MD3 胶囊样式，选中项主色填充。仅改变外观。</ModernExpandMenu_Md3StyleScheduleDesc>
+  <ModernExpandMenu_Md3StyleInspectPane>信息卡内容 MD3 化 + 修复栏重叠</ModernExpandMenu_Md3StyleInspectPane>
+  <ModernExpandMenu_Md3StyleInspectPaneDesc>开启后，左下信息卡内容使用 MD3 卡片背景，并修复状态栏与标题区域重叠的问题。仅改变外观。</ModernExpandMenu_Md3StyleInspectPaneDesc>
+  <ModernExpandMenu_Md3StyleStatistics>统计界面分组卡片美化</ModernExpandMenu_Md3StyleStatistics>
+  <ModernExpandMenu_Md3StyleStatisticsDesc>开启后，历史 tab 的统计数据页面按分组显示为 MD3 卡片（基础/财富/袭击/伤亡/结局）。仅改变外观。</ModernExpandMenu_Md3StyleStatisticsDesc>
+  <ModernExpandMenu_Md3StyleIdeo>文化菜单（文化行 + 模因大方块）MD3 化</ModernExpandMenu_Md3StyleIdeo>
+  <ModernExpandMenu_Md3StyleIdeoDesc>开启后，文化 tab 的文化行与模因大方块使用 MD3 圆角描边（选中项主色）。仅改变外观。</ModernExpandMenu_Md3StyleIdeoDesc>
+  <ModernExpandMenu_ResetMd3StyleWindows>原版窗口边框 MD3 化</ModernExpandMenu_ResetMd3StyleWindows>
+  <ModernExpandMenu_ResetMd3StyleCommands>命令按钮 MD3 化</ModernExpandMenu_ResetMd3StyleCommands>
+  <ModernExpandMenu_ResetMd3StyleMenuSections>菜单区块/列表行 MD3 化</ModernExpandMenu_ResetMd3StyleMenuSections>
+  <ModernExpandMenu_ResetMd3StyleSchedule>管制栏 MD3 化</ModernExpandMenu_ResetMd3StyleSchedule>
+  <ModernExpandMenu_ResetMd3StyleInspectPane>信息卡 MD3 化</ModernExpandMenu_ResetMd3StyleInspectPane>
+  <ModernExpandMenu_ResetMd3StyleStatistics>统计界面 MD3 卡片</ModernExpandMenu_ResetMd3StyleStatistics>
+  <ModernExpandMenu_ResetMd3StyleIdeo>文化菜单 MD3 化</ModernExpandMenu_ResetMd3StyleIdeo>
+  <ModernExpandMenu_StatsGroupBasics>基础</ModernExpandMenu_StatsGroupBasics>
+  <ModernExpandMenu_StatsGroupWealth>财富</ModernExpandMenu_StatsGroupWealth>
+  <ModernExpandMenu_StatsGroupRaids>袭击</ModernExpandMenu_StatsGroupRaids>
+  <ModernExpandMenu_StatsGroupCasualties>伤亡</ModernExpandMenu_StatsGroupCasualties>
+  <ModernExpandMenu_StatsGroupEnding>结局</ModernExpandMenu_StatsGroupEnding>
+
+  <ModernExpandMenu_MiscPreviewWindows>窗口边框</ModernExpandMenu_MiscPreviewWindows>
+  <ModernExpandMenu_MiscPreviewWindowSampleTitle>示例窗口</ModernExpandMenu_MiscPreviewWindowSampleTitle>
+  <ModernExpandMenu_MiscPreviewWindowSample>MD3 圆角卡片 + 主色描边</ModernExpandMenu_MiscPreviewWindowSample>
+  <ModernExpandMenu_MiscPreviewCommands>命令按钮</ModernExpandMenu_MiscPreviewCommands>
+  <ModernExpandMenu_MiscPreviewCmdDraft>征召</ModernExpandMenu_MiscPreviewCmdDraft>
+  <ModernExpandMenu_MiscPreviewCmdResign>解散</ModernExpandMenu_MiscPreviewCmdResign>
+  <ModernExpandMenu_MiscPreviewCmdAttack>攻击</ModernExpandMenu_MiscPreviewCmdAttack>
+  <ModernExpandMenu_MiscPreviewCmdPrioritize>优先工作</ModernExpandMenu_MiscPreviewCmdPrioritize>
+  <ModernExpandMenu_MiscPreviewMenuSections>菜单区块 / 列表行</ModernExpandMenu_MiscPreviewMenuSections>
+  <ModernExpandMenu_MiscPreviewMenuRow>列表条目 {0}</ModernExpandMenu_MiscPreviewMenuRow>
+  <ModernExpandMenu_MiscPreviewSchedule>管制栏（时间表）</ModernExpandMenu_MiscPreviewSchedule>
+  <ModernExpandMenu_MiscPreviewInspectPane>信息卡</ModernExpandMenu_MiscPreviewInspectPane>
+  <ModernExpandMenu_MiscPreviewInspectTitle>钢锭</ModernExpandMenu_MiscPreviewInspectTitle>
+  <ModernExpandMenu_MiscPreviewInspectText>耐久 45/60\n质量：普通\n未燃烧</ModernExpandMenu_MiscPreviewInspectText>
+  <ModernExpandMenu_MiscPreviewStatistics>统计卡片</ModernExpandMenu_MiscPreviewStatistics>
+  <ModernExpandMenu_MiscPreviewIdeo>文化菜单</ModernExpandMenu_MiscPreviewIdeo>
+  <ModernExpandMenu_MiscPreviewIdeoName>部落文化</ModernExpandMenu_MiscPreviewIdeoName>
+  <ModernExpandMenu_MiscPreviewMemeName>个人主义</ModernExpandMenu_MiscPreviewMemeName>
+  <ModernExpandMenu_ClickToEditHint>点击编辑</ModernExpandMenu_ClickToEditHint>
+  <ModernExpandMenu_LivePreviewTitle>实时预览</ModernExpandMenu_LivePreviewTitle>
+  <ModernExpandMenu_PreviewMenuTab>扩展菜单</ModernExpandMenu_PreviewMenuTab>
+  <ModernExpandMenu_PreviewMiscTab>杂项</ModernExpandMenu_PreviewMiscTab>
+  <ModernExpandMenu_MiscPreviewWindowTitle>模拟设置窗口</ModernExpandMenu_MiscPreviewWindowTitle>
+  <ModernExpandMenu_MiscPreviewTabOverview>概况</ModernExpandMenu_MiscPreviewTabOverview>
+  <ModernExpandMenu_MiscPreviewTabSurgery>手术</ModernExpandMenu_MiscPreviewTabSurgery>
+  <ModernExpandMenu_MiscPreviewDropdownLabel>食物方案</ModernExpandMenu_MiscPreviewDropdownLabel>
+  <ModernExpandMenu_MiscPreviewDropdownValue>无限制</ModernExpandMenu_MiscPreviewDropdownValue>
 </LanguageData>

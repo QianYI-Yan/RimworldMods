@@ -1,4 +1,5 @@
 using HarmonyLib;
+using ModernExpandMenu.Theme;
 using ModernExpandMenu.UI;
 using UnityEngine;
 using Verse;
@@ -16,10 +17,10 @@ namespace ModernExpandMenu
     {
         public static void Postfix(ref GUIStyle __result)
         {
-            // 开关开启：把原版输入框样式换成 MD3 无边框透明样式（仅外观，输入行为不变）
+            // 开关开启：把原版输入框样式换成 MD3 无边框透明样式（仅外观，输入行为不变，用杂项配色）
             if (ModernExpandMenuMod.Settings.md3StyleAllInputs)
             {
-                __result = MD3Widgets.ToMd3TextFieldStyle(__result);
+                __result = MD3Widgets.ToMd3TextFieldStyle(__result, MiscTheme.OnSurface, MiscTheme.SurfaceContainerHigh);
             }
         }
     }

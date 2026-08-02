@@ -237,3 +237,70 @@
 - 新增翻译键：`TabMisc` / `MiscGlobalStyle` / `SkipUploadWait`(+Desc) / `ResetSkipUploadWait` × 9 语言；构建部署验证通过
 
 
+## 滑动开关安卓曲线 + 空格仅暂停（2026-08-02）
+- **滑动开关圆点动画改安卓 ease-out 曲线**：`MD3ToggleSwitch` 与 `Patch_CheckboxDraw` 圆点用 `animated += (target - animated) * Mathf.Min(1f, Time.deltaTime * 14f)` + 阈值收敛（快速起步、指数减速到位），替换原先的线性 MoveTowards
+- **空格仅暂停、不解除暂停**：新设置 `spaceOnlyPauses`（默认关）；新 `Patch_SpaceOnlyPause.cs` `Prefix(TickManager.TogglePause)`（AccessTools.Method 定位），开关开启且 `__instance.Paused && KeyBindingDefOf.TogglePause.KeyDownEvent` 时 return false（空格不解除暂停）；翻译键 `SpaceOnlyPauses`(+Desc) + 重置项
+- 构建部署验证通过
+
+## 设置两大类重构 + 杂项配色 + 独立预览窗口（2026-08-02）
+- **设置界面两大类**：「扩展菜单」|「其他」（`settingsCategory`），各含子 tab：
+  - 扩展菜单类：常规 / 动画 / 颜色 / 预览
+  - 其他类：全局样式 / 颜色 / 预览
+- **两套独立配色**：扩展菜单配色（`color*`，MD3Theme，右键菜单用）+ 杂项配色（`miscColor*`，新 `Theme/MiscTheme.cs`，全局 MD3 替换功能用）；各自独立调色板 / 16 进制自定义 / 恢复默认分组（`ResetSectionMiscColors`）
+- **全局 MD3 patch 改用杂项色**：`Patch_Md3StyleAllButtons`（按钮/复选框/tab/滚动条/滑块数值框）与 `Patch_Md3StyleAllInputs`（输入框）全部从 MD3Theme 切换为 MiscTheme
+- **MD3Widgets 支持可选配色**：`DrawHoverState` / `MD3Slider` / `MD3ToggleSwitch` / `MD3TextField` / `ToMd3TextFieldStyle` / `GetMd3TextFieldStyle` 增加可选色参数（默认菜单色）；输入框背景纹理改字典缓存（菜单色/杂项色各一份）
+- **预览移出设置界面**（不再占左侧固定栏）：设置内"预览"子 tab 提供按钮打开**独立窗口**
+  - `Dialog_MenuPreview.cs`：可交互模拟右键分组菜单（MenuPreviewWidget，菜单配色）
+  - `Dialog_MiscPreview.cs`：杂项控件样式预览（按钮/开关/滑块/输入框/滚动条，杂项配色）
+- **恢复默认对话框**：补 `ResetSpaceOnlyPauses` 项 + `ResetSectionMiscColors` 分组（13 项杂项色）
+- 语言精简为 3 种（English/ChineseSimplified/ChineseTraditional）；新增键：`SettingsCategoryMenu`/`SettingsCategoryMisc`/`SubTabPreview`/`OpenMenuPreviewWindow`/`OpenMiscPreviewWindow`/`MenuPreviewTitle`/`MiscPreviewTitle`/`MiscPreview*`（控件演示）等
+- 构建部署验证通过
+
+## 原版 UI 可选 MD3 化（第三批，2026-08-02）
+- **tab 黑线修复**：MD3 胶囊 tab 相邻圆角透明接缝透出背景 → 每个 tab 先画整格 tab 栏背景（表面高色）再画胶囊（选中主色覆盖），消除接缝黑线
+- **输入框 / 滚动条取色**：全局输入框（`Patch_Md3StyleAllInputs`）与全局滚动条（`Patch_BeginScrollView`）已全部改用**杂项配色**（`MiscTheme`），在设置「其他 → 颜色」独立自定义
+- 新 `Patch_Md3StyleMore.cs`（全部可选开关，默认关，仅改外观不改交互）：
+  - `md3StyleWindows`：patch `Widgets.DrawWindowBackground` → MD3 圆角表面卡片 + 主色描边（所有原版窗口）
+  - `md3StyleCommands`：patch `Command.BGTexture`/`BGTextureShrunk` getter → MD3 圆角背景纹理（征召/解散/攻击等底部命令按钮）
+  - `md3StyleMenuSections`：patch `Widgets.DrawMenuSection` → MD3 圆角卡片（药物/食物限制、手术清单、文化列表等区块）
+  - `md3StyleSchedule`：patch `TimeAssignmentSelector.DrawTimeAssignmentSelectorFor` → MD3 胶囊（选中主色 + 白色文字）
+  - `md3StyleInspectPane`：patch `InspectPaneFiller.DoPaneContentsFor`（内容 MD3 卡片背景）+ **Transpiler 修栏重叠**（`InspectPaneOnGUI` 内容起始 y 26f → 52f，标题区 50f 原先与内容重叠）
+  - `md3StyleStatistics`：重写 `MainTabWindow_History.DoStatisticsPage`（private，TargetMethod）→ MD3 分组卡片（基础/财富/袭击/伤亡/结局，`DrawStatsCard`）
+  - `md3StyleIdeo`：patch `IdeoUIUtility.DoMeme`（模因大方块圆角描边，选中主色）+ `DrawIdeoRow`（文化行描边 + hover 主色层，注意 out bool 参数需 `ref bool` 匹配）
+- 1.6 类型名勘误（旧版资料过时）：信息卡 = `InspectPaneFiller`/`InspectPaneUtility`/`IInspectPane`（无 `InspectPane` 类）；手术 = `ITab_Pawn_Health` + `HealthCardUtility`；食物限制 = `Dialog_ManageFoodPolicies`（非 FoodRestrictions）；文化 = `IdeoUIUtility`/`MainTabWindow_Ideos`；模因 = `MemeDef`（无 `Meme` 类）；统计 = `MainTabWindow_History`（无 Overview）；`IdeoUIUtility.selected`（非 selectedIdeo）
+- **dnSpy 反编译经验**：`-t` 需精确类名（用 PowerShell 反射 `GetTypes()` 确认存在性与完整名），带 `_` 的类名有时匹配失败（如 MainTabWindow_Schedule），用完整命名空间 `RimWorld.xxx` 可解决大部分；MCP `read_csharp_symbol` 索引已部分恢复（InspectPaneUtility/MainTabWindow_Ideos/Dialog_ManageFoodPolicies 等可查）
+- 新增 7 组开关 + 7 个重置项 + 5 个统计分组标题键 × 3 语言；全局样式卡片扩为 11 行；构建部署验证通过
+
+## 杂项预览窗口覆盖全部杂项 UI 样式（2026-08-02）
+- `Dialog_MiscPreview` 从「按钮/开关/滑块/输入框/滚动条」5 区扩展为**覆盖全部 7 个原版 UI MD3 化**的完整预览（改为滚动视口，720x680，主视口 id 504 + 滚动条演示子视口 id 505，独立滚动位置字段 `scrollbarPreviewPosition`）
+- 新增预览区：窗口边框（md3StyleWindows 圆角卡片+描边示意）、命令按钮（md3StyleCommands 一排 MD3 圆角按钮+图标占位+hover）、菜单区块/列表行（md3StyleMenuSections 区块+3 行）、管制栏（md3StyleSchedule 5 个胶囊可点击切换，`scheduleSelectedIndex`）、信息卡（md3StyleInspectPane 标题+状态条+文本卡片）、统计卡片（md3StyleStatistics 财富分组卡片，复用原版财富键）、文化菜单（md3StyleIdeo 文化行选中主色描边 + 模因大方块）
+- 注意：访问实例字段的辅助方法（DrawSchedulePreview / DrawScrollbarPreview）须为**实例方法**（CS0120）；其余静态
+- 新增 17 个预览翻译键 × 3 语言（MiscPreviewWindows/Commands/MenuSections/MenuRow/Schedule/InspectPane/InspectTitle/InspectText/Statistics/Ideo/IdeoName/MemeName/WindowSample*/Cmd*）；构建部署验证通过
+
+## 日志排障：About.xml & 与 TogglePaused 方法名（2026-08-02）
+- **About.xml 裸 & 导致 packageId 丢失**：更新描述时写入未转义的 `&`（menu palette & misc palette 等），XML 解析失败（EntityName 错误）→ 整个 About 加载默认值 → 游戏报 missing packageId。修复：`&` → `&amp;`（3 处）；顺带英文语言文件 `Md3StyleAllButtons` 裸 `&` 一并修复。教训：**About.xml / 语言 XML 中写 `&` 必须转义**
+- **致命：`TickManager.TogglePause` 在 1.6 不存在 → 模组实例化失败**：`Patch_SpaceOnlyPause.TargetMethod()`（`AccessTools.Method` 定位）返回 null → HarmonyException → `Error while instantiating a mod`，整个模组加载失败。1.6 实际方法是 **`TogglePaused`**（实例、public）。修复方法名后正常
+- **教训**：所有 `AccessTools.Method` / `TargetMethod` 定位的目标必须先用反射（PowerShell `GetTypes()` + `GetMethod/GetProperty`）验证存在性与可见性；Harmony 特性 patch 找不到目标方法同样会导致 PatchAll 抛异常使模组无法加载
+- 已用反射验证全部 patch 目标存在：TickManager.TogglePaused、Widgets.HorizontalSlider（重载用 Type[] 精确定位）、Dialog_MessageBox.InteractionDelayExpired（属性）、TimeAssignmentSelector.DrawTimeAssignmentSelectorFor、MainTabWindow_History.DoStatisticsPage、IdeoUIUtility.DrawIdeoRow/DoMeme、Widgets.DrawWindowBackground/DrawMenuSection/DrawButtonGraphic/CheckboxDraw/BeginScrollView、TabRecord.Draw、Command.BGTexture(Shrunk)、InspectPaneFiller.DoPaneContentsFor、InspectPaneUtility.InspectPaneOnGUI、Text.CurTextFieldStyle；构建部署验证通过
+
+## 两大根组 + 声音滑块 + 文化/列表界面适配（2026-08-02）
+- **右键菜单两大根组**：`BuildGroups` 中「其他」根组由末尾改为**置顶**（`groups.Insert(0, otherGroup)`）；窗口构造中**其他组默认全展开**（加入 `expandedTargets`），物品组保持默认折叠（显示组标题、子项点击展开）
+- **声音设置滑块 MD3（图2）**：原版声音设置用 `Listing_Standard.SliderLabeled` → **返回值版** `Widgets.HorizontalSlider(Rect, float, float, float, bool, string, string, string, float)`（非 ref 版），原 ref 版 patch 不覆盖。新增 `Patch_VanillaSliderReturn`（Prefix，`ref __result` 设返回值），与原版一致处理 label 下移与上方标签绘制
+- **食物/医药限制、手术清单适配（图4）**：`md3StyleMenuSections` 扩展触发 `DrawButtonGraphic` 与 `TabRecord.Draw` 的 MD3 化（原仅 `md3StyleAllButtons`）——开「菜单区块/列表行」即可让药物/食物限制下拉（Dropdown→ButtonTextDraggable→DrawButtonGraphic）、健康卡「概况/手术」tab（TabDrawer→TabRecord.Draw）、手术清单（AddBill 按钮 + DrawMenuSection 左栏）全部 MD3
+- **文化菜单 MD3（图1）**：模因大方块改为 **Prefix 完整重写** `IdeoUIUtility.DoMeme`（原 Postfix 描边不够）——MD3 圆角卡片（表面高色 + 选中主色描边/未选轮廓色 + hover 主色层），保留图标/影响/名称/编辑点击（Dialog_ChooseMemes）；戒律块 `Precept.DrawPreceptBox` Postfix 叠加 MD3 圆角描边 + hover 层；新增 `ClickToEditHint` 翻译键 ×3
+- 构建部署验证通过
+
+## 设置界面左侧实时预览区（2026-08-02）
+- **需求**：设置菜单左侧扩出独立预览区域（不再依赖单独打开的预览页面），且能实时联动调整
+- **布局**：`DoSettingsWindowContents` 改两栏 —— 左侧 36% 实时预览区 + 右侧设置内容区；顶部两大类 tab 不变
+- **左侧预览区**（`DrawLivePreview`）：标题「实时预览」+ 两个页签「扩展菜单 | 杂项」
+  - 扩展菜单页签：`MenuPreviewWidget`（可交互模拟右键分组菜单，实时反映扩展菜单配色 + 动画速度）
+  - 杂项页签：新 `UI/MiscPreviewWidget.cs` —— **模拟原版操作界面被 MD3 化后的样子**：模拟窗口卡片（md3StyleWindows）+ 模拟 tab（概况/手术，md3StyleMenuSections/AllButtons）+ 模拟下拉（Dropdown）+ 模拟按钮行 + 模拟滑块（HorizontalSlider）+ 模拟复选框滑动开关（CheckboxDraw）+ 模拟输入框（TextField）+ 模拟滚动列表（BeginScrollView），全部实时读取杂项配色（MiscTheme），调整「其他→颜色」即时生效
+- 原「预览」子 tab（打开独立窗口）保留；新增翻译键：`LivePreviewTitle`/`PreviewMenuTab`/`PreviewMiscTab`/`MiscPreviewWindowTitle`/`MiscPreviewTabOverview`/`MiscPreviewTabSurgery`/`MiscPreviewDropdownLabel`/`MiscPreviewDropdownValue` ×3；构建部署验证通过
+
+## 待办（第三批：原版 UI 可选 MD3 patch）
+- tab 页黑线（MD3 胶囊 tab 相邻重叠）
+- 药物/食物限制下拉、手术清单（医疗）、信息卡（内容 MD3 + **栏重叠 bug**）、窗口边框、征召/解散/攻击命令按钮、文化菜单（文化与戒律块）+ 模因大方块、统计界面分组块美化、管制栏（时间表）
+- 每项做可选开关（新 Settings bool + 全局样式开关行 + 翻译键 + 重置项）
+
+

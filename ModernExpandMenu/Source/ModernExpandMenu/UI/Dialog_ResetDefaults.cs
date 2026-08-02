@@ -47,7 +47,15 @@ namespace ModernExpandMenu.UI
             general.items.Add(Item("ModernExpandMenu_ResetShowItemCount", s.showItemCount, true, () => s.showItemCount = true));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllInputs", s.md3StyleAllInputs, false, () => s.md3StyleAllInputs = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllButtons", s.md3StyleAllButtons, false, () => s.md3StyleAllButtons = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleWindows", s.md3StyleWindows, false, () => s.md3StyleWindows = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleCommands", s.md3StyleCommands, false, () => s.md3StyleCommands = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleMenuSections", s.md3StyleMenuSections, false, () => s.md3StyleMenuSections = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleSchedule", s.md3StyleSchedule, false, () => s.md3StyleSchedule = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleInspectPane", s.md3StyleInspectPane, false, () => s.md3StyleInspectPane = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleStatistics", s.md3StyleStatistics, false, () => s.md3StyleStatistics = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleIdeo", s.md3StyleIdeo, false, () => s.md3StyleIdeo = false));
             general.items.Add(Item("ModernExpandMenu_ResetSkipUploadWait", s.skipUploadWait, false, () => s.skipUploadWait = false));
+            general.items.Add(Item("ModernExpandMenu_ResetSpaceOnlyPauses", s.spaceOnlyPauses, false, () => s.spaceOnlyPauses = false));
             general.items.Add(Item("ModernExpandMenu_ResetMaxMenuHeight", s.maxMenuHeight, 560, () => s.maxMenuHeight = 560));
             general.items.Add(Item("ModernExpandMenu_ResetMaxProcessedPerFrame", s.maxProcessedPerFrame, 6, () => s.maxProcessedPerFrame = 6));
             general.items.Add(Item("ModernExpandMenu_ResetExtraLoadingBarSeconds", s.extraLoadingBarSeconds.ToString("0.0"), "0.5", () => s.extraLoadingBarSeconds = 0.5f));
@@ -81,6 +89,23 @@ namespace ModernExpandMenu.UI
             colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumb", s.colorScrollbarThumb, "#525261", () => s.colorScrollbarThumb = "#525261"));
             colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumbDragging", s.colorScrollbarThumbDragging, "#737385", () => s.colorScrollbarThumbDragging = "#737385"));
             sections.Add(colors);
+
+            // ── 杂项配色（全局 MD3 替换功能用，与扩展菜单配色分开）──
+            var miscColors = new ResetSection("ModernExpandMenu_ResetSectionMiscColors".Translate());
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorPrimary", s.miscColorPrimary, "#00A8FF", () => s.miscColorPrimary = "#00A8FF"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorOnPrimary", s.miscColorOnPrimary, "#001421", () => s.miscColorOnPrimary = "#001421"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorSurface", s.miscColorSurface, "#161821", () => s.miscColorSurface = "#161821"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainer", s.miscColorSurfaceContainer, "#1E212D", () => s.miscColorSurfaceContainer = "#1E212D"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainerHigh", s.miscColorSurfaceContainerHigh, "#262A3A", () => s.miscColorSurfaceContainerHigh = "#262A3A"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurface", s.miscColorOnSurface, "#E6E6EC", () => s.miscColorOnSurface = "#E6E6EC"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurfaceVariant", s.miscColorOnSurfaceVariant, "#9A9BA6", () => s.miscColorOnSurfaceVariant = "#9A9BA6"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorOutline", s.miscColorOutline, "#636676", () => s.miscColorOutline = "#636676"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorDisabledText", s.miscColorDisabledText, "#80808C", () => s.miscColorDisabledText = "#80808C"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorShadow", s.miscColorShadow, "#000000", () => s.miscColorShadow = "#000000"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarTrack", s.miscColorScrollbarTrack, "#26262E", () => s.miscColorScrollbarTrack = "#26262E"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumb", s.miscColorScrollbarThumb, "#525261", () => s.miscColorScrollbarThumb = "#525261"));
+            miscColors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumbDragging", s.miscColorScrollbarThumbDragging, "#737385", () => s.miscColorScrollbarThumbDragging = "#737385"));
+            sections.Add(miscColors);
         }
 
         private static ResetItem Item(string key, object current, object defaultValue, Action reset)
@@ -183,12 +208,26 @@ namespace ModernExpandMenu.UI
             var rowRect = new Rect(22f, y, viewRect.width - 32f, RowHeight);
             ResetItem currentItem = item;
 
-            // 勾选框（安卓滑动开关，id 用行内唯一段：避免与设置主界面开关 id 冲突）
-            var boxRect = new Rect(rowRect.x, rowRect.y + 4f, 44f, 22f);
-            currentItem.selected = MD3Widgets.MD3ToggleSwitch(boxRect, currentItem.selected, GetSwitchIdForItem(currentItem));
+            // 当前值与默认值是否有差异（无差异时灰显、开关禁用，避免无意义的重置项）
+            bool hasDiff = currentItem.currentText != currentItem.defaultText;
 
-            // 名称
-            GUI.color = MD3Theme.OnSurface;
+            // 勾选框（安卓滑动开关，id 用行内唯一段；无差异时画灰色禁用开关，不响应点击）
+            var boxRect = new Rect(rowRect.x, rowRect.y + 4f, 44f, 22f);
+            if (hasDiff)
+            {
+                currentItem.selected = MD3Widgets.MD3ToggleSwitch(boxRect, currentItem.selected, GetSwitchIdForItem(currentItem));
+            }
+            else
+            {
+                currentItem.selected = false;
+                // 灰色禁用开关：轨道（禁用色）+ 内缩表面 + 圆点靠左
+                MD3Widgets.DrawRoundedRect(new Rect(boxRect.x, boxRect.y + 3f, 38f, 16f), MD3Theme.DisabledText, 8f);
+                MD3Widgets.DrawRoundedRect(new Rect(boxRect.x + 1f, boxRect.y + 4f, 36f, 14f), MD3Theme.Surface, 7f);
+                MD3Widgets.DrawRoundedRect(new Rect(boxRect.x + 1f, boxRect.y + 4f, 14f, 14f), MD3Theme.DisabledText, 7f);
+            }
+
+            // 名称（无差异灰色）
+            GUI.color = hasDiff ? MD3Theme.OnSurface : MD3Theme.DisabledText;
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleLeft;
             Text.WordWrap = false;
@@ -196,11 +235,11 @@ namespace ModernExpandMenu.UI
             Text.Anchor = TextAnchor.UpperLeft;
             GUI.color = Color.white;
 
-            // 当前 → 默认（差异对比）
+            // 当前 → 默认（差异对比；无差异灰色）
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.MiddleRight;
             Text.WordWrap = false;
-            GUI.color = MD3Theme.OnSurfaceVariant;
+            GUI.color = hasDiff ? MD3Theme.OnSurfaceVariant : MD3Theme.DisabledText;
             string diffText = currentItem.currentText + "  →  " + currentItem.defaultText;
             Widgets.Label(new Rect(rowRect.x + rowRect.width - 236f, rowRect.y, 236f, rowRect.height), diffText);
             Text.Anchor = TextAnchor.UpperLeft;
