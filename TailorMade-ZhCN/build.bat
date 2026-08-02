@@ -5,6 +5,9 @@ echo   TailorMadeZhCN + UnlockFix 编译脚本
 echo ========================================
 echo.
 
+set TARGET_ZhCN=D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN
+set TARGET_Fix=D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix
+
 echo ========== [1/2] 汉化模组 ==========
 dotnet build Source\TailorMadeZhCN\TailorMadeZhCN.csproj -c Release
 if %ERRORLEVEL% NEQ 0 (
@@ -14,15 +17,19 @@ if %ERRORLEVEL% NEQ 0 (
 )
 echo ✓ 汉化编译成功
 
-echo Deploying Chinese translation to Mods...
-xcopy /Y /Q Assemblies\TailorMadeZhCN.dll "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Assemblies\"
-if not exist "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source" mkdir "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source"
-xcopy /Y /Q Source\TailorMadeZhCN\*.cs "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\"
-xcopy /Y /Q Source\TailorMadeZhCN\*.csproj "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\"
-xcopy /Y /Q Source\Directory.Build.props "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\"
+echo 部署汉化到游戏 Mods...
+if not exist "%TARGET_ZhCN%\About" mkdir "%TARGET_ZhCN%\About"
+xcopy /Y /E /Q About "%TARGET_ZhCN%\About\"
+if not exist "%TARGET_ZhCN%\Languages" mkdir "%TARGET_ZhCN%\Languages"
+xcopy /Y /E /Q Languages "%TARGET_ZhCN%\Languages\"
+xcopy /Y /Q Assemblies\TailorMadeZhCN.dll "%TARGET_ZhCN%\Assemblies\"
+if not exist "%TARGET_ZhCN%\Source" mkdir "%TARGET_ZhCN%\Source"
+xcopy /Y /Q Source\TailorMadeZhCN\*.cs "%TARGET_ZhCN%\Source\"
+xcopy /Y /Q Source\TailorMadeZhCN\*.csproj "%TARGET_ZhCN%\Source\"
+xcopy /Y /Q Source\Directory.Build.props "%TARGET_ZhCN%\Source\"
 if exist "Source\TailorMadeZhCN\Properties" (
-    if not exist "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\Properties" mkdir "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\Properties"
-    xcopy /Y /Q "Source\TailorMadeZhCN\Properties\*.cs" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMade-ZhCN\Source\Properties\"
+    if not exist "%TARGET_ZhCN%\Source\Properties" mkdir "%TARGET_ZhCN%\Source\Properties"
+    xcopy /Y /Q "Source\TailorMadeZhCN\Properties\*.cs" "%TARGET_ZhCN%\Source\Properties\"
 )
 echo ✓ 汉化部署完成
 
@@ -36,15 +43,21 @@ if %ERRORLEVEL% NEQ 0 (
 )
 echo ✓ 修复模组编译成功
 
-echo Deploying TailorMadeUnlockFix to Mods...
-xcopy /Y /Q TailorMadeUnlockFix\Assemblies\TailorMadeUnlockFix.dll "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Assemblies\"
-if not exist "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source" mkdir "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source"
-xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\*.cs "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\"
-xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\*.csproj "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\"
-xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\Directory.Build.props "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\"
+echo 部署 TailorMadeUnlockFix 到游戏 Mods...
+if not exist "%TARGET_Fix%\About" mkdir "%TARGET_Fix%\About"
+xcopy /Y /E /Q TailorMadeUnlockFix\About "%TARGET_Fix%\About\"
+if exist TailorMadeUnlockFix\Patches (
+    if not exist "%TARGET_Fix%\Patches" mkdir "%TARGET_Fix%\Patches"
+    xcopy /Y /E /Q TailorMadeUnlockFix\Patches "%TARGET_Fix%\Patches\"
+)
+xcopy /Y /Q TailorMadeUnlockFix\Assemblies\TailorMadeUnlockFix.dll "%TARGET_Fix%\Assemblies\"
+if not exist "%TARGET_Fix%\Source" mkdir "%TARGET_Fix%\Source"
+xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\*.cs "%TARGET_Fix%\Source\"
+xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\*.csproj "%TARGET_Fix%\Source\"
+xcopy /Y /Q TailorMadeUnlockFix\Source\TailorMadeUnlockFix\Directory.Build.props "%TARGET_Fix%\Source\"
 if exist "TailorMadeUnlockFix\Source\TailorMadeUnlockFix\Properties" (
-    if not exist "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\Properties" mkdir "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\Properties"
-    xcopy /Y /Q "TailorMadeUnlockFix\Source\TailorMadeUnlockFix\Properties\*.cs" "D:\app\game\steam\steamapps\common\RimWorld\Mods\TailorMadeUnlockFix\Source\Properties\"
+    if not exist "%TARGET_Fix%\Source\Properties" mkdir "%TARGET_Fix%\Source\Properties"
+    xcopy /Y /Q "TailorMadeUnlockFix\Source\TailorMadeUnlockFix\Properties\*.cs" "%TARGET_Fix%\Source\Properties\"
 )
 echo ✓ 修复模组部署完成
 

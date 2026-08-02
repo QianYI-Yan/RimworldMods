@@ -1,0 +1,35 @@
+[h1]更新日志 / Changelog[/h1]
+
+[hr][/hr]
+
+[h2]v2.0.0 — 2026-08-02[/h2]
+[h3]适配 As Above, So Below II[/h3]
+作者废弃 V1，发布全新二代（astryl.AsAboveSoBelow2）。汉化已全面重做，对应新模组使用。
+
+[list]
+[*][b]设置界面 6 个标签页[/b]：性能 / 气候 / 天空 / 地下室 / 视觉 / 诊断（73 条界面文本全量重译）
+[*][b]楼层规划[/b]：地图尺寸预算、楼层数量与大小选择、超预算锁定提示、解锁警告
+[*][b]建筑[/b]：楼梯（2x2）、大楼梯（3x3）、电梯（直连全楼层）、梯子（1x1）
+[*][b]电力立管[/b]：壁挂式接头盒 / 断路器盒
+[*][b]兼容立管（26 个）[/b]：Dubs Bad Hygiene、Rimefeller、Rimatomics、Vanilla Chemfuel Expanded、Vanilla Temperature Expanded、Luciferium Expanded
+[*][b]生物群系 / 地形（新增墙顶、保留山顶）/ 按键绑定[/b]
+[*][b]移除 V1 遗留翻译[/b]：跨层工作、垂直线管、地图生成器、背包工作等（V2 改为单地图多层，已无对应功能）
+[/list]
+
+[b]注意：[/b]
+[list]
+[*]请搭配 [b]As Above, So Below II[/b]（3776015553）使用，旧 V1 模组已废弃
+[*]本模组包 ID 已更新为 astryl.asabovesobelow2.zhcn，旧版本请先移除
+[/list]
+
+[hr][/hr]
+
+[h2]v1.0.0 — 2026-07-25[/h2]
+[h3]初始发布（适配 V1）[/h3]
+[list]
+[*]As Above, So Below V1（astryl.AsAboveSoBelow）简体中文汉化
+[*]设置界面 / 建筑（楼梯、电梯、梯子、垂直线管）/ 生物群系 / 地形 / 按键 / 工作类型，340+ 条文本
+[*]兼容管道（Dubs Bad Hygiene、Rimefeller、Vanilla Chemfuel Expanded、Vanilla Expanded Framework）
+[/list]
+
+[b]注：[/b]V1 原模组已被作者废弃，此版本不再维护，请使用 v2.0.0。

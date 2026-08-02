@@ -34,6 +34,13 @@ if exist Assemblies\*.dll (
     if not exist "%MODS_DIR%\Assemblies" mkdir "%MODS_DIR%\Assemblies"
     xcopy /Y /Q Assemblies\*.dll "%MODS_DIR%\Assemblies\"
 )
+:: Source 部署（csproj 可能在顶层或子目录，用递归查找判断）
+dir /b /s Source\*.csproj >nul 2>&1 && (
+    if not exist "%MODS_DIR%\Source" mkdir "%MODS_DIR%\Source"
+    xcopy /Y /E /Q Source "%MODS_DIR%\Source\"
+    :: 清理编译中间产物（bin/obj 不应部署到游戏目录）
+    for /d /r "%MODS_DIR%\Source" %%D in (bin obj) do if exist "%%D" rd /s /q "%%D"
+)
 echo ✓ 部署完成: %MODS_DIR%
 
 echo.

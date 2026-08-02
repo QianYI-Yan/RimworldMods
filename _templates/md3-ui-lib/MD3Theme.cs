@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 
-namespace AstrylsUIZhCN.Theme
+namespace YourMod.Theme
 {
     // ═══════════════════════════════════════════════════
     // MD3（Material Design 3）主题 Token
-    // 颜色全部可从模组设置读取 16 进制自定义（未配置时回退默认水影蓝）。
-    // 所有 UI 绘制只从这里取值，不硬编码颜色。
+    // 颜色通过 Custom*Hex 静态字段注入（Mod 启动时从设置读取后赋值），
+    // 未注入时回退默认水影蓝。所有 UI 绘制只从这里取值，不硬编码颜色。
     // ═══════════════════════════════════════════════════
     public static class MD3Theme
     {
@@ -25,16 +25,32 @@ namespace AstrylsUIZhCN.Theme
         public static readonly Color DefaultScrollbarThumb = new Color32(82, 82, 97, 166);
         public static readonly Color DefaultScrollbarThumbDragging = new Color32(115, 115, 133, 204);
 
-        // ── 颜色（从设置读取 16 进制自定义；Settings 未初始化时用默认）──
-        public static Color Primary => FromHex(null, DefaultPrimary);
-        public static Color OnPrimary => FromHex(null, DefaultOnPrimary);
-        public static Color Surface => FromHex(null, DefaultSurface);
-        public static Color SurfaceContainer => FromHex(null, DefaultSurfaceContainer);
-        public static Color SurfaceContainerHigh => FromHex(null, DefaultSurfaceContainerHigh);
-        public static Color OnSurface => FromHex(null, DefaultOnSurface);
-        public static Color OnSurfaceVariant => FromHex(null, DefaultOnSurfaceVariant);
-        public static Color Outline => FromHex(null, DefaultOutline);
-        public static Color DisabledText => FromHex(null, DefaultDisabledText);
+        // ── 颜色注入接入点（Mod 可在启动时从设置读取后赋值；null / 空串用默认水影蓝）──
+        // 例：在 Mod 构造函数里写  MD3Theme.CustomPrimaryHex = settings.colorPrimary;
+        public static string CustomPrimaryHex;
+        public static string CustomOnPrimaryHex;
+        public static string CustomSurfaceHex;
+        public static string CustomSurfaceContainerHex;
+        public static string CustomSurfaceContainerHighHex;
+        public static string CustomOnSurfaceHex;
+        public static string CustomOnSurfaceVariantHex;
+        public static string CustomOutlineHex;
+        public static string CustomDisabledTextHex;
+        public static string CustomShadowHex;
+        public static string CustomScrollbarTrackHex;
+        public static string CustomScrollbarThumbHex;
+        public static string CustomScrollbarThumbDraggingHex;
+
+        // ── 颜色（从注入的 16 进制读取；未注入时用默认水影蓝）──
+        public static Color Primary => FromHex(CustomPrimaryHex, DefaultPrimary);
+        public static Color OnPrimary => FromHex(CustomOnPrimaryHex, DefaultOnPrimary);
+        public static Color Surface => FromHex(CustomSurfaceHex, DefaultSurface);
+        public static Color SurfaceContainer => FromHex(CustomSurfaceContainerHex, DefaultSurfaceContainer);
+        public static Color SurfaceContainerHigh => FromHex(CustomSurfaceContainerHighHex, DefaultSurfaceContainerHigh);
+        public static Color OnSurface => FromHex(CustomOnSurfaceHex, DefaultOnSurface);
+        public static Color OnSurfaceVariant => FromHex(CustomOnSurfaceVariantHex, DefaultOnSurfaceVariant);
+        public static Color Outline => FromHex(CustomOutlineHex, DefaultOutline);
+        public static Color DisabledText => FromHex(CustomDisabledTextHex, DefaultDisabledText);
 
         // hover 状态层跟随主色（半透明）；阴影 / 滚动条仅自定义 RGB，透明度固定
         public static Color HoverStateLayer
@@ -51,7 +67,7 @@ namespace AstrylsUIZhCN.Theme
         {
             get
             {
-                Color c = FromHex(null, DefaultShadow);
+                Color c = FromHex(CustomShadowHex, DefaultShadow);
                 c.a = 0.35f;
                 return c;
             }
@@ -61,7 +77,7 @@ namespace AstrylsUIZhCN.Theme
         {
             get
             {
-                Color c = FromHex(null, DefaultScrollbarTrack);
+                Color c = FromHex(CustomScrollbarTrackHex, DefaultScrollbarTrack);
                 c.a = 0.25f;
                 return c;
             }
@@ -71,7 +87,7 @@ namespace AstrylsUIZhCN.Theme
         {
             get
             {
-                Color c = FromHex(null, DefaultScrollbarThumb);
+                Color c = FromHex(CustomScrollbarThumbHex, DefaultScrollbarThumb);
                 c.a = 0.65f;
                 return c;
             }
@@ -81,7 +97,7 @@ namespace AstrylsUIZhCN.Theme
         {
             get
             {
-                Color c = FromHex(null, DefaultScrollbarThumbDragging);
+                Color c = FromHex(CustomScrollbarThumbDraggingHex, DefaultScrollbarThumbDragging);
                 c.a = 0.8f;
                 return c;
             }

@@ -3,6 +3,7 @@
 ## 项目信息
 - 原模组：Nice Research Tab（Andromeda.NiceResearchTab，Steam 3773496046）
 - 汉化 ID：`yintx.deepseek.niceresearchtab.zhcn`
+- 汉化工坊 ID：**3776278230**（About/PublishedFileId.txt 已填写）
 - 原模组依赖：Harmony + MilkyWay（andromeda.milkyway）；兼容世界科技等级、半随机研究、Discoveries 等
 
 ## 汉化范围
@@ -29,8 +30,14 @@
 
 ## 待办
 - [x] 项目骨架 + Keyed + DefInjected + 硬编码补丁
-- [ ] 游戏内实测检查漏译
-- [ ] 发布工坊后填 About/PublishedFileId.txt
+- [x] 硬编码补丁修复（直接字面量替换，提交 9e8974a）
+- [x] 推送 main（538c0b1 新增 + 9e8974a 修复）
+- [ ] 游戏内实测检查漏译（重点：设置三标签页 / 性能预设 / 研究分类 / 崩溃已消失）
+- [x] 发布工坊后填 About/PublishedFileId.txt（工坊 ID 3776278230）
+
+## 提交记录
+- `538c0b1` 新增汉化（Keyed 34 键 + DefInjected ×5 + 初始补丁 + About/README/build/笔记）
+- `9e8974a` 修复补丁 IL 崩溃（直接字面量替换 + 删除 Keyed/HardcodedZhCN.xml + Preview.png）
 
 ## 维护提醒
 - 原模组更新后：重新提取 `Languages/English/Keyed/Common.xml` 对照，检查硬编码字符串是否变化

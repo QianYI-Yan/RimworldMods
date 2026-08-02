@@ -33,6 +33,6 @@
 
 ## 链接
 
-- [Steam 工坊页面](https://steamcommunity.com/sharedfiles/filedetails/?id=3773496046)
+- [Steam 工坊页面（本汉化）](https://steamcommunity.com/sharedfiles/filedetails/?id=3776278230)
 - [源模组 Steam 工坊](https://steamcommunity.com/sharedfiles/filedetails/?id=3773496046)
 - [GitHub 源码](https://github.com/QianYI-Yan/RimworldMods/tree/main/NiceResearchTab-ZhCN)

@@ -11,7 +11,7 @@
 | 自绘控件 | 圆角矩形、卡片、hover 层、安卓开关、滑块、按钮、滚动条全部自绘（`MD3Widgets`），不使用原版 GUI 皮肤 |
 | 圆角统一 | 窗口 / 卡片 / 行 / 按钮圆角用预生成圆角纹理 + 九宫格拉伸（`DrawRoundedRect`），不用原版圆角 |
 | 滚动条 | MD3 细滚动条（5px 宽，轨道 + 滑块 + 拖动高亮），不用原版 `showScrollbars` |
-| 输入框 | 深色背景 + 主色描边环 + 原版可靠输入（`TextField` / `TextFieldNumeric`）；描边用轮廓不填充，避免盖住文字 |
+| 输入框 | 深色圆角背景 + 主色描边环 + 无边框原生输入（`GUI.TextField`），不叠加原版输入框外观；描边用轮廓不填充，避免盖住文字 |
 | 对话框 | 背景自绘卡片 + 自绘关闭按钮，不用原版窗口背景 |
 
 ## 2. 色板 Token（MD3 Baseline 深色，全部可设置自定义）
@@ -58,8 +58,11 @@
 | `DrawVerticalFade(rect, color, opaqueAtBottom)` | 垂直渐变遮罩（滚动内容上下边缘淡出） |
 | `MD3ToggleSwitch(rect, value, switchId)` | 安卓滑动开关（圆角轨道 + 白色圆点 + 滑动动画） |
 | `MD3Slider(rect, value, min, max, sliderId)` | 滑块（主色填充 + 圆形滑块 + 点击/拖动） |
+| `MD3SegmentSlider(rect, value, segmentCount, sliderId)` | 多段滑块（离散档位，点击吸附最近档位，用于排列组合类选项） |
 | `MD3Button(rect, label, emphasized)` | 按钮（主色强调或深色次要 + hover 高亮） |
-| `MD3NumberField(rect, ref value, ref buffer, min, out sub, out cancel)` | 数值输入框（深色背景 + 主色描边环 + 原版可靠输入） |
+| `MD3TextField(rect, text, fieldId, valid)` | 输入框（深色圆角背景 + 主色/红色描边环 + 无边框原生输入，非法时红框） |
+| `MD3NumberField(rect, ref value, ref buffer, min, out sub, out cancel)` | 数值输入框（深色背景 + 主色描边环 + 原版可靠输入，Enter 提交 / ESC 取消） |
+| `ToMd3TextFieldStyle(original)` | 把原版输入框样式转成 MD3（深色圆角背景 + 反色 20% 边框，供"原版输入框全局 MD3"可选功能） |
 | `MD3BeginScrollView` / `MD3EndScrollView` / `MD3Scrollbar` | MD3 滚动视口 + 细滚动条（拖动支持，scrollbarId 区分多个） |
 
 ## 5. 绘制约定
@@ -76,6 +79,8 @@
 - 设置窗口用 MD3 卡片 + Tab 栏（选中主色填充的胶囊按钮）
 - 开关用 `MD3ToggleSwitch`（switchId 分段避免冲突：主界面 0~4、滑块 10~16、对话框 1000+/2000+）
 - 滑块用 `MD3Slider` + 可点击数值按钮（点击进入编辑态，`GUI.FocusControl` 自动聚焦）
+- 离散选项（排列组合）用 `MD3SegmentSlider` 多段滑块（点击吸附最近档位）
+- 可交互预览：左侧固定预览栏（所有 tab 共用），模拟游戏菜单（组标题点击展开/收起 + 子项逐条出现动画），实时反映动画速度与颜色主题
 - 颜色用 16 进制输入框 + 色块（点击复制）+ 粘贴按钮 + 调色板预设
 - 恢复默认用差异对比对话框（树状分组：常规 / 动画 / 颜色）
 
@@ -85,5 +90,6 @@
   - `Theme/MD3Theme.cs` — 色板 Token 与尺寸常量
   - `UI/MD3Widgets.cs` — 自绘控件库
   - `UI/MD3FloatMenuWindow.cs` — MD3 悬浮窗（含动画体系）
-  - `ModernExpandMenuMod.cs` — MD3 设置界面（Tab / 卡片 / 开关 / 滑块 / 调色板）
+  - `ModernExpandMenuMod.cs` — MD3 设置界面（Tab / 卡片 / 开关 / 滑块 / 多段滑块 / 调色板 / 可交互预览）
+  - `Patch_Md3StyleAllInputs.cs` / `Patch_Md3StyleAllButtons.cs` — 可选功能：原版输入框 / 按钮 / 复选框全局 MD3 化
   - `UI/Dialog_ResetDefaults.cs`、`UI/Dialog_ConfigManager.cs` — MD3 对话框
