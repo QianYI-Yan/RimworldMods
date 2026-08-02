@@ -9,6 +9,10 @@ obj/
 .idea/
 *.sln.DotSettings.user
 
+# 原始模组参考文件（非我们原创，仅本地参考，不上传公开仓库）
+OriginalMod/
+OriginalSRC-SDK/
+
 # 系统文件
 Thumbs.db
 .DS_Store
