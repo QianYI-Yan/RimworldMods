@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Nice Research Tab 原模组 Keyed 翻译
+  来源：原模组 Languages/English/Keyed/Common.xml
+  键名与原模组完全一致，值替换为简体中文。
+-->
+<LanguageData>
+  <NiceResearchTabEnabled>模组已启用</NiceResearchTabEnabled>
+
+  <NRT_Research>研究</NRT_Research>
+  <NRT_StopResearch>停止研究</NRT_StopResearch>
+  <NRT_AddToQueue>加入队列</NRT_AddToQueue>
+
+  <ResearchQueue>研究队列</ResearchQueue>
+
+  <NRT_HiTechBenchShort>高级研究台</NRT_HiTechBenchShort>
+  <NRT_AnomalyAdvancedKnowledge>高级知识</NRT_AnomalyAdvancedKnowledge>
+  <RequiresGravtech>需要重力科技</RequiresGravtech>
+
+  <NRT_Packer>打包器</NRT_Packer>
+  <NRT_SingleThread>单线程</NRT_SingleThread>
+  <NRT_Rebuild>重建</NRT_Rebuild>
+  <NRT_YouMustBeInGameToPreview>预览仅在游戏中可用</NRT_YouMustBeInGameToPreview>
+  <NRT_Fullscreen>全屏</NRT_Fullscreen>
+
+  <NRT_SettingsCommonTab>通用</NRT_SettingsCommonTab>
+  <NRT_SettingsPackerTab>打包器</NRT_SettingsPackerTab>
+  <NRT_SettingsPerformanceTab>性能</NRT_SettingsPerformanceTab>
+
+  <NRT_Width>宽度</NRT_Width>
+  <NRT_Height>高度</NRT_Height>
+
+  <NRT_ShowConnectionLinks>显示连接线</NRT_ShowConnectionLinks>
+  <NRT_ShowTechLevelBackground>显示科技等级背景</NRT_ShowTechLevelBackground>
+  <NRT_ShowEdging>显示描边</NRT_ShowEdging>
+  <NRT_ShowRequiredFacilityIcon>显示所需设施图标</NRT_ShowRequiredFacilityIcon>
+  <NRT_ShowRequiredTechprintsIcon>显示所需科技印图标</NRT_ShowRequiredTechprintsIcon>
+  <NRT_DelayedNodeCulling>延迟节点剔除</NRT_DelayedNodeCulling>
+  <NRT_ShowFancyBackground>显示精美动画背景</NRT_ShowFancyBackground>
+
+  <NRT_ProjectUnlocksCountPerRow>每行项目解锁数</NRT_ProjectUnlocksCountPerRow>
+  <NRT_AllNodesInOneSpace>所有研究集中在一处</NRT_AllNodesInOneSpace>
+  <NRT_ModGrouping>按模组分组</NRT_ModGrouping>
+  <NRT_AllNodesInOneSpaceTip>某些模组可以整合到其他标签页</NRT_AllNodesInOneSpaceTip>
+  <NRT_LinksCanCrossNodes>连接线可以穿过项目</NRT_LinksCanCrossNodes>
+
+  <NRT_FilterTip>按名称筛选。你也可以在词前输入 #（不带空格）来按模组或 DLC 筛选</NRT_FilterTip>
+
+  <NRT_Recipe>配方</NRT_Recipe>
+  <NRT_Building>建筑</NRT_Building>
+  <NRT_CombineAnomalyQueues>将异象队列合并为一个</NRT_CombineAnomalyQueues>
+</LanguageData>

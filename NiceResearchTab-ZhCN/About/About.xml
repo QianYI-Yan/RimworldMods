@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+  <name>Nice Research Tab 简体中文汉化</name>
+  <author>deepseek</author>
+  <packageId>yintx.deepseek.niceresearchtab.zhcn</packageId>
+  <modVersion>1.0.0</modVersion>
+  <description>
+[h1]Nice Research Tab 简体中文汉化补丁[/h1]
+将 [b]Nice Research Tab[/b] 模组的全部界面文本、设置选项和标签页元素翻译为简体中文。
+
+[hr][h2]翻译内容[/h2]
+[list]
+[*]模组设置界面 — 通用 / 打包器 / 性能三个标签页的全部选项与提示
+[*]研究标签页 UI — 研究、停止研究、加入队列、研究队列、筛选提示等
+[*]研究分类 — 护甲、电力、炮塔、武器
+[*]硬编码字符串 — 性能预设（高/中/低/自定义）、当前研究剩余时间等，通过 Harmony 运行时翻译
+[*]共计 40+ 条文本
+[/list]
+
+[hr][h2]依赖[/h2]
+[list]
+[*][b]Nice Research Tab[/b] (Andromeda.NiceResearchTab)
+[*][b]Harmony[/b] (brrainz.harmony)
+[/list]
+
+[hr][h2]说明[/h2]
+本模组使用 RimWorld 内置的本地化系统 + Harmony 运行时翻译，不修改原模组的任何文件，可与原模组一起正常更新。
+
+[hr][h2]安装[/h2]
+[olist]
+[*]确保已安装 Nice Research Tab 原模组
+[*]将本模组放入 RimWorld/Mods/ 目录
+[*]在游戏 Mod 列表中启用（置于原模组之后加载）
+[/olist]
+
+[hr][h2]源码[/h2]
+[url=https://github.com/QianYI-Yan/RimworldMods/tree/main/NiceResearchTab-ZhCN]github.com/QianYI-Yan/RimworldMods[/url]
+  </description>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <loadAfter>
+    <li>brrainz.harmony</li>
+    <li>Andromeda.NiceResearchTab</li>
+  </loadAfter>
+  <modDependencies>
+    <li>
+      <packageId>Andromeda.NiceResearchTab</packageId>
+      <displayName>Nice Research Tab</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/3773496046</steamWorkshopUrl>
+    </li>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+</ModMetaData>

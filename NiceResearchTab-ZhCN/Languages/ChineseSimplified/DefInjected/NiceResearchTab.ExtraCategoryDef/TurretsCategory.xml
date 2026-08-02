@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 研究分类：炮塔（NiceResearchTab.ExtraCategoryDef） -->
+<DefInjected>
+  <NiceResearchTab.ExtraCategoryDef>
+    <TurretsCategory.label>炮塔</TurretsCategory.label>
+  </NiceResearchTab.ExtraCategoryDef>
+</DefInjected>

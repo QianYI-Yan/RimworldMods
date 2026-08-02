@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 研究标签页（MainButtonDef Research）—— 注入 label 与 description -->
+<DefInjected>
+  <MainButtonDef>
+    <Research.label>研究</Research.label>
+    <Research.description>检查并决定研究项目。</Research.description>
+  </MainButtonDef>
+</DefInjected>

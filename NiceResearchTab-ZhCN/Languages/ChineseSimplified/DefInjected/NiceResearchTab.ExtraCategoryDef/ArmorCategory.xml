@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 研究分类：护甲（NiceResearchTab.ExtraCategoryDef） -->
+<DefInjected>
+  <NiceResearchTab.ExtraCategoryDef>
+    <ArmorCategory.label>护甲</ArmorCategory.label>
+  </NiceResearchTab.ExtraCategoryDef>
+</DefInjected>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 研究分类：武器（NiceResearchTab.ExtraCategoryDef） -->
+<DefInjected>
+  <NiceResearchTab.ExtraCategoryDef>
+    <WeaponCategory.label>武器</WeaponCategory.label>
+  </NiceResearchTab.ExtraCategoryDef>
+</DefInjected>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 研究分类：电力（NiceResearchTab.ExtraCategoryDef） -->
+<DefInjected>
+  <NiceResearchTab.ExtraCategoryDef>
+    <ElectricityCategory.label>电力</ElectricityCategory.label>
+  </NiceResearchTab.ExtraCategoryDef>
+</DefInjected>
