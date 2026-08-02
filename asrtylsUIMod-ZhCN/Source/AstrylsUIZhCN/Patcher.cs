@@ -71,6 +71,91 @@ namespace AstrylsUIZhCN
             // 设置界面
             PatchIfPresent(harmony, learningMenu, lmMod, "DoSettingsWindowContents");
 
+            // ============ Modern Colonist Bar（命令中心菜单、悬停按钮等硬编码） ============
+            const string colonistBar = "astryl.ModernColonistBar";
+            const string cbNS = "ModernColonistBar";
+            PatchIfPresent(harmony, colonistBar, cbNS + ".BarControls", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".BarControls", "OpenMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".BarControls", "BuildViewMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_HandleClicks_RightClickMenu", "OpenInteractionMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_HandleClicks_RightClickMenu", "BuildViewMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".FloatMenuOptionSub", ".ctor");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".HoverPopout", "BuildActions");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".BarSquads", "ViewLabel");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".WarbandHotbar", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "Label"); // 属性 getter
+            // 状态显示 / 菜单 / 对话框
+            PatchIfPresent(harmony, colonistBar, cbNS + ".AwayIndicator", "LocationTip");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".AggroRadar", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".PawnStatusUtil", "Gather");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_DrawColonist_Overlay", "DrawWeaponIcon");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_DrawColonist_Overlay", "DrawBpDevice");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_DrawColonist_Overlay", "MedicalTooltip");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".FollowCam", "OnGUI");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".FollowCam", "Toggle");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".FollowCam", "Stop");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_ManageSquads", "DoWindowContents");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_RenameSquad", "DoWindowContents");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".BarSquads", "NameOfHidden");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_HandleClicks_RightClickMenu", "BuildModMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_HandleClicks_RightClickMenu", "BuildPoliciesMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Patch_HandleClicks_RightClickMenu", "BuildBarManageMenu");
+            // 指挥中心
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DoWindowContents");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DrawRoster");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DrawSquadHeader");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "SubLine");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DrawDetail");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DrawPillar");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DpsChip");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "DrawActionBar");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "PolicyBtn");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "OpenAssignMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "OpenSortMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Dialog_CommandCenter", "OpenSquadMenu");
+            // 装备模块
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "DrawGearPanel");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "DrawMapList");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "OpenMapRowMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "OrderGear");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "DrawSlot");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "DrawManage");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "DrawReqRow");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "KitToOutfit");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "QueueBills");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Loadouts", "Snapshot");
+            // 军械库
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Armory", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Armory", "OpenRowMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Armory", "WhereLabel");
+            // 概览模块
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Overview", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Overview", "DrawRows");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Overview", "DrawGraph");
+            // 统计模块
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Stats", "Draw");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Stats", "OpenColumnsMenu");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Module_Stats", "BuildAddMenu");
+            // 战斗统计
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "ReadinessTip");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "TechName");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "EffectiveDps");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "RangedEffDps");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "Resolve");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "RangedDpsTip");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "KeyLabel");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".MCBStats", "StatMenu");
+            // 战斗条
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "DrawCell");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "DrawBelt");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "BeltLabel");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "UseBeltItem");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "DrawPips");
+            PatchIfPresent(harmony, colonistBar, cbNS + ".Warband", "IsChampion");
+            // 订单禁用原因
+            PatchIfPresent(harmony, colonistBar, cbNS + ".CCOrders", "Blocker");
+
             // ============ 隐藏 Mod 设置列表中的聚合 UI 模组条目 ============
             // 原版「选项 → Mod 设置」只显示汉化模组一个条目，
             // 各 UI 模组设置改为从汉化模组的聚合界面进入。
@@ -119,9 +204,17 @@ namespace AstrylsUIZhCN
             {
                 return;
             }
-            // 3. 方法或属性 getter 不存在则跳过
-            var targetMethod = AccessTools.Method(targetType, methodName)
-                ?? AccessTools.PropertyGetter(targetType, methodName);
+            // 3. 构造函数 / 方法 / 属性 getter 不存在则跳过
+            MethodBase targetMethod;
+            if (methodName == ".ctor")
+            {
+                targetMethod = AccessTools.Constructor(targetType);
+            }
+            else
+            {
+                targetMethod = AccessTools.Method(targetType, methodName)
+                    ?? AccessTools.PropertyGetter(targetType, methodName);
+            }
             if (targetMethod == null)
             {
                 return;

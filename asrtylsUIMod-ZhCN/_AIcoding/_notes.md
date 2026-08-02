@@ -7,7 +7,7 @@
 
 - 汉化模组 packageId: `yintx.deepseek.astrylUImod.zhcn`（用户已确认，2026-08-02）
 - 目录名按用户指定拼写 `asrtylsUIMod-ZhCN`（非 astryls）
-- 聚合范围 16 个 UI/工具模组；排除 True RPG 系列（「rpgtrue 背包」）、TailorMade、As Above So Below
+- 聚合范围 18 个 UI/工具模组（2026-08-02 新增 True RPG Inventory/Backpacks 汉化）；排除 TailorMade、As Above So Below
 - 汉化双手段：**Keyed 翻译 + Harmony patch DLL**（Transpiler 替换 ldstr）
 - **硬编码汉化采用「Keyed + Translator」维护模式**（2026-08-02）：翻译文本放 `Keyed/HardcodedZhCN.xml`，C# 只维护「英文原文 → 键名」稳定映射；改翻译只改 XML 无需重编译 DLL
 - 参考模板：工作区 `_templates/generic-zhcn-template/`（通用）、`_templates/special-hardcoded-patch/`（硬编码 patch）
@@ -32,7 +32,7 @@
 - `OriginalSRC-SDK/` — 16 个反编译源码项目（含 .csproj + solution.sln，**git 忽略不入库**）
 - `_AIcoding/` — 本笔记 + 调研扫描结果（以 `_` 开头的中间产物，允许入库，体积小）
 
-## 模组清单（聚合范围：16 个）
+## 模组清单（聚合范围：18 个）
 
 ### Modern 系列（14 个）
 | 模组 | packageId | Keyed 条目 | 硬编码 UI 情况 |
@@ -58,8 +58,13 @@
 | Pillar Planner | astryl.PillarPlanner | 4 | 无 |
 | Circinus | astryl.Circinus | 72 | **较多（Known issue/Present in % of runs 等 + DebugActions）** |
 
+### True RPG 系列（2 个，2026-08-02 新增）
+| 模组 | packageId | Keyed 条目 | 备注 |
+|---|---|---|---|
+| True RPG Inventory | astryl.TrueRPGInventory | 126 | 俄罗斯方块背包系统；Defs：JobDef×4 + WorkGiverDef×1 + KeyBinding×2 |
+| True RPG Backpacks | astryl.TrueRPGBackpacks | 12 | 密封背包；Defs：ThingDef×1 |
+
 ## 排除的模组
-- True RPG Inventory / True RPG Backpacks — 用户指定「rpgtrue 背包」不汉化
 - TailorMade — 已有 `TailorMade-ZhCN` 项目
 - As Above So Below — 已有 `AsAboveSoBelow-ZhCN` 项目
 
@@ -93,6 +98,59 @@
 - 兼容性：Dialog_Options 是游戏本体类，无需 PatchIfPresent 存在性检查（但仍判空）
 - 汉化模组自己的设置条目会正常出现在 Mod 设置列表（SettingsCategory 非空）
 - 玩家仍可从模组管理页（Page_ModsConfig）进单个模组设置，未封堵
+- **⚠️ Bug 修复（2026-08-02）**：聚合列表空白——根因 `AggregatedModNames` 字典用大写 packageId（`astryl.ModernBioTab`），而 RimWorld 内部（`ModsConfig.xml` / `ModContentPack.PackageId`）统一**小写**存储（`astryl.modernbiotab`）→ `TryGetValue` 永远不匹配 → 列表空白。修复：字典 key 改小写 + 匹配处 `pid.ToLowerInvariant()`（`IsAggregated` 隐藏逻辑同步修复）。**教训：RimWorld packageId 一律小写，比对必须 ToLowerInvariant**
+
+## Modern Colonist Bar 硬编码补充（2026-08-02）
+
+用户实测反馈：命令中心菜单（View:/Auto-hide 等）、悬停按钮（Draft/Jump/Health 等）仍显示英文。已补充：
+
+- **反编译注意**：`OriginalSRC-SDK/ModernColonistBar` 的反编译结果**搜不到**这些字符串（可能版本过旧/不完整），本次以重新反编译 `OriginalMods/ModernColonistBar/Assemblies/ModernColonistBar.dll`（→ `D:\temp\mcb_decompiled`）为准
+- **新增 11 个方法 patch**（命名空间 `ModernColonistBar`）：
+  - `BarControls.Draw`（控制按钮 tooltip）/ `OpenMenu`（命令中心菜单）/ `BuildViewMenu`（Everyone/Squad:）
+  - `Patch_HandleClicks_RightClickMenu.OpenInteractionMenu`（右键菜单 Command center.../Modern Colonist Bar）/ `BuildViewMenu`
+  - `FloatMenuOptionSub` 构造函数（右键子菜单 tooltip）—— **PatchIfPresent 新增 `.ctor` 支持**（AccessTools.Constructor）
+  - `HoverPopout.BuildActions`（Draft/Undraft/Jump/Health/Bio/Social/Gear/Rename 按钮）
+  - `BarSquads.ViewLabel`（Everyone/Squad:）/ `WarbandHotbar.Draw`（Draft/Undraft/Selected）/ `Module_Loadouts.Label`（属性 getter，Gear）
+- **新增 25 条 Keyed**：`HardcodedZhCN.ColonistBar.*`
+- **重要经验（Transpiler）**：替换的 ldstr 若恰是分支/switch 跳转目标，必须把原指令 labels 转移到新指令（`newLoad.labels.AddRange(code.labels)`），否则报 `Label #N is not marked in method`（SortModeLabel getter 曾触发）
+- **第二次补充（状态显示/右键菜单/小队管理/跟随镜头）**：全量反编译扫描（`D:\temp\mcb_strings.txt` 633 条，UI 过滤 309 条）后补充：
+  - 新增 15 个方法：`AwayIndicator.LocationTip` / `AggroRadar.Draw` / `PawnStatusUtil.Gather` / `Patch_DrawColonist_Overlay.DrawWeaponIcon+DrawBpDevice+MedicalTooltip` / `FollowCam.OnGUI+Toggle+Stop` / `Dialog_ManageSquads.DoWindowContents` / `Dialog_RenameSquad.DoWindowContents` / `BarSquads.NameOfHidden` / `Patch_HandleClicks_RightClickMenu.BuildModMenu+BuildPoliciesMenu+BuildBarManageMenu`
+  - 新增约 70 条 Keyed（`HardcodedZhCN.ColonistBar.*`）：离队/位置状态（In transit/With caravan/On another map）、仇恨/状态徽章（Targeted by/Break/Inspired/Danger sense/Engagement）、装备/医疗状态（in hand/sidearm/Forming caravan/Medical rest/Blood pressure/Bleeding/Needs treatment）、跟随镜头（Following/Select a pawn/Stopped following）、小队管理对话框（Bar squads/New squad/Rename or recolor）、条控制（隐藏囚犯/奴隶区域/New view/Rename/Delete）、右键菜单（Bar mode/Bar view/Policies/Outfit/Food/Drugs/Unhide all 等）
+  - `BarControls.Draw` / `BuildViewMenu` 为已注册方法，直接补充字典即可
+- **尚未补充（大界面，待确认）**：`Dialog_CommandCenter`（指挥中心界面 ~40 条）、`Module_Loadouts`/`Module_Armory`（装备/军械库 ~40 条）、`Module_Overview`/`Module_Stats`/`MCBStats`（统计模块 ~40 条）、`Warband`（战斗条）、`CCOrders`（订单禁用原因）、`DestinationGhost` 等
+- **第三次补充（全部大界面完成，2026-08-02）**：
+  - 新增约 50 个方法：`Dialog_CommandCenter`（DoWindowContents/DrawRoster/DrawSquadHeader/SubLine/DrawDetail/DrawPillar/DpsChip/DrawActionBar/PolicyBtn/OpenAssignMenu/OpenSortMenu/OpenSquadMenu）、`Module_Loadouts`（Draw/DrawGearPanel/DrawMapList/OpenMapRowMenu/OrderGear/DrawSlot/DrawManage/DrawReqRow/KitToOutfit/QueueBills/Snapshot）、`Module_Armory`（Draw/OpenRowMenu/WhereLabel）、`Module_Overview`（Draw/DrawRows/DrawGraph）、`Module_Stats`（Draw/OpenColumnsMenu/BuildAddMenu）、`MCBStats`（ReadinessTip/TechName/EffectiveDps/RangedEffDps/Resolve/RangedDpsTip/KeyLabel/StatMenu）、`Warband`（DrawCell/DrawBelt/BeltLabel/UseBeltItem/DrawPips/IsChampion）、`CCOrders.Blocker`
+  - 新增约 170 条 Keyed（`HardcodedZhCN.ColonistBar.*`）：指挥中心（搜索/排序/小队/护甲/DPS/政策）、装备模块（套装/制作清单/装备到）、军械库（列头/武器）、概览（战斗准备度/属性/副武器）、统计、战斗统计 tooltip（MCBStats）、战斗条（腰带/治疗/领袖）、订单禁用原因（CCOrders）
+  - **排除项**：内部 key（`__health__` 等）、纯符号（`: `、`▾` 等）、模块名（Armory/Combat/Stats）、DPS 等通用缩写
+  - **验证**：字典 389 键 ↔ XML 389 键完全对应，无缺键；编译 0 错误
+
+## True RPG 汉化 + 模组更新检查（2026-08-02）
+
+用户要求新增 True RPG 汉化，并检查部分模组更新后的缺译：
+
+- **全量对比**：遍历 18 个模组创意工坊英文 Keyed（2435 key）vs 已汉化（2285 key）→ 缺 150 个
+  - True RPG 新模组：138 个（MRPG_*/NITRPG_*/RPGBP_*）
+  - Modern Colonist Bar 更新新增 3 个（`MCB_Setting_FaRate*` 面部动画刷新频率）
+  - Circinus 更新新增 9 个（`Circ.AutoProfile*` / `Circ.Settings.AutoProfile` / `Background` 自动分析）
+- **新增文件**：`Keyed/TrueRPGInventory.xml`（126 条）+ `Keyed/TrueRPGBackpack.xml`（12 条）+ DefInjected 5 个（JobDef/WorkGiverDef/KeyBindingCategoryDef/KeyBindingDef/ThingDef）
+- **补充更新**：ModernColonistBar.xml +3、Circinus.xml +9
+- **聚合入口**：`AggregatedModNames` 加 astryl.truerpginventory / astryl.truerpgbackpacks（小写）；About.xml 覆盖列表/loadAfter/README 同步 16→18
+- **验证**：缺失 key 归零；编译 0 错误；已部署（Keyed 16 文件 + DefInjected 11 类）
+- **注意**：16 个旧模组均在 08-01 更新过；本次只补了新增 key，若原 key 的英文文本被改动，需按 key 重新比对
+
+## ⚠️ 方案变更：直接字面量替换（2026-08-02，重要）
+
+用户反馈「依旧缺汉化」→ 查日志定位根因并重构：
+
+- **根因**：`HardcodedStringReplacer` 静态构造函数崩溃 → `Patcher` 全部 patch 未注册 → 所有硬编码汉化失效
+  - 崩溃原因：字典**重复 key** `" selected"`（第一次补充加 `SelectedSuffix`，批1 指挥中心又加 `CcSelected`）→ `ArgumentException: An item with the same key has already been added`
+  - 教训：**字典禁止重复英文 key**，批量添加映射前必须查重
+- **新方案（废弃 Keyed + Translator 运行时查表）**：
+  - Transpiler 把原模组 `ldstr 英文` 直接替换为 `ldstr 中文`（**380 条翻译内嵌 DLL**），不再调用 `Translator.Translate`、不读取任何语言文件
+  - 零运行时依赖、绝不缺键；代价：改翻译需重新编译 DLL
+  - `HardcodedZhCN.xml` 已删除（DLL 不再使用）
+- **生成脚本**：`D:\temp\gen_hardcoded_direct.ps1`——读取旧字典（英文→键名）+ XML（键名→中文）合并去重生成新字典，自动处理 `\n`/`\"` 转义，可复用
+- **注意**：脚本文件需纯 ASCII（PowerShell 5.1 按 ANSI 读 .ps1，中文会乱码），中文注释会破坏脚本
 
 ## 后续待办
 - [x] 项目初始化（About.xml / README / build.bat / Languages 骨架）— 2026-08-01
@@ -117,6 +175,6 @@
 - [x] build.bat 部署验证（编译 + 部署到游戏 Mods）— 2026-08-02
 - [x] About.xml 覆盖模组列表加 Steam 工坊跳转链接（16 个模组）— 2026-08-02
 - [x] 设置聚合界面（隐藏原 16 个模组 Mod 设置条目 + 汉化模组聚合入口分开打开）— 2026-08-02
-- [ ] （可选）补充其他模组的少量硬编码 patch：Modern Bio Tab / Colonist Bar / Faction Menu / Circinus / Modern CC
+- [ ] （可选）补充其他模组的少量硬编码 patch：Modern Bio Tab / Faction Menu / Circinus / Modern CC（Colonist Bar 已全量补完）
 - [ ] 更新 About.xml 描述（翻译条数/版本/依赖/设置聚合说明）与 README.md
 - [ ] 游戏内实测验证（设置聚合界面 + 各模组设置 + 缺模组不报错）

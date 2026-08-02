@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  True RPG Backpacks 简体中文汉化
+  源模组: True RPG Backpacks (创意工坊 3744208438)
+  key 前缀: RPGBP_
+-->
+<LanguageData>
+
+  <RPGBP_InvGrid>背包</RPGBP_InvGrid>
+  <RPGBP_OpenedPack>{0} 打开了一个密封背包，找回了 {1} 件藏匿物品。</RPGBP_OpenedPack>
+  <RPGBP_PackGrid>背包</RPGBP_PackGrid>
+  <RPGBP_SealedPack>已密封——殖民者必须穿戴此背包才能打开。</RPGBP_SealedPack>
+  <RPGBP_SetEditLoot>允许的背包战利品…</RPGBP_SetEditLoot>
+  <RPGBP_SetEditLootHelp>打开所有可携带物品（原版与模组）的列表，允许或禁止其出现在密封背包中。</RPGBP_SetEditLootHelp>
+  <RPGBP_SetFillChance>找到的背包是满的概率</RPGBP_SetFillChance>
+  <RPGBP_SetLootEnabled>背包可能满装战利品生成</RPGBP_SetLootEnabled>
+  <RPGBP_SetLootEnabledTip>开启后，找到/缴获/袭击者的背包有一定概率密封生成并塞满随机物品。制作的背包始终为空。</RPGBP_SetLootEnabledTip>
+  <RPGBP_SetMaxItems>最大物品数</RPGBP_SetMaxItems>
+  <RPGBP_SetMaxValue>每件物品最大价值</RPGBP_SetMaxValue>
+  <RPGBP_SetMinItems>最小物品数</RPGBP_SetMinItems>
+
+</LanguageData>

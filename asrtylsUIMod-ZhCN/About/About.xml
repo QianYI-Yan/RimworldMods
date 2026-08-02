@@ -6,7 +6,7 @@
   <modVersion>1.0.0</modVersion>
   <description>
 [h1]astryl UI 模组合集 简体中文汉化补丁[/h1]
-将作者 [b]astryl[/b] 的 16 个 UI / 工具模组聚合汉化为简体中文，一个模组搞定全部。
+将作者 [b]astryl[/b] 的 18 个 UI / 工具模组聚合汉化为简体中文，一个模组搞定全部。
 
 [hr][h2]覆盖模组[/h2]
 [list]
@@ -26,6 +26,8 @@
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3771602203]Modern Dev Tools[/url] — 开发者工具
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3768069893]Pillar Planner[/url] — 屋顶支撑规划
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3773680130]Circinus[/url] — 模组性能分析
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3744201621]True RPG Inventory[/url] — 俄罗斯方块背包系统
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3744208438]True RPG Backpacks[/url] — 可开启的密封背包
 [/list]
 
 [hr][h2]安装说明[/h2]
@@ -38,7 +40,7 @@
 [/list]
 
 [hr][h2]设置聚合[/h2]
-为了让「选项 → Mod 设置」列表不再被十几个条目刷屏，本汉化把上述 16 个模组的设置条目隐藏，改为在 Mod 设置里只显示一个「astryl UI 模组合集」入口，点进去即可分开打开任意已安装模组的设置界面。
+为了让「选项 → Mod 设置」列表不再被十几个条目刷屏，本汉化把上述 18 个模组的设置条目隐藏，改为在 Mod 设置里只显示一个「astryl UI 模组合集」入口，点进去即可分开打开任意已安装模组的设置界面。
 （安装了哪些模组就显示哪些，未安装的不会出现。）
 
 [hr][h2]源码[/h2]
@@ -64,5 +66,7 @@
     <li>astryl.ModernDevTools</li>
     <li>astryl.PillarPlanner</li>
     <li>astryl.Circinus</li>
+    <li>astryl.TrueRPGInventory</li>
+    <li>astryl.TrueRPGBackpacks</li>
   </loadAfter>
 </ModMetaData>

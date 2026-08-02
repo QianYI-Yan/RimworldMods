@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- True RPG Inventory WorkGiverDef 注入翻译 -->
+<LanguageData>
+  <WorkGiverDef>
+    <TRPG_StripMarkedGear.label>剥除标记装备</TRPG_StripMarkedGear.label>
+  </WorkGiverDef>
+</LanguageData>

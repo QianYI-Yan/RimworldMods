@@ -15,25 +15,27 @@ namespace AstrylsUIZhCN
     /// </summary>
     public class AstrylsUIZhCNMod : Mod
     {
-        /// <summary>聚合的 16 个 UI 模组 packageId → 中文显示名。</summary>
+        /// <summary>聚合的 16 个 UI 模组 packageId（RimWorld 内部存小写）→ 中文显示名。</summary>
         public static readonly Dictionary<string, string> AggregatedModNames = new Dictionary<string, string>
         {
-            { "astryl.ModernPawnTabs", "现代角色标签页" },
-            { "astryl.ModernBioTab", "现代生物标签页" },
-            { "astryl.ModernXenotypeTab", "现代异种人标签页" },
-            { "astryl.ModernSocialTab", "现代社交标签页" },
-            { "astryl.ModernQuestMenu", "现代任务菜单" },
-            { "astryl.ModernHistoryMenu", "现代历史菜单" },
-            { "astryl.ModernFactionMenu", "现代派系菜单" },
-            { "astryl.ModernIdeologyMenu", "现代意识形态菜单" },
-            { "astryl.ModernNeedsTab", "现代需求标签页" },
-            { "astryl.ModernLearningMenu", "现代学习菜单" },
-            { "astryl.ModernNotifications", "现代通知" },
-            { "astryl.ModernCC", "现代角色编辑器" },
-            { "astryl.ModernColonistBar", "现代殖民者栏" },
-            { "astryl.ModernDevTools", "现代开发者工具" },
-            { "astryl.PillarPlanner", "屋顶支撑规划" },
-            { "astryl.Circinus", "Circinus 性能分析" },
+            { "astryl.modernpawntabs", "现代角色标签页" },
+            { "astryl.modernbiotab", "现代生物标签页" },
+            { "astryl.modernxenotypetab", "现代异种人标签页" },
+            { "astryl.modernsocialtab", "现代社交标签页" },
+            { "astryl.modernquestmenu", "现代任务菜单" },
+            { "astryl.modernhistorymenu", "现代历史菜单" },
+            { "astryl.modernfactionmenu", "现代派系菜单" },
+            { "astryl.modernideologymenu", "现代意识形态菜单" },
+            { "astryl.modernneedstab", "现代需求标签页" },
+            { "astryl.modernlearningmenu", "现代学习菜单" },
+            { "astryl.modernnotifications", "现代通知" },
+            { "astryl.moderncc", "现代角色编辑器" },
+            { "astryl.moderncolonistbar", "现代殖民者栏" },
+            { "astryl.moderndevtools", "现代开发者工具" },
+            { "astryl.pillarplanner", "屋顶支撑规划" },
+            { "astryl.circinus", "Circinus 性能分析" },
+            { "astryl.truerpginventory", "True RPG 背包系统" },
+            { "astryl.truerpgbackpacks", "True RPG 背包" },
         };
 
         public AstrylsUIZhCNMod(ModContentPack content) : base(content)
@@ -59,7 +61,8 @@ namespace AstrylsUIZhCN
                     continue;
                 }
                 string pid = mod.Content.PackageId;
-                if (string.IsNullOrEmpty(pid) || !AggregatedModNames.TryGetValue(pid, out string displayName))
+                // RimWorld 内部 packageId 统一小写存储，匹配时也转小写
+                if (string.IsNullOrEmpty(pid) || !AggregatedModNames.TryGetValue(pid.ToLowerInvariant(), out string displayName))
                 {
                     continue;
                 }
@@ -78,10 +81,10 @@ namespace AstrylsUIZhCN
             listing.End();
         }
 
-        /// <summary>判断 packageId 是否属于被聚合的 16 个 UI 模组。</summary>
+        /// <summary>判断 packageId 是否属于被聚合的 16 个 UI 模组（大小写不敏感）。</summary>
         public static bool IsAggregated(string packageId)
         {
-            return !string.IsNullOrEmpty(packageId) && AggregatedModNames.ContainsKey(packageId);
+            return !string.IsNullOrEmpty(packageId) && AggregatedModNames.ContainsKey(packageId.ToLowerInvariant());
         }
     }
 }

@@ -80,4 +80,15 @@
   <Circ.ProfilerDumped>{0} 个分析器已转储到日志。</Circ.ProfilerDumped>
   <Circ.TestsNoneRan>没有运行任何测试程序集。未发现可执行内容。</Circ.TestsNoneRan>
 
+  <!-- 2026-08-01 更新新增：自动分析 -->
+  <Circ.AutoProfile.Body>Circinus 可以在每次记录运行时自行测量你加载顺序中的每个模组，无需你手动武装目标。\n\n它按突发测量——约每五帧一次——并对过于频繁无法单独计时的调用进行采样，因此在突发之间，被插桩的调用只需不到一纳秒的一小部分。插桩是逐步应用而非一次性，任何被证明零开销的内容会在几秒内停止测量。\n\n调用次数保持精确。计时变为估算值，且每次运行都会记录它是以此方式测量的，因此任何东西都不会与无法比较的测量值进行对比。\n\n这是关于你自己的机器。它与分享运行是不同的问题——你已经回答过，且这不会改变它。</Circ.AutoProfile.Body>
+  <Circ.AutoProfile.No>不，我会自己武装目标</Circ.AutoProfile.No>
+  <Circ.AutoProfile.Note>可在模组设置中随时更改。</Circ.AutoProfile.Note>
+  <Circ.AutoProfile.Title>自动分析？</Circ.AutoProfile.Title>
+  <Circ.AutoProfile.Yes>是，自动分析</Circ.AutoProfile.Yes>
+  <Circ.Settings.AutoProfile>记录时自动分析</Circ.Settings.AutoProfile>
+  <Circ.Settings.AutoProfileTip>在每次记录运行期间对加载顺序中的每个 Harmony 补丁进行插桩，因此无需手动武装任何东西即可收集开销数据。插桩是逐步应用而非一次性，任何被证明零开销的内容都会停止测量。测量本身已经很便宜：在突发之间，被插桩的调用只需不到一纳秒的一小部分。</Circ.Settings.AutoProfileTip>
+  <Circ.Settings.Background>后台测量</Circ.Settings.Background>
+  <Circ.Settings.BackgroundTip>每五帧测量一次，对过于频繁无法单独计时的调用进行采样，并对三百帧内未测量到任何内容的插桩停止。开销仅为连续分析的零头，设计为保持开启。调用次数保持精确；只有计时变为估算值，且每次运行都会记录它是以此方式测量的。</Circ.Settings.BackgroundTip>
+
 </LanguageData>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- True RPG Inventory KeyBindingDef 注入翻译 -->
+<LanguageData>
+  <KeyBindingDef>
+    <MRPG_OpenGearTab.label>打开装备页（选中小人）</MRPG_OpenGearTab.label>
+  </KeyBindingDef>
+</LanguageData>

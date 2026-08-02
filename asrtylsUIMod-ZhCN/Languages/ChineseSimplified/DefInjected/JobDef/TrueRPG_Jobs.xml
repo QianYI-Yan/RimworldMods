@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- True RPG Inventory JobDef 注入翻译 -->
+<LanguageData>
+  <JobDef>
+    <TRPG_DeliverInventory.reportString>正在向 {TargetA} 运送物品。</TRPG_DeliverInventory.reportString>
+    <TRPG_StripMarkedGear.reportString>正在剥除 {TargetA} 的装备。</TRPG_StripMarkedGear.reportString>
+    <TRPG_TakeItemFrom.reportString>正在收集一件物品。</TRPG_TakeItemFrom.reportString>
+    <TRPG_GoExchange.reportString>正在前往交换物品。</TRPG_GoExchange.reportString>
+  </JobDef>
+</LanguageData>

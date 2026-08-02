@@ -252,4 +252,9 @@
   <MCB_Stat_Entropy>神经热量</MCB_Stat_Entropy>
   <MCB_Stat_Mmb>心理健康（MMB）</MCB_Stat_Mmb>
 
+  <!-- 2026-08-01 更新新增：面部动画刷新频率 -->
+  <MCB_Setting_FaRate>面部刷新：每 {0} 帧（约每秒 {1} 次）</MCB_Setting_FaRate>
+  <MCB_Setting_FaRateDeferred>Facial Animation 正在自行刷新肖像（每 {0} 帧）。请在其模组选项中更改频率。</MCB_Setting_FaRateDeferred>
+  <MCB_Setting_FaRateNote>每次刷新都会重新渲染整个小人，因此这是动画肖像的主要开销。频率按小人、按真实时间计算，因此快进不会倍增它。3 对眨眼来说流畅；1 匹配游戏帧率，但大型殖民地开销高得多。</MCB_Setting_FaRateNote>
+
 </LanguageData>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  True RPG Inventory 简体中文汉化
+  源模组: True RPG Inventory (创意工坊 3744201621)
+  key 前缀: MRPG_ / NITRPG_
+-->
+<LanguageData>
+
+  <MRPG_Blunt>钝击</MRPG_Blunt>
+  <MRPG_BonusesAffixes>增益与词缀</MRPG_BonusesAffixes>
+  <MRPG_BurstShots>每次点射发数</MRPG_BurstShots>
+  <MRPG_CancelStrip>取消剥除</MRPG_CancelStrip>
+  <MRPG_Capabilities>能力</MRPG_Capabilities>
+  <MRPG_Carry>负重</MRPG_Carry>
+  <MRPG_CarryBase>基础</MRPG_CarryBase>
+  <MRPG_CarryBodySize>× 体型</MRPG_CarryBodySize>
+  <MRPG_CarryInvLimit>背包质量上限（质量条）</MRPG_CarryInvLimit>
+  <MRPG_CarryManip>× 操作</MRPG_CarryManip>
+  <MRPG_CarryOther>装备与其他加成</MRPG_CarryOther>
+  <MRPG_CarryPerTrip>每次搬运量（手中）</MRPG_CarryPerTrip>
+  <MRPG_CEBulk>体积</MRPG_CEBulk>
+  <MRPG_CEWeight>重量</MRPG_CEWeight>
+  <MRPG_Combat>战斗</MRPG_Combat>
+  <MRPG_CycleTime>换弹时间</MRPG_CycleTime>
+  <MRPG_CycleWeapon>切换武器（主手 + 副武器循环）</MRPG_CycleWeapon>
+  <MRPG_DmgPerHit>每次命中伤害</MRPG_DmgPerHit>
+  <MRPG_DmgPerShot>每次射击伤害</MRPG_DmgPerShot>
+  <MRPG_EffectsBySlot>按栏位生效</MRPG_EffectsBySlot>
+  <MRPG_Environment>环境</MRPG_Environment>
+  <MRPG_Equipment>装备</MRPG_Equipment>
+  <MRPG_ForceWear>强制穿戴（保持穿着，忽略服装方案）</MRPG_ForceWear>
+  <MRPG_GlowToggle>切换已装备物品在纸娃娃上的悬停发光。</MRPG_GlowToggle>
+  <MRPG_HaulToStorage>搬运到储存区</MRPG_HaulToStorage>
+  <MRPG_Health>健康</MRPG_Health>
+  <MRPG_Heat>高温</MRPG_Heat>
+  <MRPG_HideEyewear>隐藏眼部装备（外观）\n\n停止在地图和肖像中绘制该小人的眼部装备。它仍处于装备状态，属性和防护不受影响。造型站始终显示它。</MRPG_HideEyewear>
+  <MRPG_HideHeadgear>隐藏头饰（外观）\n\n停止在地图和肖像中绘制该小人的头饰。它仍处于装备状态，属性和防护不受影响。造型站始终显示它。</MRPG_HideHeadgear>
+  <MRPG_HideStats>折叠属性面板</MRPG_HideStats>
+  <MRPG_HitChance>命中率</MRPG_HitChance>
+  <MRPG_IfEquipped>若装备</MRPG_IfEquipped>
+  <MRPG_Immunity>免疫</MRPG_Immunity>
+  <MRPG_Inventory>背包</MRPG_Inventory>
+  <MRPG_IO_Charges>{0} 次充能</MRPG_IO_Charges>
+  <MRPG_IO_Identified>已鉴定：{0}</MRPG_IO_Identified>
+  <MRPG_IO_Identify>鉴定物品…</MRPG_IO_Identify>
+  <MRPG_IO_Read>阅读 {0}</MRPG_IO_Read>
+  <MRPG_Mass>质量</MRPG_Mass>
+  <MRPG_Medical>医疗</MRPG_Medical>
+  <MRPG_Melee>近战 DPS</MRPG_Melee>
+  <MRPG_MeleeHit>近战命中</MRPG_MeleeHit>
+  <MRPG_Modifiers>修正</MRPG_Modifiers>
+  <MRPG_NaturalArmor>天然（皮肤）</MRPG_NaturalArmor>
+  <MRPG_NITView>切换到 Nice Inventory Tab 视图（再按一次切回）。</MRPG_NITView>
+  <MRPG_NoBonuses>穿戴装备不提供增益或词缀。</MRPG_NoBonuses>
+  <MRPG_NoGearAffects>无装备影响此项。</MRPG_NoGearAffects>
+  <MRPG_NoMelee>无近战攻击</MRPG_NoMelee>
+  <MRPG_NoRanged>无远程武器</MRPG_NoRanged>
+  <MRPG_NoStatChange>该物品不改变任何属性。</MRPG_NoStatChange>
+  <MRPG_OffHandSlot>副手（将武器拖到这里以双持）</MRPG_OffHandSlot>
+  <MRPG_PinInfo>点击固定此物品的详情</MRPG_PinInfo>
+  <MRPG_Psychic>心灵</MRPG_Psychic>
+  <MRPG_QuickDrop>丢弃（落在殖民者身旁）</MRPG_QuickDrop>
+  <MRPG_RangedAcc>精度</MRPG_RangedAcc>
+  <MRPG_RangedDPS>远程 DPS</MRPG_RangedDPS>
+  <MRPG_RangeLong>长</MRPG_RangeLong>
+  <MRPG_RangeMedium>中</MRPG_RangeMedium>
+  <MRPG_RangeShort>短</MRPG_RangeShort>
+  <MRPG_Resistances>抗性</MRPG_Resistances>
+  <MRPG_ReturnToModern>返回 True RPG Inventory 布局</MRPG_ReturnToModern>
+  <MRPG_SettingGearHotkey>装备页热键（选中小人）</MRPG_SettingGearHotkey>
+  <MRPG_SettingGearHotkeyKey>装备页按键</MRPG_SettingGearHotkeyKey>
+  <MRPG_SettingGearHotkeyTip>开启后，按下「打开装备页」键（默认 I；可在 选项 &gt; 键盘配置 中重绑定）会为选中殖民者打开或关闭装备页。关闭以禁用热键。</MRPG_SettingGearHotkeyTip>
+  <MRPG_SettingHideSocketGizmo>隐藏世界中镶嵌按钮</MRPG_SettingHideSocketGizmo>
+  <MRPG_SettingHideSocketGizmoTip>Itemization Overhaul - Runes &amp; Socketables 会为地图上选中的可镶嵌装备添加「镶嵌…」按钮，命令殖民者镶嵌。True RPG Inventory 允许你通过将符文或宝石拖到本页装备上即时镶嵌，因此这会隐藏该冗余按钮。关闭以保留世界中的殖民者镶嵌任务按钮。</MRPG_SettingHideSocketGizmoTip>
+  <MRPG_SettingMechanical>机械网格容量</MRPG_SettingMechanical>
+  <MRPG_SettingMechanicalTip>启用后，10x4 背包网格是真实限制：无法命令小人拾取放不下的物品。商队/运输舱装载和 Pick Up And Haul 工作不受限。关闭则使用原版负重规则、网格仅为视觉显示。</MRPG_SettingMechanicalTip>
+  <MRPG_SettingPerspective>Perspective Shift：仅透视视角下的小人使用俄罗斯方块</MRPG_SettingPerspective>
+  <MRPG_SettingPerspectiveTip>在 Perspective Shift 的透视模式下控制小人时，该小人保留俄罗斯方块背包网格，其余小人显示简易表格视图。</MRPG_SettingPerspectiveTip>
+  <MRPG_SettingResetKey>默认</MRPG_SettingResetKey>
+  <MRPG_SettingRpgTrade>俄罗斯方块交易窗口</MRPG_SettingRpgTrade>
+  <MRPG_SettingRpgTradeTip>在地图上与来访商人交易时，用俄罗斯方块交易窗口替换原版交易对话框。关闭 = 原版交易。（轨道与大地图交易暂时保持原版。）</MRPG_SettingRpgTradeTip>
+  <MRPG_SettingShowDoll>在纸娃娃上显示小人肖像</MRPG_SettingShowDoll>
+  <MRPG_SettingShowDollTip>切换装备栏旁的小人肖像显示。无论开关，栏位都保留。</MRPG_SettingShowDollTip>
+  <MRPG_SettingTabScale>装备页大小</MRPG_SettingTabScale>
+  <MRPG_SettingTabScaleDesc>整体缩放整个装备页（纸娃娃、背包网格和属性面板），与游戏 UI 缩放独立。页面也会自动适应分辨率，因此永远不会超出屏幕。</MRPG_SettingTabScaleDesc>
+  <MRPG_SettingTetris>俄罗斯方块背包网格</MRPG_SettingTetris>
+  <MRPG_SettingTetrisTip>物品占用暗黑风格的多格空间。关闭则使用统一的每物一格网格。</MRPG_SettingTetrisTip>
+  <MRPG_SettingVanillaView>改为显示原版装备页</MRPG_SettingVanillaView>
+  <MRPG_SettingVanillaViewTip>绕过 True RPG Inventory 布局，显示 RimWorld 未修改的装备页。</MRPG_SettingVanillaViewTip>
+  <MRPG_Sharp>锐利</MRPG_Sharp>
+  <MRPG_Shooting>射击</MRPG_Shooting>
+  <MRPG_ShowEyewear>眼部装备已隐藏（仅外观，防护不受影响）。\n\n点击重新显示。</MRPG_ShowEyewear>
+  <MRPG_ShowHeadgear>头饰已隐藏（仅外观，防护不受影响）。\n\n点击重新显示。</MRPG_ShowHeadgear>
+  <MRPG_ShowStats>显示属性面板</MRPG_ShowStats>
+  <MRPG_SidearmCapReached>已携带最多 4 件武器（主手 + 3 副手）。</MRPG_SidearmCapReached>
+  <MRPG_SidearmSlot>副武器栏\n\n将武器拖到这里收纳为副武器。将副武器拖到武器栏以装备，或拖入背包移回库存。</MRPG_SidearmSlot>
+  <MRPG_SlotRulesHint>在 slot-rules.html（模组文档文件夹中）可视化构建规则，然后复制为 JSON 并粘贴到这里。将装备固定到你选择的栏位（例如 精制甲 → 外层躯干 + 腿部）。</MRPG_SlotRulesHint>
+  <MRPG_SlotRulesLabel>自定义栏位规则（JSON）</MRPG_SlotRulesLabel>
+  <MRPG_Social>社交</MRPG_Social>
+  <MRPG_SocketsHeader>镶嵌槽：{0}/{1}</MRPG_SocketsHeader>
+  <MRPG_Speed>移动速度</MRPG_Speed>
+  <MRPG_StatPreview>属性投影：悬停物品可预览装备后各属性条的变化。</MRPG_StatPreview>
+  <MRPG_StripItem>标记剥离（殖民者会在附近放下这件）</MRPG_StripItem>
+  <MRPG_StripPawn>标记剥除（殖民者会取下该小人的装备）</MRPG_StripPawn>
+  <MRPG_SwapUnarmed>收起武器（徒手战斗）</MRPG_SwapUnarmed>
+  <MRPG_SwapWeapon>切换武器</MRPG_SwapWeapon>
+  <MRPG_TakeToBlueprint>带到建造</MRPG_TakeToBlueprint>
+  <MRPG_TempRange>舒适</MRPG_TempRange>
+  <MRPG_TendWith>用 {0} 治疗</MRPG_TendWith>
+  <MRPG_TetrisMode>俄罗斯方块背包：物品使用暗黑风格空间。关闭 = 统一 1x1 格。</MRPG_TetrisMode>
+  <MRPG_Toxic>毒性</MRPG_Toxic>
+  <MRPG_ToxicEnv>毒性环境</MRPG_ToxicEnv>
+  <MRPG_TradeBuyFrom>从 {0} 购买</MRPG_TradeBuyFrom>
+  <MRPG_TradeHintBuy>拾起物品，放到你的网格上购买。Shift 购买 10 个，Ctrl 购买上限。右键选择数量。</MRPG_TradeHintBuy>
+  <MRPG_TradeHintSell>拾起物品，放到商人身上出售。Shift 出售 10 个，Ctrl 全部出售。右键选择数量。</MRPG_TradeHintSell>
+  <MRPG_TradeNothingToBuy>没有可购买的物品。</MRPG_TradeNothingToBuy>
+  <MRPG_TradeNothingToSell>这里没有可出售的物品。</MRPG_TradeNothingToSell>
+  <MRPG_TradeSell>出售</MRPG_TradeSell>
+  <MRPG_TradeViewToggle>在暗黑网格视图和列表视图之间切换（买卖两侧均适用）。</MRPG_TradeViewToggle>
+  <MRPG_Unforce>取消强制（交给服装方案管理）</MRPG_Unforce>
+  <MRPG_UnloadItem>卸下（落在动物身旁）</MRPG_UnloadItem>
+  <MRPG_UnmarkStrip>取消剥离这件</MRPG_UnmarkStrip>
+  <MRPG_VsEquipped>vs 已装备：{0}</MRPG_VsEquipped>
+  <MRPG_WhenEquipped>装备时</MRPG_WhenEquipped>
+  <MRPG_Work>工作速度</MRPG_Work>
+
+  <!-- Nice Inventory Tab 视图 -->
+  <NITRPG_CoveredBy>被 {0} 覆盖</NITRPG_CoveredBy>
+  <NITRPG_Equip>装备</NITRPG_Equip>
+  <NITRPG_HideDoll>隐藏纸娃娃</NITRPG_HideDoll>
+  <NITRPG_MoveToPack>移到背包</NITRPG_MoveToPack>
+  <NITRPG_Overflow>超出容量。这些物品放不进背包网格。</NITRPG_Overflow>
+  <NITRPG_ShowDoll>显示纸娃娃</NITRPG_ShowDoll>
+  <NITRPG_WeaponSlot>武器</NITRPG_WeaponSlot>
+  <NITRPG_Wear>穿戴</NITRPG_Wear>
+  <NITRPG_Wield>点击挥舞</NITRPG_Wield>
+
+</LanguageData>

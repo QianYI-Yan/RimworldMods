@@ -22,6 +22,8 @@
 | Modern Dev Tools | 开发者工具 | [3771602203](https://steamcommunity.com/sharedfiles/filedetails/?id=3771602203) |
 | Pillar Planner | 屋顶支撑规划 | [3768069893](https://steamcommunity.com/sharedfiles/filedetails/?id=3768069893) |
 | Circinus | 模组性能分析 | [3773680130](https://steamcommunity.com/sharedfiles/filedetails/?id=3773680130) |
+| True RPG Inventory | 俄罗斯方块背包系统 | [3744201621](https://steamcommunity.com/sharedfiles/filedetails/?id=3744201621) |
+| True RPG Backpacks | 可开启的密封背包 | [3744208438](https://steamcommunity.com/sharedfiles/filedetails/?id=3744208438) |
 
 ## 翻译方式
 
