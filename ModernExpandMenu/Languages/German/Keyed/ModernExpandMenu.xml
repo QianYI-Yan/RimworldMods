@@ -3,6 +3,15 @@
   <ModernExpandMenu_ShowLoadingAnimation>Ladeanimation anzeigen (oberer Balken + kreisförmiger Fortschritt + Überlagerung + gestaffelte Einträge)</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>Beim Überfahren einer Aktion das Ziel hervorheben und leuchtenden Pfeil zeichnen</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>Gesamtzahl der Gegenstände in Gruppenköpfen anzeigen (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>MD3-Stil auf alle Vanilla-Eingabefelder anwenden</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>Wenn aktiviert, verwenden alle Vanilla-Eingabefelder (Wertefelder, Suchleisten usw.) den MD3-Stil ohne Rahmen. Nur das Aussehen ändert sich, die Eingabe bleibt unverändert.</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>MD3-Stil auf Vanilla-Buttons & Kontrollkästchen anwenden</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>Wenn aktiviert, verwenden alle Vanilla-Buttons (Bestätigen/Schließen/Laden usw.), Kontrollkästchen, Tabs und Bildlaufleisten den MD3-Rundstil. Nur das Aussehen ändert sich, Klick und Interaktion bleiben gleich.</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>Upload-Warte-Countdown überspringen</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>Die 6-Sekunden-Wartezeit vor der Bestätigung eines Workshop-Uploads überspringen; sofort hochladen</ModernExpandMenu_SkipUploadWaitDesc>
+
+  <ModernExpandMenu_PreviewGroup>Gruppe {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>Option {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>Mod aktivieren (aus = komplett Vanille-Kontextmenü)</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>Pseudo-Übersetzungszeichen im Entwicklermodus deaktivieren (standardmäßig aus)</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>Maximale Menühöhe (Pixel)</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +24,8 @@
   <ModernExpandMenu_SectionPerformance>Leistung</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>Ladeanimation</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>Auf Standardwerte zurücksetzen</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>Sonstiges</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>Globaler Stil</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>Allgemein</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>Farben</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>Primärfarbe</ModernExpandMenu_SectionColorPrimary>
@@ -58,6 +69,18 @@
   <ModernExpandMenu_ScrollReturnDuration>Scroll-Rückkehrgeschwindigkeit</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Animationsvorschau</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} Gegenstände / {1} Aktionen geladen, {2}s, Animation gesamt {3}s</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>Standard wiederherstellen</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>Mod aktivieren (Vanilla-Menü wenn aus)</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>Dev-Pseudo-Übersetzung deaktivieren</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>Ladeanimation anzeigen</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>Hover-Hervorhebung &amp; Pfeil</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>Gesamtzahl in Gruppenköpfen anzeigen</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>MD3-Stil für alle Vanilla-Eingaben</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>MD3-Stil für Vanilla-Buttons &amp; Checkboxen</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>Upload-Warte-Countdown überspringen</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>Maximale Menühöhe</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>Objekte pro Frame</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>Zusätzliche Ladebalken-Sekunden</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>Allgemein</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>Animation</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>Farben</ModernExpandMenu_ResetSectionColors>

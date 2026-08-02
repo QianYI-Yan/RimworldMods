@@ -3,6 +3,14 @@
   <ModernExpandMenu_ShowLoadingAnimation>Показывать анимацию загрузки (верхняя полоса + кольцевой прогресс + оверлей + поэтапное появление)</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>Подсвечивать целевой предмет и рисовать светящуюся стрелку при наведении на действие</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>Показывать общее количество предметов в заголовках групп (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>Применить стиль MD3 ко всем ванильным полям ввода</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>При включении все ванильные поля ввода (поля значений, строки поиска и т.д.) получают стиль MD3 без рамок. Меняется только внешний вид, ввод остаётся прежним.</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>Применить стиль MD3 к ванильным кнопкам и флажкам</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>При включении все ванильные кнопки (подтвердить/закрыть/загрузить и т.д.), флажки, вкладки и полосы прокрутки получают скруглённый стиль MD3. Меняется только внешний вид, клик и взаимодействие остаются прежними.</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>Пропустить отсчёт ожидания загрузки</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>Пропустить 6-секундное ожидание перед подтверждением загрузки в Workshop; загрузить сразу</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_PreviewGroup>Группа {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>Опция {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>Включить мод (выкл. = полностью ванильное контекстное меню)</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>Отключить символы псевдоперевода в режиме разработчика (по умолчанию выкл.)</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>Максимальная высота меню (пиксели)</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +23,8 @@
   <ModernExpandMenu_SectionPerformance>Производительность</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>Анимация загрузки</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>Сбросить к значениям по умолчанию</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>Прочее</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>Глобальный стиль</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>Общие</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>Цвета</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>Основной цвет</ModernExpandMenu_SectionColorPrimary>
@@ -58,6 +68,18 @@
   <ModernExpandMenu_ScrollReturnDuration>Скорость возврата прокрутки наверх</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Предпросмотр анимации</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} предметов / {1} действий загружено, {2}с, анимация всего {3}с</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>Восстановить по умолчанию</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>Включить мод (ванильное меню если выкл.)</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>Отключить псевдоперевод разработчика</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>Показывать анимацию загрузки</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>Подсветка при наведении и стрелка</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>Показывать общее количество в заголовках</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>Стиль MD3 для всех ванильных полей ввода</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>Стиль MD3 для кнопок и флажков</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>Пропустить отсчёт ожидания загрузки</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>Макс. высота меню</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>Предметов за кадр</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>Доп. секунды полосы загрузки</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>Общие</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>Анимация</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>Цвета</ModernExpandMenu_ResetSectionColors>

@@ -3,6 +3,14 @@
   <ModernExpandMenu_ShowLoadingAnimation>Afficher l'animation de chargement (barre supérieure + progression circulaire + superposition + entrées échelonnées)</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>Mettre en surbrillance l'élément cible et tracer une flèche lumineuse en survolant une action</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>Afficher le nombre total d'éléments dans les en-têtes de groupe (×N)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>Appliquer le style MD3 à tous les champs de saisie vanilla</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>Une fois activé, tous les champs de saisie vanilla (champs de valeurs, barres de recherche, etc.) adoptent le style MD3 sans bordure. Seule l'apparence change, la saisie reste identique.</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>Appliquer le style MD3 aux boutons et cases vanilla</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>Une fois activé, tous les boutons vanilla (confirmer/fermer/charger, etc.), cases à cocher, onglets et barres de défilement adoptent le style arrondi MD3. Seule l'apparence change, le clic et l'interaction restent identiques.</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>Ignorer le compte à rebours d'attente d'envoi</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>Ignorer les 6 secondes d'attente avant de confirmer un envoi Workshop ; envoyer immédiatement</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_PreviewGroup>Groupe {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>Option {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>Activer le mod (désactivé = menu contextuel vanilla complet)</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>Désactiver les caractères de pseudo-traduction du mode développeur (désactivé par défaut)</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>Hauteur maximale du menu (pixels)</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +23,8 @@
   <ModernExpandMenu_SectionPerformance>Performance</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>Animation de chargement</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>Réinitialiser aux valeurs par défaut</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>Divers</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>Style global</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>Général</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>Couleurs</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>Couleur principale</ModernExpandMenu_SectionColorPrimary>
@@ -58,6 +68,18 @@
   <ModernExpandMenu_ScrollReturnDuration>Vitesse de retour en haut après chargement</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Aperçu de l'animation</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} objets / {1} actions chargées, {2}s, animation totale {3}s</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>Rétablir les valeurs par défaut</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>Activer le mod (menu vanilla si désactivé)</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>Désactiver la pseudo-traduction dev</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>Afficher l'animation de chargement</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>Surbrillance au survol &amp; flèche</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>Afficher le total dans les en-têtes</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>Style MD3 pour toutes les saisies vanilla</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>Style MD3 pour boutons &amp; cases vanilla</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>Ignorer le compte à rebours d'envoi</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>Hauteur maximale du menu</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>Objets traités par frame</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>Secondes supplémentaires de la barre</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>Général</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>Animation</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>Couleurs</ModernExpandMenu_ResetSectionColors>

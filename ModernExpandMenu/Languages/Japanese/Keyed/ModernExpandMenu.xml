@@ -3,6 +3,14 @@
   <ModernExpandMenu_ShowLoadingAnimation>読み込みアニメーションを表示（上部バー、円形進捗、オーバーレイ、段階表示）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>操作項目にカーソルを合わせたときに対象アイテムを強調し、光る矢印を表示</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>グループ見出しにアイテム総数を表示（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>バニラの入力欄をすべて MD3 スタイルにする</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>有効にすると、ゲーム内のバニラ入力欄（数値入力、検索バーなど）がすべて MD3 の枠なしスタイルになります。見た目だけが変わり、入力機能は変わりません。</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>バニラのボタンとチェックボックスを MD3 スタイルにする</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>有効にすると、ゲーム内のバニラボタン（確定/閉じる/読み込みなど）、チェックボックス、タブ、スクロールバーがすべて MD3 の角丸スタイルになります。見た目だけが変わり、クリックや操作は変わりません。</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>アップロード待機カウントダウンをスキップ</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>Workshop アップロード確認前の 6 秒待機をスキップし、すぐにアップロードします</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_PreviewGroup>グループ {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>オプション {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>モッドを有効にする（無効時はバニラの右クリックメニューを使用）</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>開発者モードの擬似翻訳文字を無効化（既定ではオフ）</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>メニューの最大高さ（ピクセル）</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +23,8 @@
   <ModernExpandMenu_SectionPerformance>性能</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>読み込みアニメーション</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>既定値に戻す</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>その他</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>グローバルスタイル</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>一般</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>色</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>メインカラー</ModernExpandMenu_SectionColorPrimary>
@@ -58,6 +68,18 @@
   <ModernExpandMenu_ScrollReturnDuration>読み込み後の先頭へ戻る速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>アニメーションのプレビュー</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} 個のアイテム / {1} 件の操作、{2} 秒、アニメーション合計 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>既定値に戻す</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>モッドを有効化（オフでバニラメニュー）</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>開発者擬似翻訳を無効化</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>ロードアニメーションを表示</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>ホバー強調と矢印</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>グループ見出しに総数を表示</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>バニラ入力欄をすべて MD3 に</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>バニラのボタンとチェックを MD3 に</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>アップロード待機カウントダウンをスキップ</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>メニューの最大高さ</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>フレームあたりの処理数</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>追加ロードバー秒</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>一般</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>アニメーション</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>色</ModernExpandMenu_ResetSectionColors>

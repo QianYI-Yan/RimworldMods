@@ -3,6 +3,15 @@
   <ModernExpandMenu_ShowLoadingAnimation>Show loading animation (top buffer bar + ring progress + overlay + staged entries)</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>Highlight target item and draw glowing arrow when hovering an action</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>Show total item count in group headers (xN)</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>Apply MD3 style to all vanilla input fields</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>When enabled, all vanilla input fields (value fields, search bars, etc.) use the MD3 borderless style. Only the appearance changes; input behavior stays the same.</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>Apply MD3 style to vanilla buttons & checkboxes</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>When enabled, all vanilla buttons (confirm/close/load, etc.), checkboxes, tab pages and scrollbars use the MD3 rounded style. Only the appearance changes; clicking and interaction stay the same.</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>Skip upload waiting countdown</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>Skip the 6-second wait before confirming a Workshop upload; upload immediately</ModernExpandMenu_SkipUploadWaitDesc>
+
+  <ModernExpandMenu_PreviewGroup>Group {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>Option {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>Enable mod (off = fully vanilla menu)</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>Disable dev mode pseudo-translation characters (default off)</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>Max menu height (pixels)</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +24,8 @@
   <ModernExpandMenu_SectionPerformance>Performance</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>Loading animation</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>Reset to defaults</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>Misc</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>Global style</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>General</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>Colors</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>Primary colors</ModernExpandMenu_SectionColorPrimary>
@@ -60,6 +71,18 @@
   <ModernExpandMenu_ScrollReturnDuration>Scroll return-to-top speed</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Animation preview</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} items / {1} actions loaded, took {2}s, animation total {3}s</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>Restore defaults</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>Enable mod (vanilla menu when off)</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>Disable dev pseudo-translation</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>Show loading animation</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>Hover highlight &amp; arrow</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>Show item count in group headers</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>Apply MD3 to all vanilla input fields</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>Apply MD3 to vanilla buttons &amp; checkboxes</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>Skip upload waiting countdown</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>Max menu height</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>Items processed per frame</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>Extra loading bar seconds</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>General</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>Animation</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>Colors</ModernExpandMenu_ResetSectionColors>

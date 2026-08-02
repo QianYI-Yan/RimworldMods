@@ -42,6 +42,13 @@ namespace ModernExpandMenu
                 return;
             }
 
+            // 右键目标包含殖民者（Pawn）时不接管：
+            // 直接右键殖民者头像/殖民者本身 = 原版针对 Pawn 的菜单（选择、交谈、约会等），不是物品分组场景
+            if (context.ClickedThings.Any(thing => thing is Pawn))
+            {
+                return;
+            }
+
             // 收集右键目标物品：直接命中的物品 + 命中的储物容器所有占地格上的物品
             List<Thing> clickedItems = CollectClickedItems(context);
             if (clickedItems.Count == 0)

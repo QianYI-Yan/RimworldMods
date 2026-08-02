@@ -45,6 +45,9 @@ namespace ModernExpandMenu.UI
             general.items.Add(Item("ModernExpandMenu_ResetShowLoadingAnimation", s.showLoadingAnimation, true, () => s.showLoadingAnimation = true));
             general.items.Add(Item("ModernExpandMenu_ResetShowHoverHighlight", s.showHoverHighlightAndArrow, true, () => s.showHoverHighlightAndArrow = true));
             general.items.Add(Item("ModernExpandMenu_ResetShowItemCount", s.showItemCount, true, () => s.showItemCount = true));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllInputs", s.md3StyleAllInputs, false, () => s.md3StyleAllInputs = false));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllButtons", s.md3StyleAllButtons, false, () => s.md3StyleAllButtons = false));
+            general.items.Add(Item("ModernExpandMenu_ResetSkipUploadWait", s.skipUploadWait, false, () => s.skipUploadWait = false));
             general.items.Add(Item("ModernExpandMenu_ResetMaxMenuHeight", s.maxMenuHeight, 560, () => s.maxMenuHeight = 560));
             general.items.Add(Item("ModernExpandMenu_ResetMaxProcessedPerFrame", s.maxProcessedPerFrame, 6, () => s.maxProcessedPerFrame = 6));
             general.items.Add(Item("ModernExpandMenu_ResetExtraLoadingBarSeconds", s.extraLoadingBarSeconds.ToString("0.0"), "0.5", () => s.extraLoadingBarSeconds = 0.5f));

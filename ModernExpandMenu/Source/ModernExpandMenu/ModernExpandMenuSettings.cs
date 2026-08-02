@@ -13,6 +13,9 @@ namespace ModernExpandMenu
         public bool showLoadingAnimation = true;        // 显示加载动画（顶部缓冲条 + 覆盖层 + 逐条载入）
         public bool showHoverHighlightAndArrow = true;  // 悬停操作项时高亮目标物品并绘制发光箭头
         public bool showItemCount = true;               // 分组标题显示物品总数（×N）
+        public bool md3StyleAllInputs = false;          // 可选：原版输入框全部改为 MD3 样式（全局替换 Text.CurTextFieldStyle）
+        public bool md3StyleAllButtons = false;         // 可选：原版按钮/复选框/tab/滚动条全部改为 MD3 样式（全局替换）
+        public bool skipUploadWait = false;             // 跳过创意工坊上传确认的 6 秒等待倒计时
         public int maxMenuHeight = 560;                 // 悬浮窗最大高度（像素，超出滚动）
         public int maxProcessedPerFrame = 6;            // 每帧处理的物品实例数（越大加载越快，卡顿风险越高）
         public float extraLoadingBarSeconds = 0.5f;     // 加载完成后进度条强制额外显示时长（秒，0 为不强制）
@@ -49,6 +52,9 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref showLoadingAnimation, "showLoadingAnimation", true);
             Scribe_Values.Look(ref showHoverHighlightAndArrow, "showHoverHighlightAndArrow", true);
             Scribe_Values.Look(ref showItemCount, "showItemCount", true);
+            Scribe_Values.Look(ref md3StyleAllInputs, "md3StyleAllInputs", false);
+            Scribe_Values.Look(ref md3StyleAllButtons, "md3StyleAllButtons", false);
+            Scribe_Values.Look(ref skipUploadWait, "skipUploadWait", false);
             Scribe_Values.Look(ref maxMenuHeight, "maxMenuHeight", 560);
             Scribe_Values.Look(ref maxProcessedPerFrame, "maxProcessedPerFrame", 6);
             Scribe_Values.Look(ref extraLoadingBarSeconds, "extraLoadingBarSeconds", 0.5f);
@@ -59,19 +65,19 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref scrollFollowSpeed, "scrollFollowSpeed", 80f);
             Scribe_Values.Look(ref scrollReturnDuration, "scrollReturnDuration", 0.6f);
             Scribe_Values.Look(ref windowHeightAnimationSpeed, "windowHeightAnimationSpeed", 200f);
-            Scribe_Values.Look(ref colorPrimary, "colorPrimary", "00A8FF");
-            Scribe_Values.Look(ref colorOnPrimary, "colorOnPrimary", "001421");
-            Scribe_Values.Look(ref colorSurface, "colorSurface", "161821");
-            Scribe_Values.Look(ref colorSurfaceContainer, "colorSurfaceContainer", "1E212D");
-            Scribe_Values.Look(ref colorSurfaceContainerHigh, "colorSurfaceContainerHigh", "262A3A");
-            Scribe_Values.Look(ref colorOnSurface, "colorOnSurface", "E6E6EC");
-            Scribe_Values.Look(ref colorOnSurfaceVariant, "colorOnSurfaceVariant", "9A9BA6");
-            Scribe_Values.Look(ref colorOutline, "colorOutline", "636676");
-            Scribe_Values.Look(ref colorDisabledText, "colorDisabledText", "80808C");
-            Scribe_Values.Look(ref colorShadow, "colorShadow", "000000");
-            Scribe_Values.Look(ref colorScrollbarTrack, "colorScrollbarTrack", "26262E");
-            Scribe_Values.Look(ref colorScrollbarThumb, "colorScrollbarThumb", "525261");
-            Scribe_Values.Look(ref colorScrollbarThumbDragging, "colorScrollbarThumbDragging", "737385");
+            Scribe_Values.Look(ref colorPrimary, "colorPrimary", "#00A8FF");
+            Scribe_Values.Look(ref colorOnPrimary, "colorOnPrimary", "#001421");
+            Scribe_Values.Look(ref colorSurface, "colorSurface", "#161821");
+            Scribe_Values.Look(ref colorSurfaceContainer, "colorSurfaceContainer", "#1E212D");
+            Scribe_Values.Look(ref colorSurfaceContainerHigh, "colorSurfaceContainerHigh", "#262A3A");
+            Scribe_Values.Look(ref colorOnSurface, "colorOnSurface", "#E6E6EC");
+            Scribe_Values.Look(ref colorOnSurfaceVariant, "colorOnSurfaceVariant", "#9A9BA6");
+            Scribe_Values.Look(ref colorOutline, "colorOutline", "#636676");
+            Scribe_Values.Look(ref colorDisabledText, "colorDisabledText", "#80808C");
+            Scribe_Values.Look(ref colorShadow, "colorShadow", "#000000");
+            Scribe_Values.Look(ref colorScrollbarTrack, "colorScrollbarTrack", "#26262E");
+            Scribe_Values.Look(ref colorScrollbarThumb, "colorScrollbarThumb", "#525261");
+            Scribe_Values.Look(ref colorScrollbarThumbDragging, "colorScrollbarThumbDragging", "#737385");
         }
     }
 }

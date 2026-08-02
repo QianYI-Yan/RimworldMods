@@ -3,6 +3,14 @@
   <ModernExpandMenu_ShowLoadingAnimation>显示加载动画（顶部缓冲条 + 环形进度 + 覆盖层 + 逐条载入）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>悬停操作项时高亮目标物品并绘制发光箭头</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>分组标题显示物品总数（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>原版输入框全部改为 MD3 样式</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>开启后，游戏中所有原版输入框（数值输入、搜索栏等）统一换成 MD3 无边框样式，仅外观变化，输入功能不变</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>原版按钮与复选框改为 MD3 样式</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>开启后，游戏中所有原版按钮（确定/关闭/载入等）、复选框、tab 分页与滚动条统一换成 MD3 圆角样式，仅外观变化，点击/交互不变</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>跳过上传等待倒计时</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>跳过创意工坊上传确认的 6 秒等待，立即可上传</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_PreviewGroup>组 {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>选项 {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>启用模组（关闭后完全使用原版右键菜单）</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>禁用开发者模式的伪翻译字符（默认关闭）</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>悬浮窗最大高度（像素）</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +23,8 @@
   <ModernExpandMenu_SectionPerformance>性能</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>加载动画</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>恢复默认设置</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>杂项</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>全局样式</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>常规</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>颜色</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>主色</ModernExpandMenu_SectionColorPrimary>
@@ -60,6 +70,18 @@
   <ModernExpandMenu_ScrollReturnDuration>加载后滚动回顶速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>动画预览</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>已加载 {0} 件物品 / {1} 项操作，耗时 {2} 秒，动画总时长 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>恢复默认设置</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>启用模组（关闭后使用原版菜单）</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>禁用开发者伪翻译</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>显示加载动画</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>悬停高亮与箭头</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>组标题显示物品总数</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>原版输入框全部改为 MD3</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>原版按钮与复选框改为 MD3</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>跳过上传等待倒计时</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>悬浮窗最大高度</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>每帧处理物品数</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>加载条额外显示时间</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>常规</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>动画</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>颜色</ModernExpandMenu_ResetSectionColors>

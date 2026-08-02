@@ -3,6 +3,14 @@
   <ModernExpandMenu_ShowLoadingAnimation>顯示載入動畫（頂部緩衝條 + 環形進度 + 覆蓋層 + 逐條載入）</ModernExpandMenu_ShowLoadingAnimation>
   <ModernExpandMenu_ShowHoverHighlight>懸停操作項時高亮目標物品並繪製發光箭頭</ModernExpandMenu_ShowHoverHighlight>
   <ModernExpandMenu_ShowItemCount>分組標題顯示物品總數（×N）</ModernExpandMenu_ShowItemCount>
+  <ModernExpandMenu_Md3StyleAllInputs>原版輸入框全部改為 MD3 樣式</ModernExpandMenu_Md3StyleAllInputs>
+  <ModernExpandMenu_Md3StyleAllInputsDesc>開啟後，遊戲中所有原版輸入框（數值輸入、搜尋欄等）統一換成 MD3 無邊框樣式，僅外觀變化，輸入功能不變</ModernExpandMenu_Md3StyleAllInputsDesc>
+  <ModernExpandMenu_Md3StyleAllButtons>原版按鈕與複選框改為 MD3 樣式</ModernExpandMenu_Md3StyleAllButtons>
+  <ModernExpandMenu_Md3StyleAllButtonsDesc>開啟後，遊戲中所有原版按鈕（確定/關閉/載入等）、複選框、tab 分頁與滾動條統一換成 MD3 圓角樣式，僅外觀變化，點擊/互動不變</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SkipUploadWait>跳過上傳等待倒計時</ModernExpandMenu_SkipUploadWait>
+  <ModernExpandMenu_SkipUploadWaitDesc>跳過創意工坊上傳確認的 6 秒等待，立即可上傳</ModernExpandMenu_SkipUploadWaitDesc>
+  <ModernExpandMenu_PreviewGroup>組 {0}</ModernExpandMenu_PreviewGroup>
+  <ModernExpandMenu_PreviewItem>選項 {0}-{1}</ModernExpandMenu_PreviewItem>
   <ModernExpandMenu_ModEnabled>啟用模組（關閉後完全使用原版右鍵選單）</ModernExpandMenu_ModEnabled>
   <ModernExpandMenu_DisablePseudoTranslation>停用開發者模式的偽翻譯字元（預設關閉）</ModernExpandMenu_DisablePseudoTranslation>
   <ModernExpandMenu_MaxMenuHeight>懸浮窗最大高度（像素）</ModernExpandMenu_MaxMenuHeight>
@@ -15,6 +23,8 @@
   <ModernExpandMenu_SectionPerformance>效能</ModernExpandMenu_SectionPerformance>
   <ModernExpandMenu_SectionLoading>載入動畫</ModernExpandMenu_SectionLoading>
   <ModernExpandMenu_ResetDefaults>恢復預設設定</ModernExpandMenu_ResetDefaults>
+  <ModernExpandMenu_TabMisc>雜項</ModernExpandMenu_TabMisc>
+  <ModernExpandMenu_MiscGlobalStyle>全域樣式</ModernExpandMenu_MiscGlobalStyle>
   <ModernExpandMenu_TabGeneral>一般</ModernExpandMenu_TabGeneral>
   <ModernExpandMenu_TabColors>顏色</ModernExpandMenu_TabColors>
   <ModernExpandMenu_SectionColorPrimary>主色</ModernExpandMenu_SectionColorPrimary>
@@ -58,6 +68,18 @@
   <ModernExpandMenu_ScrollReturnDuration>載入後滾動回頂速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>動畫預覽</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>已載入 {0} 件物品 / {1} 項操作，耗時 {2} 秒，動畫總時長 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
+  <ModernExpandMenu_ResetTitle>恢復預設設定</ModernExpandMenu_ResetTitle>
+  <ModernExpandMenu_ResetModEnabled>啟用模組（關閉後使用原版選單）</ModernExpandMenu_ResetModEnabled>
+  <ModernExpandMenu_ResetDisablePseudoTranslation>停用開發者偽翻譯</ModernExpandMenu_ResetDisablePseudoTranslation>
+  <ModernExpandMenu_ResetShowLoadingAnimation>顯示載入動畫</ModernExpandMenu_ResetShowLoadingAnimation>
+  <ModernExpandMenu_ResetShowHoverHighlight>懸停高亮與箭頭</ModernExpandMenu_ResetShowHoverHighlight>
+  <ModernExpandMenu_ResetShowItemCount>組標題顯示物品總數</ModernExpandMenu_ResetShowItemCount>
+  <ModernExpandMenu_ResetMd3StyleAllInputs>原版輸入框全部改為 MD3</ModernExpandMenu_ResetMd3StyleAllInputs>
+  <ModernExpandMenu_ResetMd3StyleAllButtons>原版按鈕與複選框改為 MD3</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSkipUploadWait>跳過上傳等待倒計時</ModernExpandMenu_ResetSkipUploadWait>
+  <ModernExpandMenu_ResetMaxMenuHeight>懸浮窗最大高度</ModernExpandMenu_ResetMaxMenuHeight>
+  <ModernExpandMenu_ResetMaxProcessedPerFrame>每幀處理物品數</ModernExpandMenu_ResetMaxProcessedPerFrame>
+  <ModernExpandMenu_ResetExtraLoadingBarSeconds>載入條額外顯示時間</ModernExpandMenu_ResetExtraLoadingBarSeconds>
   <ModernExpandMenu_ResetSectionGeneral>常規</ModernExpandMenu_ResetSectionGeneral>
   <ModernExpandMenu_ResetSectionAnimation>動畫</ModernExpandMenu_ResetSectionAnimation>
   <ModernExpandMenu_ResetSectionColors>顏色</ModernExpandMenu_ResetSectionColors>

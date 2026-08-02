@@ -11,6 +11,9 @@
     <Compile Include="ModernExpandMenuMod.cs" />
     <Compile Include="ModernExpandMenuSettings.cs" />
     <Compile Include="Patch_DisablePseudoTranslation.cs" />
+    <Compile Include="Patch_Md3StyleAllInputs.cs" />
+    <Compile Include="Patch_Md3StyleAllButtons.cs" />
+    <Compile Include="Patch_SkipUploadDelay.cs" />
     <Compile Include="Patch_ModSettingsUI.cs" />
     <Compile Include="Patch_ItemGroupedFloatMenu.cs" />
     <Compile Include="ItemGrouping.cs" />
@@ -21,6 +24,7 @@
     <Compile Include="UI\Dialog_RenameConfig.cs" />
     <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="UI\MD3FloatMenuWindow.cs" />
+    <Compile Include="UI\MenuPreviewWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 

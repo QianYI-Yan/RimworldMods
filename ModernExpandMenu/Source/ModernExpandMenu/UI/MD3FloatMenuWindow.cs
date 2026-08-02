@@ -64,6 +64,19 @@ namespace ModernExpandMenu.UI
         private float scrollReturnStartTime = -1f;             // 回顶动画开始时间（时间设定用）
         private float scrollReturnStartPos;                    // 回顶动画开始的滚动位置
 
+        // 回顶动画曲线（用户手绘折线导出）：逐渐加速 → 中段最高速 → 再减速到顶端
+        // 时间进度 x（0~1）→ 滚动进度 y（0~1），分段线性插值采样
+        private static readonly Vector2[] ReturnToTopCurvePoints = new Vector2[]
+        {
+            new Vector2(0f, 0f),
+            new Vector2(0.17272f, 0.06708f),
+            new Vector2(0.2736f, 0.7942f),
+            new Vector2(0.40494f, 0.93886f),
+            new Vector2(0.57054f, 0.97312f),
+            new Vector2(0.81989f, 0.99406f),
+            new Vector2(1f, 1f),
+        };
+
         // 以下各项读取模组设置（游戏内"选项 → Mod 设置"可调）
         private static int CurrentMaxProcessedPerFrame => Mathf.Max(1, ModernExpandMenuMod.Settings.maxProcessedPerFrame);
         private static float CurrentMaxMenuHeight => ModernExpandMenuMod.Settings.maxMenuHeight;
@@ -240,19 +253,28 @@ namespace ModernExpandMenu.UI
             }
 
             // ── 加载 / 滚动流程 ──────────────────────────────
-            // 加载中 / 额外显示：滚动跟随底部（控制台效果，看到最新出现的组标题）。
-            // 窗口高度扩到上限（约 12 组）前 maxScroll=0 无滚动（只扩高）；超上限后跟随底部滚动插入。
+            // 加载中 / 额外显示：窗口没到最大高度前不滚动（内容直接插入扩大的菜单范围，
+            // 组标题从底部连续出现）；只有窗口高度达到上限（内容超出视口）才跟随底部滚动，
+            // 把上面已满的内容踢上去。
             // 加载条跑完（extraEndTime 到）→ ShowLoadingVisual 结束 → 直接进入回顶步骤。
             float maxScroll = Mathf.Max(0f, TotalViewHeight - windowRect.height);
             if (isLoading || (extraEndTime >= 0f && now < extraEndTime))
             {
-                scrollPosition.y = AnimationsEnabled
-                    ? Mathf.MoveTowards(scrollPosition.y, maxScroll, Time.deltaTime * CurrentScrollFollowSpeed)
-                    : maxScroll;
+                bool windowAtMaxHeight = windowRect.height >= CurrentMaxMenuHeight - 1f;
+                if (windowAtMaxHeight && maxScroll > 0f)
+                {
+                    scrollPosition.y = AnimationsEnabled
+                        ? Mathf.MoveTowards(scrollPosition.y, maxScroll, Time.deltaTime * CurrentScrollFollowSpeed)
+                        : maxScroll;
+                }
+                else
+                {
+                    scrollPosition.y = 0f;   // 没到上限：不滚动，直接插入扩大的菜单范围
+                }
                 returnToTopPending = true;
             }
 
-            // 加载视觉结束后：按时间设定滚回顶端（ease-out-cubic，固定时长而非固定速度）
+            // 加载视觉结束后：按时间设定滚回顶端（用户手绘动态曲线：逐渐加速 → 中段最高速 → 再减速到顶端）
             if (!ShowLoadingVisual && returnToTopPending)
             {
                 if (AnimationsEnabled)
@@ -263,7 +285,7 @@ namespace ModernExpandMenu.UI
                         scrollReturnStartPos = scrollPosition.y;
                     }
                     float t = Mathf.Clamp01((now - scrollReturnStartTime) / CurrentScrollReturnDuration);
-                    float eased = 1f - Mathf.Pow(1f - t, 3f);   // ease-out-cubic
+                    float eased = SampleReturnToTopCurve(t);
                     scrollPosition.y = Mathf.Lerp(scrollReturnStartPos, 0f, eased);
                     if (t >= 1f)
                     {
@@ -297,13 +319,23 @@ namespace ModernExpandMenu.UI
                 expandProgress[group] = next;
             }
 
-            // 窗口高度动态动画：加载时组项插入 / 展开折叠时内容变化，高度平滑过渡；
-            // 扩高上限 = 用户设置的最大高度（可调高），达到前只扩高窗口，超过后内容改为滚动
-            float targetHeight = Mathf.Min(TotalViewHeight, CurrentMaxMenuHeight);
+            // 窗口高度动态动画：
+            // 加载时逐组申请高度——目标 = 已排定展开的组累计高度（申请一组 → 扩到能插入组的高度 → 插入组就位 → 再申请下一组）；
+            // 到达高度上限不再加高，改为滚动把上面的组推上去（有足够位置再插入下一组）；
+            // 非加载时目标 = 全部内容高度。
+            float targetHeight = ShowLoadingVisual
+                ? Mathf.Min(ComputeRevealedHeight() + MD3Theme.Padding, CurrentMaxMenuHeight)
+                : Mathf.Min(TotalViewHeight, CurrentMaxMenuHeight);
             if (Mathf.Abs(windowRect.height - targetHeight) > 0.5f)
             {
+                // 加载中组项插入：展开速度加快（×4），确保组插入底端之前窗口已扩到位，用户能看到组插入底部
+                float heightSpeed = CurrentWindowHeightAnimationSpeed;
+                if (ShowLoadingVisual)
+                {
+                    heightSpeed *= 4f;
+                }
                 windowRect.height = AnimationsEnabled
-                    ? Mathf.MoveTowards(windowRect.height, targetHeight, Time.deltaTime * CurrentWindowHeightAnimationSpeed)
+                    ? Mathf.MoveTowards(windowRect.height, targetHeight, Time.deltaTime * heightSpeed)
                     : targetHeight;
                 if (windowRect.yMax > Verse.UI.screenHeight)
                 {
@@ -318,6 +350,33 @@ namespace ModernExpandMenu.UI
                 float heightMaxScroll = Mathf.Max(0f, TotalViewHeight - windowRect.height);
                 scrollPosition.y = Mathf.Min(scrollPosition.y, heightMaxScroll);
             }
+        }
+
+        /// <summary>
+        /// 按用户手绘折线采样回顶进度：逐渐加速 → 中段最高速 → 再减速到顶端。
+        /// 分段线性插值（polyline 折线），t 为 0~1 时间进度，返回 0~1 滚动进度。
+        /// </summary>
+        private static float SampleReturnToTopCurve(float t)
+        {
+            if (t <= 0f)
+            {
+                return 0f;
+            }
+            if (t >= 1f)
+            {
+                return 1f;
+            }
+            for (int i = 1; i < ReturnToTopCurvePoints.Length; i++)
+            {
+                if (t <= ReturnToTopCurvePoints[i].x)
+                {
+                    Vector2 a = ReturnToTopCurvePoints[i - 1];
+                    Vector2 b = ReturnToTopCurvePoints[i];
+                    float segment = (t - a.x) / Mathf.Max(0.0001f, b.x - a.x);
+                    return Mathf.Lerp(a.y, b.y, segment);
+                }
+            }
+            return 1f;
         }
 
         /// <summary>
@@ -339,7 +398,8 @@ namespace ModernExpandMenu.UI
 
             // 加载中：拒绝所有与菜单的交互（滚轮滚动、点击、hover 等）。
             // 在滚动视口处理之前消费滚轮事件，避免加载中内容被用户滚动
-            bool blockInteraction = ShowLoadingVisual && ModernExpandMenuMod.Settings.showLoadingAnimation && AnimationsEnabled;
+            // （不受动画总开关影响：关闭动画也保留加载屏幕与交互锁定）
+            bool blockInteraction = ShowLoadingVisual && ModernExpandMenuMod.Settings.showLoadingAnimation;
             if (blockInteraction && Event.current.type == EventType.ScrollWheel)
             {
                 Event.current.Use();
@@ -382,8 +442,8 @@ namespace ModernExpandMenu.UI
                 Widgets.ButtonInvisible(inRect);
             }
 
-            // 顶部加载条（最顶层绘制：置顶不被内容 / 覆盖层遮挡，常驻显示）
-            if (ModernExpandMenuMod.Settings.showLoadingAnimation && AnimationsEnabled)
+            // 顶部加载条（最顶层绘制：置顶不被内容 / 覆盖层遮挡，常驻显示；不受动画总开关影响）
+            if (ModernExpandMenuMod.Settings.showLoadingAnimation)
             {
                 float progress = ComputeLoadProgress();
                 var topBarRect = new Rect(inRect.x + MD3Theme.Padding, inRect.y + MD3Theme.Padding, inRect.width - MD3Theme.Padding * 2f, LoadingBarHeight);
@@ -412,8 +472,10 @@ namespace ModernExpandMenu.UI
                 StoredItemGroup group = groups[i];
                 float groupTop = y;
                 float progress = GetExpandProgress(group);
-                // 组外框高度 = 标题 + 已出现动画的子项目（未到动画时间的下一个不占高，组动画期间子项未排定为 0）
-                float groupHeight = MD3Theme.GroupHeaderHeight + ComputeActionsHeight(group, contentWidth);
+                // 组外框高度 = 标题 + 已出现子项目高度 × 展开进度：
+                // 展开动画期间子项未排定为 0（不提前占高）；展开后逐条增长；
+                // 收起动画期间按 progress 平滑缩小（边框随收起清除，不残留扩大）
+                float groupHeight = MD3Theme.GroupHeaderHeight + ComputeActionsHeight(group, contentWidth) * progress;
 
                 // 组外框：一个框把整组包在里面（描边环 + 表面背景），组内容随后绘制覆盖其上
                 MD3Widgets.DrawRoundedRectOutline(new Rect(MD3Theme.Padding, groupTop, contentWidth, groupHeight), MD3Theme.Outline, 6f, 1f, MD3Theme.Surface);
@@ -434,8 +496,10 @@ namespace ModernExpandMenu.UI
             var headerRect = new Rect(MD3Theme.Padding, y, contentWidth, MD3Theme.GroupHeaderHeight);
 
             // 大类出现/消失动画（与子项目一致）：滚动进出可视范围时播放，组内串行、组间并行。
-            // 动画未到时整块（背景/图标/文本）不显示（alpha 随动画渐变）
-            BlockAnim anim = ComputeBlockAnim(ref group.appearTime, ref group.disappearTime, ref group.hasAppeared, y, headerRect.height, group);
+            // 动画未到时整块（背景/图标/文本）不显示（alpha 随动画渐变）。
+            // 可见性按"组整体高度"判断：标题离开窗口但子项目还在时不收起（不论收起策略）
+            float groupVisualHeight = headerRect.height + ComputeActionsHeight(group, contentWidth) * GetExpandProgress(group);
+            BlockAnim anim = ComputeBlockAnim(ref group.appearTime, ref group.disappearTime, ref group.hasAppeared, y, headerRect.height, group, isSubItem: false, visibilityHeight: groupVisualHeight);
             var drawRect = headerRect;
             drawRect.x += anim.offsetX;
             drawRect.y += anim.offsetY;
@@ -501,8 +565,9 @@ namespace ModernExpandMenu.UI
         /// <summary>绘制某物品分组下的子菜单操作项（缩进体现层级，按动画进度裁剪，长文本自动换行）。</summary>
         private float DrawGroupActions(Rect viewRect, StoredItemGroup group, float y, float progress, float contentWidth)
         {
-            // 高度只统计"已开始动画"的子项目（逐项占高：下一个子项目未到动画时间前不占高不绘制）
-            float visibleHeight = ComputeActionsHeight(group, contentWidth);
+            // 子项目占高 = 已开始动画高度 × 展开进度：
+            // 展开动画期间子项未排定为 0（不提前占高）；收起动画期间按 progress 平滑缩回（下一组平滑上移不闪）
+            float visibleHeight = ComputeActionsHeight(group, contentWidth) * progress;
             var clipRect = new Rect(MD3Theme.Padding, y, contentWidth, visibleHeight);
 
             GUI.BeginGroup(clipRect);
@@ -520,7 +585,7 @@ namespace ModernExpandMenu.UI
                 else
                 {
                     float entryGlobalTop = y + innerY;
-                    anim = ComputeBlockAnim(ref entry.appearTime, ref entry.disappearTime, ref entry.hasAppeared, entryGlobalTop, rowHeight, group);
+                    anim = ComputeBlockAnim(ref entry.appearTime, ref entry.disappearTime, ref entry.hasAppeared, entryGlobalTop, rowHeight, group, isSubItem: true);
                     if (now < entry.appearTime)
                     {
                         continue;   // 下一个子项目还没到动画时间：不占高不绘制
@@ -636,8 +701,24 @@ namespace ModernExpandMenu.UI
             {
                 StoredItemGroup group = groups[i];
                 height += MD3Theme.GroupHeaderHeight;
-                // 只统计已出现动画的子项目（组动画期间子项未排定为 0，不提前占高）
-                height += ComputeActionsHeight(group, contentWidth);
+                // 已出现子项目高度 × 展开进度（展开动画期间为 0 不提前占高；收起动画期间平滑缩回）
+                height += ComputeActionsHeight(group, contentWidth) * GetExpandProgress(group);
+                height += MD3Theme.GroupGap;
+            }
+            return height;
+        }
+
+        /// <summary>已排定展开的组累计内容高度（标题 + 按进度子项目 + 组间距），用于加载时逐组申请窗口高度。</summary>
+        private float ComputeRevealedHeight()
+        {
+            float contentWidth = MD3Theme.MenuWidth - MD3Theme.Padding * 2f;
+            float height = MD3Theme.Padding;
+            int count = Mathf.Min(revealedGroupCount, groups.Count);
+            for (int i = 0; i < count; i++)
+            {
+                StoredItemGroup group = groups[i];
+                height += MD3Theme.GroupHeaderHeight;
+                height += ComputeActionsHeight(group, contentWidth) * GetExpandProgress(group);
                 height += MD3Theme.GroupGap;
             }
             return height;
@@ -667,6 +748,9 @@ namespace ModernExpandMenu.UI
                     entry.disappearTime = -1f;
                     entry.hasAppeared = false;
                 }
+                // 首次展开：正常速度（回归加速状态清零，滚动离开再回归时才加速）
+                group.subItemsEverAppeared = false;
+                group.subItemsAccelerated = false;
             }
         }
 
@@ -674,12 +758,20 @@ namespace ModernExpandMenu.UI
         /// 组内串行排定一次出现动画：该组上一项就位（动画播完）后，下一项才开始（含可配置间隔）。
         /// 每组独立调度，组与组之间并行，互不等待。
         /// </summary>
-        private float ScheduleAppear(StoredItemGroup group)
+        private float ScheduleAppear(StoredItemGroup group, bool accelerated = false)
         {
             float now = Time.realtimeSinceStartup;
             float endTime = groupNextAppearEndTime.TryGetValue(group, out float value) ? value : -1f;
             float startTime = Mathf.Max(now, endTime);
-            groupNextAppearEndTime[group] = startTime + CurrentItemAppearDuration + CurrentItemAppearInterval;
+            float duration = CurrentItemAppearDuration;
+            float interval = CurrentItemAppearInterval;
+            if (accelerated)
+            {
+                // 滚动回归加速：动画时长与间隔都缩短（0.4 倍），更快铺满
+                duration *= 0.4f;
+                interval *= 0.4f;
+            }
+            groupNextAppearEndTime[group] = startTime + duration + interval;
             return startTime;
         }
 
@@ -700,7 +792,7 @@ namespace ModernExpandMenu.UI
         ///   - 消失：已出现且不足半可见（滚出视口）→ 排定消失；淡出 + 轻微下滑
         ///   - 动画未到时 alpha=0（图标与组项不显示）
         /// </summary>
-        private BlockAnim ComputeBlockAnim(ref float appearTime, ref float disappearTime, ref bool hasAppeared, float top, float height, StoredItemGroup group)
+        private BlockAnim ComputeBlockAnim(ref float appearTime, ref float disappearTime, ref bool hasAppeared, float top, float height, StoredItemGroup group, bool isSubItem = false, float visibilityHeight = -1f)
         {
             // 动画总开关关闭：直接显示最终状态（无出现/消失动画）
             if (!AnimationsEnabled)
@@ -711,17 +803,42 @@ namespace ModernExpandMenu.UI
                 return new BlockAnim { alpha = 1f, offsetX = 0f, offsetY = 0f };
             }
 
+            // 已展开的组：滚动离开视口不收起（不播放消失 / 不重置），滚回直接显示，不重新加载；
+            // 未展开（折叠）的组标题滚动回归时正常重新播放出现动画（收起策略功能待后续重做）
+            if (expandedTargets.Contains(group))
+            {
+                appearTime = 0f;
+                disappearTime = -1f;
+                hasAppeared = true;
+                return new BlockAnim { alpha = 1f, offsetX = 0f, offsetY = 0f };
+            }
+
             float now = Time.realtimeSinceStartup;
             float viewTop = scrollPosition.y;
             float viewBottom = viewTop + windowRect.height;
-            float visiblePart = Mathf.Max(0f, Mathf.Min(top + height, viewBottom) - Mathf.Max(top, viewTop));
-            float visibleRatio = Mathf.Clamp01(visiblePart / Mathf.Max(1f, height));
+            // 可见性判断高度：默认用块自身高度；组标题传"组整体高度"（标题 + 已出现子项目），
+            // 使组标题离开窗口但子项目还在时不触发收起（不论收起策略）
+            float visibleBlockHeight = visibilityHeight < 0f ? height : visibilityHeight;
+            float visiblePart = Mathf.Max(0f, Mathf.Min(top + visibleBlockHeight, viewBottom) - Mathf.Max(top, viewTop));
+            float visibleRatio = Mathf.Clamp01(visiblePart / Mathf.Max(1f, visibleBlockHeight));
+            // 子项目回归加速：动画时长也缩短（更快播完）
             float duration = CurrentItemAppearDuration;
+            if (isSubItem && group.subItemsAccelerated)
+            {
+                duration *= 0.4f;
+            }
 
             // 出现：未出现且过半可见 → 组内串行排定
             if (!hasAppeared && visibleRatio > 0.5f && appearTime < 0f)
             {
-                appearTime = ScheduleAppear(group);
+                // 滚动回归（组已展开、子项目曾排定过）：加速子项目动画
+                bool accelerated = isSubItem && group.subItemsEverAppeared && expandedTargets.Contains(group);
+                appearTime = ScheduleAppear(group, accelerated);
+                if (isSubItem)
+                {
+                    group.subItemsEverAppeared = true;
+                    group.subItemsAccelerated = accelerated;
+                }
             }
             float appearProgress = appearTime < 0f ? 1f : Mathf.Clamp01((now - appearTime) / duration);
             if (appearTime >= 0f && appearProgress >= 1f && visibleRatio > 0.5f)

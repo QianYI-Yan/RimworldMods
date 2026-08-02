@@ -179,4 +179,61 @@
 - **内容视口避开加载条**：`DoWindowContents` 内容视口从加载条下方开始（`loadingBarTop = Padding + LoadingBarHeight + LoadingBarGap`）；`DrawGroups` y 起点 `MD3Theme.Padding`；`ComputeContentHeight` 顶部只算 Padding（不再含加载条空间）；渐变遮罩（`DrawVerticalFade`）删除，悬浮窗不再使用
 - 本批无新增翻译键（颜色 # 号无需翻译）；构建部署验证通过
 
+## 回顶动态曲线（2026-08-02）
+- **回顶动画改用户手绘折线曲线**：用户导出 polyline 数据（`ReturnToTopCurvePoints`，7 个点，x=时间进度 0~1、y=滚动进度 0~1），`SampleReturnToTopCurve(t)` 分段线性插值采样，替换原 `ease-out-cubic`
+- 曲线形状：0→17% 缓慢起步（y 仅 6.7%）→ 17%~27% 中段最高速猛冲（y 到 79.4%）→ 27%~100% 逐级减速收尾到顶端 —— 即「逐渐加速 → 中段最高速 → 再减速到顶端」
+- 曲线点数据（归一化）：(0,0)、(0.17272,0.06708)、(0.2736,0.7942)、(0.40494,0.93886)、(0.57054,0.97312)、(0.81989,0.99406)、(1,1)；构建部署验证通过
+
+## 一批 UI/动画修正 + 全局 MD3 输入框开关（2026-08-02）
+- **组边框随收起清除**：`DrawGroups` 组外框高度、`DrawGroupActions` 占高、`ComputeContentHeight` 全部改为 `× 展开进度`（此前不乘 progress，收起动画期间残留全高导致"扩太多"）；展开动画期间子项未排定为 0（不提前占高），收起动画期间按 progress 平滑缩回
+- **平滑推位不闪**：上一项导致 `DrawGroupActions` 返回 `y + visibleHeight` 在收起动画期间返回全高，下一组"硬生生闪到位置"——乘 progress 后随高度动画平滑上下移动
+- **关闭动画仍保留加载屏幕**：`DoWindowContents` 的 `blockInteraction` 与顶部加载条绘制条件去掉 `&& AnimationsEnabled`（动画总开关关闭时加载条 / 覆盖层 / 环形 / 交互锁定照常）
+- **加载时滚轮屏蔽恢复**：blockInteraction 不再依赖动画开关，加载中滚轮事件在滚动视口前被 `Event.current.Use()` 拦截
+- **加载没到最大高度不滚动**：`WindowUpdate` 加载流程改为「窗口高度 ≥ maxMenuHeight 才滚动跟随底部踢上面的，否则 scrollPosition=0 直接插入扩大的菜单范围」
+- **滚动回归子项目加速**：`StoredItemGroup` 新增 `subItemsEverAppeared` / `subItemsAccelerated`；`ComputeBlockAnim` 加 `isSubItem` 参数，排定时检测"组已展开 + 子项曾排定过"（滚动回归）→ `ScheduleAppear(group, accelerated)`（时长与间隔 ×0.4），动画时长同步缩短；`ToggleGroupCollapsed` 展开时清零（首次展开正常速度）
+- **全局 MD3 输入框开关（可选功能）**：新设置 `md3StyleAllInputs`（默认关闭）；新 `Patch_Md3StyleAllInputs.cs` patch `Text.CurTextFieldStyle` getter（Postfix），开启时用 `MD3Widgets.ToMd3TextFieldStyle(original)`（克隆原样式清背景边框，按原样式引用缓存避免 GC）——覆盖所有原版输入框（TextField / TextFieldNumeric 等），仅外观变化输入行为不变；外观卡片加开关行（switchId 21，带说明 tooltip，`DrawCheckboxRow` 新增可选 tooltip 参数）
+- 新增翻译键 2 个 × 9 语言：`ModernExpandMenu_Md3StyleAllInputs` + `ModernExpandMenu_Md3StyleAllInputsDesc`
+- 顺手修复：`ModernExpandMenuSettings` 颜色 `Scribe_Values.Look` 默认值补 `#` 前缀（与字段默认值一致）
+- **构建注意**：`GUIStyle.cursorColor` 在本游戏 Unity 版本不存在（编译报错），已移除该设置
+- **部署注意**：游戏运行中 DLL 被锁定（user-mapped section open），需关闭游戏后重新部署
+
+## 一批 UI/动画细节 v2 + 可交互预览 + 多段滑块（2026-08-02）
+- **回顶曲线只用于回顶**：用户手绘折线曲线（`SampleReturnToTopCurve`）仅用于加载完成后的平滑回顶，已确认
+- **加载时菜单展开速度加快**：`WindowUpdate` 高度动画在 `ShowLoadingVisual` 期间速度 ×4（组插入底端前扩到位），到上限后滚动跟随底部，用户能看到组插入底部
+- **滚动收起策略多段滑块（2×2 排列组合）**：新设置 `scrollCollapseMode`（int 0~3，默认 1）：
+  - bit0（值1）：已展开组不收起（滚出不消失、回归直接显示）
+  - bit1（值2）：未展开组不重新加载（标题滚出不消失、回归直接显示）
+  - 档位：0 全部收起并重新加载 / 1 已展开组不收起（默认）/ 2 未展开组不重载 / 3 全部不收起
+  - `MD3Widgets.MD3SegmentSlider`（多段滑块：轨道 + 分段圆点，点击/拖动吸附最近档位，已选区段主色填充）
+  - 动画 tab 速度卡片末尾新增 `DrawSegmentSliderRow`（第一行标签+当前档位说明，第二行多段滑块）
+- **可交互预览（颜色 tab 左侧红框）**：新建 `UI/MenuPreviewWidget.cs`——模拟游戏右键分组菜单（3 组 2~4 子项），点击组标题展开/收起（组动画 + 子项目逐条串行出现动画，回归加速），内容超高内部滚动（`MD3Scrollbar` id 3001），实时反映当前动画速度与 MD3 颜色主题；颜色 tab 改两栏（左 40% 预览 + 右调色板/颜色卡片），`ComputeColorSettingsHeight` 估算右侧高度与预览对齐
+- **MD3 输入框背景 + 边框**：`ToMd3TextFieldStyle` 改用生成的 64x64 圆角纹理（深色背景 `SurfaceContainerHigh` + 边缘 2px **反色 20%** 边框色，`Color.Lerp(bg, 反色, 0.2)`），9-slice border=10、padding=(10,10,4,4)；纹理随主题背景色缓存重建（换调色板即时生效）；`CornerAlphaAt` 增加半径参数重载
+- **设置滚动范围加大**：`ComputeSettingsContentHeight` 各 tab 末尾余量 24 → 48（原估算比实际小 12，底部内容被裁）
+- 新增翻译键：`ScrollCollapseMode` + 4 档位说明 + `PreviewGroup`/`PreviewItem`（9 语言）；构建部署验证通过
+
+## 按钮/复选框 MD3 化 + 预览移出设置 + 逐组插入高度（2026-08-02）
+- **原版按钮与复选框 MD3 化（可选开关）**：新设置 `md3StyleAllButtons`（默认关闭，与输入框一致）；新 `Patch_Md3StyleAllButtons.cs`：
+  - patch `Widgets.DrawButtonGraphic`（所有 ButtonText/ButtonImage 的背景绘制核心）→ MD3 圆角按钮（表面高色 + hover 高亮层 + 按下压暗）
+  - patch `Widgets.CheckboxDraw` → MD3 圆角复选框（选中主色填充 + 勾，未选深色描边）
+  - 覆盖设置窗口「关闭」、MessageBox「确定」、对话框按钮等所有原版按钮；外观卡片加开关行（switchId 22）
+- **组标题离开但子项未离开不收起（不论收起策略）**：`ComputeBlockAnim` 加 `visibilityHeight` 参数；`DrawGroupHeader` 可见性按「组整体高度」（标题 + 已出现子项 × 进度）判断——标题滚出窗口但子项还在视口内时不触发收起
+- **子项目匀速串行**：确认 `ComputeBlockAnim` 出现动画为纯线性（offsetX/alpha 无 ease），`ScheduleAppear` 严格串行（上一个动画完 + 间隔后下一个开始）
+- **预览移到设置界面外（左侧固定栏）**：`DoSettingsWindowContents` 改为左 36% 固定预览栏（标题 + `MenuPreviewWidget`，**所有 tab 共用**、不随 tab 切换、不滚动）+ 右侧 tab 栏与内容滚动区；颜色与动画速度共用同一个可交互预览；`DrawColorTab` 恢复单栏
+- **预览模拟 5 组、子项目翻倍**：`MenuPreviewWidget` 组数 3 → 5，子项目 2/4/8/16/32（每组翻倍）
+- **菜单展开动画重构：逐组插入高度**：`WindowUpdate` 加载时窗口高度目标改为「已 reveal 组累计高度」（`ComputeRevealedHeight`）——申请一组高度 → 扩到能插入组的位置 → 插入组就位 → 再申请下一组；到达上限不再加高，改为滚动把上面的组推上去（有位置再插入下一组）；组 reveal 节奏 = 预估加载视觉总时长 / 组数（每组可分配动画时间），进度条结束即最后一组完成，然后动态曲线回顶
+- **输入框边框折断修复**：9-slice 圆角 radius 10 → 6、边框 1.5px、padding (8,8,3,3)——低高度输入框不再出现圆角/边框断裂
+- 新增翻译键 `Md3StyleAllButtons` + Desc（9 语言）；构建部署验证通过
+
+## 杂项 tab + tab/滚动条 MD3 + 跳过上传倒计时 + 修复（2026-08-02）
+- **删除"滚动离开时组的收起策略"**：移除 `scrollCollapseMode` 设置、多段滑块行、`DrawSegmentSliderRow` 方法；`ComputeBlockAnim` 恢复固定行为（已展开组滚出不收起、未展开组回归重新加载）；删除 `ScrollCollapse*` 5 键 × 9 语言；`MD3SegmentSlider` 控件保留待用
+- **删除动画 tab 内预览卡片**（与左侧固定预览栏重复）：删 `DrawAnimationPreview` / `DrawPreviewHeaderRow` / `DrawPreviewActionRow` 方法
+- **重置菜单修复 + 补键**：缺失 9 个 `Reset*` 键（ResetTitle/ResetModEnabled 等，导致显示 key 原文/伪翻译）全部补全 × 9 语言；新增 `ResetMd3StyleAllInputs` / `ResetMd3StyleAllButtons` / `ResetSkipUploadWait` 重置项 + 键
+- **右键殖民者头像不再弹 MD3 菜单**：`Patch_ItemGroupedFloatMenu` 当 `context.ClickedThings` 包含 Pawn（殖民者）时不接管（原版针对 Pawn 的菜单）
+- **设置界面 tab 重构**：主 tab 改为 常规 / 动画 / **杂项**（原"颜色"主 tab 移入杂项子 tab）；杂项内含子 tab「**全局样式**」/「颜色」；全局 MD3 开关（输入框/按钮）从常规外观卡片移入杂项→全局样式
+- **复选框改为滑动开关样式**：`Patch_CheckboxDraw` 从"圆角方块+勾"改为小号 MD3 滑动开关（选中主色轨道+白色圆点靠右，未选深色轨道+圆点靠左）
+- **tab 分页 MD3**：patch `TabRecord.Draw`（原版 TabAtlas 图集）→ MD3 胶囊 tab（选中主色填充、未选表面高色 + hover 高亮）
+- **滚动条 MD3**：patch `Widgets.BeginScrollView`，开关开启时把 `GUI.skin.verticalScrollbar/Thumb` 等替换为 MD3 细条（轨道深色 + 4x4 圆角滑块纹理）；注意 Unity 滑块是独立 `verticalScrollbarThumb` 样式（无 GUIStyle.thumb）
+- **跳过上传等待倒计时**：新设置 `skipUploadWait`（默认关）；新 `Patch_SkipUploadDelay.cs` patch `Dialog_MessageBox.InteractionDelayExpired`（private 属性，TargetMethod 定位），开关开启且 `interactionDelay > 0`（上传确认框 6s）时立即可交互；普通无延迟消息框不受影响
+- 新增翻译键：`TabMisc` / `MiscGlobalStyle` / `SkipUploadWait`(+Desc) / `ResetSkipUploadWait` × 9 语言；构建部署验证通过
+
 
