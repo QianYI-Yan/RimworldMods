@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <NOW.SettingsCategory>Notifications ON Windows NOW</NOW.SettingsCategory>
+  <NOW.EnableAllPush>Enable notifications</NOW.EnableAllPush>
+  <NOW.EnableAllPushExplain>Master switch: when off, no in-game notification is pushed to the Windows notification center.</NOW.EnableAllPushExplain>
+  <NOW.PushScope>Push scope</NOW.PushScope>
+  <NOW.EnableLetterPush>Push letters (Letter)</NOW.EnableLetterPush>
+  <NOW.EnableMessagePush>Push messages (Message)</NOW.EnableMessagePush>
+  <NOW.LetterTypes>Letter types</NOW.LetterTypes>
+  <NOW.LetterTypeThreat>Threats (raids/insects)</NOW.LetterTypeThreat>
+  <NOW.LetterTypeQuest>Quests / Joiners</NOW.LetterTypeQuest>
+  <NOW.LetterTypeGrowth>Growth (births/aging)</NOW.LetterTypeGrowth>
+  <NOW.LetterTypeOther>Other events</NOW.LetterTypeOther>
+  <NOW.MessageTypes>Message types</NOW.MessageTypes>
+  <NOW.MessageTypeThreat>Threats</NOW.MessageTypeThreat>
+  <NOW.MessageTypeNegative>Negative (death/health)</NOW.MessageTypeNegative>
+  <NOW.MessageTypePositive>Positive (complete/resolved)</NOW.MessageTypePositive>
+  <NOW.MessageTypeNeutral>Neutral</NOW.MessageTypeNeutral>
+  <NOW.MergeWindow>Notification merge window</NOW.MergeWindow>
+  <NOW.MergeWindowOptionOff>No merge</NOW.MergeWindowOptionOff>
+  <NOW.MergeWindowOption1s>1 s</NOW.MergeWindowOption1s>
+  <NOW.MergeWindowOption2s>2 s</NOW.MergeWindowOption2s>
+  <NOW.MergeWindowOption5s>5 s</NOW.MergeWindowOption5s>
   <NOW.EnableDedup>Deduplicate duplicate messages in short time</NOW.EnableDedup>
-  <NOW.EnableDedupDesc>When enabled, identical notifications within the same moment (200 ms) are merged into one.</NOW.EnableDedupDesc>
-  <NOW.MergeWindow>Notification merge window (seconds)</NOW.MergeWindow>
-  <NOW.MergeWindowDesc>Multiple fragments of the same event (a letter and its accompanying messages) are merged into a single notification within this window; independent messages are pushed separately. Set to 0 to disable merging.</NOW.MergeWindowDesc>
+  <NOW.EnableDedupExplain>When enabled, identical notifications within the same moment (200 ms) are merged into one.</NOW.EnableDedupExplain>
+  <NOW.ResetButton>Reset to defaults</NOW.ResetButton>
+  <NOW.ResetTitle>Reset settings to defaults</NOW.ResetTitle>
+  <NOW.ResetSectionGeneral>General</NOW.ResetSectionGeneral>
+  <NOW.ResetSectionLetterTypes>Letter types</NOW.ResetSectionLetterTypes>
+  <NOW.ResetSectionMessageTypes>Message types</NOW.ResetSectionMessageTypes>
+  <NOW.ResetSectionMerge>Merging</NOW.ResetSectionMerge>
+  <NOW.ResetAllPush>Enable notifications (master)</NOW.ResetAllPush>
+  <NOW.ResetLetterPush>Push letters</NOW.ResetLetterPush>
+  <NOW.ResetMessagePush>Push messages</NOW.ResetMessagePush>
+  <NOW.ResetDedup>Short-time deduplication</NOW.ResetDedup>
+  <NOW.ResetLetterThreat>Letters: threats (raids/insects)</NOW.ResetLetterThreat>
+  <NOW.ResetLetterQuest>Letters: quests / joiners</NOW.ResetLetterQuest>
+  <NOW.ResetLetterGrowth>Letters: growth (births/aging)</NOW.ResetLetterGrowth>
+  <NOW.ResetLetterOther>Letters: other events</NOW.ResetLetterOther>
+  <NOW.ResetMessageThreat>Messages: threats</NOW.ResetMessageThreat>
+  <NOW.ResetMessageNegative>Messages: negative (death/health)</NOW.ResetMessageNegative>
+  <NOW.ResetMessagePositive>Messages: positive (complete/resolved)</NOW.ResetMessagePositive>
+  <NOW.ResetMessageNeutral>Messages: neutral</NOW.ResetMessageNeutral>
+  <NOW.ResetMergeWindow>Notification merge window</NOW.ResetMergeWindow>
+  <NOW.ResetSelectAll>Select all</NOW.ResetSelectAll>
+  <NOW.ResetInvert>Invert</NOW.ResetInvert>
+  <NOW.ResetConfirm>Reset</NOW.ResetConfirm>
 </LanguageData>

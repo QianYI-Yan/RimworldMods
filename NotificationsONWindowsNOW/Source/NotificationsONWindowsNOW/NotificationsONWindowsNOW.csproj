@@ -12,6 +12,7 @@
   <ItemGroup>
     <Compile Include="NotificationsOnWindowsNowMod.cs" />
     <Compile Include="NotificationsOnWindowsNowSettings.cs" />
+    <Compile Include="Dialog_ResetDefaults.cs" />
     <Compile Include="ToastBridgeClient.cs" />
     <Compile Include="ToastForwarder.cs" />
     <Compile Include="Patch_LetterStack_ReceiveLetter.cs" />

@@ -30,6 +30,19 @@ namespace NotificationsOnWindowsNow
                     return;
                 }
 
+                // 总开关 / 信件开关：任一关闭则不推送。
+                NotificationsOnWindowsNowSettings settings = NotificationsOnWindowsNowMod.Settings;
+                if (settings == null || !settings.enableAllPush || !settings.enableLetterPush)
+                {
+                    return;
+                }
+
+                // 信件类型细分：关闭的类型不推送。
+                if (!IsLetterTypeAllowed(letter))
+                {
+                    return;
+                }
+
                 string title = letter.Label.Resolve().StripTags();
                 string body = GetLetterBody(letter).StripTags();
                 Push(title, body, isLetter: true);
@@ -46,6 +59,19 @@ namespace NotificationsOnWindowsNow
             try
             {
                 if (message == null || string.IsNullOrEmpty(message.text))
+                {
+                    return;
+                }
+
+                // 总开关 / 消息开关：任一关闭则不推送。
+                NotificationsOnWindowsNowSettings settings = NotificationsOnWindowsNowMod.Settings;
+                if (settings == null || !settings.enableAllPush || !settings.enableMessagePush)
+                {
+                    return;
+                }
+
+                // 消息类型细分：关闭的类型不推送。
+                if (!IsMessageTypeAllowed(message))
                 {
                     return;
                 }
@@ -94,6 +120,75 @@ namespace NotificationsOnWindowsNow
             catch
             {
                 return string.Empty;
+            }
+        }
+
+        /// <summary>判断信件类型是否允许推送（按设置的类型细分开关；DLC 字段访问异常时放行）。</summary>
+        private static bool IsLetterTypeAllowed(Letter letter)
+        {
+            try
+            {
+                NotificationsOnWindowsNowSettings settings = NotificationsOnWindowsNowMod.Settings;
+                if (settings == null)
+                {
+                    return true;
+                }
+
+                LetterDef def = letter.def;
+                if (def == LetterDefOf.ThreatBig || def == LetterDefOf.ThreatSmall)
+                {
+                    return settings.letterPushThreat;
+                }
+                if (def == LetterDefOf.AcceptVisitors || def == LetterDefOf.AcceptJoiner
+                    || def == LetterDefOf.AcceptCreepJoiner || def == LetterDefOf.ChoosePawn
+                    || def == LetterDefOf.RelicHuntInstallationFound)
+                {
+                    return settings.letterPushQuest;
+                }
+                if (def == LetterDefOf.BabyBirth || def == LetterDefOf.BabyToChild
+                    || def == LetterDefOf.ChildToAdult || def == LetterDefOf.ChildBirthday)
+                {
+                    return settings.letterPushGrowth;
+                }
+                return settings.letterPushOther;
+            }
+            catch
+            {
+                return true; // 未装 DLC 时 DefOf 字段访问异常，放行
+            }
+        }
+
+        /// <summary>判断消息类型是否允许推送（按设置的类型细分开关）。</summary>
+        private static bool IsMessageTypeAllowed(Message message)
+        {
+            try
+            {
+                NotificationsOnWindowsNowSettings settings = NotificationsOnWindowsNowMod.Settings;
+                if (settings == null)
+                {
+                    return true;
+                }
+
+                MessageTypeDef def = message.def;
+                if (def == MessageTypeDefOf.ThreatBig || def == MessageTypeDefOf.ThreatSmall)
+                {
+                    return settings.messagePushThreat;
+                }
+                if (def == MessageTypeDefOf.NegativeEvent || def == MessageTypeDefOf.NegativeHealthEvent
+                    || def == MessageTypeDefOf.PawnDeath)
+                {
+                    return settings.messagePushNegative;
+                }
+                if (def == MessageTypeDefOf.PositiveEvent || def == MessageTypeDefOf.TaskCompletion
+                    || def == MessageTypeDefOf.SituationResolved)
+                {
+                    return settings.messagePushPositive;
+                }
+                return settings.messagePushNeutral;
+            }
+            catch
+            {
+                return true;
             }
         }
     }

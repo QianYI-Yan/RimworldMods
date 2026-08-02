@@ -79,7 +79,7 @@ namespace NotificationsOnWindowsNow
                 return null;
             }
 
-            int mergeMilliseconds = (int)(settings.mergeWindowSeconds * 1000f);
+            int mergeMilliseconds = settings.MergeWindowMilliseconds;
             string settingsHash = mergeMilliseconds.ToString();
             if (settingsHash == lastSyncedSettingsHash)
             {
