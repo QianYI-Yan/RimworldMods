@@ -87,18 +87,23 @@ namespace ModernExpandMenu.Theme
             }
         }
 
-        /// <summary>解析 16 进制颜色（RRGGBB），失败返回兜底色。</summary>
+        /// <summary>解析 16 进制颜色（可带 # 前缀，如 #RRGGBB 或 RRGGBB），失败返回兜底色。</summary>
         public static Color FromHex(string hex, Color fallback)
         {
-            if (string.IsNullOrEmpty(hex) || hex.Length < 6)
+            if (string.IsNullOrEmpty(hex))
+            {
+                return fallback;
+            }
+            string clean = hex.TrimStart('#').Trim();
+            if (clean.Length < 6)
             {
                 return fallback;
             }
             try
             {
-                int r = Convert.ToInt32(hex.Substring(0, 2), 16);
-                int g = Convert.ToInt32(hex.Substring(2, 2), 16);
-                int b = Convert.ToInt32(hex.Substring(4, 2), 16);
+                int r = Convert.ToInt32(clean.Substring(0, 2), 16);
+                int g = Convert.ToInt32(clean.Substring(2, 2), 16);
+                int b = Convert.ToInt32(clean.Substring(4, 2), 16);
                 return new Color32((byte)Mathf.Clamp(r, 0, 255), (byte)Mathf.Clamp(g, 0, 255), (byte)Mathf.Clamp(b, 0, 255), 255);
             }
             catch (Exception)

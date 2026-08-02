@@ -26,6 +26,7 @@ namespace ModernExpandMenu
 
         // 设置界面：当前 tab（0=常规，1=动画，2=颜色）
         private static int settingsTab;
+        private static Vector2 settingsScrollPosition;   // 设置内容滚动位置（内容超出窗口高度时可滚动）
 
         // 伪翻译开关的上次值（退出设置时检测变化并强制刷新 UI）
         public static bool lastPseudoTranslationSetting;
@@ -40,15 +41,9 @@ namespace ModernExpandMenu
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
-        /// <summary>游戏内"选项 → Mod 设置"界面（MD3 风格：tab 双页 + 深色卡片 + 安卓控件 + 16 进制颜色自定义）。</summary>
+        /// <summary>游戏内"选项 → Mod 设置"界面（MD3 风格：tab 三页 + 深色卡片 + 安卓控件 + 16 进制颜色自定义；内容超出时可滚动）。</summary>
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            // 点击编辑框外部时退出输入态（未回车视为取消）
-            if (editingSliderId >= 0 && Event.current.type == EventType.MouseDown && !Mouse.IsOver(editingValueRect))
-            {
-                editingSliderId = -1;
-            }
-
             // 整窗 MD3 表面背景
             MD3Widgets.DrawCard(inRect, MD3Theme.Surface, MD3Theme.WindowCornerRadius);
 
@@ -56,7 +51,7 @@ namespace ModernExpandMenu
             float contentWidth = inRect.width - 36f;
             float y = inRect.y + 16f;
 
-            // ── Tab 栏（MD3 风格胶囊按钮，选中主色填充）──
+            // ── Tab 栏（固定顶部，MD3 风格胶囊按钮，选中主色填充）──
             const float tabBarHeight = 34f;
             const float tabGap = 8f;
             float tabWidth = (contentWidth - tabGap * 2f) / 3f;
@@ -78,22 +73,57 @@ namespace ModernExpandMenu
                 settingsTab = 2;
                 editingSliderId = -1;
             }
-            y += tabBarHeight + 12f;
+            float contentTop = y + tabBarHeight + 12f;
 
+            // ── 内容滚动区（各 tab 内容可能超出窗口高度，包 MD3 滚动视口）──
+            float contentTotal = ComputeSettingsContentHeight(contentWidth, settingsTab);
+            var scrollRect = new Rect(contentX, contentTop, contentWidth, inRect.yMax - contentTop);
+            var contentRect = new Rect(0f, 0f, contentWidth, contentTotal);
+            MD3Widgets.MD3BeginScrollView(scrollRect, ref settingsScrollPosition, contentRect);
+
+            // 点击编辑框外部时退出输入态（未回车视为取消；视口局部坐标）
+            if (editingSliderId >= 0 && Event.current.type == EventType.MouseDown && !Mouse.IsOver(editingValueRect))
+            {
+                editingSliderId = -1;
+            }
+
+            // 各 tab 内容从视口局部 y=0 开始绘制
             if (settingsTab == 0)
             {
-                DrawGeneralTab(contentX, contentWidth, y);
+                DrawGeneralTab(0f, contentWidth, 0f);
             }
             else if (settingsTab == 1)
             {
-                DrawAnimationTab(contentX, contentWidth, y);
+                DrawAnimationTab(0f, contentWidth, 0f);
             }
             else
             {
-                DrawColorTab(contentX, contentWidth, y);
+                DrawColorTab(0f, contentWidth, 0f);
             }
 
+            MD3Widgets.MD3EndScrollView(scrollRect, ref settingsScrollPosition, contentTotal, 3000, MD3Theme.CardCornerRadius);
+
             Settings.Write();
+        }
+
+        /// <summary>估算各 tab 内容总高度（用于滚动视口内容区高度）。</summary>
+        private static float ComputeSettingsContentHeight(float contentWidth, int tab)
+        {
+            const float rowHeight = 30f;
+            switch (tab)
+            {
+                case 1: // 动画：总开关卡片 + 速度卡片(7 行) + 预览卡片
+                    return (30f + rowHeight + 12f) + (30f + rowHeight * 7f + 12f) + (30f + 196f + 12f) + 24f;
+                case 2: // 颜色：调色板(3 行) + 主色(2) + 表面(3) + 文本(4) + 滚动条(3) + 阴影(1) 卡片
+                    float palette = 30f + 34f * 3f + 6f * 2f + 12f;
+                    float cards = (30f + rowHeight * 2f + 12f) + (30f + rowHeight * 3f + 12f) + (30f + rowHeight * 4f + 12f) + (30f + rowHeight * 3f + 12f) + (30f + rowHeight + 12f);
+                    return palette + cards + 24f;
+                default: // 常规：外观(5) + 性能(2) + 加载(1) + 恢复默认 + 分享
+                    float appearance = 30f + rowHeight * 5f + 12f;
+                    float performance = 30f + rowHeight * 2f + 12f;
+                    float loading = 30f + rowHeight + 12f;
+                    return appearance + performance + loading + (34f + 12f) + (30f + rowHeight + 12f) + 24f;
+            }
         }
 
         /// <summary>常规 tab：外观 / 性能 / 加载动画 / 恢复默认。</summary>
@@ -325,22 +355,22 @@ namespace ModernExpandMenu
             MD3Widgets.DrawRoundedRect(new Rect(drawX + width - 46f, drawY + 10f, 10f, 10f), dotColor, 5f);
         }
 
-        /// <summary>恢复默认颜色（16 进制）。</summary>
+        /// <summary>恢复默认颜色（16 进制，带 # 前缀）。</summary>
         private static void ResetColorSettings()
         {
-            Settings.colorPrimary = "00A8FF";
-            Settings.colorOnPrimary = "001421";
-            Settings.colorSurface = "161821";
-            Settings.colorSurfaceContainer = "1E212D";
-            Settings.colorSurfaceContainerHigh = "262A3A";
-            Settings.colorOnSurface = "E6E6EC";
-            Settings.colorOnSurfaceVariant = "9A9BA6";
-            Settings.colorOutline = "636676";
-            Settings.colorDisabledText = "80808C";
-            Settings.colorShadow = "000000";
-            Settings.colorScrollbarTrack = "26262E";
-            Settings.colorScrollbarThumb = "525261";
-            Settings.colorScrollbarThumbDragging = "737385";
+            Settings.colorPrimary = "#00A8FF";
+            Settings.colorOnPrimary = "#001421";
+            Settings.colorSurface = "#161821";
+            Settings.colorSurfaceContainer = "#1E212D";
+            Settings.colorSurfaceContainerHigh = "#262A3A";
+            Settings.colorOnSurface = "#E6E6EC";
+            Settings.colorOnSurfaceVariant = "#9A9BA6";
+            Settings.colorOutline = "#636676";
+            Settings.colorDisabledText = "#80808C";
+            Settings.colorShadow = "#000000";
+            Settings.colorScrollbarTrack = "#26262E";
+            Settings.colorScrollbarThumb = "#525261";
+            Settings.colorScrollbarThumbDragging = "#737385";
         }
 
         /// <summary>颜色 tab：调色板 + 按分类卡片列出所有可自定义颜色（16 进制输入）。</summary>
@@ -429,22 +459,22 @@ namespace ModernExpandMenu
             switch (index)
             {
                 case 1: // 赛博紫
-                    palette = new[] { "B388FF", "1B1030", "1B1124", "26163A", "2E1B47", "E8E6F0", "B3AEC4", "7E7A8C", "9A94A8", "000000", "2A2436", "6E6680", "8F86A6" };
+                    palette = new[] { "#B388FF", "#1B1030", "#1B1124", "#26163A", "#2E1B47", "#E8E6F0", "#B3AEC4", "#7E7A8C", "#9A94A8", "#000000", "#2A2436", "#6E6680", "#8F86A6" };
                     break;
                 case 2: // 翡翠绿
-                    palette = new[] { "00C853", "00291A", "0E2118", "143327", "1A3F2E", "E0F2E9", "A8C9B8", "6E8F7F", "8FAD9F", "000000", "1C2E24", "5E7E6E", "7FA093" };
+                    palette = new[] { "#00C853", "#00291A", "#0E2118", "#143327", "#1A3F2E", "#E0F2E9", "#A8C9B8", "#6E8F7F", "#8FAD9F", "#000000", "#1C2E24", "#5E7E6E", "#7FA093" };
                     break;
                 case 3: // 熔岩橙
-                    palette = new[] { "FF6D00", "2B1500", "221812", "33221A", "402A1F", "F2E8E2", "C4B5AC", "8A7B72", "AA968A", "000000", "2E221C", "7A665A", "9C8577" };
+                    palette = new[] { "#FF6D00", "#2B1500", "#221812", "#33221A", "#402A1F", "#F2E8E2", "#C4B5AC", "#8A7B72", "#AA968A", "#000000", "#2E221C", "#7A665A", "#9C8577" };
                     break;
                 case 4: // 粉彩玫瑰（FFC0CE）
-                    palette = new[] { "FFC0CE", "3A1C24", "2A1A1F", "352027", "412A32", "F5E6EA", "C5A9B1", "8A6E76", "A08890", "000000", "332027", "8A5D68", "B07A86" };
+                    palette = new[] { "#FFC0CE", "#3A1C24", "#2A1A1F", "#352027", "#412A32", "#F5E6EA", "#C5A9B1", "#8A6E76", "#A08890", "#000000", "#332027", "#8A5D68", "#B07A86" };
                     break;
                 case 5: // 冰雪蓝（C0F3FF）
-                    palette = new[] { "C0F3FF", "0A2A33", "16222A", "1D2C36", "263A47", "E3F2F8", "A8C3CE", "6E8A96", "8DA3AD", "000000", "1E2E38", "4E7687", "6F9CAD" };
+                    palette = new[] { "#C0F3FF", "#0A2A33", "#16222A", "#1D2C36", "#263A47", "#E3F2F8", "#A8C3CE", "#6E8A96", "#8DA3AD", "#000000", "#1E2E38", "#4E7687", "#6F9CAD" };
                     break;
                 default: // 水影蓝
-                    palette = new[] { "00A8FF", "001421", "161821", "1E212D", "262A3A", "E6E6EC", "9A9BA6", "636676", "80808C", "000000", "26262E", "525261", "737385" };
+                    palette = new[] { "#00A8FF", "#001421", "#161821", "#1E212D", "#262A3A", "#E6E6EC", "#9A9BA6", "#636676", "#80808C", "#000000", "#26262E", "#525261", "#737385" };
                     break;
             }
             Settings.colorPrimary = palette[0];
@@ -516,30 +546,29 @@ namespace ModernExpandMenu
                 }
             }
 
-            // 16 进制输入框（原版可靠文本输入）
-            var hexRect = new Rect(rowRect.xMax - 88f, rowRect.y + 3f, 88f, 24f);
-            MD3Widgets.DrawRoundedRect(hexRect, MD3Theme.SurfaceContainerHigh, 4f);
-            if (!TryParseHex(hex, out _))
-            {
-                MD3Widgets.DrawRoundedRect(hexRect, new Color(1f, 0.3f, 0.3f, 0.85f), 4f);   // 非法：红色边框
-            }
-            string edited = Widgets.TextField(new Rect(hexRect.x + 4f, hexRect.y, hexRect.width - 8f, hexRect.height), hex);
-            hex = edited;
+            // 16 进制输入框（MD3 自实现外观：深色背景 + 主色描边环，非法时红色描边；内部原版可靠输入）
+            var hexRect = new Rect(rowRect.xMax - 92f, rowRect.y + 3f, 92f, 24f);
+            hex = MD3Widgets.MD3TextField(hexRect, hex, label.GetHashCode(), TryParseHex(hex, out _));
         }
 
-        /// <summary>解析 16 进制颜色（RRGGBB）。</summary>
+        /// <summary>解析 16 进制颜色（可带 # 前缀，如 #RRGGBB 或 RRGGBB）。</summary>
         private static bool TryParseHex(string hex, out Color color)
         {
             color = Color.white;
-            if (string.IsNullOrEmpty(hex) || hex.Length < 6)
+            if (string.IsNullOrEmpty(hex))
+            {
+                return false;
+            }
+            string clean = hex.TrimStart('#').Trim();
+            if (clean.Length < 6)
             {
                 return false;
             }
             try
             {
-                int r = Convert.ToInt32(hex.Substring(0, 2), 16);
-                int g = Convert.ToInt32(hex.Substring(2, 2), 16);
-                int b = Convert.ToInt32(hex.Substring(4, 2), 16);
+                int r = Convert.ToInt32(clean.Substring(0, 2), 16);
+                int g = Convert.ToInt32(clean.Substring(2, 2), 16);
+                int b = Convert.ToInt32(clean.Substring(4, 2), 16);
                 color = new Color32((byte)Mathf.Clamp(r, 0, 255), (byte)Mathf.Clamp(g, 0, 255), (byte)Mathf.Clamp(b, 0, 255), 255);
                 return true;
             }

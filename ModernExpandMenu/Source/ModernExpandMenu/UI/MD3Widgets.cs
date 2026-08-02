@@ -379,6 +379,20 @@ namespace ModernExpandMenu.UI
         }
 
         /// <summary>
+        /// MD3 文本输入框：深色背景 + 主色描边环（valid 为 false 时红色描边），
+        /// 内部用原版 Widgets.TextField 可靠输入，描边不覆盖文字。
+        /// fieldId 用于区分多个输入框（控件名）；返回编辑后的文本。
+        /// </summary>
+        public static string MD3TextField(Rect rect, string text, int fieldId, bool valid)
+        {
+            DrawRoundedRect(rect, Theme.MD3Theme.SurfaceContainerHigh, 6f);
+            Color outline = valid ? Theme.MD3Theme.Primary : new Color(1f, 0.3f, 0.3f, 0.85f);
+            DrawRoundedRectOutline(rect, outline, 6f, 1.5f, Theme.MD3Theme.SurfaceContainerHigh);
+            GUI.SetNextControlName("MD3TextField" + fieldId);
+            return Widgets.TextField(rect.ContractedBy(6f), text);
+        }
+
+        /// <summary>
         /// MD3 安卓 15 风格数字输入框：圆角 + 主色描边外观，
         /// 输入处理使用原版 Widgets.TextFieldNumeric（Windows 键盘/输入法兼容、可靠保存数值），
         /// 仅绘制 MD3 边框包裹。

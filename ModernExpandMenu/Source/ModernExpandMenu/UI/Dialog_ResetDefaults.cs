@@ -64,19 +64,19 @@ namespace ModernExpandMenu.UI
 
             // ── 颜色 ──
             var colors = new ResetSection("ModernExpandMenu_ResetSectionColors".Translate());
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorPrimary", s.colorPrimary, "00A8FF", () => s.colorPrimary = "00A8FF"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnPrimary", s.colorOnPrimary, "001421", () => s.colorOnPrimary = "001421"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurface", s.colorSurface, "161821", () => s.colorSurface = "161821"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainer", s.colorSurfaceContainer, "1E212D", () => s.colorSurfaceContainer = "1E212D"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainerHigh", s.colorSurfaceContainerHigh, "262A3A", () => s.colorSurfaceContainerHigh = "262A3A"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurface", s.colorOnSurface, "E6E6EC", () => s.colorOnSurface = "E6E6EC"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurfaceVariant", s.colorOnSurfaceVariant, "9A9BA6", () => s.colorOnSurfaceVariant = "9A9BA6"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOutline", s.colorOutline, "636676", () => s.colorOutline = "636676"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorDisabledText", s.colorDisabledText, "80808C", () => s.colorDisabledText = "80808C"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorShadow", s.colorShadow, "000000", () => s.colorShadow = "000000"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarTrack", s.colorScrollbarTrack, "26262E", () => s.colorScrollbarTrack = "26262E"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumb", s.colorScrollbarThumb, "525261", () => s.colorScrollbarThumb = "525261"));
-            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumbDragging", s.colorScrollbarThumbDragging, "737385", () => s.colorScrollbarThumbDragging = "737385"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorPrimary", s.colorPrimary, "#00A8FF", () => s.colorPrimary = "#00A8FF"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnPrimary", s.colorOnPrimary, "#001421", () => s.colorOnPrimary = "#001421"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurface", s.colorSurface, "#161821", () => s.colorSurface = "#161821"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainer", s.colorSurfaceContainer, "#1E212D", () => s.colorSurfaceContainer = "#1E212D"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorSurfaceContainerHigh", s.colorSurfaceContainerHigh, "#262A3A", () => s.colorSurfaceContainerHigh = "#262A3A"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurface", s.colorOnSurface, "#E6E6EC", () => s.colorOnSurface = "#E6E6EC"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOnSurfaceVariant", s.colorOnSurfaceVariant, "#9A9BA6", () => s.colorOnSurfaceVariant = "#9A9BA6"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorOutline", s.colorOutline, "#636676", () => s.colorOutline = "#636676"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorDisabledText", s.colorDisabledText, "#80808C", () => s.colorDisabledText = "#80808C"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorShadow", s.colorShadow, "#000000", () => s.colorShadow = "#000000"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarTrack", s.colorScrollbarTrack, "#26262E", () => s.colorScrollbarTrack = "#26262E"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumb", s.colorScrollbarThumb, "#525261", () => s.colorScrollbarThumb = "#525261"));
+            colors.items.Add(AddColorItem("ModernExpandMenu_ColorScrollbarThumbDragging", s.colorScrollbarThumbDragging, "#737385", () => s.colorScrollbarThumbDragging = "#737385"));
             sections.Add(colors);
         }
 

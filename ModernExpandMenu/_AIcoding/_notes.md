@@ -167,4 +167,16 @@
 - 新建 `_templates/md3-ui-style/STYLE_GUIDE.md`：完整 MD3 规范（色板 Token 表 / 尺寸常量表 / 控件 API 清单 / 绘制约定 / 设置界面规范 / 参考实现路径）；已加入工作区「参考模板」索引
 - **设置界面 MD3 化**：`MD3Widgets` 新增公共 `MD3BeginScrollView` / `MD3EndScrollView` / `MD3Scrollbar`（MD3 细滚动条，scrollbarId 区分多个，拖动支持）；`Dialog_ResetDefaults` 与 `Dialog_ConfigManager` 的原版 `showScrollbars:true` 滚动条改为 MD3 细条
 
+## 最后一批 UI / 动画细节（2026-08-02）
+- **颜色值加 # 号 + 自实现输入框**：`ModernExpandMenuSettings` 13 个颜色默认值、`ApplyPalette` 6 套调色板、`ResetColorSettings`、`Dialog_ResetDefaults` 颜色默认值全部加 `#` 前缀；`MD3Theme.FromHex` 与 `TryParseHex` 兼容 `#` 前缀（用户旧配置无 # 号也能正常显示）；`DrawColorRow` 色值输入改用 `MD3Widgets.MD3TextField`（自实现：深色背景 + 主色/红色描边环 + 原版 TextField 输入，非法 hex 红色描边），色块点击复制 hex
+- **设置界面滚动**：`DoSettingsWindowContents` 内容包 `MD3BeginScrollView`（`settingsScrollPosition` 字段，`ComputeSettingsContentHeight` 估算各 tab 高度，`MD3EndScrollView(..., 3000, CardCornerRadius)`），各 tab 从局部 y=0 绘制
+- **扩高上限 = maxMenuHeight**：`WindowUpdate` 高度目标 `Mathf.Min(TotalViewHeight, CurrentMaxMenuHeight)`（删 `FirstRevealHeightLimit`），达到上限前只扩高菜单页面，超上限后内容改滚动
+- **加载条跑完直接回顶**：`ShowLoadingVisual = isLoading || (extraEndTime>=0 && now<extraEndTime)`；删除底部流程（`bottomFlowActive` / `waitAtBottomUntil` 字段与阶段 2/3/4 逻辑，`ProcessPendingActions` 里 `bottomFlowActive = true` 一并删除）；加载完成时剩余组立即全部排定；加载条跑完 → ShowLoadingVisual 结束 → `returnToTopPending` 平滑回顶（ease-out-cubic 按 `scrollReturnDuration`）
+- **组展开动画完全结束后才加载子项目**：`DrawGroupActions` 里 `progress < 0.999f` 时子项一律 Hidden（不排定不显示）；progress≥0.999 后 `ComputeBlockAnim` 才排定 appearTime，未到动画时间的下一个子项 `continue`（不占高不绘制）
+- **子项目逐项占高**：`ComputeActionsHeight` 只累加 `appearTime>=0 && now>=appearTime` 的项；`ComputeContentHeight` 与组外框高度同步只统计已出现子项（不乘 progress）——下一个子项目未到动画时间前不预留高度，不把下面内容往下推
+- **加载中完全不参与交互（连 tooltip 也没有）**：`DrawGroupHeader` 的 hover 层 + `SetHoveredTooltip` 加 `!ShowLoadingVisual` 锁（行 hover/点击、加载条 tooltip 此前已锁）
+- **组描边框**：`DrawGroups` 每组先画 `MD3Widgets.DrawRoundedRectOutline`（描边环 + Surface 填充，**一个框把整组包在里面**），再画标题/子项覆盖其上；组动画期间外框只含标题高度，子项逐条出现后随之长高
+- **内容视口避开加载条**：`DoWindowContents` 内容视口从加载条下方开始（`loadingBarTop = Padding + LoadingBarHeight + LoadingBarGap`）；`DrawGroups` y 起点 `MD3Theme.Padding`；`ComputeContentHeight` 顶部只算 Padding（不再含加载条空间）；渐变遮罩（`DrawVerticalFade`）删除，悬浮窗不再使用
+- 本批无新增翻译键（颜色 # 号无需翻译）；构建部署验证通过
+
 

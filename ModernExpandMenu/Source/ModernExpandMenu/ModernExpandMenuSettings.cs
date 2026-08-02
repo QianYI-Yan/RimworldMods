@@ -26,20 +26,20 @@ namespace ModernExpandMenu
         public float scrollReturnDuration = 0.6f;       // 加载结束后滚动返回顶端的时长（秒，时间设定而非固定速度）
         public float windowHeightAnimationSpeed = 200f;  // 窗口高度动态动画速度（加载插入/展开折叠时平滑过渡）
 
-        // ── 颜色自定义（16 进制 RGB，如 00A8FF；空/非法时回退默认水影蓝）──
-        public string colorPrimary = "00A8FF";
-        public string colorOnPrimary = "001421";
-        public string colorSurface = "161821";
-        public string colorSurfaceContainer = "1E212D";
-        public string colorSurfaceContainerHigh = "262A3A";
-        public string colorOnSurface = "E6E6EC";
-        public string colorOnSurfaceVariant = "9A9BA6";
-        public string colorOutline = "636676";
-        public string colorDisabledText = "80808C";
-        public string colorShadow = "000000";
-        public string colorScrollbarTrack = "26262E";
-        public string colorScrollbarThumb = "525261";
-        public string colorScrollbarThumbDragging = "737385";
+        // ── 颜色自定义（16 进制 RGB，带 # 前缀如 #00A8FF；空/非法时回退默认水影蓝）──
+        public string colorPrimary = "#00A8FF";
+        public string colorOnPrimary = "#001421";
+        public string colorSurface = "#161821";
+        public string colorSurfaceContainer = "#1E212D";
+        public string colorSurfaceContainerHigh = "#262A3A";
+        public string colorOnSurface = "#E6E6EC";
+        public string colorOnSurfaceVariant = "#9A9BA6";
+        public string colorOutline = "#636676";
+        public string colorDisabledText = "#80808C";
+        public string colorShadow = "#000000";
+        public string colorScrollbarTrack = "#26262E";
+        public string colorScrollbarThumb = "#525261";
+        public string colorScrollbarThumbDragging = "#737385";
 
         public override void ExposeData()
         {
