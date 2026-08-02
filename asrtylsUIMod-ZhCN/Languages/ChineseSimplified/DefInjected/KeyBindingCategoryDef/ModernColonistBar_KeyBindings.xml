@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modern Colonist Bar 按键类别 Def 汉化（DefInjected 注入） -->
-<Defs>
-
+<LanguageData>
   <KeyBindingCategoryDef>
-    <defName>MCB_Warband</defName>
-    <label>现代殖民者栏</label>
-    <description>战团英雄快捷栏能力按键。</description>
+    <MCB_Warband.label>现代殖民者栏</MCB_Warband.label>
+    <MCB_Warband.description>战团英雄快捷栏能力按键。</MCB_Warband.description>
   </KeyBindingCategoryDef>
-
-</Defs>
+</LanguageData>

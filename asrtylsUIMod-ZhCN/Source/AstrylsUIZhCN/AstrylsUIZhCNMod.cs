@@ -113,11 +113,12 @@ namespace AstrylsUIZhCN
             }
 
             // MD3 卡片块网格：每卡片一个模组，点击叠加打开设置（关闭后返回本聚合界面）
-            const float cardWidth = 190f;
-            const float cardHeight = 78f;
-            const float cardGapX = 12f;
-            const float cardGapY = 12f;
-            const int columns = 4;
+            // 3 列动态宽度：保证中文名（最长 8 字 Medium）不截断
+            const float cardHeight = 80f;
+            const float cardGapX = 14f;
+            const float cardGapY = 14f;
+            const int columns = 3;
+            float cardWidth = (inRect.width - 32f - (columns - 1) * cardGapX) / columns;
             int rows = Mathf.CeilToInt(installed.Count / (float)columns);
             float contentHeight = rows * cardHeight + (rows - 1) * cardGapY;
             float contentWidth = columns * cardWidth + (columns - 1) * cardGapX;

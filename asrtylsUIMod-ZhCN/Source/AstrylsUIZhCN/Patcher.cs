@@ -68,6 +68,7 @@ namespace AstrylsUIZhCN
             PatchIfPresent(harmony, learningMenu, lmDrawer, "DrawPanel_Training");
             PatchIfPresent(harmony, learningMenu, lmDrawer, "DrawPanel_Readout");
             PatchIfPresent(harmony, learningMenu, lmDrawer, "DrawPanel_Expertise");
+            PatchIfPresent(harmony, learningMenu, lmDrawer, "DrawModIconBadge"); // VSE 等模组缺失/已激活提示 tooltip
             // 设置界面
             PatchIfPresent(harmony, learningMenu, lmMod, "DoSettingsWindowContents");
 
@@ -163,13 +164,34 @@ namespace AstrylsUIZhCN
             PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawRail");
             PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "Shorten");
             PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawSourceBanner");
-            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", ".cctor"); // TabLabels 导航标签静态数组
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", ".cctor"); // TabLabels 导航标签静态数组（transpiler 可能不生效，下方另有 Prefix 保底）
+            // Circinus 补充：RunRecorder / Tab_Runs / Tab_Perf / Warmup
+            PatchIfPresent(harmony, circinus, "Circinus.Session.RunRecorder", "Start");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Runs", "DrawDetail");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Perf", "ProfilingUnavailable");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Window_Warmup", "DoWindowContents");
+            // Circinus 补充：Tab_Live 热点 / Tab_Cohorts 成本卡片 / Tab_Mods / CohortMath / ProfilerContribution
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Live", "DrawHotspots");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Cohorts", "DrawCardHead");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Cohorts", "DrawCardBody");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Cohorts", "CopyFor");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.Tab_Mods", "Draw");
+            PatchIfPresent(harmony, circinus, "Circinus.Contract.CohortMath", "Placement");
+            PatchIfPresent(harmony, circinus, "Circinus.Profiling.ProfilerContribution", "Describe");
+            // Circinus 导航标签 TabLabels：Prefix 运行时把静态数组改成中文（.cctor transpiler 在部分环境不生效）
+            var cvDraw = AccessTools.Method(AccessTools.TypeByName("Circinus.UI.CircinusView"), "Draw");
+            if (cvDraw != null)
+            {
+                harmony.Patch(cvDraw, prefix: new HarmonyMethod(typeof(Patcher).GetMethod(
+                    nameof(LocalizeCircinusTabs), BindingFlags.Static | BindingFlags.NonPublic)));
+            }
 
             // ============ Modern Faction Menu（世界地图查看 tooltip） ============
             const string factionMenu = "astryl.ModernFactionMenu";
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.CapitalPreview", "Draw");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawTerritorySection");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawEmpireSection");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawTrendsSection");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernEmpireSettlements", "DrawRow");
 
             // ============ 隐藏 Mod 设置列表中的聚合 UI 模组条目 ============
@@ -181,6 +203,34 @@ namespace AstrylsUIZhCN
                 harmony.Patch(dialogOptionsPostOpen,
                     postfix: new HarmonyMethod(typeof(Patcher).GetMethod(
                         nameof(HideAggregatedModsFromSettings), BindingFlags.Static | BindingFlags.NonPublic)));
+            }
+        }
+
+        /// <summary>
+        /// Prefix：把 Circinus 导航标签数组（TabLabels）运行时改成中文。
+        /// 用 Prefix 而非只依赖 .cctor transpiler（部分环境对静态构造函数的 transpiler 不生效）。
+        /// </summary>
+        static void LocalizeCircinusTabs()
+        {
+            var type = AccessTools.TypeByName("Circinus.UI.CircinusView");
+            if (type == null)
+            {
+                return;
+            }
+            var field = AccessTools.Field(type, "TabLabels");
+            if (field == null)
+            {
+                return;
+            }
+            var labels = field.GetValue(null) as string[];
+            if (labels == null || labels.Length == 0 || labels[0] == "实时")
+            {
+                return;
+            }
+            string[] zh = { "实时", "分析器", "压力", "运行", "发现", "错误", "性能", "补丁", "模组", "队列", "测试" };
+            for (int i = 0; i < labels.Length && i < zh.Length; i++)
+            {
+                labels[i] = zh[i];
             }
         }
 

@@ -1,83 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modern Dev Tools 错误分析模块 Def 汉化（DefInjected 注入） -->
-<Defs>
-
+<LanguageData>
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_StackTrace</defName>
-    <label>堆栈跟踪归因</label>
-    <description>将错误堆栈跟踪中出现的模组代码归咎于这些模组，并标注原版、Harmony 和 Unity 帧。</description>
+    <MDT_Module_StackTrace.label>堆栈跟踪归因</MDT_Module_StackTrace.label>
+    <MDT_Module_StackTrace.description>将错误堆栈跟踪中出现的模组代码归咎于这些模组，并标注原版、Harmony 和 Unity 帧。</MDT_Module_StackTrace.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_MessageMentions</defName>
-    <label>消息归因</label>
-    <description>将消息文本中命名的模组归咎于它们，包括堆栈跟踪纯原版的加载时警告（依赖和 packageId 校验、文件路径）。</description>
+    <MDT_Module_MessageMentions.label>消息归因</MDT_Module_MessageMentions.label>
+    <MDT_Module_MessageMentions.description>将消息文本中命名的模组归咎于它们，包括堆栈跟踪纯原版的加载时警告（依赖和 packageId 校验、文件路径）。</MDT_Module_MessageMentions.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_LogPrefix</defName>
-    <label>日志前缀归因</label>
-    <description>将盖有自己名字的日志行归咎于该模组，例如「[Giddy-Up] ...」或「[Map Preview] ...」。将方括号标签匹配到单个活跃已安装模组；有歧义或非模组标签会被忽略。</description>
+    <MDT_Module_LogPrefix.label>日志前缀归因</MDT_Module_LogPrefix.label>
+    <MDT_Module_LogPrefix.description>将盖有自己名字的日志行归咎于该模组，例如「[Giddy-Up] ...」或「[Map Preview] ...」。将方括号标签匹配到单个活跃已安装模组；有歧义或非模组标签会被忽略。</MDT_Module_LogPrefix.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_HarmonyPatches</defName>
-    <label>Harmony 补丁归因</label>
-    <description>读取实时 Harmony 注册表，并指出错误中修补某个方法的模组，即使堆栈跟踪是纯原版。当两个或更多模组修补同一方法时，它会按名称标记可能冲突。本地，始终开启。</description>
+    <MDT_Module_HarmonyPatches.label>Harmony 补丁归因</MDT_Module_HarmonyPatches.label>
+    <MDT_Module_HarmonyPatches.description>读取实时 Harmony 注册表，并指出错误中修补某个方法的模组，即使堆栈跟踪是纯原版。当两个或更多模组修补同一方法时，它会按名称标记可能冲突。本地，始终开启。</MDT_Module_HarmonyPatches.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_DependencyCheck</defName>
-    <label>缺失需求与加载顺序</label>
-    <description>对照你的模组列表检查每个活跃模组的声明依赖和加载顺序，并解释缺失或不活跃的必需模组以及错误的加载顺序——缺少 def、缺少类型和未解析引用错误的常见根本原因。本地，始终开启。</description>
+    <MDT_Module_DependencyCheck.label>缺失需求与加载顺序</MDT_Module_DependencyCheck.label>
+    <MDT_Module_DependencyCheck.description>对照你的模组列表检查每个活跃模组的声明依赖和加载顺序，并解释缺失或不活跃的必需模组以及错误的加载顺序——缺少 def、缺少类型和未解析引用错误的常见根本原因。本地，始终开启。</MDT_Module_DependencyCheck.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_VersionMismatch</defName>
-    <label>版本不匹配</label>
-    <description>标记一个未声明支持你的 RimWorld 版本的模组，这是错误的常见原因。本地，无需联网。</description>
+    <MDT_Module_VersionMismatch.label>版本不匹配</MDT_Module_VersionMismatch.label>
+    <MDT_Module_VersionMismatch.description>标记一个未声明支持你的 RimWorld 版本的模组，这是错误的常见原因。本地，无需联网。</MDT_Module_VersionMismatch.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_ModIssues</defName>
-    <label>模组自带的已知问题</label>
-    <description>使用模组自带文件夹内的已知问题文件（ModernDevTools/known-issues.json）解释错误，格式与社区数据库相同。本地，始终开启。</description>
+    <MDT_Module_ModIssues.label>模组自带的已知问题</MDT_Module_ModIssues.label>
+    <MDT_Module_ModIssues.description>使用模组自带文件夹内的已知问题文件（ModernDevTools/known-issues.json）解释错误，格式与社区数据库相同。本地，始终开启。</MDT_Module_ModIssues.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_AboutIncompat</defName>
-    <label>声明的不兼容性</label>
-    <description>当两个活跃模组在各自的 About.xml 中声明彼此不兼容时标记——社区数据库可能不会列出的常见错误原因。本地，始终开启。</description>
+    <MDT_Module_AboutIncompat.label>声明的不兼容性</MDT_Module_AboutIncompat.label>
+    <MDT_Module_AboutIncompat.description>当两个活跃模组在各自的 About.xml 中声明彼此不兼容时标记——社区数据库可能不会列出的常见错误原因。本地，始终开启。</MDT_Module_AboutIncompat.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_Community</defName>
-    <label>社区数据库</label>
-    <description>使用自愿加入的社区数据库为过时模组建议替代品并标记已知不兼容性。在「模块」窗口启用社区数据。</description>
+    <MDT_Module_Community.label>社区数据库</MDT_Module_Community.label>
+    <MDT_Module_Community.description>使用自愿加入的社区数据库为过时模组建议替代品并标记已知不兼容性。在「模块」窗口启用社区数据。</MDT_Module_Community.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_CommunityBugs</defName>
-    <label>社区错误数据库</label>
-    <description>将错误与社区错误和修复数据库匹配（我们在 GitHub 上可贡献编辑的 JSON）。在「模块」窗口启用社区数据。</description>
+    <MDT_Module_CommunityBugs.label>社区错误数据库</MDT_Module_CommunityBugs.label>
+    <MDT_Module_CommunityBugs.description>将错误与社区错误和修复数据库匹配（我们在 GitHub 上可贡献编辑的 JSON）。在「模块」窗口启用社区数据。</MDT_Module_CommunityBugs.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_KnownIssues</defName>
-    <label>知识库</label>
-    <description>使用自带和第三方知识库用通俗语言解释错误，并建议修复方法。</description>
+    <MDT_Module_KnownIssues.label>知识库</MDT_Module_KnownIssues.label>
+    <MDT_Module_KnownIssues.description>使用自带和第三方知识库用通俗语言解释错误，并建议修复方法。</MDT_Module_KnownIssues.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_CircinusCorpus</defName>
-    <label>语料库流行度</label>
-    <description>使用 circinus.sh 的共享语料库报告有多少安装会看到此错误。需要 Circinus。</description>
+    <MDT_CircinusCorpus.label>语料库流行度</MDT_CircinusCorpus.label>
+    <MDT_CircinusCorpus.description>使用 circinus.sh 的共享语料库报告有多少安装会看到此错误。需要 Circinus。</MDT_CircinusCorpus.description>
   </ModernDevTools.ErrorModuleDef>
-
   <ModernDevTools.ErrorModuleDef>
-    <defName>MDT_Module_Glossary</defName>
-    <label>通俗语言术语表</label>
-    <description>添加一张简短的「此错误中的术语」卡片，定义错误或其解释中的任何模组行话（Harmony、def、xpath、TPS、加载顺序等），让日志无需前置知识即可阅读。</description>
+    <MDT_Module_Glossary.label>通俗语言术语表</MDT_Module_Glossary.label>
+    <MDT_Module_Glossary.description>添加一张简短的「此错误中的术语」卡片，定义错误或其解释中的任何模组行话（Harmony、def、xpath、TPS、加载顺序等），让日志无需前置知识即可阅读。</MDT_Module_Glossary.description>
   </ModernDevTools.ErrorModuleDef>
-
-</Defs>
+</LanguageData>

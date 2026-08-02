@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modern Colonist Bar 按键 Def 汉化（DefInjected 注入） -->
-<Defs>
-
+<LanguageData>
   <KeyBindingDef>
-    <defName>MCB_FollowCam</defName>
-    <label>跟随所选小人（现代殖民者栏）</label>
+    <MCB_FollowCam.label>跟随所选小人（现代殖民者栏）</MCB_FollowCam.label>
   </KeyBindingDef>
-
   <KeyBindingDef>
-    <defName>MCB_Hotbar1</defName>
-    <label>战团快捷栏槽位 1</label>
+    <MCB_Hotbar1.label>战团快捷栏槽位 1</MCB_Hotbar1.label>
   </KeyBindingDef>
-
   <KeyBindingDef>
-    <defName>MCB_Hotbar2</defName>
-    <label>战团快捷栏槽位 2</label>
+    <MCB_Hotbar2.label>战团快捷栏槽位 2</MCB_Hotbar2.label>
   </KeyBindingDef>
-
   <KeyBindingDef>
-    <defName>MCB_Hotbar3</defName>
-    <label>战团快捷栏槽位 3</label>
+    <MCB_Hotbar3.label>战团快捷栏槽位 3</MCB_Hotbar3.label>
   </KeyBindingDef>
-
   <KeyBindingDef>
-    <defName>MCB_Hotbar4</defName>
-    <label>战团快捷栏槽位 4</label>
+    <MCB_Hotbar4.label>战团快捷栏槽位 4</MCB_Hotbar4.label>
   </KeyBindingDef>
-
-</Defs>
+</LanguageData>

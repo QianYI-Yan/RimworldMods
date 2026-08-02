@@ -1,75 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Modern History Menu 历史自动记录器 Def 汉化（DefInjected 注入） -->
-<Defs>
-
+<LanguageData>
   <HistoryAutoRecorderDef>
-    <defName>NHM_Slaves</defName>
-    <label>奴隶</label>
+    <NHM_Slaves.label>奴隶</NHM_Slaves.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_PowerGeneration</defName>
-    <label>发电量（W）</label>
+    <NHM_PowerGeneration.label>发电量（W）</NHM_PowerGeneration.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_PowerUsage</defName>
-    <label>用电量（W）</label>
+    <NHM_PowerUsage.label>用电量（W）</NHM_PowerUsage.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_PowerStored</defName>
-    <label>储存电量（Wd）</label>
+    <NHM_PowerStored.label>储存电量（Wd）</NHM_PowerStored.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_EdibleNutrition</defName>
-    <label>可食用营养</label>
+    <NHM_EdibleNutrition.label>可食用营养</NHM_EdibleNutrition.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_Meals</defName>
-    <label>餐食</label>
+    <NHM_Meals.label>餐食</NHM_Meals.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_ColonyAnimals</defName>
-    <label>殖民地动物</label>
+    <NHM_ColonyAnimals.label>殖民地动物</NHM_ColonyAnimals.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_WildAnimals</defName>
-    <label>野生动物</label>
+    <NHM_WildAnimals.label>野生动物</NHM_WildAnimals.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_AvgColonistHealth</defName>
-    <label>平均健康（%）</label>
+    <NHM_AvgColonistHealth.label>平均健康（%）</NHM_AvgColonistHealth.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_NeedingTend</defName>
-    <label>需要治疗照顾的殖民者</label>
+    <NHM_NeedingTend.label>需要治疗照顾的殖民者</NHM_NeedingTend.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_SownCrops</defName>
-    <label>已播种作物</label>
+    <NHM_SownCrops.label>已播种作物</NHM_SownCrops.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_HarvestableCrops</defName>
-    <label>当前可收获</label>
+    <NHM_HarvestableCrops.label>当前可收获</NHM_HarvestableCrops.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_RealPlaytime</defName>
-    <label>真实时间（小时）</label>
+    <NHM_RealPlaytime.label>真实时间（小时）</NHM_RealPlaytime.label>
   </HistoryAutoRecorderDef>
-
   <HistoryAutoRecorderDef>
-    <defName>NHM_IngameDays</defName>
-    <label>游戏内（天）</label>
+    <NHM_IngameDays.label>游戏内（天）</NHM_IngameDays.label>
   </HistoryAutoRecorderDef>
-
-</Defs>
+</LanguageData>

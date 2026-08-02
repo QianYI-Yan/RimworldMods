@@ -14,6 +14,7 @@
 - 反编译工具：`_tools/dnspyEx/dnSpy.Console.exe`（用法见 `.github/skills/dnspy-tool/SKILL.md`）
 - 构建框架：net472 + Krafs.Rimworld.Ref 1.6.4871 + Lib.Harmony 2.3.6
 - **构建部署统一用 `build.bat`**（编译 → 产物回流项目根 `Assemblies/` → 部署游戏 Mods），交互式运行会停在末尾 pause，用 `cmd /c "build.bat < NUL"` 可自动通过（2026-08-02 修复：之前 build.bat 未回流编译产物，直接跑会部署旧 DLL）
+- **⚠️ build.bat 坑（2026-08-02 修复）**：部署 Source 用 `if exist Source\*.csproj` 判断——但本项目的 csproj 在 `Source\AstrylsUIZhCN\` **子目录**，顶层判断永远不成立 → Source 从未部署（游戏目录 Source 一直为空）。改用 `dir /b /s Source\*.csproj >nul 2>&1 && (...)` 递归判断。**教训：csproj 在子目录时顶层通配判断失效，一律用递归查找**。部署 Source 后必须清理 bin/obj（`for /d /r "%MODS_DIR%\Source" %%D in (bin obj) do if exist "%%D" rd /s /q "%%D"`）
 
 ## ⚠️ 缺模组适配要求（重要）
 
@@ -163,11 +164,44 @@
 ### 5. 范围说明
 - 「Not loaded — install/enable to see its data here.」「Cybranian — Rim Education」**不在 astryl 模组**（属 VSE/种族/教育类第三方模组），不在聚合汉化范围
 
+## 2026-08-02 DefInjected 格式大修 + Circinus 补充
+
+**⚠️ 重大根因（用户：Genes/Pregnancy/Appearance 等全英文）**：
+- **8 个 DefInjected 文件格式错误**——用了 `<Defs><TypeName><defName>...`（Defs 注入格式），而语言文件必须是 **`<LanguageData><TypeName><defName.field>值</defName.field>`**（DefInjected 格式）→ 全部从未生效
+- 受影响：MCE.EditorModuleDef（Modern CC 模块 60 条）、MainButtonDef、KeyBinding（ColonistBar）、HistoryAutoRecorder（Def+Group）、ModernDevTools.ErrorModuleDef+KnownIssueDef
+- **修复**：git 恢复原文件 → 逐行正则脚本转成 LanguageData 格式（`D:\temp\fix_definjected2.ps1`）；**教训：DefInjected 必须 LanguageData 根 + defName.field 键；PowerShell `[xml]` 对重复同名节点子节点遍历有怪癖，转换用逐行正则**
+- 部署验证：游戏目录 13 个 DefInjected 全部 OK；MCE_Genes=基因 等抽查通过
+
+**Circinus 补充（导航/运行详情/预热）**：
+- **TabLabels 导航仍英文**：`.cctor` transpiler 不生效（Harmony 对静态构造函数支持不稳）→ 改用 **Prefix patch `CircinusView.Draw`** 运行时把 TabLabels 数组改成中文（LocalizeCircinusTabs）
+- 新增 5 个方法：`RunRecorder.Start`（Automatic: instrumenting）、`Tab_Runs.DrawDetail`（约 20 条：Label/Started/Samples/Machine/Calibration index/Profiling/Pin as baseline/Delete run 等）、`Tab_Perf.ProfilingUnavailable`（This is recorded as no data...）、`Window_Warmup.DoWindowContents`
+- 字典 445 条无重复，编译 0 错误
+
+**待验证**：Modern CC 体型按钮（Fat/Female 等）——若 DefInjected 修复后仍英文，可能走 BodyTypeDef 原版 label 或硬编码，需再查
+
+## 2026-08-02 字体截断 + Modern Faction 趋势 + Dev suite 排查
+
+- **字体截断**：聚合卡片 4 列 190 宽 → **3 列动态宽度**（约 280px），8 字中文名 Medium 不再截断（`cardWidth = (inRect.width-32-gaps)/columns`）
+- **Modern Faction 趋势**：`Window_ModernFactions.DrawTrendsSection`——`"Collecting data... graphs appear after a few in-game hours ("` + `"/2 samples)."` 补翻译
+- **Dev suite 排查**：搜遍全部反编译（astryl 系 + Circinus）均无「Dev suite / Record test runs...」UI 文本（Circinus 仅 `ModernDevSuite` 文件夹名，Modern Dev Tools 仅日志前缀）→ **属第三方模组，非聚合范围**；若用户确认是某 astryl 模组再查
+- 字典 447 条无重复
+
+## 2026-08-02 Learning VSE 缺失提示 + Circinus 成本面板补充
+
+用户反馈：Circinus 及技能面板仍有英文，特别是「模组缺失的提示介绍」（VSE 未加载 tooltip）。
+
+- **反编译实际安装版**：`OriginalMods` 里 Circinus 反编译偏旧搜不到新字符串，重新反编译 workshop 实际 DLL（`D:\temp\circinus_ws_decomp`，132 文件；`mlm_new` 为 Learning Menu 新版）
+- **Learning Menu**：新增 `DashboardDrawer.DrawModIconBadge` patch（VSE 等模组缺失/已激活 tooltip：「Not loaded — install/enable...」→「未加载 — 安装/启用...」）；`DrawPanel_Readout` 补技能统计（SKILL MILESTONES / Expert (15-19) / Skilled (10-14) / Average skill level / LEARNING NOW / Children learning / In growth vats）、`DrawPanel_Training` 补「BIOTECH — VAT LEARNING」、`DrawPanel_Expertise` 补「xxx has no expertise records yet.」
+- **Circinus**：新增 `Tab_Live.DrawHotspots`（Needs attention / Nothing flagged）、`Tab_Cohorts.DrawCardHead/DrawCardBody/CopyFor`（not measured / no cost recorded / Share of frame / Measured here / Cost in window / Patches profiled / Error classes / Across the corpus）、`Tab_Mods.Draw`（Mods by measured patch cost / No per-mod cost）、`CohortMath.Placement`、`ProfilerContribution.Describe`
+- **已注册方法补映射**：`Tab_Perf.ProfilingUnavailable` 三段「未分析/未武装」说明文字
+- 新增约 30 条映射（字典无重复），编译部署成功，DLL 哈希 `36070FF97547072D`
+
 ## 2026-08-02 聚合菜单卡片块 + MD3 UI 库
 
 - **聚合界面改 MD3 卡片块网格**：4 列卡片（中文名 + 英文原名，hover 高亮），点击叠加打开 `Dialog_ModSettings`；顶部加提示「关闭设置后返回本聚合界面」
 - **返回机制**：聚合界面是 `Dialog_ModSettings` 宿主窗口（选项 → Mod 设置 → astryl UI 模组合集），点卡片 `Find.WindowStack.Add(子设置)` 为**叠加**（宿主保持在下层），子设置关闭后自动回到聚合。若仍不返回，需用户描述具体操作路径（入口/关闭方式）
 - **MD3 UI 库提炼**：`_templates/md3-ui-lib/`（MD3Theme.cs + MD3Widgets.cs 解耦版 + TEMPLATE_GUIDE.md），与 `md3-ui-style/`（规范文档）互补；RimWorld 模组间不能引用 DLL，共享 UI 库只能源码复制（独立命名空间）
+- **MD3 控件同步到重做模板增强版（2026-08-02）**：`MD3Theme.cs` 加 **13 个 `Custom*Hex` 静态注入字段**（Mod 启动时从设置赋值，null/空串回退默认水影蓝，解决「库不能引用模组设置类」）；`MD3Widgets.cs` 新增 `MD3SegmentSlider`（多段离散档位滑块）、`ToMd3TextFieldStyle`（原版输入框全局 MD3 化，供 `Text.CurTextFieldStyle` 替换）、`MD3TextField` 升级为无边框透明样式 + 点击聚焦；`CornerAlphaAt` 拆双参重载（`CreateMd3TextFieldBgTexture` 用）。外部 API 签名不变，聚合界面无需改。已编译部署，DLL 哈希 `E157C3EE113352D8`
 
 ## ⚠️ 方案变更：直接字面量替换（2026-08-02，重要）
 

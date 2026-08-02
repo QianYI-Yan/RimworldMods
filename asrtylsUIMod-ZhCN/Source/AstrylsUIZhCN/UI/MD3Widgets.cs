@@ -90,7 +90,12 @@ namespace AstrylsUIZhCN.UI
         /// <summary>计算纹理中某像素的圆角遮罩 alpha（0~1）。</summary>
         private static float CornerAlphaAt(int x, int y)
         {
-            float radius = TextureCorner;
+            return CornerAlphaAt(x, y, TextureCorner);
+        }
+
+        /// <summary>计算纹理中某像素的圆角遮罩 alpha（0~1，radius 为圆角半径）。</summary>
+        private static float CornerAlphaAt(int x, int y, float radius)
+        {
             float dx = 0f;
             float dy = 0f;
             bool insideCorner = true;
@@ -357,6 +362,59 @@ namespace AstrylsUIZhCN.UI
         }
 
         /// <summary>
+        /// MD3 多段滑块（离散档位）：轨道 + 分段圆点，点击任意位置吸附到最近档位。
+        /// 用于"排列组合"类离散选项（如滚动收起策略的 2×2 组合）。
+        /// segmentCount 为档位数；返回 0~segmentCount-1 的新档位。
+        /// </summary>
+        public static int MD3SegmentSlider(Rect rect, int value, int segmentCount, int sliderId)
+        {
+            int count = Mathf.Max(2, segmentCount);
+            float centerY = rect.y + rect.height / 2f;
+            float padX = 10f;
+            var trackRect = new Rect(rect.x + padX, centerY - 1f, rect.width - padX * 2f, 2f);
+            float step = trackRect.width / (count - 1);
+
+            // 交互：点击轨道任意位置吸附到最近档位（含拖动跟随）
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
+            {
+                draggingSliderId = sliderId;
+                Event.current.Use();
+            }
+            if (draggingSliderId == sliderId)
+            {
+                if (Event.current.type == EventType.MouseDrag || Event.current.type == EventType.MouseDown)
+                {
+                    float localX = Mathf.Clamp(Event.current.mousePosition.x - trackRect.x, 0f, trackRect.width);
+                    value = Mathf.Clamp(Mathf.RoundToInt(localX / step), 0, count - 1);
+                    Event.current.Use();
+                }
+                if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                {
+                    draggingSliderId = -1;
+                    Event.current.Use();
+                }
+            }
+
+            // 绘制：轨道（已选区段主色填充）+ 分段圆点（当前档位主色高亮）
+            DrawRoundedRect(trackRect, Theme.MD3Theme.SurfaceContainerHigh, 1f);
+            if (value > 0)
+            {
+                DrawRoundedRect(new Rect(trackRect.x, trackRect.y, step * value, trackRect.height), Theme.MD3Theme.Primary, 1f);
+            }
+            for (int i = 0; i < count; i++)
+            {
+                var dot = new Rect(trackRect.x + step * i - 5f, centerY - 5f, 10f, 10f);
+                bool selected = i == value;
+                DrawRoundedRect(dot, selected ? Theme.MD3Theme.Primary : Theme.MD3Theme.SurfaceContainerHigh, 5f);
+                if (selected)
+                {
+                    DrawRoundedRect(dot.ContractedBy(2f), Theme.MD3Theme.Surface, 3f);
+                }
+            }
+            return value;
+        }
+
+        /// <summary>
         /// MD3 风格按钮：圆角填充 + hover 高亮，主色强调或深色次要。
         /// 返回是否被点击。
         /// </summary>
@@ -378,18 +436,141 @@ namespace AstrylsUIZhCN.UI
             return Widgets.ButtonInvisible(rect);
         }
 
+        // 无边框透明文本输入样式（仅文字，背景与描边环由 MD3 自绘；文字/光标颜色跟随主题，每帧更新）
+        private static GUIStyle md3TextFieldStyle;
+
+        private static GUIStyle GetMd3TextFieldStyle()
+        {
+            if (md3TextFieldStyle == null)
+            {
+                md3TextFieldStyle = new GUIStyle(GUI.skin.textField)
+                {
+                    border = new RectOffset(0, 0, 0, 0),
+                    margin = new RectOffset(0, 0, 0, 0),
+                    padding = new RectOffset(0, 0, 0, 0),
+                    alignment = TextAnchor.MiddleLeft,
+                    wordWrap = false
+                };
+                // 去掉原版灰底 / 白框，只保留文字（背景与描边环由 MD3 自绘）
+                md3TextFieldStyle.normal.background = null;
+                md3TextFieldStyle.hover.background = null;
+                md3TextFieldStyle.focused.background = null;
+                md3TextFieldStyle.active.background = null;
+            }
+            md3TextFieldStyle.normal.textColor = Theme.MD3Theme.OnSurface;
+            md3TextFieldStyle.focused.textColor = Theme.MD3Theme.OnSurface;
+            return md3TextFieldStyle;
+        }
+
+        // 全局 MD3 输入框样式缓存（按原始样式引用区分字号/字体，避免每帧新建产生 GC）
+        private static readonly Dictionary<GUIStyle, GUIStyle> md3TextFieldStyleCache = new Dictionary<GUIStyle, GUIStyle>(new StyleReferenceComparer());
+
+        private sealed class StyleReferenceComparer : IEqualityComparer<GUIStyle>
+        {
+            public bool Equals(GUIStyle a, GUIStyle b) => ReferenceEquals(a, b);
+            public int GetHashCode(GUIStyle style) => System.Runtime.CompilerServices.RuntimeHelpers.GetHashCode(style);
+        }
+
+        // MD3 输入框背景纹理（深色圆角背景 + 边缘反色 20% 边框色），随主题背景色缓存重建
+        private static Texture2D md3TextFieldBgTexture;
+        private static Color md3TextFieldBgCacheColor;
+
+        private static Texture2D GetMd3TextFieldBgTexture()
+        {
+            Color bg = Theme.MD3Theme.SurfaceContainerHigh;
+            if (md3TextFieldBgTexture == null || md3TextFieldBgCacheColor != bg)
+            {
+                if (md3TextFieldBgTexture != null)
+                {
+                    Object.Destroy(md3TextFieldBgTexture);
+                }
+                md3TextFieldBgTexture = CreateMd3TextFieldBgTexture(bg);
+                md3TextFieldBgCacheColor = bg;
+            }
+            return md3TextFieldBgTexture;
+        }
+
+        /// <summary>生成 MD3 输入框背景纹理：深色圆角背景 + 边缘反色 20% 边框（64x64，9-slice 拉伸用）。</summary>
+        private static Texture2D CreateMd3TextFieldBgTexture(Color bg)
+        {
+            const float radius = 6f;               // 圆角半径（与 9-slice border 一致；小圆角避免低输入框 9-slice 折断）
+            const float borderThickness = 1.5f;    // 边框厚度（像素）
+            // 边框色 = 背景色反色的 20% 强度混合（输入框附近反色，形成弱对比描边）
+            Color border = Color.Lerp(bg, new Color(1f - bg.r, 1f - bg.g, 1f - bg.b, 1f), 0.2f);
+            var texture = new Texture2D(TextureSize, TextureSize, TextureFormat.RGBA32, false);
+            var pixels = new Color[TextureSize * TextureSize];
+            for (int y = 0; y < TextureSize; y++)
+            {
+                for (int x = 0; x < TextureSize; x++)
+                {
+                    float alpha = CornerAlphaAt(x, y, radius);
+                    float distToEdge = Mathf.Min(x, Mathf.Min(y, Mathf.Min(TextureSize - 1 - x, TextureSize - 1 - y)));
+                    Color c = distToEdge < borderThickness ? border : bg;
+                    c.a = alpha;
+                    pixels[y * TextureSize + x] = c;
+                }
+            }
+            texture.SetPixels(pixels);
+            texture.Apply();
+            texture.hideFlags = HideFlags.HideAndDontSave;
+            return texture;
+        }
+
         /// <summary>
-        /// MD3 文本输入框：深色背景 + 主色描边环（valid 为 false 时红色描边），
-        /// 内部用原版 Widgets.TextField 可靠输入，描边不覆盖文字。
+        /// 把原版输入框样式转换为 MD3 样式（克隆原始样式保留字号/字体）：深色圆角背景
+        /// + 反色 20% 边框（9-slice 纹理，随主题色重建）；文字/光标颜色跟随主题，每帧更新。
+        /// 供"原版输入框全部改为 MD3 样式"可选功能使用（Text.CurTextFieldStyle 全局替换）。
+        /// </summary>
+        public static GUIStyle ToMd3TextFieldStyle(GUIStyle original)
+        {
+            if (original == null)
+            {
+                return GetMd3TextFieldStyle();
+            }
+            if (!md3TextFieldStyleCache.TryGetValue(original, out GUIStyle style))
+            {
+                style = new GUIStyle(original)
+                {
+                    border = new RectOffset(6, 6, 6, 6),   // 9-slice：圆角半径 6（与纹理一致）
+                    margin = new RectOffset(0, 0, 0, 0),
+                    padding = new RectOffset(8, 8, 3, 3),   // 文字避开边框/圆角
+                    alignment = TextAnchor.MiddleLeft,
+                    wordWrap = false
+                };
+                Texture2D background = GetMd3TextFieldBgTexture();
+                style.normal.background = background;
+                style.hover.background = background;
+                style.focused.background = background;
+                style.active.background = background;
+                md3TextFieldStyleCache[original] = style;
+            }
+            style.normal.textColor = Theme.MD3Theme.OnSurface;
+            style.focused.textColor = Theme.MD3Theme.OnSurface;
+            return style;
+        }
+
+        /// <summary>
+        /// MD3 文本输入框：深色圆角背景 + 主色描边环（valid 为 false 时红色描边），
+        /// 内部用无边框透明样式的原生 GUI.TextField 输入（不叠加原版输入框外观，纯 MD3）。
         /// fieldId 用于区分多个输入框（控件名）；返回编辑后的文本。
         /// </summary>
         public static string MD3TextField(Rect rect, string text, int fieldId, bool valid)
         {
+            string controlName = "MD3TextField" + fieldId;
+
+            // MD3 外观：深色圆角背景 + 主色描边环（描边环不填充内部，不覆盖文字）
             DrawRoundedRect(rect, Theme.MD3Theme.SurfaceContainerHigh, 6f);
             Color outline = valid ? Theme.MD3Theme.Primary : new Color(1f, 0.3f, 0.3f, 0.85f);
             DrawRoundedRectOutline(rect, outline, 6f, 1.5f, Theme.MD3Theme.SurfaceContainerHigh);
-            GUI.SetNextControlName("MD3TextField" + fieldId);
-            return Widgets.TextField(rect.ContractedBy(6f), text);
+
+            // 点击聚焦（聚焦后原生控件才接收键盘输入 / 显示光标）
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(rect))
+            {
+                GUI.FocusControl(controlName);
+            }
+            GUI.SetNextControlName(controlName);
+            Text.Font = GameFont.Small;   // 让 GUI.skin.font 使用游戏字体
+            return GUI.TextField(rect.ContractedBy(6f), text, GetMd3TextFieldStyle());
         }
 
         /// <summary>
