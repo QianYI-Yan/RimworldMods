@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  通用 DefInjected 语言文件模板
+  位置: Languages/ChineseSimplified/DefInjected/<Def类型>/<文件名>.xml
+
+  使用说明:
+  1. 子目录名 = Def 类型（如 ThingDef / BiomeDef / JobDef / KeyBindingDef 等）
+  2. 每个原模组 Def 一条注入记录，<defName> 必须与原模组 Def 中的 defName 完全一致
+  3. 只写需要翻译的字段：label / description 最常用，也可注入短标签 shortHash 等
+  4. 文件可拆成多个（按模组或按功能分），每个文件独立 <Defs> 根节点
+  5. 聚合汉化时，不同模组的 Def 注入可放同一类型目录下的不同文件
+
+  注意:
+  - 若原模组的 Def 是 XML 中定义（非代码生成），需确认 defName 与字段名
+  - 只注入存在的 defName，缺失的会被忽略（不报错）
+-->
+<Defs>
+  <!-- 示例：注入 ThingDef 翻译 -->
+  <ThingDef>
+    <defName>原模组的DefName</defName>
+    <label>中文名称</label>
+    <description>中文描述</description>
+  </ThingDef>
+
+  <!-- 示例：注入 BiomeDef 翻译 -->
+  <BiomeDef>
+    <defName>原模组的BiomeDefName</defName>
+    <label>中文名称</label>
+    <description>中文描述</description>
+  </BiomeDef>
+</Defs>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  通用 Keyed 语言文件模板
+  位置: Languages/ChineseSimplified/Keyed/
+
+  使用说明:
+  1. 从原模组的 Languages/English/Keyed/ 复制对应英文文件，改名为可读名称（如 ModName.xml）
+  2. 根节点改为 <LanguageData>
+  3. 键名（<xxx>）必须与原模组英文 Keyed 完全一致，值替换为中文
+  4. 文件内可保留英文原文注释，方便对照
+  5. 键名带 . 号的是设置项等分组键，不要改动键名结构
+
+  注意:
+  - Keyed 字符串是全局翻译池，多个汉化模组可共存，键名必须全局唯一（一般继承原模组键名即可）
+  - {0} {1} 等为占位符，翻译时必须保留，顺序不可乱
+  - 某些模组键名前缀为 <LanguageData> 下直接 <Key>，有些是 <ModName.Key>
+-->
+<LanguageData>
+  <!-- 示例（保持键名与原模组一致） -->
+  <ModName.Setting.OptionLabel>选项标签中文</ModName.Setting.OptionLabel>
+  <ModName.Setting.OptionTip>选项提示中文，可含 {0} 占位符</ModName.Setting.OptionTip>
+  <ModName.Button.Confirm>确认</ModName.Button.Confirm>
+
+  <!-- 占位符示例：{0} 表示数量等动态值 -->
+  <ModName.Message.Count>共 {0} 个物品</ModName.Message.Count>
+</LanguageData>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>HardcodedZhCN</AssemblyName>
+    <RootNamespace>HardcodedZhCN</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Patcher.cs" />
+    <Compile Include="HardcodedStringReplacer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <!-- RimWorld references -->
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+  </ItemGroup>
+
+  <!-- 如有需要，引用原模组 DLL（<Private>False</Private> 避免复制进输出） -->
+  <!--
+  <ItemGroup>
+    <Reference Include="原模组程序集名">
+      <HintPath>..\..\..\OriginalMod\Assemblies\原模组程序集名.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  -->
+
+  <!-- 编译后自动复制到项目 Assemblies/ -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)..\..\Assemblies\" />
+  </Target>
+</Project>

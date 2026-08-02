@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  通用汉化模组 About.xml 模板
+  ⚠️ 使用前替换以下占位符：
+    【模组名】   → 原模组显示名（如 As Above, So Below）
+    【packageId】→ 汉化模组包 ID（作者名.原模组id.zhcn，创建新模组先问用户 mod ID）
+    【原packageId】→ 原模组包 ID
+    【目录名】   → 本汉化项目在工作区的目录名
+    【版本】     → 版本号
+    【steamID】  → 原模组 Steam 工坊 ID
+-->
+<ModMetaData>
+  <name>【模组名】简体中文汉化</name>
+  <author>deepseek</author>
+  <packageId>【packageId】</packageId>
+  <modVersion>【版本】</modVersion>
+  <description>
+[h1]【模组名】简体中文汉化补丁[/h1]
+将 [b]【模组名】[/b] 模组的全部界面文本、设置选项和物品描述翻译为简体中文。
+
+[hr][h2]翻译内容[/h2]
+[list]
+[*]模组设置界面 — 所有选项标签、工具提示、按钮文字
+[*]物品 / 建筑 / 生物的名称和描述
+[*]DefInjected 注入
+[/list]
+
+[hr][h2]依赖[/h2]
+[list]
+[*][b]【模组名】[/b] (【原packageId】)
+[/list]
+
+[hr][h2]说明[/h2]
+本模组使用 RimWorld 内置的本地化系统，不修改原模组的任何文件，可与原模组一起正常更新。
+
+[hr][h2]源码[/h2]
+[url=https://github.com/QianYI-Yan/RimworldMods/tree/main/【目录名】]github.com/QianYI-Yan/RimworldMods[/url]
+  </description>
+  <supportedVersions>
+    <li>1.5</li>
+    <li>1.6</li>
+  </supportedVersions>
+  <loadAfter>
+    <li>【原packageId】</li>
+  </loadAfter>
+  <modDependencies>
+    <li>
+      <packageId>【原packageId】</packageId>
+      <displayName>【模组名】</displayName>
+      <steamWorkshopUrl>steam://url/CommunityFilePage/【steamID】</steamWorkshopUrl>
+    </li>
+  </modDependencies>
+</ModMetaData>
