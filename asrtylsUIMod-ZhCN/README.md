@@ -28,7 +28,7 @@
 ## 翻译方式
 
 1. **语言文件** — 使用 RimWorld 内置本地化系统，汉化各模组的界面文本与 Def（`Languages/ChineseSimplified/`）
-2. **运行时补丁** — 对硬编码在 DLL 中的文本（如 Modern Social Tab、Modern Learning Menu），通过 Harmony 运行时翻译，不修改原模组文件
+2. **运行时补丁** — 对硬编码在 DLL 中的文本（如 Modern Social Tab、Modern Learning Menu、Modern CC、Circinus、Modern Colonist Bar），通过 Harmony Transpiler 直接替换为中文字面量（翻译内嵌补丁 DLL，不读语言文件），不修改原模组文件
 
 ## 设置聚合
 
