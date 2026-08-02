@@ -47,6 +47,13 @@ namespace ToastBridge
         private static readonly List<string> pendingBodyLines = new List<string>();
         private static Timer mergeTimer;
 
+        // 独立消息待定缓冲：等待短暂时间内可能出现的信件锚点，
+        // 解决「伴随消息先于信件到达」时被单独推送（子消息被分割）的问题。
+        private const int OrphanWaitMilliseconds = 500;
+        private static string orphanTitle = string.Empty;
+        private static readonly List<string> orphanBodyLines = new List<string>();
+        private static Timer orphanTimer;
+
         // WinRT 反射句柄
         private static Type toastManagerType;
         private static Type xmlDocumentType;
@@ -173,18 +180,24 @@ namespace ToastBridge
 
                 if (isLetter)
                 {
-                    // 新信件作为事件锚点：若缓冲还有未发送内容，先发出，避免两个事件混在一起。
+                    // 若锚点缓冲还有未发送内容，先发出，避免两个事件混在一起。
                     if (pendingBodyLines.Count > 0)
                     {
                         FlushMergedNotification(null);
                     }
 
+                    // 新信件作为事件锚点：标题用信件，正文先并入待定独立消息（可能是先行伴随消息）。
                     pendingTitle = title;
                     pendingBodyLines.Clear();
+                    if (orphanBodyLines.Count > 0)
+                    {
+                        MoveOrphanIntoPending();
+                        CancelOrphanTimer();
+                    }
                     string firstLine = !string.IsNullOrEmpty(body) ? body : title;
                     if (!string.IsNullOrEmpty(firstLine))
                     {
-                        pendingBodyLines.Add(firstLine);
+                        AddPendingLine(firstLine);
                     }
                     ResetMergeTimer();
                 }
@@ -193,17 +206,22 @@ namespace ToastBridge
                     if (pendingBodyLines.Count > 0)
                     {
                         // 有未发送的信件锚点：该消息属于同一事件，合并进缓冲。
-                        string content = !string.IsNullOrEmpty(body) ? body : title;
-                        if (!string.IsNullOrEmpty(content) && pendingBodyLines.Count < MaxMergedBodyLines)
-                        {
-                            pendingBodyLines.Add(content);
-                        }
+                        AddPendingLine(!string.IsNullOrEmpty(body) ? body : title);
                         ResetMergeTimer();
                     }
                     else
                     {
-                        // 无锚点：独立消息（如存档、研究完成）立即单独推送，不合并。
-                        ShowToast(title, body);
+                        // 无锚点：进入待定缓冲，等待短暂时间内是否出现信件（如袭击的先行伴随消息）。
+                        string content = !string.IsNullOrEmpty(body) ? body : title;
+                        if (!string.IsNullOrEmpty(content) && orphanBodyLines.Count < MaxMergedBodyLines)
+                        {
+                            orphanBodyLines.Add(content);
+                        }
+                        if (string.IsNullOrEmpty(orphanTitle))
+                        {
+                            orphanTitle = title;
+                        }
+                        ResetOrphanTimer();
                     }
                 }
             }
@@ -219,6 +237,67 @@ namespace ToastBridge
             else
             {
                 mergeTimer.Change(currentMergeWindowMilliseconds, Timeout.Infinite);
+            }
+        }
+
+        /// <summary>把一行内容加入锚点正文（受行数上限约束）。</summary>
+        private static void AddPendingLine(string content)
+        {
+            if (!string.IsNullOrEmpty(content) && pendingBodyLines.Count < MaxMergedBodyLines)
+            {
+                pendingBodyLines.Add(content);
+            }
+        }
+
+        /// <summary>把待定独立消息并入锚点缓冲（作为锚点的前导正文）。</summary>
+        private static void MoveOrphanIntoPending()
+        {
+            foreach (string orphanLine in orphanBodyLines)
+            {
+                AddPendingLine(orphanLine);
+            }
+            orphanBodyLines.Clear();
+            orphanTitle = string.Empty;
+        }
+
+        /// <summary>重置独立消息待定计时器。</summary>
+        private static void ResetOrphanTimer()
+        {
+            if (orphanTimer == null)
+            {
+                orphanTimer = new Timer(FlushOrphanMessages, null, OrphanWaitMilliseconds, Timeout.Infinite);
+            }
+            else
+            {
+                orphanTimer.Change(OrphanWaitMilliseconds, Timeout.Infinite);
+            }
+        }
+
+        /// <summary>取消独立消息待定计时器。</summary>
+        private static void CancelOrphanTimer()
+        {
+            if (orphanTimer != null)
+            {
+                orphanTimer.Change(Timeout.Infinite, Timeout.Infinite);
+            }
+        }
+
+        /// <summary>待定窗口到期：独立消息作为一条通知单独发送。</summary>
+        private static void FlushOrphanMessages(object state)
+        {
+            lock (MergeSyncRoot)
+            {
+                if (orphanBodyLines.Count == 0)
+                {
+                    return;
+                }
+
+                string title = orphanTitle;
+                string body = string.Join("\n", orphanBodyLines);
+                orphanTitle = string.Empty;
+                orphanBodyLines.Clear();
+
+                ShowToast(title, body);
             }
         }
 

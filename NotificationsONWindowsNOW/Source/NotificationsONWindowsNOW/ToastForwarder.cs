@@ -11,8 +11,8 @@ namespace NotificationsOnWindowsNow
     /// </summary>
     public static class ToastForwarder
     {
-        /// <summary>去重窗口（tick），相同内容在该时间内只推送一次。</summary>
-        private const int DeduplicationWindowTicks = 180;
+        /// <summary>去重窗口（tick）：同一时刻（200ms 内）相同内容合并为一条；60 tick/秒。</summary>
+        private const int DeduplicationWindowTicks = 12;
 
         /// <summary>上一条推送内容的指纹。</summary>
         private static string lastContentFingerprint = string.Empty;
