@@ -16,9 +16,16 @@
 - **补丁点**：
   - `LetterStack.ReceiveLetter(Letter, string, int, bool)` — 所有信件重载的最终入口。
   - `Messages.Message(Message, bool)` — 所有消息重载的最终入口；用 `Messages.IsLive` 过滤重复消息。
-- **设置系统**（`NotificationsOnWindowsNowSettings`，设置页中英双语）：
-  - `enableShortTimeMessageDedup` — 短时间消息去重开关，**默认关闭**；开启后同一时刻（**200ms** 内）相同内容合并为一条。
-  - `mergeWindowSeconds` — 合并窗口秒数（0=不合并），默认 2 秒；经控制行下发到桥梁。
+- **设置系统**（`NotificationsOnWindowsNowSettings`，MD3 设置页中英双语、可滚动）：
+  - `enableAllPush` — 总开关（一键停用全部推送）。
+  - `enableLetterPush` / `enableMessagePush` — 信件 / 消息独立开关。
+  - **类型细分**：`letterPushThreat/Quest/Growth/Other`（信件：威胁/任务加入/成长/其他）、
+    `messagePushThreat/Negative/Positive/Neutral`（消息：威胁/负面/正面/中性）——按 LetterDef / MessageTypeDef 分组，
+    DLC（Biotech/Anomaly）字段访问包 try-catch 防异常。
+  - `mergeWindowOption` — 合并窗口档位（0=不合并，1/2/5 秒），多段滑块选择；
+    `MergeWindowMilliseconds` 换算毫秒经控制行下发到桥梁。
+  - `enableShortTimeMessageDedup` — 短时间消息去重，**默认关闭**（同一时刻 200ms 内相同内容合并）。
+  - **恢复默认**：`Dialog_ResetDefaults`（MD3 对话框，分组勾选 + 当前→默认差异对比 + 全选/反选）。
 - **通知合并（锚点模式 + 待定缓冲）**：桥梁侧以**信件（L）为事件锚点**——信件到达后，窗口内的伴随消息（M）合并进它；
   无锚点的独立消息（M）先进入 **500ms 待定缓冲**，若随后出现信件（RimWorld 部分袭击的伴随消息**先于信件**到达）则并入锚点，
   否则单独推送。这样：一次袭击（先行消息+信件+伴随消息）合成一条，而存档「已保存为」这类独立系统消息单独弹出。
