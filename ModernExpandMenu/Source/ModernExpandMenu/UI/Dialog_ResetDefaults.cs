@@ -57,8 +57,8 @@ namespace ModernExpandMenu.UI
             animation.items.Add(Item("ModernExpandMenu_ResetItemAppearInterval", s.itemAppearInterval.ToString("0.00"), "0.03", () => s.itemAppearInterval = 0.03f));
             animation.items.Add(Item("ModernExpandMenu_ResetPopAnimationDuration", s.popAnimationDuration.ToString("0.00"), "0.18", () => s.popAnimationDuration = 0.18f));
             animation.items.Add(Item("ModernExpandMenu_ResetExpandAnimationSpeed", s.expandAnimationSpeed.ToString("0.0"), "10", () => s.expandAnimationSpeed = 10f));
-            animation.items.Add(Item("ModernExpandMenu_ResetScrollFollowSpeed", s.scrollFollowSpeed.ToString("0"), "40", () => s.scrollFollowSpeed = 40f));
-            animation.items.Add(Item("ModernExpandMenu_ResetScrollReturnSpeed", s.scrollReturnSpeed.ToString("0"), "20", () => s.scrollReturnSpeed = 20f));
+            animation.items.Add(Item("ModernExpandMenu_ResetScrollFollowSpeed", s.scrollFollowSpeed.ToString("0"), "80", () => s.scrollFollowSpeed = 80f));
+            animation.items.Add(Item("ModernExpandMenu_ResetScrollReturnDuration", s.scrollReturnDuration.ToString("0.00"), "0.60", () => s.scrollReturnDuration = 0.6f));
             animation.items.Add(Item("ModernExpandMenu_ResetWindowHeightAnimationSpeed", s.windowHeightAnimationSpeed.ToString("0"), "200", () => s.windowHeightAnimationSpeed = 200f));
             sections.Add(animation);
 
@@ -115,7 +115,8 @@ namespace ModernExpandMenu.UI
                 contentHeight += section.items.Count * RowHeight;
             }
             var viewRect = new Rect(0f, 0f, inRect.width - 30f, contentHeight + 8f);
-            Widgets.BeginScrollView(new Rect(inRect.x + 14f, listTop, inRect.width - 28f, listHeight), ref scrollPosition, viewRect, showScrollbars: true);
+            var listRect = new Rect(inRect.x + 14f, listTop, inRect.width - 28f, listHeight);
+            MD3Widgets.MD3BeginScrollView(listRect, ref scrollPosition, viewRect);
             float y = 0f;
             foreach (ResetSection section in sections)
             {
@@ -127,7 +128,7 @@ namespace ModernExpandMenu.UI
                     y += RowHeight;
                 }
             }
-            Widgets.EndScrollView();
+            MD3Widgets.MD3EndScrollView(listRect, ref scrollPosition, contentHeight + 8f, 2000, MD3Theme.CardCornerRadius);
 
             // 底部按钮：全选 / 反选 / 取消 / 确定
             float buttonY = inRect.yMax - 50f;

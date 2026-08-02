@@ -198,6 +198,74 @@ namespace ModernExpandMenu.UI
             DrawRoundedRect(rect, Theme.MD3Theme.HoverStateLayer, radius);
         }
 
+        // 当前正在拖动的滚动条滑块 id（-1 表示无），避免多个滚动条拖动互相冲突
+        private static int draggingScrollbarId = -1;
+
+        /// <summary>
+        /// MD3 滚动视口：隐藏原版默认滚动条（太丑），由 EndScrollView 绘制 MD3 细滚动条。
+        /// </summary>
+        public static void MD3BeginScrollView(Rect viewRect, ref Vector2 scrollPosition, Rect contentRect)
+        {
+            Widgets.BeginScrollView(viewRect, ref scrollPosition, contentRect, showScrollbars: false);
+        }
+
+        /// <summary>
+        /// 结束 MD3 滚动视口并绘制 MD3 细滚动条（轨道 + 滑块，支持拖动）。
+        /// scrollbarId 用于区分多个滚动条；cornerInset 为轨道上下缩进（避开圆角）。
+        /// </summary>
+        public static void MD3EndScrollView(Rect viewRect, ref Vector2 scrollPosition, float contentHeight, int scrollbarId, float cornerInset)
+        {
+            Widgets.EndScrollView();
+            MD3Scrollbar(viewRect, ref scrollPosition, contentHeight, scrollbarId, cornerInset);
+        }
+
+        /// <summary>
+        /// MD3 自定义细滚动条（替代 U3D 默认滚动条）：轨道贴右缘、上下缩进避开圆角，
+        /// 支持按住滑块拖动。仅在内容超出视口时显示。
+        /// </summary>
+        public static void MD3Scrollbar(Rect viewRect, ref Vector2 scrollPosition, float contentHeight, int scrollbarId, float cornerInset)
+        {
+            if (contentHeight <= viewRect.height + 0.5f)
+            {
+                draggingScrollbarId = -1;
+                return;
+            }
+            float trackTop = viewRect.y + cornerInset;
+            float trackHeight = viewRect.height - cornerInset * 2f;
+            float thumbHeight = Mathf.Max(24f, trackHeight * trackHeight / contentHeight);
+            float maxScroll = Mathf.Max(1f, contentHeight - viewRect.height);
+            float thumbOffset = (trackHeight - thumbHeight) * (scrollPosition.y / maxScroll);
+            var trackRect = new Rect(viewRect.xMax - Theme.MD3Theme.ScrollbarWidth - 3f, trackTop, Theme.MD3Theme.ScrollbarWidth, trackHeight);
+            var thumbRect = new Rect(trackRect.x, trackRect.y + thumbOffset, Theme.MD3Theme.ScrollbarWidth, thumbHeight);
+
+            // 按住滑块拖动
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Mouse.IsOver(thumbRect))
+            {
+                draggingScrollbarId = scrollbarId;
+                Event.current.Use();
+            }
+            if (draggingScrollbarId == scrollbarId)
+            {
+                if (Event.current.type == EventType.MouseDrag || Event.current.type == EventType.MouseDown)
+                {
+                    float mouseY = Event.current.mousePosition.y;
+                    float newOffset = mouseY - trackRect.y - thumbHeight / 2f;
+                    float clampedOffset = Mathf.Clamp(newOffset, 0f, trackHeight - thumbHeight);
+                    scrollPosition.y = clampedOffset / (trackHeight - thumbHeight) * maxScroll;
+                    Event.current.Use();
+                }
+                if (Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                {
+                    draggingScrollbarId = -1;
+                    Event.current.Use();
+                }
+            }
+
+            // 绘制（拖动时滑块高亮）
+            DrawRoundedRect(trackRect, Theme.MD3Theme.ScrollbarTrack, Theme.MD3Theme.ScrollbarWidth / 2f);
+            DrawRoundedRect(thumbRect, draggingScrollbarId == scrollbarId ? Theme.MD3Theme.ScrollbarThumbDragging : Theme.MD3Theme.ScrollbarThumb, Theme.MD3Theme.ScrollbarWidth / 2f);
+        }
+
         // 当前正在拖动的滑块 id（-1 表示无），避免多个滑块拖动互相冲突
         private static int draggingSliderId = -1;
 
@@ -317,16 +385,12 @@ namespace ModernExpandMenu.UI
         /// </summary>
         public static void MD3NumberField(Rect rect, ref float value, ref string buffer, float min, out bool submitted, out bool cancelled)
         {
-            // 边框（安卓 15 风格：圆角 + 主色描边）
-            DrawRoundedRect(rect, Theme.MD3Theme.Primary, 6f);
-            DrawRoundedRect(rect.ContractedBy(1.5f), Theme.MD3Theme.SurfaceContainerHigh, 4.5f);
+            // 背景 + 主色描边（描边环不填充内部，避免覆盖输入文字——此前在 TextFieldNumeric 之后再填充边框导致"点击后看不到内容"）
+            DrawRoundedRect(rect, Theme.MD3Theme.SurfaceContainerHigh, 6f);
+            DrawRoundedRectOutline(rect, Theme.MD3Theme.Primary, 6f, 1.5f, Theme.MD3Theme.SurfaceContainerHigh);
 
-            // 原版可靠的数值输入（无上限，仅按下限限制）
+            // 原版可靠的数值输入（无上限，仅按下限限制）；文字画在背景上，不被覆盖
             Widgets.TextFieldNumeric(rect.ContractedBy(1f), ref value, ref buffer, min, 1E+09f);
-
-            // 再画描边盖住原版文本框背景的边缘
-            DrawRoundedRect(rect, Theme.MD3Theme.Primary, 6f);
-            DrawRoundedRect(rect.ContractedBy(1.5f), Theme.MD3Theme.SurfaceContainerHigh, 4.5f);
 
             submitted = false;
             cancelled = false;

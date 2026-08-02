@@ -14,8 +14,11 @@
     <Compile Include="Patch_ModSettingsUI.cs" />
     <Compile Include="Patch_ItemGroupedFloatMenu.cs" />
     <Compile Include="ItemGrouping.cs" />
+    <Compile Include="SettingsShare.cs" />
     <Compile Include="Theme\MD3Theme.cs" />
     <Compile Include="UI\Dialog_ResetDefaults.cs" />
+    <Compile Include="UI\Dialog_ConfigManager.cs" />
+    <Compile Include="UI\Dialog_RenameConfig.cs" />
     <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="UI\MD3FloatMenuWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

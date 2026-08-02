@@ -55,7 +55,7 @@
   <ModernExpandMenu_PopAnimationDuration>ウィンドウのポップイン時間（秒）</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>グループ展開・折りたたみ速度</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>読み込み中のスクロール追従速度</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>読み込み後の先頭へ戻る速度</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>読み込み後の先頭へ戻る速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>アニメーションのプレビュー</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} 個のアイテム / {1} 件の操作、{2} 秒、アニメーション合計 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>一般</ModernExpandMenu_ResetSectionGeneral>
@@ -66,10 +66,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>ポップイン時間</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>展開アニメーション速度</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>スクロール追従速度</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>先頭へ戻る速度</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>先頭へ戻る速度</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>ウィンドウの高さアニメーション速度</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>ウィンドウの高さアニメーション速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>マスタースイッチ</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>アニメーションを有効化（オフで全てのアニメーションを無効化）</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>アニメーションを有効化</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>設定の共有</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>ファイルに出力</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>設定をコピー</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>クリップボードから読み込み</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>ファイルから読み込み</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>設定を出力しました: {0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>設定をクリップボードにコピーしました</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>設定を読み込みました</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>設定の読み込みに失敗しました（形式が無効）</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>設定を管理</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>設定マネージャー</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>設定ファイルがありません。先に「ファイルに出力」してください。</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>選択を読み込み</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>選択を削除</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>更新</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>閉じる</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>選択をリネーム</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>設定をリネーム</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>リネーム</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>無効な名前（空または不正な文字）</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>同名のファイルが既に存在します</ModernExpandMenu_RenameConfigExists>
 </LanguageData>

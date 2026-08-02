@@ -55,7 +55,7 @@
   <ModernExpandMenu_PopAnimationDuration>Duración de apertura de la ventana (s)</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>Velocidad de expandir grupos</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>Velocidad de seguimiento del desplazamiento al cargar</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>Velocidad de volver arriba tras cargar</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>Velocidad de volver arriba tras cargar</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Vista previa de la animación</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} objetos / {1} acciones cargadas, {2}s, animación total {3}s</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>General</ModernExpandMenu_ResetSectionGeneral>
@@ -66,10 +66,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>Duración de apertura de la ventana</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>Velocidad de expansión</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>Velocidad de seguimiento del desplazamiento</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>Velocidad de volver arriba</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>Velocidad de volver arriba</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>Velocidad de animación de la altura de la ventana</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Velocidad de animación de la altura de la ventana</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>Interruptor principal</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>Activar animaciones (desactivado = todas las animaciones desactivadas)</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>Activar animaciones</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>Compartir configuración</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>Exportar a archivo</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>Copiar configuración</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>Importar desde portapapeles</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>Importar desde archivo</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>Configuración exportada a: {0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>Configuración copiada al portapapeles</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>Configuración importada</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>Error de importación (formato no válido)</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>Gestionar configuraciones</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>Gestor de configuraciones</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>Aún no hay archivos de configuración. Exporta uno primero (Exportar a archivo).</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>Importar selección</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>Eliminar selección</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>Actualizar</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>Cerrar</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>Renombrar selección</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>Renombrar configuración</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>Renombrar</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>Nombre no válido (vacío o caracteres ilegales)</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>Ya existe un archivo con ese nombre</ModernExpandMenu_RenameConfigExists>
 </LanguageData>

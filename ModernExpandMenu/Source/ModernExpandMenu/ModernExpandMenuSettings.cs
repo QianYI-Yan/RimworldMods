@@ -22,8 +22,8 @@ namespace ModernExpandMenu
         public float itemAppearInterval = 0.03f;        // 相邻项就位后的间隔（秒，串行播放）
         public float popAnimationDuration = 0.18f;      // 窗口弹出动画时长（秒）
         public float expandAnimationSpeed = 10f;        // 分组展开 / 折叠动画速度（数值越大越快）
-        public float scrollFollowSpeed = 40f;           // 加载时滚动跟随底部速度（越大越跟手）
-        public float scrollReturnSpeed = 20f;           // 加载结束后滚动返回顶端速度
+        public float scrollFollowSpeed = 80f;           // 加载时滚动跟随底部速度（越大越跟手）
+        public float scrollReturnDuration = 0.6f;       // 加载结束后滚动返回顶端的时长（秒，时间设定而非固定速度）
         public float windowHeightAnimationSpeed = 200f;  // 窗口高度动态动画速度（加载插入/展开折叠时平滑过渡）
 
         // ── 颜色自定义（16 进制 RGB，如 00A8FF；空/非法时回退默认水影蓝）──
@@ -56,8 +56,8 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref itemAppearInterval, "itemAppearInterval", 0.03f);
             Scribe_Values.Look(ref popAnimationDuration, "popAnimationDuration", 0.18f);
             Scribe_Values.Look(ref expandAnimationSpeed, "expandAnimationSpeed", 10f);
-            Scribe_Values.Look(ref scrollFollowSpeed, "scrollFollowSpeed", 40f);
-            Scribe_Values.Look(ref scrollReturnSpeed, "scrollReturnSpeed", 20f);
+            Scribe_Values.Look(ref scrollFollowSpeed, "scrollFollowSpeed", 80f);
+            Scribe_Values.Look(ref scrollReturnDuration, "scrollReturnDuration", 0.6f);
             Scribe_Values.Look(ref windowHeightAnimationSpeed, "windowHeightAnimationSpeed", 200f);
             Scribe_Values.Look(ref colorPrimary, "colorPrimary", "00A8FF");
             Scribe_Values.Look(ref colorOnPrimary, "colorOnPrimary", "001421");

@@ -121,11 +121,11 @@ namespace ModernExpandMenu
             DrawSettingsTitle(performanceCard, "ModernExpandMenu_SectionPerformance".Translate());
             cy = performanceCard.y + 34f;
             float maxHeightValue = Settings.maxMenuHeight;
-            DrawSliderRow(performanceCard, cy, "ModernExpandMenu_MaxMenuHeight".Translate(), ref maxHeightValue, 300f, 9999f, 0, "0");
+            DrawSliderRow(performanceCard, cy, "ModernExpandMenu_MaxMenuHeight".Translate(), ref maxHeightValue, 300f, 900f, 0, "0");
             Settings.maxMenuHeight = Mathf.RoundToInt(maxHeightValue);
             cy += rowHeight;
             float perFrameValue = Settings.maxProcessedPerFrame;
-            DrawSliderRow(performanceCard, cy, "ModernExpandMenu_MaxProcessedPerFrame".Translate(), ref perFrameValue, 1f, 9999f, 1, "0");
+            DrawSliderRow(performanceCard, cy, "ModernExpandMenu_MaxProcessedPerFrame".Translate(), ref perFrameValue, 2f, 30f, 1, "0");
             Settings.maxProcessedPerFrame = Mathf.RoundToInt(perFrameValue);
             cy += rowHeight;
             y = performanceCard.yMax + 12f;
@@ -137,7 +137,7 @@ namespace ModernExpandMenu
             DrawSettingsTitle(loadingCard, "ModernExpandMenu_SectionLoading".Translate());
             cy = loadingCard.y + 34f;
             float extraSecondsValue = Settings.extraLoadingBarSeconds;
-            DrawSliderRow(loadingCard, cy, "ModernExpandMenu_ExtraLoadingBarSeconds".Translate(), ref extraSecondsValue, 0f, 60f, 2, "0.0");
+            DrawSliderRow(loadingCard, cy, "ModernExpandMenu_ExtraLoadingBarSeconds".Translate(), ref extraSecondsValue, 0f, 5f, 2, "0.0");
             Settings.extraLoadingBarSeconds = extraSecondsValue;
             cy += rowHeight;
             y = loadingCard.yMax + 12f;
@@ -147,6 +147,59 @@ namespace ModernExpandMenu
             if (MD3Widgets.MD3Button(resetRect, "ModernExpandMenu_ResetDefaults".Translate(), emphasized: false))
             {
                 Find.WindowStack.Add(new Dialog_ResetDefaults());
+            }
+            y = resetRect.yMax + 12f;
+
+            // ===== 配置分享卡片（导出/导入到独立文件或剪贴板）=====
+            const float shareRowHeight = 30f;
+            float shareHeight = 30f + shareRowHeight + 12f;
+            var shareCard = new Rect(contentX, y, contentWidth, shareHeight);
+            MD3Widgets.DrawCard(shareCard, MD3Theme.SurfaceContainer, MD3Theme.CardCornerRadius);
+            DrawSettingsTitle(shareCard, "ModernExpandMenu_SectionShare".Translate());
+            float shareButtonY = shareCard.y + 38f;
+            float shareButtonWidth = (contentWidth - 28f - 16f) / 5f;
+            var exportFileRect = new Rect(shareCard.x + 14f, shareButtonY, shareButtonWidth, shareRowHeight);
+            var copyRect = new Rect(shareCard.x + 14f + shareButtonWidth + 4f, shareButtonY, shareButtonWidth, shareRowHeight);
+            var importClipboardRect = new Rect(shareCard.x + 14f + (shareButtonWidth + 4f) * 2f, shareButtonY, shareButtonWidth, shareRowHeight);
+            var importFileRect = new Rect(shareCard.x + 14f + (shareButtonWidth + 4f) * 3f, shareButtonY, shareButtonWidth, shareRowHeight);
+            var manageRect = new Rect(shareCard.x + 14f + (shareButtonWidth + 4f) * 4f, shareButtonY, shareButtonWidth, shareRowHeight);
+            if (MD3Widgets.MD3Button(exportFileRect, "ModernExpandMenu_ExportToFile".Translate(), emphasized: false))
+            {
+                string path = SettingsShare.SaveToFile();
+                ShowShareFeedback("ModernExpandMenu_ShareExported".Translate(path), force: true);
+            }
+            if (MD3Widgets.MD3Button(copyRect, "ModernExpandMenu_CopyConfig".Translate(), emphasized: false))
+            {
+                GUIUtility.systemCopyBuffer = SettingsShare.ExportToString();
+                ShowShareFeedback("ModernExpandMenu_ShareCopied".Translate(), force: true);
+            }
+            if (MD3Widgets.MD3Button(importClipboardRect, "ModernExpandMenu_ImportClipboard".Translate(), emphasized: false))
+            {
+                bool ok = SettingsShare.ImportFromString(GUIUtility.systemCopyBuffer);
+                ShowShareFeedback(ok ? "ModernExpandMenu_ShareImported".Translate() : "ModernExpandMenu_ShareImportFailed".Translate(), force: true);
+            }
+            if (MD3Widgets.MD3Button(importFileRect, "ModernExpandMenu_ImportFromFile".Translate(), emphasized: false))
+            {
+                string content = SettingsShare.LoadLatestFileContent();
+                bool ok = content != null && SettingsShare.ImportFromString(content);
+                ShowShareFeedback(ok ? "ModernExpandMenu_ShareImported".Translate() : "ModernExpandMenu_ShareImportFailed".Translate(), force: true);
+            }
+            if (MD3Widgets.MD3Button(manageRect, "ModernExpandMenu_ManageConfigs".Translate(), emphasized: false))
+            {
+                Find.WindowStack.Add(new Dialog_ConfigManager());
+            }
+        }
+
+        /// <summary>显示配置分享操作反馈（无地图时退化为日志）。</summary>
+        private static void ShowShareFeedback(string text, bool force)
+        {
+            if (Find.CurrentMap != null)
+            {
+                Messages.Message(text, MessageTypeDefOf.NeutralEvent, historical: false);
+            }
+            else
+            {
+                Log.Message("[ModernExpandMenu] " + text);
             }
         }
 
@@ -170,7 +223,7 @@ namespace ModernExpandMenu
             DrawSettingsTitle(speedCard, "ModernExpandMenu_SectionAnimation".Translate());
             float cy = speedCard.y + 34f;
             float appearDuration = Settings.itemAppearDuration;
-            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ItemAppearDuration".Translate(), ref appearDuration, 0.05f, 2f, 10, "0.00"); cy += rowHeight;
+            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ItemAppearDuration".Translate(), ref appearDuration, 0.05f, 1f, 10, "0.00"); cy += rowHeight;
             Settings.itemAppearDuration = appearDuration;
             float appearInterval = Settings.itemAppearInterval;
             DrawSliderRow(speedCard, cy, "ModernExpandMenu_ItemAppearInterval".Translate(), ref appearInterval, 0f, 0.5f, 11, "0.00"); cy += rowHeight;
@@ -179,16 +232,16 @@ namespace ModernExpandMenu
             DrawSliderRow(speedCard, cy, "ModernExpandMenu_PopAnimationDuration".Translate(), ref popDuration, 0.05f, 1f, 12, "0.00"); cy += rowHeight;
             Settings.popAnimationDuration = popDuration;
             float expandSpeed = Settings.expandAnimationSpeed;
-            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ExpandAnimationSpeed".Translate(), ref expandSpeed, 1f, 30f, 13, "0.0"); cy += rowHeight;
+            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ExpandAnimationSpeed".Translate(), ref expandSpeed, 1f, 20f, 13, "0.0"); cy += rowHeight;
             Settings.expandAnimationSpeed = expandSpeed;
             float followSpeed = Settings.scrollFollowSpeed;
-            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ScrollFollowSpeed".Translate(), ref followSpeed, 5f, 200f, 14, "0"); cy += rowHeight;
+            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ScrollFollowSpeed".Translate(), ref followSpeed, 5f, 120f, 14, "0"); cy += rowHeight;
             Settings.scrollFollowSpeed = followSpeed;
-            float returnSpeed = Settings.scrollReturnSpeed;
-            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ScrollReturnSpeed".Translate(), ref returnSpeed, 5f, 100f, 15, "0"); cy += rowHeight;
-            Settings.scrollReturnSpeed = returnSpeed;
+            float returnDuration = Settings.scrollReturnDuration;
+            DrawSliderRow(speedCard, cy, "ModernExpandMenu_ScrollReturnDuration".Translate(), ref returnDuration, 0.2f, 2f, 15, "0.00"); cy += rowHeight;
+            Settings.scrollReturnDuration = returnDuration;
             float heightSpeed = Settings.windowHeightAnimationSpeed;
-            DrawSliderRow(speedCard, cy, "ModernExpandMenu_WindowHeightAnimationSpeed".Translate(), ref heightSpeed, 30f, 800f, 16, "0"); cy += rowHeight;
+            DrawSliderRow(speedCard, cy, "ModernExpandMenu_WindowHeightAnimationSpeed".Translate(), ref heightSpeed, 30f, 400f, 16, "0"); cy += rowHeight;
             Settings.windowHeightAnimationSpeed = heightSpeed;
             y = speedCard.yMax + 12f;
 

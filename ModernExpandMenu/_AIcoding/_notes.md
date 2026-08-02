@@ -119,4 +119,52 @@
   - `source-only`：`1496366`（纯源码 + build.bat + 翻译 + About，不含 DLL/README/笔记/Preview），同步最新动画重构源码；**source-only 分支定位为"所有模组的源码"（TailorMade 等保留不动），本次只同步菜单模组**
 - 本次未推送（其他项目，留待各自处理）：`asrtylsUIMod-ZhCN/`、`NotificationsONWindowsNOW/`、`_templates/`
 
+## 动画重构 v3：逐组展开 + 纯水平滑入 + 细节修正（2026-08-02）
+- **逐组展开**：加载时组从上到下依次出现——第一组就位（标题+子项动画完成）→ 窗口高度扩大 → 再显示下一组（`revealedGroupCount` + `nextGroupRevealTime`，组间串行）；加载时不再"滚动跟随底部"，`scrollPosition` 保持顶部；`ComputeContentHeight` / `DrawGroups` 只统计/绘制已展开的组；加载时组**默认展开**（标题+子项一起出现，用户仍可点击折叠）
+- **动画改纯水平从左向右滑入**：`ComputeBlockAnim` 出现动画只做 `offsetX`（-20px → 0），不做垂直偏移——不再是"左下→右上"对角线；消失动画仍为淡出+下滑
+- **修复图标提前出现**：`ComputeBlockAnim` 中 `!hasAppeared && appearTime < 0`（尚未排定动画）时 alpha=0 完全隐藏（此前错误显示为 alpha=1，导致图标/组项提前出现）
+- **删物品高亮圆圈**：移除 `highlightedItems` 的 `GenDraw.DrawTargetHighlight` 循环（用户要求）；容器高亮 `highlightStorage`（`DrawTargetHighlightWithLayer`）保留
+- **恢复加载环形**：按用户要求恢复 `DrawProgressRing`（环形本身保留，无发光/呼吸/亮点），覆盖层恢复"环形 + 百分比"；覆盖层透明度 0.4 → 0.25（让逐组展开动画透出可见）
+- **滚动速度默认调快**：`scrollFollowSpeed` 40 → 80、`scrollReturnSpeed` 20 → 40（含重置对话框默认值；**注意：用户已有 ModSettings XML 会沿用旧值，需在动画 tab 手动调或删配置**）
+
+## 动画重构 v4：首次加载只播组标题 + 控制台滚动 + 回顶时间设定（2026-08-02）
+- **首次加载只有组标题动画**：加载时只逐条排定组标题出现（`group.appearTime = reveal 时刻`），子项目不参与首次加载；组**默认折叠**（`expandedTargets` 空），子项目折叠时不占布局空间（`progress=0`），不会"提前申请区域把下面的组往下推"
+- **子项目到出现时才推下面的组**：点击展开时 `expandProgress` 0→1，`ComputeContentHeight` 按 progress 计算，窗口高度动态增长（往下推）+ 子项逐条左滑入
+- **加载条跑完时首次动画完成**：reveal 节奏**均匀分布到加载视觉时长内**（`lastStart = visualEnd - itemAppearDuration`），加载条跑完时所有组标题已排定
+- **首次加载像控制台滚动到底部**：阶段1 恢复滚动跟随底部（`MoveTowards maxScroll`，速度 80），新组标题在底部出现并跟随可见
+- **回顶改为时间设定**：`scrollReturnSpeed` → `scrollReturnDuration`（默认 0.6 秒），ease-out-cubic 固定时长内滚回顶端（`scrollReturnStartTime`/`scrollReturnStartPos`）；翻译键同步改 `ScrollReturnSpeed` → `ScrollReturnDuration`（9 语言）
+- 图标跟随子项目渐变（alpha 乘 appearProgress），未排定动画时 alpha=0 不提前出现
+
+## 配置分享功能（2026-08-02）
+- 新增 `SettingsShare.cs`：把 Mod 设置导出/导入为独立 XML（反射遍历 `ModernExpandMenuSettings` 的 DeclaredOnly public 实例字段；float 用 InvariantCulture）
+- **RimWorld 配置接口说明**：标准 ModSettings 由游戏自动保存（`ExposeData()` + `Write()` → `存档数据目录/Config/ModSettings/<PackageId>.xml`）；无专门的"额外文件"API，但可用 `GenFilePaths.SaveDataFolderPath` + `System.IO.File` 自由读写自定义文件（本功能即用此）
+- 功能：常规 tab 底部新增「分享配置」卡片，4 个按钮：
+  - 导出到文件 → `存档数据目录/ModernExpandMenuShare/ModernExpandMenu_<时间戳>.xml`
+  - 复制配置 → 剪贴板（XML 文本，可直接发给他人）
+  - 从剪贴板导入 / 从文件导入（读分享文件夹最新文件）
+- 反馈：有地图用 `Messages.Message`，无地图退化 `Log.Message`；新增 9 个翻译键 × 9 语言
+- 导入需 XML 根元素 `<ModernExpandMenuSettings>`，字段按名称匹配（缺字段/多余字段容错）
+
+## 两个 Bug 修复（2026-08-02）
+1. **加载条加载完成后额外跑很久**：配置 `extraLoadingBarSeconds=0` 时，加载完成瞬间 `lastStart = visualEnd - 动画时长` 变为负数，reveal 间隔被 clamp 到 0.05s/组，剩余组被拖很久（覆盖层长时间显示）。修复：加载完成（加载条跑完）时**剩余组立即全部排定**，覆盖层尽快进入底部流程（滚到底 + 200ms）
+2. **输入框点击后看不到内容**：`MD3NumberField` 在 `TextFieldNumeric` 画完文字后**又填充了一次边框**（`DrawRoundedRect` 全填充）覆盖了文字。修复：改为"背景 + `DrawRoundedRectOutline` 描边环"（不填充内部），先画边框再输入文字
+- 配置文件实际路径：`存档数据目录/Config/Mod_ModernExpandMenu_ModernExpandMenuMod.xml`（`Mod_<Name>_<SettingsClass>.xml` 命名）；用户实际 `maxProcessedPerFrame=55`、`extraLoadingBarSeconds=0`、颜色为粉彩玫瑰调色板
+
+## 配置管理器（类 Windows 资源管理器，2026-08-02）
+- 新增 `UI/Dialog_ConfigManager.cs`：列出分享文件夹（`存档数据目录/ModernExpandMenuShare/`）中的配置文件，每行显示名称 / 大小 / 修改时间，点击选中（主色高亮层）
+- 操作：导入所选（应用配置）/ 删除所选 / 刷新 / 关闭；空状态提示先导出
+- 入口：分享卡片改为 5 按钮一行，新增「管理配置」按钮打开对话框
+- 新增 7 个翻译键 × 9 语言
+
+## 配置管理器增强（2026-08-02）
+- **重命名所选**：新增 `UI/Dialog_RenameConfig.cs`（MD3 输入对话框：深色背景 + 主色描边环 + 原版 TextField 输入，自动聚焦，回车确认）；校验非法字符/重名/名称未变，成功回调刷新上级列表
+- 配置管理器底部按钮改为 5 个一行：刷新 / 重命名所选 / 删除所选 / 导入所选 / 关闭
+- 新增 5 个翻译键 × 9 语言
+- **修复重命名"删文件"误报**：`RefreshFiles` 原用 `ModernExpandMenu_*.xml` 模式扫描，改名成非前缀名后列表匹配不到 → 文件从列表消失（看似被删）。修复：扫描分享文件夹**所有 `*.xml`**（`Dialog_ConfigManager.RefreshFiles` 与 `SettingsShare.LoadLatestFileContent` 同步改）
+
+## MD3 UI 风格规范化（工作区，2026-08-02）
+- 工作区 `rimworld-modding.instructions.md` 新增「UI 风格规范：MD3 首选」章节（色板 Token / 自绘控件 / 滚动条 / 输入框 / 对话框约定），并挂接详细规范文档
+- 新建 `_templates/md3-ui-style/STYLE_GUIDE.md`：完整 MD3 规范（色板 Token 表 / 尺寸常量表 / 控件 API 清单 / 绘制约定 / 设置界面规范 / 参考实现路径）；已加入工作区「参考模板」索引
+- **设置界面 MD3 化**：`MD3Widgets` 新增公共 `MD3BeginScrollView` / `MD3EndScrollView` / `MD3Scrollbar`（MD3 细滚动条，scrollbarId 区分多个，拖动支持）；`Dialog_ResetDefaults` 与 `Dialog_ConfigManager` 的原版 `showScrollbars:true` 滚动条改为 MD3 细条
+
 

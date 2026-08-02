@@ -57,7 +57,7 @@
   <ModernExpandMenu_PopAnimationDuration>窗口弹出动画时长（秒）</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>分组展开折叠速度</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>加载时滚动跟随速度</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>加载后滚动回顶速度</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>加载后滚动回顶速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>动画预览</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>已加载 {0} 件物品 / {1} 项操作，耗时 {2} 秒，动画总时长 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>常规</ModernExpandMenu_ResetSectionGeneral>
@@ -68,10 +68,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>弹出动画时长</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>展开动画速度</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>滚动跟随速度</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>回顶速度</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>回顶速度</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>窗口高度动画速度</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>窗口高度动画速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>总开关</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>启用动画（关闭后停用所有动画效果）</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>启用动画</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>分享配置</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>导出到文件</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>复制配置</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>从剪贴板导入</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>从文件导入</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>配置已导出到：{0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>配置已复制到剪贴板</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>配置已导入</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>配置导入失败（格式无效）</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>管理配置</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>配置管理</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>暂无配置文件。请先在分享卡片「导出到文件」。</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>导入所选</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>删除所选</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>刷新</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>关闭</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>重命名所选</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>重命名配置</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>重命名</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>名称无效（为空或含非法字符）</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>同名文件已存在</ModernExpandMenu_RenameConfigExists>
 </LanguageData>

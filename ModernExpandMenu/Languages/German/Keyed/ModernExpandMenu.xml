@@ -55,7 +55,7 @@
   <ModernExpandMenu_PopAnimationDuration>Öffnungsdauer des Fensters (s)</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>Geschwindigkeit Auf-/Zuklappen</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>Scroll-Folgegeschwindigkeit beim Laden</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>Scroll-Rückkehrgeschwindigkeit</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>Scroll-Rückkehrgeschwindigkeit</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Animationsvorschau</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} Gegenstände / {1} Aktionen geladen, {2}s, Animation gesamt {3}s</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>Allgemein</ModernExpandMenu_ResetSectionGeneral>
@@ -66,10 +66,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>Öffnungsdauer des Fensters</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>Aufklapp-Geschwindigkeit</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>Scroll-Folgegeschwindigkeit</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>Rückkehrgeschwindigkeit</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>Rückkehrgeschwindigkeit</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>Fensterhöhen-Animationsgeschwindigkeit</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Fensterhöhen-Animationsgeschwindigkeit</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>Hauptschalter</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>Animationen aktivieren (aus = alle Animationen deaktiviert)</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>Animationen aktivieren</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>Konfiguration teilen</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>In Datei exportieren</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>Konfiguration kopieren</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>Aus Zwischenablage importieren</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>Aus Datei importieren</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>Konfiguration exportiert nach: {0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>Konfiguration in Zwischenablage kopiert</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>Konfiguration importiert</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>Import fehlgeschlagen (ungültiges Format)</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>Konfigurationen verwalten</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>Konfigurationsmanager</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>Noch keine Konfigurationsdateien. Exportieren Sie zuerst eine (In Datei exportieren).</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>Auswahl importieren</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>Auswahl löschen</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>Aktualisieren</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>Schließen</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>Auswahl umbenennen</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>Konfiguration umbenennen</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>Umbenennen</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>Ungültiger Name (leer oder unzulässige Zeichen)</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>Eine Datei mit diesem Namen existiert bereits</ModernExpandMenu_RenameConfigExists>
 </LanguageData>

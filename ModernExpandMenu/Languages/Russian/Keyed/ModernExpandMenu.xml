@@ -55,7 +55,7 @@
   <ModernExpandMenu_PopAnimationDuration>Длительность появления окна (с)</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>Скорость раскрытия групп</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>Скорость следования прокрутки при загрузке</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>Скорость возврата прокрутки наверх</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>Скорость возврата прокрутки наверх</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Предпросмотр анимации</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} предметов / {1} действий загружено, {2}с, анимация всего {3}с</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>Общие</ModernExpandMenu_ResetSectionGeneral>
@@ -66,10 +66,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>Длительность появления окна</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>Скорость раскрытия</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>Скорость следования прокрутки</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>Скорость возврата наверх</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>Скорость возврата наверх</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>Скорость анимации высоты окна</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Скорость анимации высоты окна</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>Главный переключатель</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>Включить анимации (выкл = отключить все анимации)</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>Включить анимации</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>Поделиться настройками</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>Экспорт в файл</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>Скопировать настройки</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>Импорт из буфера обмена</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>Импорт из файла</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>Настройки экспортированы: {0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>Настройки скопированы в буфер обмена</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>Настройки импортированы</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>Сбой импорта (неверный формат)</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>Управление настройками</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>Менеджер настроек</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>Файлов настроек нет. Сначала экспортируйте (Экспорт в файл).</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>Импортировать выбранное</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>Удалить выбранное</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>Обновить</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>Закрыть</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>Переименовать выбранное</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>Переименовать настройки</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>Переименовать</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>Неверное имя (пустое или недопустимые символы)</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>Файл с таким именем уже существует</ModernExpandMenu_RenameConfigExists>
 </LanguageData>

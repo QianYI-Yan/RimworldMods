@@ -57,7 +57,7 @@
   <ModernExpandMenu_PopAnimationDuration>Window pop-in duration (s)</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>Group expand/collapse speed</ModernExpandMenu_ExpandAnimationSpeed>
   <ModernExpandMenu_ScrollFollowSpeed>Scroll follow speed while loading</ModernExpandMenu_ScrollFollowSpeed>
-  <ModernExpandMenu_ScrollReturnSpeed>Scroll return-to-top speed</ModernExpandMenu_ScrollReturnSpeed>
+  <ModernExpandMenu_ScrollReturnDuration>Scroll return-to-top speed</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Animation preview</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} items / {1} actions loaded, took {2}s, animation total {3}s</ModernExpandMenu_LoadingStatsTooltip>
   <ModernExpandMenu_ResetSectionGeneral>General</ModernExpandMenu_ResetSectionGeneral>
@@ -68,10 +68,31 @@
   <ModernExpandMenu_ResetPopAnimationDuration>Window pop-in duration</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>Expand animation speed</ModernExpandMenu_ResetExpandAnimationSpeed>
   <ModernExpandMenu_ResetScrollFollowSpeed>Scroll follow speed</ModernExpandMenu_ResetScrollFollowSpeed>
-  <ModernExpandMenu_ResetScrollReturnSpeed>Scroll return speed</ModernExpandMenu_ResetScrollReturnSpeed>
+  <ModernExpandMenu_ResetScrollReturnDuration>Scroll return speed</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>Master switch</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>Enable animations (off = disable all animation effects)</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>Enable animations</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionShare>Share config</ModernExpandMenu_SectionShare>
+  <ModernExpandMenu_ExportToFile>Export to file</ModernExpandMenu_ExportToFile>
+  <ModernExpandMenu_CopyConfig>Copy config</ModernExpandMenu_CopyConfig>
+  <ModernExpandMenu_ImportClipboard>Import from clipboard</ModernExpandMenu_ImportClipboard>
+  <ModernExpandMenu_ImportFromFile>Import from file</ModernExpandMenu_ImportFromFile>
+  <ModernExpandMenu_ShareExported>Config exported to: {0}</ModernExpandMenu_ShareExported>
+  <ModernExpandMenu_ShareCopied>Config copied to clipboard</ModernExpandMenu_ShareCopied>
+  <ModernExpandMenu_ShareImported>Config imported</ModernExpandMenu_ShareImported>
+  <ModernExpandMenu_ShareImportFailed>Config import failed (invalid format)</ModernExpandMenu_ShareImportFailed>
+  <ModernExpandMenu_ManageConfigs>Manage configs</ModernExpandMenu_ManageConfigs>
+  <ModernExpandMenu_ConfigManagerTitle>Config manager</ModernExpandMenu_ConfigManagerTitle>
+  <ModernExpandMenu_ConfigManagerEmpty>No config files yet. Export a config first (Export to file).</ModernExpandMenu_ConfigManagerEmpty>
+  <ModernExpandMenu_ConfigManagerImport>Import selected</ModernExpandMenu_ConfigManagerImport>
+  <ModernExpandMenu_ConfigManagerDelete>Delete selected</ModernExpandMenu_ConfigManagerDelete>
+  <ModernExpandMenu_ConfigManagerRefresh>Refresh</ModernExpandMenu_ConfigManagerRefresh>
+  <ModernExpandMenu_ConfigManagerClose>Close</ModernExpandMenu_ConfigManagerClose>
+  <ModernExpandMenu_ConfigManagerRename>Rename selected</ModernExpandMenu_ConfigManagerRename>
+  <ModernExpandMenu_RenameConfigTitle>Rename config</ModernExpandMenu_RenameConfigTitle>
+  <ModernExpandMenu_RenameConfigConfirm>Rename</ModernExpandMenu_RenameConfigConfirm>
+  <ModernExpandMenu_RenameConfigInvalid>Invalid name (empty or contains illegal characters)</ModernExpandMenu_RenameConfigInvalid>
+  <ModernExpandMenu_RenameConfigExists>A file with that name already exists</ModernExpandMenu_RenameConfigExists>
 </LanguageData>
