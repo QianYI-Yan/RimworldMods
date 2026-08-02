@@ -1,0 +1,75 @@
+[h1]◆ TailorMade: Unified Apparel and Body Refitting ◆[/h1]
+One mod that makes your clothing fit your bodies. TailorMade reshapes vanilla and modded apparel onto whatever body texture mod you run, so shirts, pants, jackets, and armor follow the silhouette of the body underneath instead of floating in their old vanilla shape. TailorMade can be used with or without Apparel Paper Pattern and THIGAPPE to supplement it's supported apparel, Harmony is the only requirement.
+
+[h1]✦ Fits Any Body Mod[/h1]
+TailorMade does not care which body retexture you use. It reads whatever body art currently shadows the vanilla body paths and reshapes apparel to match it.
+[list]
+[*][b]Works with everything[/b]: Compatible Body 2, Beautiful Bodies, Xeva, or any retexture that replaces the vanilla body.
+[*][b]Vanilla safe[/b]: with no body mod installed it falls back to the vanilla body, so nothing breaks.
+[*][b]Automatic[/b]: no per garment patches to write. Clothing is fitted live as the pawn is drawn.
+[/list]
+
+[h1]✦ How the Fit Works[/h1]
+Each garment is reshaped from the body it was drawn against onto the body the pawn actually has.
+[list]
+[*][b]Silhouette fitting[/b]: apparel is mapped to the real body outline, then clipped so it hugs the figure cleanly.
+[*][b]Per row warp[/b]: front and back views stretch row by row to follow a curvier or slimmer body exactly.
+[*][b]Honest side views[/b]: east and west keep the native shape by default, because narrow side profiles distort if you force them.
+[*][b]Coverage aware[/b]: boots, pants, chest pieces, bodysuits, and armor are recognized by what they cover, so footwear fits to the feet, legwear to the legs, and torso only pieces like cuirasses and breastplates to the chest instead of being stretched over the whole body. Chest detection also checks the actual art, so long coats and capes that drape down the body correctly stay full body.
+[*][b]Stylized outline[/b]: a thin dark outline traces the fitted garment so it matches the look of the body art.
+[/list]
+
+[h1]✦ Built In Mask Editor[/h1]
+A clean in game editor lets you tune any item on any pawn, with no image software needed. Open it from the pawn and you get a live portrait of the real colonist.
+[list]
+[*][b]Live pawn preview[/b]: the exact pawn, hair and head and body and fitted clothing, at any facing.
+[*][b]Move, scale, rotate[/b]: drag to position, scroll to resize, spin to angle.
+[*][b]Linked facings[/b]: a link toggle mirrors your edits to the opposite view, front to back and side to side, so you fix an item once.
+[*][b]Render order[/b]: reorder worn items so the right layer sits on top, with arrows or drag and drop.
+[*][b]Hide and conform[/b]: hide a piece on the pawn, or turn off conform so bulky armor keeps its native shape.
+[*][b]Save as default[/b]: every edit can persist as the default fit for that item across all pawns and saves.
+[/list]
+
+[h1]✦ Humanoid Alien Races[/h1]
+TailorMade understands HAR races and fits their bodies too. Pick a body mode globally or per race: leave alien bodies untouched, auto resize them so apparel masks line up, or force them onto a body texture mod of your choice. Heads stay in proportion, race restricted apparel is unlocked through safe data edits, and if another mod knocks an alien race back to a plain vanilla body, TailorMade detects that and restores the race's own art.
+
+[h1]✦ Body Control Center[/h1]
+Bodies are as configurable as clothing.
+[list]
+[*][b]Detected body packs[/b]: TailorMade scans your mod list for installed body texture mods and lists them by name, so forcing a body is an informed choice, never a guess. If none are installed it says so instead of quietly using vanilla art.
+[*][b]Per race body mapping[/b]: map any race to any body. Give vanilla colonists one body pack, keep a favorite alien race untouched, and force another race onto a different pack, all at the same time.
+[*][b]Mixed colonies welcome[/b]: overrides apply per race and update live when you close the settings window, no restart needed.
+[/list]
+
+[h1]✦ Female Body Variants[/h1]
+TailorMade has integrated support for FemaleBodyVariants. With that mod active, female pawns on the Thin, Fat, and Hulk builds are drawn with the female variant body art it enables, and TailorMade bakes their clothing against that same female silhouette, so the fit follows the body you actually see. Forced body packs use their own female art when they include it, and body packs that ship the extra textures work out of the box. The integration also includes a repair for a Harmony patch conflict that affects FemaleBodyVariants on current RimWorld versions, so its female body swap keeps working when both mods are loaded. Tip: to keep Thin, Fat, and Hulk builds on your female colonists, turn off the Force Female body type setting.
+
+Get FemaleBodyVariants here: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3207125987]https://steamcommunity.com/sharedfiles/filedetails/?id=3207125987[/url]
+
+[h1]✦ Sharper Than Vanilla[/h1]
+Optional resolution unlocks plus a sharper resampling pass let fitted apparel and bodies render at higher detail than the vanilla cap, with clean edges instead of mush. Apparel and bodies each have their own unlock, so you choose where the VRAM goes.
+
+[h1]✦ Everything Is a Switch[/h1]
+Every behavior has a setting. Auto fit, apparel coverage detection, deference to other apparel renderers, female body enforcement, Female Body Variants integration, per body type clipping, keep hair with helmets (correcting a HAR apparel bug, NOT as a modded function to display both), HAR body modes, forced body pack selection, per race body mapping, outline thickness, apparel and body resolution unlocks, side view fitting, and per layer and per body type toggles. Turn off what you do not want.
+
+[h1]✦ THIGAPPE vs TailorMade[/h1]
+Both use a different method to produce similar effects. And as of the latest update, you no longer have to choose: TailorMade now detects Apparel Paper Pattern and THIGAPPE and defers to them. Keep them loaded and their hand tuned patterns keep working exactly as before, while TailorMade automatically fits everything they do not cover: races and layers without patterns, and apparel with missing body type textures, which Paper Pattern does not do AUTOMATICALLY on it's own. Prefer my fit for a specific item? Exempt it in Paper Pattern's own tuner and TailorMade picks it up automatically. The editor also marks anything Paper Pattern currently controls in red, and an APP tuner button in the editor and in mod settings opens Paper Pattern's tuner directly so you can exempt items on the spot. Sized Apparel is respected the same way: what it manages stays untouched, and TailorMade fits the rest. Each deference has its own switch in settings if you would rather TailorMade take over completely.
+
+Get THIGAPPE here: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2839518933]https://steamcommunity.com/sharedfiles/filedetails/?id=2839518933[/url]
+
+[h1]✦ Requirements[/h1]
+[list]
+[*][b]Harmony[/b] (brrainz.harmony), the only dependency.
+[*][b]Recommended[/b]: Compatible Body 2, Apparel Paper Pattern, THIGAPPE, and Sized Apparel. TailorMade defers to them where they apply and covers everything else.
+[*][b]Compatible[/b]: Beautiful Bodies, Xeva, and FemaleBodyVariants.
+[/list]
+
+[h3] My Quality Commitment:[/h3]
+[list]
+[*] [b]Fully Tested:[/b] Every feature and line of code has been thoroughly tested in-game to ensure it functions as intended and integrates smoothly.
+[*] [b]Active Support:[/b] I am fully committed to maintaining this mod. If you encounter any bugs, compatibility issues, or unintended behavior, please report them in the comments or a dedicated discussion thread.
+[*] [b]No Abandonware:[/b] I will actively patch, refine, and update this mod to keep it working and up to standard.
+[*] [b]No Coffee:[/b] I will never ask for donations for AI created / assisted mods. I share these in the hopes they spark joy for someone, making AI generated content and then begging for money that could go to artists and people more deserving is NOT responsible AI usage.
+[/list]
+
+[b]Note:[/b] Outfits in the preview image are from Epona race.

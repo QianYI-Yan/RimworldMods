@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<!--
+	Lifts HAR race-locked apparel at XML load time, BEFORE HAR's ResolveReferences bakes the
+	restriction lists into its global apparelRestricted registry. This is the proven mechanism
+	(same as Universal Apparel Restriction Remover): no runtime Harmony involved, so it cannot
+	be defeated by patch ordering or Harmony version splits.
+
+	Both xpath shapes are needed: races declared as <AlienRace.ThingDef_AlienRace> and as
+	<ThingDef Class="AlienRace.ThingDef_AlienRace">. success=Always because zero matches
+	(e.g. HAR not loaded, or no race uses a given shape) is a normal, acceptable outcome.
+	-->
+
+	<!-- Races that may ONLY wear their own whitelist: open them up. -->
+	<Operation Class="PatchOperationReplace">
+		<success>Always</success>
+		<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()='true']</xpath>
+		<value><onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel></value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<success>Always</success>
+		<xpath>Defs/ThingDef[@Class="AlienRace.ThingDef_AlienRace"]/alienRace/raceRestriction/onlyUseRaceRestrictedApparel[text()='true']</xpath>
+		<value><onlyUseRaceRestrictedApparel>false</onlyUseRaceRestrictedApparel></value>
+	</Operation>
+
+	<!-- Race-locked apparel lists: empty them so the items never enter HAR's restricted registry. -->
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/AlienRace.ThingDef_AlienRace/alienRace/raceRestriction/apparelList/li</xpath>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<success>Always</success>
+		<xpath>Defs/ThingDef[@Class="AlienRace.ThingDef_AlienRace"]/alienRace/raceRestriction/apparelList/li</xpath>
+	</Operation>
+
+</Patch>
