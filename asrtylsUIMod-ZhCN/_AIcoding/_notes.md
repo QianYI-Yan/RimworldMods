@@ -138,6 +138,37 @@
 - **验证**：缺失 key 归零；编译 0 错误；已部署（Keyed 16 文件 + DefInjected 11 类）
 - **注意**：16 个旧模组均在 08-01 更新过；本次只补了新增 key，若原 key 的英文文本被改动，需按 key 重新比对
 
+## 2026-08-02 第二轮修复（用户实测反馈）
+
+### 1. Circinus 主窗口汉化（用户：完全没翻译）
+- **原因**：Circinus 主界面（导航/按钮/状态）是**硬编码**，不在 Keyed 里（80 个 Keyed 全是设置/消息类）
+- **新增**：`CircinusView` 6 个方法（DrawHeader/DrawSweepButton/DrawRail/Shorten/DrawSourceBanner/**.cctor** 静态数组 TabLabels）+ 35 条字面量（Live/Profiler/Stress/Runs/.../Start run/Speed sweep/No run selected/Recording 等）
+- **未做**：11 个 Tab_* 内部（Tab_Cohorts 60+ 条等），量大待后续
+
+### 2. ModernColonistBar tooltip 失效 + settings...
+- **根因（重要）**：`AccessTools.Constructor(type, null, ...)` 的 `null` 参数数组被当作 `Type.EmptyTypes` → 只找**无参构造函数** → 有参的 `FloatMenuOptionSub(string, Func<>)` 找不到 → patch 跳过 → 右键子菜单 tooltip 英文
+- **修复**：`.ctor` 改用 `targetType.GetConstructors(BindingFlags.Instance|Public|NonPublic).FirstOrDefault()`；`.cctor` 用 `GetConstructor(BindingFlags.Static|..., System.Type.EmptyTypes, null)`（注意 `Type` 需 `System.Type` 全名）
+- **补翻译**：`"Modern Colonist Bar settings..."`（带省略号，在 BuildModMenu 里）——之前只有不带点的版本
+
+### 3. Modern Faction Menu world map tooltip
+- `CapitalPreview.Draw` / `Window_ModernFactions.DrawTerritorySection`+`DrawEmpireSection` / `Window_ModernEmpireSettlements.DrawRow`
+- 3 条：`"\n\nClick to view on the world map."` / `"View on the world map"` / `"\n\nView on the world map."`
+
+### 4. 聚合菜单 MD3 化（用户要求）
+- **复制** `MD3Theme.cs`（120 行）+ `MD3Widgets.cs`（393 行）从 ModernExpandMenu → 本项目 `Source/AstrylsUIZhCN/Theme/` + `UI/`
+- **改造**：MD3Theme 去掉 `ModernExpandMenuMod.Settings?.` 依赖（改用默认水影蓝色板）；命名空间 `AstrylsUIZhCN.Theme` / `AstrylsUIZhCN.UI`；`Theme.MD3Theme` 相对引用无需改
+- **AstrylsUIZhCNMod**：MD3 卡片背景 + MD3 按钮行 + MD3 滚动条；点模组叠加打开 `Dialog_ModSettings`，关闭后返回聚合
+- **复制脚本**：`D:\temp\copy_md3.ps1`
+
+### 5. 范围说明
+- 「Not loaded — install/enable to see its data here.」「Cybranian — Rim Education」**不在 astryl 模组**（属 VSE/种族/教育类第三方模组），不在聚合汉化范围
+
+## 2026-08-02 聚合菜单卡片块 + MD3 UI 库
+
+- **聚合界面改 MD3 卡片块网格**：4 列卡片（中文名 + 英文原名，hover 高亮），点击叠加打开 `Dialog_ModSettings`；顶部加提示「关闭设置后返回本聚合界面」
+- **返回机制**：聚合界面是 `Dialog_ModSettings` 宿主窗口（选项 → Mod 设置 → astryl UI 模组合集），点卡片 `Find.WindowStack.Add(子设置)` 为**叠加**（宿主保持在下层），子设置关闭后自动回到聚合。若仍不返回，需用户描述具体操作路径（入口/关闭方式）
+- **MD3 UI 库提炼**：`_templates/md3-ui-lib/`（MD3Theme.cs + MD3Widgets.cs 解耦版 + TEMPLATE_GUIDE.md），与 `md3-ui-style/`（规范文档）互补；RimWorld 模组间不能引用 DLL，共享 UI 库只能源码复制（独立命名空间）
+
 ## ⚠️ 方案变更：直接字面量替换（2026-08-02，重要）
 
 用户反馈「依旧缺汉化」→ 查日志定位根因并重构：

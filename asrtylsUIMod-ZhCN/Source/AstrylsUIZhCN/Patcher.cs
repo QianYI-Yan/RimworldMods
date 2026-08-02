@@ -156,6 +156,22 @@ namespace AstrylsUIZhCN
             // 订单禁用原因
             PatchIfPresent(harmony, colonistBar, cbNS + ".CCOrders", "Blocker");
 
+            // ============ Circinus 主窗口（硬编码界面） ============
+            const string circinus = "astryl.Circinus";
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawHeader");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawSweepButton");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawRail");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "Shorten");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", "DrawSourceBanner");
+            PatchIfPresent(harmony, circinus, "Circinus.UI.CircinusView", ".cctor"); // TabLabels 导航标签静态数组
+
+            // ============ Modern Faction Menu（世界地图查看 tooltip） ============
+            const string factionMenu = "astryl.ModernFactionMenu";
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.CapitalPreview", "Draw");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawTerritorySection");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawEmpireSection");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernEmpireSettlements", "DrawRow");
+
             // ============ 隐藏 Mod 设置列表中的聚合 UI 模组条目 ============
             // 原版「选项 → Mod 设置」只显示汉化模组一个条目，
             // 各 UI 模组设置改为从汉化模组的聚合界面进入。
@@ -204,11 +220,20 @@ namespace AstrylsUIZhCN
             {
                 return;
             }
-            // 3. 构造函数 / 方法 / 属性 getter 不存在则跳过
+            // 3. 构造函数 / 静态构造函数 / 方法 / 属性 getter 不存在则跳过
             MethodBase targetMethod;
             if (methodName == ".ctor")
             {
-                targetMethod = AccessTools.Constructor(targetType);
+                // 注意：不能用 AccessTools.Constructor(type, null, ...)——null 参数会被当作无参，
+                // 有参构造函数（如 FloatMenuOptionSub(string, Func<...>)）会找不到。
+                targetMethod = targetType.GetConstructors(
+                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).FirstOrDefault();
+            }
+            else if (methodName == ".cctor")
+            {
+                targetMethod = targetType.GetConstructor(
+                    BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic,
+                    null, System.Type.EmptyTypes, null);
             }
             else
             {

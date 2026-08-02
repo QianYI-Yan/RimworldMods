@@ -11,6 +11,8 @@
     <Compile Include="Patcher.cs" />
     <Compile Include="HardcodedStringReplacer.cs" />
     <Compile Include="AstrylsUIZhCNMod.cs" />
+    <Compile Include="Theme\MD3Theme.cs" />
+    <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
