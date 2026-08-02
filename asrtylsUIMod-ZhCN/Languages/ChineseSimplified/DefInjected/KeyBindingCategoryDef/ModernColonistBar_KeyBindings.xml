@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <KeyBindingCategoryDef>
     <MCB_Warband.label>现代殖民者栏</MCB_Warband.label>
     <MCB_Warband.description>战团英雄快捷栏能力按键。</MCB_Warband.description>
-  </KeyBindingCategoryDef>
 </LanguageData>

@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <MainButtonDef>
     <MDS_Circinus.label>开发套件</MDS_Circinus.label>
     <MDS_Circinus.description>记录测试运行、实时观看性能，并查看运行历史。</MDS_Circinus.description>
-  </MainButtonDef>
-  <MainButtonDef>
     <MCE_CharacterEditor.label>编辑器</MCE_CharacterEditor.label>
     <MCE_CharacterEditor.description>打开 Modern CC。</MCE_CharacterEditor.description>
-  </MainButtonDef>
-  <MainButtonDef>
     <ModernLearningMenu_Button.label>进度</ModernLearningMenu_Button.label>
     <ModernLearningMenu_Button.description>殖民地进度仪表盘——技能、成长、教育。</ModernLearningMenu_Button.description>
-  </MainButtonDef>
 </LanguageData>

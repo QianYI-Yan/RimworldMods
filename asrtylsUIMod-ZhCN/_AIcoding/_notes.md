@@ -169,8 +169,17 @@
 **⚠️ 重大根因（用户：Genes/Pregnancy/Appearance 等全英文）**：
 - **8 个 DefInjected 文件格式错误**——用了 `<Defs><TypeName><defName>...`（Defs 注入格式），而语言文件必须是 **`<LanguageData><TypeName><defName.field>值</defName.field>`**（DefInjected 格式）→ 全部从未生效
 - 受影响：MCE.EditorModuleDef（Modern CC 模块 60 条）、MainButtonDef、KeyBinding（ColonistBar）、HistoryAutoRecorder（Def+Group）、ModernDevTools.ErrorModuleDef+KnownIssueDef
-- **修复**：git 恢复原文件 → 逐行正则脚本转成 LanguageData 格式（`D:\temp\fix_definjected2.ps1`）；**教训：DefInjected 必须 LanguageData 根 + defName.field 键；PowerShell `[xml]` 对重复同名节点子节点遍历有怪癖，转换用逐行正则**
-- 部署验证：游戏目录 13 个 DefInjected 全部 OK；MCE_Genes=基因 等抽查通过
+- **修复**：git 恢复原文件 → 逐行正则脚本转成 LanguageData 格式（`D:\temp\fix_definjected2.ps1`）；PowerShell `[xml]` 对重复同名节点子节点遍历有怪癖，转换用逐行正则
+- **⚠️⚠️ 二次根因（2026-08-02 用户实测 tab 仍英文）**：第一次修复后的格式**仍然错误**——每个 def 包了一个 `<TypeName>` 块（`<MCE.EditorModuleDef><MCE_Appearance.label>...`）。反编译 `Assembly-CSharp` 的 `LoadedLanguage.LoadFromFile_DefInject` + `DefInjectionPackage.AddDataFromFile/CheckErrors` 确认：**DefInjected 文件 = `<LanguageData>` 下直接平铺 `<defName.field>值</defName.field>`，没有任何 `<TypeName>` 包裹层**（类型由目录名 `DefInjected/<类型全名>/` 决定）；解析器把根下每个元素名当 key，`CheckErrors` 要求 **key 必须含点**，带 `<TypeName>` 包裹的块全部报 `Key lacks a dot` 被跳过 → 13 个文件从未生效
+- **✅ 正确格式（RimWorld 1.6 源码确认）**：
+  ```xml
+  <LanguageData>
+    <MCE_Appearance.label>外观</MCE_Appearance.label>
+    <MCE_Genes.label>基因</MCE_Genes.label>
+  </LanguageData>
+  ```
+  转换脚本已去除全部 TypeName 包裹层（13 文件），部署验证通过；**教训：DefInjected 不要套 TypeName 层**
+- 部署验证：游戏目录 13 个 DefInjected 已更新为标准格式（此前 MCE_Genes 等抽查只看文件内容未实测游戏，误判通过）
 
 **Circinus 补充（导航/运行详情/预热）**：
 - **TabLabels 导航仍英文**：`.cctor` transpiler 不生效（Harmony 对静态构造函数支持不稳）→ 改用 **Prefix patch `CircinusView.Draw`** 运行时把 TabLabels 数组改成中文（LocalizeCircinusTabs）
@@ -195,6 +204,14 @@
 - **Circinus**：新增 `Tab_Live.DrawHotspots`（Needs attention / Nothing flagged）、`Tab_Cohorts.DrawCardHead/DrawCardBody/CopyFor`（not measured / no cost recorded / Share of frame / Measured here / Cost in window / Patches profiled / Error classes / Across the corpus）、`Tab_Mods.Draw`（Mods by measured patch cost / No per-mod cost）、`CohortMath.Placement`、`ProfilerContribution.Describe`
 - **已注册方法补映射**：`Tab_Perf.ProfilingUnavailable` 三段「未分析/未武装」说明文字
 - 新增约 30 条映射（字典无重复），编译部署成功，DLL 哈希 `36070FF97547072D`
+
+## 2026-08-02 Modern CC 体型按钮 + Faction 好感详情
+
+用户实测反馈两处仍英文：
+
+- **Modern CC 体型按钮**（Fat/Female/Hulk/Male/Thin）：根因是 `MCE.Module_Appearance.DrawUpper` 用 `GenText.CapitalizeFirst(bodyTypeDef.defName)` 渲染按钮文本——**用的是 defName 不是 label**，不可翻译。解决：Transpiler 把该方法内 `CapitalizeFirst` 调用替换为 `HardcodedStringReplacer.BodyTypeDisplayName(defName)`（defName→中文字典：Thin=纤细/Fat=肥胖/Hulk=壮硕/Female=女性/Male=男性，未知原样返回）。**教训：按钮文本可能来自 defName，需 Transpiler 换方法调用而非替换 ldstr**
+- **Modern Faction 好感**：`Window_ModernFactions.DrawOverviewFixed`（`"Natural goodwill"`）与 `GoodwillBreakdown`（`"Goodwill "` + `"  (natural pull "` + `")"` 拼接）——新增 4 条字典映射（方法级替换，短 key `")"` 已查重无冲突）
+- 新增 2 个 Faction 方法注册 + 1 个 Transpiler；编译部署成功，DLL 哈希 `9DEBBF78D1B68B01`
 
 ## 2026-08-02 聚合菜单卡片块 + MD3 UI 库
 

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- True RPG Inventory KeyBindingCategoryDef 注入翻译 -->
 <LanguageData>
-  <KeyBindingCategoryDef>
     <MRPG_Keys.label>True RPG Inventory</MRPG_Keys.label>
     <MRPG_Keys.description>True RPG Inventory 添加的热键。</MRPG_Keys.description>
-  </KeyBindingCategoryDef>
 </LanguageData>

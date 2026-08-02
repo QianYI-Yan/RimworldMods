@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- True RPG Backpacks ThingDef 注入翻译 -->
 <LanguageData>
-  <ThingDef>
     <RPGBP_Backpack.label>背包</RPGBP_Backpack.label>
     <RPGBP_Backpack.description>一款带加固背带的坚固框架背包。穿戴在背上，能大幅扩展穿戴者的搬运能力，并解锁第二个装备网格。</RPGBP_Backpack.description>
-  </ThingDef>
 </LanguageData>

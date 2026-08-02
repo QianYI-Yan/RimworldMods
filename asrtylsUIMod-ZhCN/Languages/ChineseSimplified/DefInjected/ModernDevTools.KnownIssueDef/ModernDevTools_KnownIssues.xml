@@ -1,195 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <ModernDevTools.KnownIssueDef>
     <MDT_BenignVersionBanner.label>游戏版本横幅</MDT_BenignVersionBanner.label>
     <MDT_BenignVersionBanner.description>这是 RimWorld 启动时打印的版本行，用于让日志记录你运行的确切版本。它纯粹是信息性的。</MDT_BenignVersionBanner.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_BenignCommandLine.label>命令行参数行</MDT_BenignCommandLine.label>
     <MDT_BenignCommandLine.description>RimWorld 会记录它启动时的启动选项（例如由模组管理器或启动器设置的自定义存档数据文件夹）。这是正常的启动注释，不是问题。</MDT_BenignCommandLine.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_BenignSaveDataFolder.label>存档数据文件夹被重定向</MDT_BenignSaveDataFolder.label>
     <MDT_BenignSaveDataFolder.description>你使用了自定义存档数据文件夹启动，因此 RimWorld 在那里读写配置和存档，而不是默认位置。模组管理器、启动器或测试工具会故意这样做。一切正常。</MDT_BenignSaveDataFolder.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_BenignNewGameMods.label>新游戏的活跃模组列表</MDT_BenignNewGameMods.label>
     <MDT_BenignNewGameMods.description>开始新游戏时，RimWorld 会列出已加载的模组，以便日志记录它们。后面的 packageId 就是那个列表；它们都没有被归咎于任何问题。</MDT_BenignNewGameMods.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_BenignLoadGameMods.label>已加载存档的活跃模组列表</MDT_BenignLoadGameMods.label>
     <MDT_BenignLoadGameMods.description>加载存档时，RimWorld 会列出与之一起加载的模组，以便日志记录它们。后面的 packageId 就是那个列表；它们都没有被归咎于任何问题。</MDT_BenignLoadGameMods.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_DepMissingUrl.label>模组依赖没有下载链接</MDT_DepMissingUrl.label>
     <MDT_DepMissingUrl.description>一个模组将另一个模组列为依赖，但没有为其添加下载或创意工坊链接。这无害。游戏仍会运行，没有任何损坏。</MDT_DepMissingUrl.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_PackageIdFormat.label>模组有无效的 packageId</MDT_PackageIdFormat.label>
     <MDT_PackageIdFormat.description>模组的 packageId 不是预期的 author.modname 格式（字母、数字和点）。游戏仍会加载它，但格式错误的 packageId 可能使依赖和加载顺序检查混乱。</MDT_PackageIdFormat.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_ModMetaWarning.label>模组依赖元数据不完整</MDT_ModMetaWarning.label>
     <MDT_ModMetaWarning.description>模组的 About.xml 有一个不完整的依赖条目：缺少 packageId、无效的 packageId 或空的显示名称。游玩无害，但依赖可能无法正确解析。</MDT_ModMetaWarning.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_NullReference.label>空引用异常</MDT_NullReference.label>
     <MDT_NullReference.description>一段代码尝试使用不存在的东西（空值）。这是最常见的错误类型，通常意味着模组遇到了其作者没有预料到的情况。</MDT_NullReference.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_MissingMember.label>缺少方法或成员</MDT_MissingMember.label>
     <MDT_MissingMember.description>代码调用了已加载版本中不存在的方法或字段。这几乎总是意味着两个模组期望同一代码的不同版本，或某个模组是针对与你不同的游戏或库版本构建的。</MDT_MissingMember.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_TypeLoad.label>模组未能加载其代码</MDT_TypeLoad.label>
     <MDT_TypeLoad.description>模组的程序集无法完全加载。该模组的每个功能都被禁用，其 defs 可能无法加载，这常常级联为更多错误。</MDT_TypeLoad.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_MissingTexture.label>缺少纹理</MDT_MissingTexture.label>
     <MDT_MissingTexture.description>游戏尝试加载一张不存在的图像。需要它的物品、小人或 UI 元素会显示粉黑占位图。</MDT_MissingTexture.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_MissingAudio.label>缺少声音</MDT_MissingAudio.label>
     <MDT_MissingAudio.description>游戏尝试加载一个不存在的声音文件。该声音只是不会播放。</MDT_MissingAudio.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_StaticConstructor.label>模组的启动代码抛错</MDT_StaticConstructor.label>
     <MDT_StaticConstructor.description>模组的游戏启动初始化（静态构造函数）抛出异常，因此该模组部分或全部只设置了一半。这常常破坏一个功能，而模组的其余部分看似正常。</MDT_StaticConstructor.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_UninitializedDefOf.label>def 快捷方式使用过早</MDT_UninitializedDefOf.label>
     <MDT_UninitializedDefOf.description>模组在 defs 完成加载前读取 DefOf（特定 def 的代码快捷方式），因此值为空。这是模组中的启动时序错误，需要该 def 的功能将无法工作。</MDT_UninitializedDefOf.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_ConfigErrors.label>def 的校验代码抛出</MDT_ConfigErrors.label>
     <MDT_ConfigErrors.description>在检查 def 的问题时，游戏的校验代码本身抛出了异常。def 通常仍会构建，但该错误隐藏了检查试图报告的真实问题。</MDT_ConfigErrors.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_CrossRef.label>未解析的 def 引用</MDT_CrossRef.label>
     <MDT_CrossRef.description>一个 def 按名称引用另一个不存在的 def。在被引用的内容解析之前，引用它的内容是损坏或缺失的。</MDT_CrossRef.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_UnknownType.label>XML 中的未知类型</MDT_UnknownType.label>
     <MDT_UnknownType.description>def 或补丁命名的 C# 类未加载，因此 RimWorld 无法构建该 def，其定义的内容不会出现。</MDT_UnknownType.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_UnknownField.label>未知 XML 字段</MDT_UnknownField.label>
     <MDT_UnknownField.description>def 或补丁设置了该类型上不存在的字段，因此该值被忽略，预期效果缺失。</MDT_UnknownField.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_DuplicateDef.label>重复的 defName</MDT_DuplicateDef.label>
     <MDT_DuplicateDef.description>两个 def 同名，RimWorld 只保留一个，另一个被静默覆盖。这会使模组表现得像缺少某个功能。</MDT_DuplicateDef.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_XmlError.label>模组中的 XML 错误</MDT_XmlError.label>
     <MDT_XmlError.description>模组的 XML 格式错误或使用游戏无法识别的字段，因此受影响的 def 或补丁被跳过。</MDT_XmlError.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_CustomXmlLoader.label>模组的自定义 XML 加载失败</MDT_CustomXmlLoader.label>
     <MDT_CustomXmlLoader.description>模组使用自己的代码读取其一个 XML 节点，而该代码抛出，因此该值被跳过，需要它的内容缺失或配置错误。</MDT_CustomXmlLoader.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_MissingTranslation.label>缺少翻译键</MDT_MissingTranslation.label>
     <MDT_MissingTranslation.description>翻译问题：游戏对查找没有活跃语言，翻译字符串在格式化参数时出错，或翻译文件试图翻译一个不允许的字段。简单的缺失键绝不会记录任何内容——游戏会静默回退到英文。</MDT_MissingTranslation.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_PatchFailed.label>补丁无法应用</MDT_PatchFailed.label>
     <MDT_PatchFailed.description>模组的 XML 补丁未应用，通常是因为其目标不再存在或另一个模组先更改了它，因此补丁更改没有发生。</MDT_PatchFailed.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_LoadReference.label>无法加载已保存的引用</MDT_LoadReference.label>
     <MDT_LoadReference.description>加载时，游戏找不到它按名称引用的某个东西。在存档中，这通常意味着先前存在的模组现在缺失或已更改。</MDT_LoadReference.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_LoadIdReference.label>找不到已保存的对象引用</MDT_LoadIdReference.label>
     <MDT_LoadIdReference.description>加载存档时，游戏找不到另一个对象按已保存 ID 指向的对象。该对象被移除、未正确保存，或属于一个不再存在的模组，因此该引用被丢弃。</MDT_LoadIdReference.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_SaveVersionMismatch.label>存档来自不同的游戏版本</MDT_SaveVersionMismatch.label>
     <MDT_SaveVersionMismatch.description>你加载的存档、配置或模组列表创建于与你当前运行不同的 RimWorld 版本。同一主版本内通常没问题；跨主版本时某些内容可能无法干净加载。</MDT_SaveVersionMismatch.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_LongEventException.label>加载步骤抛出错误</MDT_LongEventException.label>
     <MDT_LongEventException.description>在加载画面期间运行的代码（长事件，例如生成地图或加载存档）抛出异常。该步骤正在设置的内容可能不完整，可能级联为后续错误。</MDT_LongEventException.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_RaidArrivalFallback.label>袭击使用了默认到达模式</MDT_RaidArrivalFallback.label>
     <MDT_RaidArrivalFallback.description>游戏无法为袭击选择到达模式，因此改为让袭击者从地图边缘步行进入。当该袭击策略允许的到达模式都无法用于这个特定派系和地图时会发生——例如派系无法使用空投舱，或袭击策略列出了不适合情况的到达模式。袭击本身仍正常运行；只是攻击者的到达方式改变了。</MDT_RaidArrivalFallback.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_RaidStrategyFallback.label>袭击使用了默认策略</MDT_RaidStrategyFallback.label>
     <MDT_RaidStrategyFallback.description>袭击在没有策略的情况下创建，因此游戏回退为直接的立即攻击。袭击仍会发生；只是攻击者原本要使用的战术丢失了。</MDT_RaidStrategyFallback.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_PawnGroupFallback.label>小人组使用了廉价的回退</MDT_PawnGroupFallback.label>
     <MDT_PawnGroupFallback.description>游戏无法按请求的点数价值为派系构建预期的小人组，因此改为生成一个随机的廉价组。这通常意味着该派系没有适合这些点数或组类型的小人类型——在模组派系中很常见。事件仍会发生，只是小人比预期的更弱或不同。</MDT_PawnGroupFallback.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_WeatherFallback.label>天气回退为晴朗</MDT_WeatherFallback.label>
     <MDT_WeatherFallback.description>当前条件下没有天气类型有正概率，因此游戏默认为晴朗天气。通常是有 mod 的生物群系或天气模组没有为此地图的情况留下有效天气。游戏继续正常运行。</MDT_WeatherFallback.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_HarmonyConflict.label>错误经过被修改的方法</MDT_HarmonyConflict.label>
     <MDT_HarmonyConflict.description>此错误路径中的一个方法在运行时被 Harmony（模组用来更改游戏行为的库）替换。这很正常——单个模组的补丁会产生相同的帧——本身并不意味着两个模组冲突。它的确意味着模组的更改在代码路径中，即使错误由模组的重写引起，堆栈跟踪也可能显示原始方法名。</MDT_HarmonyConflict.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_ExceptionFillingWindow.label>UI 窗口抛出错误</MDT_ExceptionFillingWindow.label>
     <MDT_ExceptionFillingWindow.description>窗口的绘制代码抛出异常，因此 RimWorld 关闭或跳过了该窗口。UI 面板可能消失或行为异常。</MDT_ExceptionFillingWindow.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_RootOnGUI.label>每帧游戏循环钩子抛出错误</MDT_RootOnGUI.label>
     <MDT_RootOnGUI.description>顶层每帧钩子抛出，因此 RimWorld 中止了该帧其余部分的绘制（OnGUI）或更新逻辑（Update）。症状通常是几个无关的 UI 元素同时闪烁或无法更新，或同一错误每帧重复。</MDT_RootOnGUI.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_Reservation.label>小人无法预定其目标</MDT_Reservation.label>
     <MDT_Reservation.description>小人未能认领（预定）它想处理的东西，因此任务被取消。大量出现时会让小人站着发呆。对于在地图间移动小人的模组，通常意味着任务指向了另一张地图上的东西。</MDT_Reservation.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_JobLoop.label>小人卡在开始任务中</MDT_JobLoop.label>
     <MDT_JobLoop.description>小人单 tick 内开始了许多任务，RimWorld 会停止以避免冻结。小人的 AI 陷入循环，通常来自永不完成的模组任务或工作提供者。</MDT_JobLoop.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_JobException.label>任务或 tick 抛出错误</MDT_JobException.label>
     <MDT_JobException.description>运行小人任务或每 tick 更新的代码抛出异常。小人可能放弃任务、冻结或每 tick 重复该错误。</MDT_JobException.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_SpawnState.label>生成或反生成状态错误</MDT_SpawnState.label>
     <MDT_SpawnState.description>某物尝试生成一个已在世界中的东西，或反生成一个不在的东西，因此该对象的世界状态不一致。</MDT_SpawnState.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_CollectionModified.label>列表在读取时被修改</MDT_CollectionModified.label>
     <MDT_CollectionModified.description>代码更改了一个集合，而另一段代码正在循环它，这会抛出并中止正在运行的任何内容。</MDT_CollectionModified.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_IndexRange.label>索引超出范围</MDT_IndexRange.label>
     <MDT_IndexRange.description>代码请求了超出列表或数组末尾的项，因此需要它的操作失败。</MDT_IndexRange.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_InvalidCast.label>无效类型转换</MDT_InvalidCast.label>
     <MDT_InvalidCast.description>代码将一个对象当作它不是的类型。在模组中，这常常是泛型方法上的 Harmony 补丁为错误的类型触发，可能在窗口内每帧刷屏。</MDT_InvalidCast.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_KeyNotFound.label>查找键缺失</MDT_KeyNotFound.label>
     <MDT_KeyNotFound.description>代码在字典中查找一个不存在的键。这通常意味着模组的缓存是在所有数据就绪前构建的，或另一个模组移除了它期望的东西。</MDT_KeyNotFound.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_Argument.label>向方法传递了错误的值</MDT_Argument.label>
     <MDT_Argument.description>方法被给了它不接受的自变量（null 或超出允许范围），因此它抛出而不是继续。</MDT_Argument.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_QuestGrammar.label>任务未能构建其文本</MDT_QuestGrammar.label>
     <MDT_QuestGrammar.description>任务无法解析其描述文本，通常是因为模组任务部分留下了未设置的值。任务可能显示 ERR: 之类的占位文本或损坏的标签。</MDT_QuestGrammar.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_Incompatible.label>模组兼容性或加载顺序警告</MDT_Incompatible.label>
     <MDT_Incompatible.description>模组声明与另一个模组不兼容，或声明应在另一个模组之前或之后加载，而该条件未满足。</MDT_Incompatible.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_DefInstantiate.label>无法构建 def 或其组件</MDT_DefInstantiate.label>
     <MDT_DefInstantiate.description>RimWorld 无法从 XML 创建 def，或无法创建 def 要求的运行时组件之一（comp、verb 或检查标签页）。需要它的物品、建筑或功能将缺失或不完整。</MDT_DefInstantiate.description>
-  </ModernDevTools.KnownIssueDef>
-  <ModernDevTools.KnownIssueDef>
     <MDT_GuiState.label>UI 绘制错误</MDT_GuiState.label>
     <MDT_GuiState.description>模组的 UI 代码在一帧结束时让文本或 GUI 状态错误，或未匹配其滚动或分组调用。RimWorld 每帧报告一次。</MDT_GuiState.description>
-  </ModernDevTools.KnownIssueDef>
 </LanguageData>

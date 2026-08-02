@@ -11,13 +11,13 @@ namespace AstrylsUIZhCN
     /// <summary>
     /// 汉化模组设置入口。
     ///
-    /// 设计：原版「选项 → Mod 设置」列表中的 16 个 astryl UI 模组条目
+    /// 设计：原版「选项 → Mod 设置」列表中的 18 个 astryl UI 模组条目
     /// 会被 Patcher 隐藏，本模组在列表中只显示一个「astryl UI 模组合集」条目，
     /// 点进来在这里分开打开各 UI 模组的设置界面（Dialog_ModSettings）。
     /// </summary>
     public class AstrylsUIZhCNMod : Mod
     {
-        /// <summary>聚合的 16 个 UI 模组 packageId（RimWorld 内部存小写）→ 中文显示名。</summary>
+        /// <summary>聚合的 18 个 UI 模组 packageId（RimWorld 内部存小写）→ 中文显示名。</summary>
         public static readonly Dictionary<string, string> AggregatedModNames = new Dictionary<string, string>
         {
             { "astryl.modernpawntabs", "现代角色标签页" },
@@ -167,7 +167,7 @@ namespace AstrylsUIZhCN
             return Widgets.ButtonInvisible(rect);
         }
 
-        /// <summary>判断 packageId 是否属于被聚合的 16 个 UI 模组（大小写不敏感）。</summary>
+        /// <summary>判断 packageId 是否属于被聚合的 18 个 UI 模组（大小写不敏感）。</summary>
         public static bool IsAggregated(string packageId)
         {
             return !string.IsNullOrEmpty(packageId) && AggregatedModNames.ContainsKey(packageId.ToLowerInvariant());

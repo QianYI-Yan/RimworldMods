@@ -1,45 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
-  <HistoryAutoRecorderDef>
     <NHM_Slaves.label>奴隶</NHM_Slaves.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_PowerGeneration.label>发电量（W）</NHM_PowerGeneration.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_PowerUsage.label>用电量（W）</NHM_PowerUsage.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_PowerStored.label>储存电量（Wd）</NHM_PowerStored.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_EdibleNutrition.label>可食用营养</NHM_EdibleNutrition.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_Meals.label>餐食</NHM_Meals.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_ColonyAnimals.label>殖民地动物</NHM_ColonyAnimals.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_WildAnimals.label>野生动物</NHM_WildAnimals.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_AvgColonistHealth.label>平均健康（%）</NHM_AvgColonistHealth.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_NeedingTend.label>需要治疗照顾的殖民者</NHM_NeedingTend.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_SownCrops.label>已播种作物</NHM_SownCrops.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_HarvestableCrops.label>当前可收获</NHM_HarvestableCrops.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_RealPlaytime.label>真实时间（小时）</NHM_RealPlaytime.label>
-  </HistoryAutoRecorderDef>
-  <HistoryAutoRecorderDef>
     <NHM_IngameDays.label>游戏内（天）</NHM_IngameDays.label>
-  </HistoryAutoRecorderDef>
 </LanguageData>

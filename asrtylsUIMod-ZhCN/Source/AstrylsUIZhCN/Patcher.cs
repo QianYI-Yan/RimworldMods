@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -192,7 +193,19 @@ namespace AstrylsUIZhCN
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawTerritorySection");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawEmpireSection");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawTrendsSection");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "DrawOverviewFixed");
+            PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernFactions", "GoodwillBreakdown");
             PatchIfPresent(harmony, factionMenu, "ModernFactionMenu.Window_ModernEmpireSettlements", "DrawRow");
+
+            // ============ Modern CC 体型按钮（bodyTypeDef.defName → 中文） ============
+            // DrawUpper 用 GenText.CapitalizeFirst(bodyTypeDef.defName) 渲染按钮文本，defName 不可翻译，
+            // 用 Transpiler 把该方法内的 CapitalizeFirst 调用换成 BodyTypeDisplayName（defName → 中文）。
+            var bodyTypeDraw = AccessTools.Method(AccessTools.TypeByName("MCE.Module_Appearance"), "DrawUpper");
+            if (bodyTypeDraw != null)
+            {
+                harmony.Patch(bodyTypeDraw, transpiler: new HarmonyMethod(typeof(Patcher).GetMethod(
+                    nameof(ReplaceBodyTypeNameWithChinese), BindingFlags.Static | BindingFlags.NonPublic)));
+            }
 
             // ============ 隐藏 Mod 设置列表中的聚合 UI 模组条目 ============
             // 原版「选项 → Mod 设置」只显示汉化模组一个条目，
@@ -204,6 +217,30 @@ namespace AstrylsUIZhCN
                     postfix: new HarmonyMethod(typeof(Patcher).GetMethod(
                         nameof(HideAggregatedModsFromSettings), BindingFlags.Static | BindingFlags.NonPublic)));
             }
+        }
+
+        /// <summary>
+        /// Transpiler：Modern CC 体型按钮——把 GenText.CapitalizeFirst(bodyTypeDef.defName)
+        /// 替换为 HardcodedStringReplacer.BodyTypeDisplayName(defName)，实现 defName → 中文。
+        /// 仅在目标方法内替换该调用点，不影响全局。
+        /// </summary>
+        static IEnumerable<CodeInstruction> ReplaceBodyTypeNameWithChinese(IEnumerable<CodeInstruction> instructions)
+        {
+            var code = new List<CodeInstruction>(instructions);
+            var capitalize = AccessTools.Method(typeof(GenText), "CapitalizeFirst", new[] { typeof(string) });
+            var replacement = AccessTools.Method(typeof(HardcodedStringReplacer), nameof(HardcodedStringReplacer.BodyTypeDisplayName));
+            if (capitalize == null || replacement == null)
+            {
+                return code;
+            }
+            for (int i = 0; i < code.Count; i++)
+            {
+                if (code[i].opcode == OpCodes.Call && code[i].operand is MethodInfo mi && mi == capitalize)
+                {
+                    code[i].operand = replacement;
+                }
+            }
+            return code;
         }
 
         /// <summary>
@@ -235,7 +272,7 @@ namespace AstrylsUIZhCN
         }
 
         /// <summary>
-        /// Postfix：把「选项 → Mod 设置」列表中的 16 个聚合 UI 模组过滤掉。
+        /// Postfix：把「选项 → Mod 设置」列表中的 18 个聚合 UI 模组过滤掉。
         /// </summary>
         static void HideAggregatedModsFromSettings(Dialog_Options __instance)
         {

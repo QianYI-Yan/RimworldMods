@@ -17,6 +17,11 @@ namespace AstrylsUIZhCN
         /// <summary>Original English hardcoded string -> Chinese literal.</summary>
         public static readonly Dictionary<string, string> KeyForString = new Dictionary<string, string>
         {
+            // 组织结构说明：
+            // - 拼接片段（带空格 / 标点 / 换行前缀的 key）集中在前部，便于统一检索
+            // - 完整词条大致按字母序排列
+            // - 各模组专属条目用 // ===== 区块注释分隔
+            // 新增条目：先查重（禁止重复英文 key，否则静态构造崩溃导致全部补丁失效）
             { " - combat readiness ", " - 战斗准备度 " },
             { " - press ", " - 按 " },
             { " (", "（" },
@@ -481,6 +486,11 @@ namespace AstrylsUIZhCN
             { "\n\nView on the world map.", "\n\n查看世界地图" },
             { "Collecting data... graphs appear after a few in-game hours (", "正在收集数据…几个游戏小时后图表才会出现（" },
             { "/2 samples).", "/2 个样本）。" },
+            // ===== Modern Faction Menu 好感详情（Natural goodwill / Goodwill breakdown） =====
+            { "Natural goodwill", "自然好感" },
+            { "Goodwill ", "好感 " },
+            { "  (natural pull ", "  （自然影响 " },
+            { ")", "）" },
             // ===== Circinus 缺失提示 / 热点 / 成本面板补充 =====
             { "Needs attention", "需要注意" },
             { "Needs attention (", "需要注意（" },
@@ -504,6 +514,23 @@ namespace AstrylsUIZhCN
             { "Mods by measured patch cost (", "按已测量补丁成本排序的模组（" },
             { "No per-mod cost recorded for this run.", "本次运行未记录每个模组的成本。" },
         };
+
+        /// <summary>
+        /// Modern CC 体型按钮文本：BodyTypeDef.defName → 中文（原版 5 种体型）。
+        /// 未知 defName（第三方种族体型等）原样返回，保证不报错。
+        /// </summary>
+        public static string BodyTypeDisplayName(string defName)
+        {
+            switch (defName)
+            {
+                case "Thin": return "纤细";
+                case "Fat": return "肥胖";
+                case "Hulk": return "壮硕";
+                case "Female": return "女性";
+                case "Male": return "男性";
+                default: return defName;
+            }
+        }
 
         /// <summary>
         /// Transpiler: replace matched ldstr English directly with ldstr Chinese.
