@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Notifications ON Windows NOW</name>
+  <author>yintx</author>
+  <packageId>yintx.deepseek.NotificationsONWindowsNOW</packageId>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <modVersion>1.0.0</modVersion>
+  <description>将游戏内所有通知（信件 Letter 与消息 Message）实时推送到 Windows 通知中心。即使游戏窗口被遮挡或最小化，也能第一时间看到袭击、贸易、任务等重要事件，不错过任何关键信息。
+
+⚠ 注意：本模组包含并会运行一个额外的 Windows 可执行程序（Bridge/ToastBridge.exe），用于调用 Windows 原生通知（Toast）接口。该程序以当前用户权限运行，不访问网络、不写注册表、不设开机自启，仅在本机范围内接收游戏通知并发送到通知中心。仅在 Windows 10 及以上系统生效。
+
+支持在模组设置中自定义：通知合并窗口（同一事件的多条碎片合并为一条）、短时间消息去重。事件相关的碎片通知自动合并，独立的系统消息（如存档提示）单独推送，互不干扰。
+
+内置简体中文与英文界面。
+
+[url=https://github.com/QianYI-Yan/RimworldMods/tree/main/NotificationsONWindowsNOW]github.com/QianYI-Yan/RimworldMods[/url]</description>
+</ModMetaData>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NOW.SettingsCategory>Notifications ON Windows NOW</NOW.SettingsCategory>
+  <NOW.EnableDedup>短时间消息去重</NOW.EnableDedup>
+  <NOW.EnableDedupDesc>开启后，3 秒内相同内容的通知只推送一次。</NOW.EnableDedupDesc>
+  <NOW.MergeWindow>通知合并窗口（秒）</NOW.MergeWindow>
+  <NOW.MergeWindowDesc>同一事件（信件及伴随消息）的多条碎片会在该窗口内合并为一条；独立消息单独推送。设为 0 表示不合并。</NOW.MergeWindowDesc>
+</LanguageData>

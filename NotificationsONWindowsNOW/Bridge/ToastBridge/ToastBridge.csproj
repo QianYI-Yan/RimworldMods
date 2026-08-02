@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>ToastBridge</AssemblyName>
+    <RootNamespace>ToastBridge</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- dynamic 关键字（用于 WScript.Shell COM 调用）需要 Microsoft.CSharp -->
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <!-- 构建后自动复制到模组 Bridge/ -->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ProjectDir)..\..\Bridge\" />
+  </Target>
+</Project>
