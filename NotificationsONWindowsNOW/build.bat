@@ -7,7 +7,7 @@ echo.
 
 REM 1. 构建桥梁进程
 echo [1/2] Building ToastBridge...
-dotnet build Bridge\ToastBridge\ToastBridge.csproj -c Release
+dotnet build Source\ToastBridge\ToastBridge.csproj -c Release
 if %ERRORLEVEL% NEQ 0 (
     echo.
     echo ✗ ToastBridge build failed.
@@ -37,16 +37,14 @@ if not exist "%TARGET%\Source" mkdir "%TARGET%\Source"
 if not exist "%TARGET%\Languages" mkdir "%TARGET%\Languages"
 
 xcopy /Y /Q Assemblies\NotificationsONWindowsNOW.dll "%TARGET%\Assemblies\"
-xcopy /Y /Q About\About.xml "%TARGET%\About\"
+:: 部署整个 About 目录（黑名单思路：About.xml / Preview.png / PublishedFileId.txt 等全部复制）
+if not exist "%TARGET%\About" mkdir "%TARGET%\About"
+xcopy /E /Y /Q "About\*" "%TARGET%\About\"
 xcopy /Y /Q Bridge\ToastBridge.exe "%TARGET%\Bridge\"
 xcopy /E /Y /Q /I "Languages\*" "%TARGET%\Languages\"
-xcopy /Y /Q Source\NotificationsONWindowsNOW\*.cs "%TARGET%\Source\"
-xcopy /Y /Q Source\NotificationsONWindowsNOW\*.csproj "%TARGET%\Source\"
-xcopy /Y /Q Source\NotificationsONWindowsNOW\Directory.Build.props "%TARGET%\Source\"
-if exist "Source\NotificationsONWindowsNOW\Properties" (
-    if not exist "%TARGET%\Source\Properties" mkdir "%TARGET%\Source\Properties"
-    xcopy /Y /Q "Source\NotificationsONWindowsNOW\Properties\*.cs" "%TARGET%\Source\Properties\"
-)
+:: 部署源码（先清空旧源码树避免残留，robocopy 黑名单整体复制，仅排除 bin/obj）
+if exist "%TARGET%\Source" rd /s /q "%TARGET%\Source"
+robocopy "Source" "%TARGET%\Source" /E /XD bin obj /NFL /NDL /NJH /NJS >nul
 
 echo ✓ Deployed!
 pause

@@ -16,6 +16,8 @@
     <Compile Include="ToastForwarder.cs" />
     <Compile Include="Patch_LetterStack_ReceiveLetter.cs" />
     <Compile Include="Patch_Messages_Message.cs" />
+    <Compile Include="Theme\MD3Theme.cs" />
+    <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
