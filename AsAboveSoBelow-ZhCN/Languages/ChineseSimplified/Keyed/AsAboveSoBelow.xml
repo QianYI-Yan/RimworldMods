@@ -92,11 +92,54 @@ RimWorld 会重新计算整张地图每一格的寻路网格。堆叠殖民地�
   <AB_TabVisuals>视觉</AB_TabVisuals>
   <AB_VisualsNote>向下透过一层查看下方楼层时的绘制方式。纯视觉效果，可随时更改；不影响生成、寻路或殖民者可到达的范围。</AB_VisualsNote>
   <AB_DepthFalloff>下层距离缩放</AB_DepthFalloff>
-  <AB_DepthFalloffTip>你正在查看的楼层之下的小人、建筑、植物和物品会略微缩小，每往下一层再缩小一点，就像远处的东西看起来更小一样。这是让深层的垂直结构读起来有纵深、而不是像一层层平铺列表的关键。墙壁、栅栏和天然岩石刻意保持原尺寸：它们的每一格各自绘制一块地砖，缩放会沿着每条接缝拉开缝隙。</AB_DepthFalloffTip>
+  <AB_DepthFalloffTip>你正在查看的楼层之下的小人、植物和散落物品会略微缩小，每往下一层再缩小一点，就像远处的东西看起来更小一样。这是让深层的垂直结构读起来有纵深、而不是像一层层平铺列表的关键。建筑永不缩小：太阳能板、墙壁或工作台在每一层都保持真实尺寸，因此始终与它们所在的地板匹配。</AB_DepthFalloffTip>
   <AB_DepthFalloffAmount>每往下一层的大小：{0}  （三层以下：{1}）</AB_DepthFalloffAmount>
   <AB_VerboseLogging>详细日志</AB_VerboseLogging>
   <AB_VerboseLoggingTip>向日志写入详细的诊断信息。仅在排查错误时有用。</AB_VerboseLoggingTip>
 
   <AB_RiserNeedsWall>必须建在墙内。</AB_RiserNeedsWall>
   <AB_RiserFaceBlocked>必须朝向开阔空间，而非另一面墙。</AB_RiserFaceBlocked>
+
+  <AB_PathHeadingLabel>寻路捷径</AB_PathHeadingLabel>
+  <AB_PathHeuristicAmount>搜索贪婪度：{0}</AB_PathHeuristicAmount>
+  <AB_PathHeuristicOff>关闭（正常精度）</AB_PathHeuristicOff>
+  <AB_PathHeuristicTip>提高此值会让堆叠地图上的小人在规划路线时搜索更少的格子。他们找路依然同样可靠，但偶尔会走稍长一点的路而不是最完美的路线。除非大型殖民地在许多小人同时挑选新工作时出现卡顿，否则保持关闭。普通地图永不受影响。</AB_PathHeuristicTip>
+
+  <AB_BelowPawnCache>下层小人绘制</AB_BelowPawnCache>
+  <AB_BelowPawnCacheAuto>免费时快速（推荐）</AB_BelowPawnCacheAuto>
+  <AB_BelowPawnCacheAutoTip>RimWorld 可以用一张小的预渲染图像来绘制一个人，而不是每一帧都从身体、衣物和伤口重新构建。这快得多，而且看起来完全一样——直到该图像像素少于屏幕所需，小人看起来会变模糊。此设置会为你的显示器和当前缩放找出那个临界点，并且只在临界点之前使用快速版本。下层的小人本来就绘制得较小，所以会更早达到临界点。在大多数显示器上，这意味着每个缩放级别都无可见差异。</AB_BelowPawnCacheAutoTip>
+  <AB_BelowPawnCacheAggressive>始终快速</AB_BelowPawnCacheAggressive>
+  <AB_BelowPawnCacheAggressiveTip>在所有缩放级别使用快速版本，包括完全放大时——那时下层的小人可能与你正在查看楼层的小人相比略显模糊。在深殖民地的大显示器上值得开启，因为你同时往下看几层，更想要帧数而非最后一点细节。</AB_BelowPawnCacheAggressiveTip>
+  <AB_BelowPawnCacheOff>从不（完整细节）</AB_BelowPawnCacheOff>
+  <AB_BelowPawnCacheOffTip>每帧都从零重新构建下层的小人。这是最慢的选项，在几乎所有情况下看起来都与推荐选项相同。如果你怀疑此功能导致视觉问题，用它来排除故障。</AB_BelowPawnCacheOffTip>
+
+  <AB_TabArrivals>到达</AB_TabArrivals>
+  <AB_ArrivalsMaster>跨层到达与离开</AB_ArrivalsMaster>
+  <AB_ArrivalsMasterTip>总开关。启用后，袭击者、访客、商人和动物可以通过地表以外的楼层进出地图，由下方各开关控制。禁用后，所有人都从地表到达和离开，与之前一样。游戏中途更改是安全的；从下一次到达或离开起生效。</AB_ArrivalsMasterTip>
+  <AB_ArrivalsNote>楼层只有在拥有地图边缘的开阔地面和通往殖民地的连接路线时才能接待到达者。楼层被使用的频率与其可通行的地图边缘大小成正比，所以山脊和挖掘出的隧道越大越重要。</AB_ArrivalsNote>
+  <AB_CatRaiders>袭击者</AB_CatRaiders>
+  <AB_CatFriendlies>访客、商人和盟友</AB_CatFriendlies>
+  <AB_CatAnimals>野生动物</AB_CatAnimals>
+  <AB_ArriveUpper>可通过上层到达</AB_ArriveUpper>
+  <AB_ArriveUpperTip>群体可以通过山脊路线和高崖架走入，出现在地表以上楼层的地图边缘。</AB_ArriveUpperTip>
+  <AB_ArriveLower>可通过下层到达</AB_ArriveLower>
+  <AB_ArriveLowerTip>群体可以从隧道口出现，出现在地表以下楼层的地图边缘。注意，从地下到达的袭击者会完全绕过地表防御。</AB_ArriveLowerTip>
+  <AB_LeaveUpper>可通过上层离开</AB_LeaveUpper>
+  <AB_LeaveUpperTip>离开或逃跑的群体可以从地表以上楼层的地图边缘离开，如果那是他们最近的可达出路。</AB_LeaveUpperTip>
+  <AB_LeaveLower>可通过下层离开</AB_LeaveLower>
+  <AB_LeaveLowerTip>离开或逃跑的群体可以从地表以下楼层的地图边缘离开，如果那是他们最近的可达出路。</AB_LeaveLowerTip>
+
+  <AB_GuardHealthTitle>子系统健康</AB_GuardHealthTitle>
+  <AB_GuardHealthNote>每个子系统遇到错误时会自行关闭，因此一个故障不会破坏模组的其余部分或游戏。跳闸的开关在加载或开始游戏时重置。重新启用会给子系统另一次机会；如果故障仍然存在，它会带着新的报告再次跳闸。</AB_GuardHealthNote>
+  <AB_GuardRunning>运行中</AB_GuardRunning>
+  <AB_GuardTrippedUnknown>因错误已关闭</AB_GuardTrippedUnknown>
+  <AB_GuardCulprit>可能原因：{0}</AB_GuardCulprit>
+  <AB_GuardReArm>重新启用</AB_GuardReArm>
+
+  <AB_WrongLevel>在另一层。切换到那一层再在那里下达指令。</AB_WrongLevel>
+  <AB_NotBandedHere>此殖民地没有楼层</AB_NotBandedHere>
+  <AB_NoLevelAbove>这一层之上没有楼层</AB_NoLevelAbove>
+  <AB_NoLevelBelow>这一层之下没有楼层</AB_NoLevelBelow>
+  <AB_StairsNoBands>此地图没有楼层；垂直连接物没有可连接的对象。</AB_StairsNoBands>
+  <AB_StairsNoLevel>那个方向没有楼层；此连接物未连接任何东西。</AB_StairsNoLevel>
 </LanguageData>
