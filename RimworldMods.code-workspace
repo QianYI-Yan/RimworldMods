@@ -7,5 +7,16 @@
 			"path": "../../APP/Game/Steam/steamapps/common/RimWorld/Mods"
 		}
 	],
-	"settings": {}
+	"settings": {
+		// 默认终端：设备最新 PowerShell（pwsh 7，WindowsApps Store 版）
+		// 若 WindowsApps 路径因升级失效，VS Code 会自动回退到 source 探测的 PowerShell
+		"terminal.integrated.defaultProfile.windows": "PowerShell (pwsh 7)",
+		"terminal.integrated.profiles.windows": {
+			"PowerShell (pwsh 7)": {
+				"source": "PowerShell",
+				"path": "C:\\Program Files\\WindowsApps\\Microsoft.PowerShell_7.6.4.0_x64__8wekyb3d8bbwe\\pwsh.exe",
+				"icon": "terminal-powershell"
+			}
+		}
+	}
 }
