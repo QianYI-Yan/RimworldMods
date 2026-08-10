@@ -1,19 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyName>AstrylsUIZhCN</AssemblyName>
-    <RootNamespace>AstrylsUIZhCN</RootNamespace>
+    <AssemblyName>AstrylsUIZhCN.ColonistBar</AssemblyName>
+    <RootNamespace>AstrylsUIZhCN.ColonistBar</RootNamespace>
     <LangVersion>latest</LangVersion>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Patcher.cs" />
-    <Compile Include="PatchHelper.cs" />
-    <Compile Include="HardcodedStringReplacer.cs" />
-    <Compile Include="AstrylsUIZhCNMod.cs" />
-    <Compile Include="Theme\MD3Theme.cs" />
-    <Compile Include="UI\MD3Widgets.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
@@ -21,6 +16,11 @@
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4871" />
     <PackageReference Include="Lib.Harmony" Version="2.3.6" />
+  </ItemGroup>
+
+  <!-- 引用主框架（共享字典 / Transpiler / PatchHelper） -->
+  <ItemGroup>
+    <ProjectReference Include="..\AstrylsUIZhCN\AstrylsUIZhCN.csproj" />
   </ItemGroup>
 
   <!-- 编译后自动复制到项目 Assemblies/ -->

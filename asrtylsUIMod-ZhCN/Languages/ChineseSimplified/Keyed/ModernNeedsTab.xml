@@ -109,4 +109,55 @@
   <NNT_DayAxisShort>第{0}天</NNT_DayAxisShort>
   <NNT_HourAxisShort>{0}时</NNT_HourAxisShort>
 
+  <!-- ════════════ 8-10 更新新增：心情时间线 / 概览模式 / 分诊列 ════════════ -->
+  <NNT_OverviewModeClassic>心情概览</NNT_OverviewModeClassic>
+  <NNT_OverviewModeClassicDesc>整体心情、随时间变化的曲线，以及其下方的情绪条区域。这是原始视图。</NNT_OverviewModeClassicDesc>
+  <NNT_OverviewModeMoodlets>仅情绪条</NNT_OverviewModeMoodlets>
+  <NNT_OverviewModeMoodletsDesc>完全没有图表。想法列表占据整个右侧，因此尽可能多的增益和减益同时显示在屏幕上。</NNT_OverviewModeMoodletsDesc>
+  <NNT_OverviewModeTimeline>心情时间线</NNT_OverviewModeTimeline>
+  <NNT_OverviewModeTimelineDesc>这位殖民者产生的想法及时间、当前心情与所有活跃想法，以及接下来将要失效或出问题的事项。默认打开在当下，可双向滚动。</NNT_OverviewModeTimelineDesc>
+  <NNT_TimelineHeader>心情时间线</NNT_TimelineHeader>
+  <NNT_TimelineNow>现在</NNT_TimelineNow>
+  <NNT_TimelineToday>今天</NNT_TimelineToday>
+  <NNT_TimelineYesterday>昨天</NNT_TimelineYesterday>
+  <NNT_TimelineDaysAgo>{0} 天前</NNT_TimelineDaysAgo>
+  <NNT_TimelineAhead>未来</NNT_TimelineAhead>
+  <NNT_TimelineNoAhead>未来两天没有预测事件。</NNT_TimelineNoAhead>
+  <NNT_TimelineNoPast>尚无心情事件。这位殖民者产生的想法会随发生时间列在此处。没有起始时间的持续感受（如寒冷或饥饿）则列在「现在」下方。</NNT_TimelineNoPast>
+  <NNT_TimelineNoMood>该生物没有心情。</NNT_TimelineNoMood>
+  <NNT_TimelineCount>{0} 个心情事件</NNT_TimelineCount>
+  <NNT_TimelineMood>心情 {0}</NNT_TimelineMood>
+  <NNT_TimelineMoodSummary>{0} 个活跃想法</NNT_TimelineMoodSummary>
+  <NNT_TimelineMoodSummaryWearing>{0} 个活跃想法，{1} 个即将失效</NNT_TimelineMoodSummaryWearing>
+  <NNT_TimelineWearsOff>{0} 失效</NNT_TimelineWearsOff>
+  <NNT_TimelineCrosses>{0} 降至 {1}% 以下</NNT_TimelineCrosses>
+  <NNT_MoodHeaderCount>心情（{0} 个想法）</NNT_MoodHeaderCount>
+  <NNT_BandAttention>需要注意</NNT_BandAttention>
+  <NNT_BandWatch>观察</NNT_BandWatch>
+  <NNT_BandGood>良好</NNT_BandGood>
+  <NNT_BreakMinor>轻微</NNT_BreakMinor>
+  <NNT_BreakMajor>严重</NNT_BreakMajor>
+  <NNT_BreakExtreme>极端</NNT_BreakExtreme>
+  <NNT_CrossesThreshold>按此速率约 {1} 后突破 {0} 崩溃阈值。</NNT_CrossesThreshold>
+  <NNT_CrossesThresholdPlain>按此速率约 {1} 后降至 {0}% 以下。</NNT_CrossesThresholdPlain>
+  <NNT_InTime>在 {0} 内</NNT_InTime>
+  <NNT_TimeToFullShort>到满</NNT_TimeToFullShort>
+  <NNT_TimeToEmptyShort>到空</NNT_TimeToEmptyShort>
+  <NNT_24hChangeShort>24 小时</NNT_24hChangeShort>
+  <NNT_CurrentRateShort>速率</NNT_CurrentRateShort>
+  <NNT_Setting_Overview>概览面板</NNT_Setting_Overview>
+  <NNT_Setting_OverviewDesc>未选择需求卡片时右侧显示的内容。标签页顶行的齿轮也会循环切换这些模式。</NNT_Setting_OverviewDesc>
+  <NNT_Setting_ClassicLayout>经典卡片布局</NNT_Setting_ClassicLayout>
+  <NNT_Setting_ClassicLayoutDesc>原始列：按游戏自身顺序的单一平面列表，三个最重要的需求绘制得逐渐更高。关闭后切换到分诊列，卡片为统一紧凑尺寸并按紧急程度分组。</NNT_Setting_ClassicLayoutDesc>
+  <NNT_Setting_TriageBands>按严重度分组卡片</NNT_Setting_TriageBands>
+  <NNT_Setting_TriageBandsDesc>将需求卡片按计数分组标题排序，最差在前：需要注意、观察、良好。在「需要注意」组内，最紧急的需求排在前面，依据其低于阈值的程度、需求的重要性以及下降速度来判断。关闭后恢复为按游戏自身顺序的单列排列。每组内的拖拽顺序和固定仍然有效。</NNT_Setting_TriageBandsDesc>
+  <NNT_Setting_TriageBandsClassic>严重度分组和卡片动画属于分诊列。关闭上方的经典卡片布局即可使用。</NNT_Setting_TriageBandsClassic>
+  <NNT_Setting_AnimateCards>卡片移动动画</NNT_Setting_AnimateCards>
+  <NNT_Setting_AnimateCardsDesc>当需求改变分组时，卡片滑动到新位置而非跳变。关闭则完全移除动画。</NNT_Setting_AnimateCardsDesc>
+  <NNT_ReorderHint>拖动卡片以重新排序。点击此处重置顺序。</NNT_ReorderHint>
+  <NNT_HoverLinkHint>悬停需求卡片以高亮它引起的想法。</NNT_HoverLinkHint>
+  <NNT_OverviewGearTip>概览：{0}。\n未选择需求卡片时，右侧面板显示此内容。\n\n点击切换：{1}。</NNT_OverviewGearTip>
+  <NNT_Compat_BarReplaced>不可用，因为 {0} 替换了殖民者栏。你的固定项仍会保留并显示在标签页中。</NNT_Compat_BarReplaced>
+  <NNT_Compat_VividRim>Vivid Rim - Needs Tab 也已激活。两个模组都会替换需求标签页，并会对它的大小产生分歧，因此后加载的生效，另一个会按错误尺寸绘制。请关闭其中一个：使用下方开关禁用本模组的标签页，或取消订阅另一个。</NNT_Compat_VividRim>
+
 </LanguageData>

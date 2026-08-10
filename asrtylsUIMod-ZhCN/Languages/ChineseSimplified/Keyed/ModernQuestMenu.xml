@@ -110,4 +110,10 @@
   <MQM_TagTitle>爵位</MQM_TagTitle>
   <MQM_TagTitles>爵位</MQM_TagTitles>
 
+  <!-- 8-08 更新新增 -->
+  <MQM_SearchHint>搜索任务...</MQM_SearchHint>
+  <MQM_OptionOf>（选项 {0} / {1}）</MQM_OptionOf>
+  <MQM_Goodwill>好感度 {0}</MQM_Goodwill>
+  <MQM_BrowserHint>在左侧选择任务，或点击奖励以打开其任务。</MQM_BrowserHint>
+
 </LanguageData>

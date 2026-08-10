@@ -234,6 +234,27 @@
 - **生成脚本**：`D:\temp\gen_hardcoded_direct.ps1`——读取旧字典（英文→键名）+ XML（键名→中文）合并去重生成新字典，自动处理 `\n`/`\"` 转义，可复用
 - **注意**：脚本文件需纯 ASCII（PowerShell 5.1 按 ANSI 读 .ps1，中文会乱码），中文注释会破坏脚本
 
+## 2026-08-10 模组更新对照 + DLL 拆分
+
+### 原模组更新（workshop 时间检查，8-02 之后有 3 个）
+| 模组 | 更新时间 | 处理 |
+|------|---------|------|
+| Modern Social Tab | 8-03 | **架构变化：旧硬编码 → Keyed 体系**，新建 `Keyed/ModernSocialTab.xml`（约 110 条 MST.*）；旧字典硬编码条目冗余但保留（无害） |
+| Modern Quest Menu | 8-08 | 补 4 个新 key（MQM_SearchHint/OptionOf/Goodwill/BrowserHint） |
+| Modern Needs Tab | 8-10 | 补 47 个新 key（心情时间线/概览模式/分诊列/兼容提示） |
+
+### DLL 拆分（用户要求：单 DLL 拆多 DLL）
+- **主框架 `AstrylsUIZhCN.dll`**：Mod 类（聚合设置）+ 隐藏设置 patch + 公共字典 `KeyForString`（485 条）+ 共享 `Transpiler` + `PatchHelper.PatchIfPresent`（public）+ MD3 控件 + Social Tab 补丁
+- **5 个独立 DLL**（硬编码严重模组，各引用主框架、独立 Harmony ID）：
+  - `AstrylsUIZhCN.LearningMenu.dll`（14 方法）
+  - `AstrylsUIZhCN.ColonistBar.dll`（~50 方法）
+  - `AstrylsUIZhCN.Circinus.dll`（~18 方法 + TabLabels Prefix）
+  - `AstrylsUIZhCN.FactionMenu.dll`（7 方法）
+  - `AstrylsUIZhCN.ModernCC.dll`（DrawUpper Transpiler 体型按钮）
+- **共享方式**：各 DLL 引用主框架 csproj（ProjectReference），`using AstrylsUIZhCN` 用 PatchHelper/字典/Transpiler；命名空间 `AstrylsUIZhCN.<模组>`
+- **build.bat**：编译 6 项目（PostBuild 各自回流 Assemblies），校验 6 DLL + 部署
+- 部署验证：项目与游戏 Assemblies 6 个 DLL 一致、Source 6 项目目录、无 bin/obj
+
 ## 后续待办
 - [x] 项目初始化（About.xml / README / build.bat / Languages 骨架）— 2026-08-01
 - [x] 创建通用 + 专项模板（工作区 `_templates/`）— 2026-08-01

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- ===== 设置 ===== -->
+  <MST.SettingsCategory>现代社交标签页</MST.SettingsCategory>
+  <MST.Settings.Appearance>外观</MST.Settings.Appearance>
+  <MST.Settings.PanelWidth>面板宽度：{0}</MST.Settings.PanelWidth>
+  <MST.Settings.PanelWidth.Tip>设置社交标签页的宽度，为基础宽度的 60% 到 100%。高度始终为满。标签页也会自动适配你的分辨率和界面缩放，因此永远不会超出屏幕。</MST.Settings.PanelWidth.Tip>
+  <MST.Settings.RelationList>关系列表</MST.Settings.RelationList>
+  <MST.Settings.DefaultSort>默认排序</MST.Settings.DefaultSort>
+  <MST.Settings.DefaultSort.Tip>关系的排序方式。固定的小人始终保持在顶部，地图外的小人会沉到底部。</MST.Settings.DefaultSort.Tip>
+  <MST.Settings.DefaultFilter>默认过滤</MST.Settings.DefaultFilter>
+  <MST.Settings.DefaultFilter.Tip>要显示哪些关系：所有人、血亲、恋人或对手。</MST.Settings.DefaultFilter.Tip>
+  <MST.Settings.SocialStats>社交统计</MST.Settings.SocialStats>
+  <MST.Settings.SocialStats.Tip>选择要显示的社交统计。打开小人的社交标签页，使用社交统计面板上的「选择」链接。</MST.Settings.SocialStats.Tip>
+  <MST.Settings.SocialStats.Body>使用标签页内的「选择」链接来挑选要显示的统计。</MST.Settings.SocialStats.Body>
+  <MST.Settings.Performance>性能</MST.Settings.Performance>
+  <MST.Settings.History>记录关系历史</MST.Settings.History>
+  <MST.Settings.History.Tip>每隔几个游戏小时记录每位殖民者的社交关系，以便图表显示历史。关闭此项可移除本模组的所有每帧开销；图表随后只显示实时值。</MST.Settings.History.Tip>
+  <MST.Settings.SampleInterval>采样间隔：{0} 小时</MST.Settings.SampleInterval>
+  <MST.Settings.SampleInterval.Tip>社交关系采样的频率。在大型殖民地中，更长的间隔开销更低。</MST.Settings.SampleInterval.Tip>
+  <MST.Settings.HistoryDays>历史保留：{0} 天</MST.Settings.HistoryDays>
+  <MST.Settings.HistoryDays.Tip>保留多少天的关系历史。更短的窗口使用更少内存并节省空间。</MST.Settings.HistoryDays.Tip>
+  <MST.Settings.ListRefresh>列表刷新：每 {0} 帧</MST.Settings.ListRefresh>
+  <MST.Settings.ListRefresh.Tip>标签页打开期间关系列表刷新的频率。更高对帧率更友好；更低更新好感度更灵敏。</MST.Settings.ListRefresh.Tip>
+  <MST.Settings.Reset>重置为默认值</MST.Settings.Reset>
+  <MST.Settings.Reset.Tip>恢复面板宽度、排序和过滤、显示的社交统计，以及所有折叠的分区。</MST.Settings.Reset.Tip>
+  <MST.SwitchToModern>切换到现代社交标签页</MST.SwitchToModern>
+
+  <!-- ===== 头部 ===== -->
+  <MST.Header.OpenIdeo>{0}\n\n点击打开意识形态概览。</MST.Header.OpenIdeo>
+  <MST.Header.Role>角色：{0}</MST.Header.Role>
+  <MST.Header.RoleNone>角色：无 - 分配</MST.Header.RoleNone>
+  <MST.Header.Role.Tip>使用常规的角色变更仪式来分配或更改这位小人的意识形态角色。</MST.Header.Role.Tip>
+  <MST.Header.Role.TipLocked>只有你意识形态的自由殖民者可以更改角色。</MST.Header.Role.TipLocked>
+  <MST.Header.Certainty>信仰坚定度</MST.Header.Certainty>
+  <MST.Header.Certainty.Tip>意识形态信仰坚定度：{0}\n每日变化：{1}</MST.Header.Certainty.Tip>
+  <MST.Header.NoIdeo>{0} 的关系</MST.Header.NoIdeo>
+  <MST.Header.VanillaView>原版视图</MST.Header.VanillaView>
+  <MST.Header.VanillaView.Tip>切回原版 RimWorld 社交标签页。你的选择会被记住。</MST.Header.VanillaView.Tip>
+  <MST.Header.TryRomance>尝试恋爱</MST.Header.TryRomance>
+  <MST.Header.TryRomance.Tip>为这位小人选择一位进行浪漫示好的对象。</MST.Header.TryRomance.Tip>
+  <MST.Header.TryRomance.TipOff>这位小人现在无法尝试恋爱。他们可能处于冷却中，或不符合条件。</MST.Header.TryRomance.TipOff>
+
+  <!-- ===== 名单栏 ===== -->
+  <MST.Rail.Title>关系</MST.Rail.Title>
+  <MST.Rail.Count>（{0} / {1}）</MST.Rail.Count>
+  <MST.Rail.CountPinned>（{0} / {1}，{2} 个固定）</MST.Rail.CountPinned>
+  <MST.Rail.Sort>排序</MST.Rail.Sort>
+  <MST.Rail.SearchPlaceholder>搜索姓名或关系...</MST.Rail.SearchPlaceholder>
+  <MST.Rail.ClearSearch>清除搜索框</MST.Rail.ClearSearch>
+  <MST.Rail.Empty.Title>无匹配</MST.Rail.Empty.Title>
+  <MST.Rail.Empty.Body>当前搜索和过滤没有匹配项。这位小人的已知关系总数为 {0}。</MST.Rail.Empty.Body>
+  <MST.Rail.Empty.Action>清除搜索和过滤</MST.Rail.Empty.Action>
+  <MST.Rail.ClickHints>点击查看详情，右键打开他们的标签页</MST.Rail.ClickHints>
+  <MST.Rail.KeyHints>上/下移动，回车聚焦，P 固定</MST.Rail.KeyHints>
+  <MST.Pin.On>固定到列表顶部</MST.Pin.On>
+  <MST.Pin.Off>取消固定，恢复常规排序</MST.Pin.Off>
+  <MST.Roster.Tip>他们对此小人的看法：{1}\n此小人对他们的看法：{0}\n\n点击打开完整关系。\n右键将本标签页切换为他们。</MST.Roster.Tip>
+
+  <!-- ===== 概览 ===== -->
+  <MST.Graph.Standing>{0} 的社交关系</MST.Graph.Standing>
+  <MST.Graph.StandingSeries>关系</MST.Graph.StandingSeries>
+  <MST.Graph.Standing.Body>{0} 的受欢迎程度：其他每位殖民者对他看法的平均值，范围从 -100 到 +100。</MST.Graph.Standing.Body>
+  <MST.Graph.Contributors>谁怎么想</MST.Graph.Contributors>
+  <MST.Graph.NoContributors>（没有其他殖民者）</MST.Graph.NoContributors>
+  <MST.Graph.Recording>记录中。图表会随时间推移填充。</MST.Graph.Recording>
+  <MST.Graph.Day>第{0}天</MST.Graph.Day>
+  <MST.Feed.Title>近期互动</MST.Feed.Title>
+  <MST.Count>（{0}）</MST.Count>
+  <MST.Feed.Empty.Title>尚无记录的互动</MST.Feed.Empty.Title>
+  <MST.Feed.Empty.Body>社交互动会在此处实时显示。{0} 最近没有和任何人交谈。</MST.Feed.Empty.Body>
+  <MST.Stats.Title>社交统计</MST.Stats.Title>
+  <MST.Stats.Choose>选择</MST.Stats.Choose>
+  <MST.Stats.Choose.Tip>选择要显示的社交统计。</MST.Stats.Choose.Tip>
+  <MST.Stats.Empty.Title>未选择统计</MST.Stats.Empty.Title>
+  <MST.Stats.Empty.Body>使用上方的「选择」链接来挑选要显示的社交统计。</MST.Stats.Empty.Body>
+  <MST.Stats.Disabled>对此小人已永久禁用。</MST.Stats.Disabled>
+
+  <!-- ===== 档案 ===== -->
+  <MST.Dossier.Clear>清除</MST.Dossier.Clear>
+  <MST.Dossier.Clear.Tip>关闭此关系并返回殖民地概览。</MST.Dossier.Clear.Tip>
+  <MST.Dossier.Jump>跳转到小人</MST.Dossier.Jump>
+  <MST.Dossier.Jump.Tip>将镜头移到此小人并选中他们。</MST.Dossier.Jump.Tip>
+  <MST.Dossier.HowTheyFeel>{0} 的感受</MST.Dossier.HowTheyFeel>
+
+  <!-- ===== 证据 ===== -->
+  <MST.Evidence.Title>为什么这段关系看起来如此</MST.Evidence.Title>
+  <MST.Evidence.Empty.Title>没有什么特别的</MST.Evidence.Empty.Title>
+  <MST.Evidence.Empty.Body>没有记忆、特性或近期事件在朝任何方向推动对 {0} 的看法。</MST.Evidence.Empty.Body>
+  <MST.Group.Opinion>看法</MST.Group.Opinion>
+  <MST.Group.Romance>恋爱</MST.Group.Romance>
+  <MST.Group.Attraction>性格与吸引力</MST.Group.Attraction>
+  <MST.Group.Body>身体</MST.Group.Body>
+  <MST.Group.History>发生了什么</MST.Group.History>
+  <MST.Group.Collapse>折叠此分区</MST.Group.Collapse>
+  <MST.Group.Expand>展开此分区</MST.Group.Expand>
+  <MST.Source.BaseGame>基础游戏</MST.Source.BaseGame>
+  <MST.Source.RecentLog>近期日志</MST.Source.RecentLog>
+  <MST.Row.RomanceChance>成功概率</MST.Row.RomanceChance>
+  <MST.Row.AttractionToward>对 {0} 的吸引力</MST.Row.AttractionToward>
+  <MST.Row.Closeness>累积的亲密值</MST.Row.Closeness>
+  <MST.Row.Crush>{0} 迷恋 {1}</MST.Row.Crush>
+  <MST.Row.Orientation>{0} 的取向</MST.Row.Orientation>
+
+  <!-- ===== 提示 ===== -->
+  <MST.Tip.RomanceTitle>恋爱：{0} 和 {1}</MST.Tip.RomanceTitle>
+  <MST.Tip.NotPossible>不可能</MST.Tip.NotPossible>
+  <MST.Tip.SuccessChance>成功概率：</MST.Tip.SuccessChance>
+  <MST.Tip.Factors>因素</MST.Tip.Factors>
+  <MST.Tip.Attractiveness>吸引力</MST.Tip.Attractiveness>
+  <MST.Tip.TheirOpinion>他们对 {0} 的看法</MST.Tip.TheirOpinion>
+  <MST.Tip.HowCalculated>这是如何计算的</MST.Tip.HowCalculated>
+  <MST.Tip.Unavailable>（不可用）</MST.Tip.Unavailable>
+
+  <!-- ===== 操作与消息 ===== -->
+  <MST.Btn.BreakUp>与 {0} 分手</MST.Btn.BreakUp>
+  <MST.Btn.Propose>向 {0} 求婚\n接受概率：{1}</MST.Btn.Propose>
+  <MST.Msg.NotOnMap>{0} 不在地图上（{1}）。</MST.Msg.NotOnMap>
+  <MST.Msg.CannotOpenTab>无法切换到 {0}：他们{1}。</MST.Msg.CannotOpenTab>
+  <MST.Msg.NeedRitualSpot>你需要一个有效的仪式点或祭坛来变更角色。</MST.Msg.NeedRitualSpot>
+  <MST.Msg.NoRoles>这位小人没有可用的意识形态角色。</MST.Msg.NoRoles>
+  <MST.Role.Unavailable>不可用</MST.Role.Unavailable>
+
+  <!-- ===== 排序与过滤 ===== -->
+  <MST.Sort.Opinion>看法</MST.Sort.Opinion>
+  <MST.Sort.Relation>关系</MST.Sort.Relation>
+  <MST.Sort.Name>姓名</MST.Sort.Name>
+  <MST.Filter.All>全部</MST.Filter.All>
+  <MST.Filter.Family>家人</MST.Filter.Family>
+  <MST.Filter.Lovers>恋人</MST.Filter.Lovers>
+  <MST.Filter.Rivals>对手</MST.Filter.Rivals>
+
+  <!-- ===== 位置 ===== -->
+  <MST.Where.Unknown>未知</MST.Where.Unknown>
+  <MST.Where.Deceased>已故</MST.Where.Deceased>
+  <MST.Where.OnMap>在此地图上</MST.Where.OnMap>
+  <MST.Where.Caravan>在商队中</MST.Where.Caravan>
+  <MST.Where.CaravanNamed>在商队中（{0}）</MST.Where.CaravanNamed>
+  <MST.Where.WithFaction>与 {0} 外出</MST.Where.WithFaction>
+  <MST.Where.Elsewhere>在世界的其他地方</MST.Where.Elsewhere>
+
+  <!-- ===== 共用 ===== -->
+  <MST.Yes>是</MST.Yes>
+
+</LanguageData>
