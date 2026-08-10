@@ -255,6 +255,12 @@
 - **build.bat**：编译 6 项目（PostBuild 各自回流 Assemblies），校验 6 DLL + 部署
 - 部署验证：项目与游戏 Assemblies 6 个 DLL 一致、Source 6 项目目录、无 bin/obj
 
+### DLL 拆分后 Debug（2026-08-10 游戏日志）
+- **Circinus.Patcher 静态构造崩溃（已修）**：`AmbiguousMatchException: Ambiguous match in Harmony patch for Circinus.Session.RunRecorder:Start`——Harmony 2.x 的 `AccessTools.Method(type, name)` 对多个同名重载**抛异常而非返回 null** → 单点 patch 失败导致**整个 DLL 全部补丁未注册**。修复：`PatchHelper.PatchIfPresent` 整体 try-catch（失败记 Log.Warning 跳过）+ `FindTargetMethod` 对 AmbiguousMatchException 降级取第一个同名方法。**教训：Harmony AccessTools.Method 遇重载抛异常，patch 注册必须防单点失败**
+- **翻译错误 2 条（已修）**：`MDT_Incompatible`（KnownIssueDef label+description）——原模组 ModernDevTools 已删除该 Def（XML 注释 `REMOVED`），DefInjected 注入报「Found no ... named ...」→ 已从 ModernDevTools_KnownIssues.xml 移除
+- **剩余翻译错误待查**：日志报 17 errors，移除 MDT_Incompatible 后预计剩 15；Keyed 重复/非法键、DefInjected defName 全量对比均无其他问题，剩余可能来自其他 mod 的中文文件——需 Dev 模式翻译报告定位
+- 重新编译部署，DLL 哈希 `91033FAB17CE3A99`
+
 ## 后续待办
 - [x] 项目初始化（About.xml / README / build.bat / Languages 骨架）— 2026-08-01
 - [x] 创建通用 + 专项模板（工作区 `_templates/`）— 2026-08-01

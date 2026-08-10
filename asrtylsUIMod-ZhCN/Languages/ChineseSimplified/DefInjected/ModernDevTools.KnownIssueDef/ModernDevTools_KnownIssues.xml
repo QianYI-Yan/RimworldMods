@@ -90,8 +90,6 @@
     <MDT_Argument.description>方法被给了它不接受的自变量（null 或超出允许范围），因此它抛出而不是继续。</MDT_Argument.description>
     <MDT_QuestGrammar.label>任务未能构建其文本</MDT_QuestGrammar.label>
     <MDT_QuestGrammar.description>任务无法解析其描述文本，通常是因为模组任务部分留下了未设置的值。任务可能显示 ERR: 之类的占位文本或损坏的标签。</MDT_QuestGrammar.description>
-    <MDT_Incompatible.label>模组兼容性或加载顺序警告</MDT_Incompatible.label>
-    <MDT_Incompatible.description>模组声明与另一个模组不兼容，或声明应在另一个模组之前或之后加载，而该条件未满足。</MDT_Incompatible.description>
     <MDT_DefInstantiate.label>无法构建 def 或其组件</MDT_DefInstantiate.label>
     <MDT_DefInstantiate.description>RimWorld 无法从 XML 创建 def，或无法创建 def 要求的运行时组件之一（comp、verb 或检查标签页）。需要它的物品、建筑或功能将缺失或不完整。</MDT_DefInstantiate.description>
     <MDT_GuiState.label>UI 绘制错误</MDT_GuiState.label>
