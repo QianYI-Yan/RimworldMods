@@ -47,6 +47,7 @@ namespace ModernExpandMenu.UI
             general.items.Add(Item("ModernExpandMenu_ResetShowItemCount", s.showItemCount, true, () => s.showItemCount = true));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllInputs", s.md3StyleAllInputs, false, () => s.md3StyleAllInputs = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleAllButtons", s.md3StyleAllButtons, false, () => s.md3StyleAllButtons = false));
+            general.items.Add(Item("ModernExpandMenu_ResetSwitchStyle", s.switchStyle.ToString(), ModernExpandMenuSettings.SwitchStyle.Slider.ToString(), () => s.switchStyle = ModernExpandMenuSettings.SwitchStyle.Slider));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleWindows", s.md3StyleWindows, false, () => s.md3StyleWindows = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleCommands", s.md3StyleCommands, false, () => s.md3StyleCommands = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleMenuSections", s.md3StyleMenuSections, false, () => s.md3StyleMenuSections = false));
@@ -54,6 +55,10 @@ namespace ModernExpandMenu.UI
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleInspectPane", s.md3StyleInspectPane, false, () => s.md3StyleInspectPane = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleStatistics", s.md3StyleStatistics, false, () => s.md3StyleStatistics = false));
             general.items.Add(Item("ModernExpandMenu_ResetMd3StyleIdeo", s.md3StyleIdeo, false, () => s.md3StyleIdeo = false));
+            general.items.Add(Item("ModernExpandMenu_ResetFloatMenuTakeoverScope", s.floatMenuTakeoverScope.ToString(), ModernExpandMenuSettings.FloatMenuTakeoverScope.All.ToString(), () => s.floatMenuTakeoverScope = ModernExpandMenuSettings.FloatMenuTakeoverScope.All));
+            general.items.Add(Item("ModernExpandMenu_ResetMenuBorderStyle", s.menuBorderStyle.ToString(), ModernExpandMenuSettings.MenuBorderStyle.Marquee.ToString(), () => s.menuBorderStyle = ModernExpandMenuSettings.MenuBorderStyle.Marquee));
+            general.items.Add(Item("ModernExpandMenu_ResetMd3StyleMedicalCare", s.md3StyleMedicalCare, false, () => s.md3StyleMedicalCare = false));
+            general.items.Add(Item("ModernExpandMenu_ResetForceWorkshopUpload", s.forceWorkshopUpload, false, () => s.forceWorkshopUpload = false));
             general.items.Add(Item("ModernExpandMenu_ResetSkipUploadWait", s.skipUploadWait, false, () => s.skipUploadWait = false));
             general.items.Add(Item("ModernExpandMenu_ResetSpaceOnlyPauses", s.spaceOnlyPauses, false, () => s.spaceOnlyPauses = false));
             general.items.Add(Item("ModernExpandMenu_ResetMaxMenuHeight", s.maxMenuHeight, 560, () => s.maxMenuHeight = 560));
@@ -68,9 +73,14 @@ namespace ModernExpandMenu.UI
             animation.items.Add(Item("ModernExpandMenu_ResetItemAppearInterval", s.itemAppearInterval.ToString("0.00"), "0.03", () => s.itemAppearInterval = 0.03f));
             animation.items.Add(Item("ModernExpandMenu_ResetPopAnimationDuration", s.popAnimationDuration.ToString("0.00"), "0.18", () => s.popAnimationDuration = 0.18f));
             animation.items.Add(Item("ModernExpandMenu_ResetExpandAnimationSpeed", s.expandAnimationSpeed.ToString("0.0"), "10", () => s.expandAnimationSpeed = 10f));
-            animation.items.Add(Item("ModernExpandMenu_ResetScrollFollowSpeed", s.scrollFollowSpeed.ToString("0"), "80", () => s.scrollFollowSpeed = 80f));
+            animation.items.Add(Item("ModernExpandMenu_ResetScrollFollowDuration", s.scrollFollowDuration.ToString("0.00"), "0.35", () => s.scrollFollowDuration = 0.35f));
             animation.items.Add(Item("ModernExpandMenu_ResetScrollReturnDuration", s.scrollReturnDuration.ToString("0.00"), "0.60", () => s.scrollReturnDuration = 0.6f));
             animation.items.Add(Item("ModernExpandMenu_ResetWindowHeightAnimationSpeed", s.windowHeightAnimationSpeed.ToString("0"), "200", () => s.windowHeightAnimationSpeed = 200f));
+            animation.items.Add(Item("ModernExpandMenu_ResetAnimationSpeedMode", s.animationSpeedMode.ToString(), ModernExpandMenuSettings.AnimationSpeedMode.Multiplier.ToString(), () => s.animationSpeedMode = ModernExpandMenuSettings.AnimationSpeedMode.Multiplier));
+            animation.items.Add(Item("ModernExpandMenu_ResetAnimationSpeedMultiplier", s.animationSpeedMultiplier.ToString("0.0"), "1.0", () => s.animationSpeedMultiplier = 1f));
+            animation.items.Add(Item("ModernExpandMenu_ResetScrollReturnWaitSeconds", s.scrollReturnWaitSeconds.ToString("0.00"), "0.30", () => s.scrollReturnWaitSeconds = 0.3f));
+            animation.items.Add(Item("ModernExpandMenu_ResetLoadingBarMarquee", s.loadingBarMarquee, true, () => s.loadingBarMarquee = true));
+            animation.items.Add(Item("ModernExpandMenu_ResetLoadingMaskOpacity", s.loadingMaskOpacity.ToString("0.00"), "0.25", () => s.loadingMaskOpacity = 0.25f));
             sections.Add(animation);
 
             // ── 颜色 ──

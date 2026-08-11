@@ -46,31 +46,57 @@ namespace ModernExpandMenu
 
         // 复选框滑动开关的圆点滑动动画进度（key = 坐标 hash）
         private static readonly Dictionary<int, float> checkboxSwitchProgress = new Dictionary<int, float>();
+        private static readonly Dictionary<int, float> checkboxSwitchStartTime = new Dictionary<int, float>();
+        private static readonly Dictionary<int, float> checkboxSwitchStartValue = new Dictionary<int, float>();
+        private static readonly Dictionary<int, float> checkboxSwitchTarget = new Dictionary<int, float>();
+        private const float CheckboxSwitchAnimationDuration = 0.18f;
 
         /// <summary>
-        /// 原版复选框绘制 → MD3 滑动开关样式（安卓开关）：
-        /// 选中主色轨道 + 白色圆点靠右，未选深色轨道 + 圆点靠左；圆点有平滑滑动动画。
+        /// 原版复选框绘制 → 按「开关风格」设置渲染（原版 / MD3 滑动开关 / 赛博炫酷）：
+        /// 原版：直接放行；滑动开关：选中主色轨道 + 白色圆点（圆点有平滑滑动动画）；
+        /// 赛博：流光边框 + 发光圆点 + 切换扫光（纯绘制，点击仍由原版处理）。
+        /// 注意：复选框外观由 switchStyle 独立控制（与 md3StyleAllButtons 解耦），
+        /// md3StyleAllButtons 只管按钮 / tab / 滚动条等其它控件。
         /// </summary>
         [HarmonyPatch(typeof(Widgets), "CheckboxDraw")]
         private static class Patch_CheckboxDraw
         {
             private static bool Prefix(float x, float y, bool active, bool disabled, float size, Texture2D texChecked, Texture2D texUnchecked)
             {
-                if (!ModernExpandMenuMod.Settings.md3StyleAllButtons)
+                var style = ModernExpandMenuMod.Settings.switchStyle;
+                if (style == ModernExpandMenuSettings.SwitchStyle.Vanilla)
                 {
-                    return true;
+                    return true;   // 原版复选框
                 }
-                // 小号滑动开关：轨道（宽 1.4×size，高 0.7×size）+ 白色圆点
+                // 小号开关：轨道（宽 1.4×size，高 0.7×size）
                 float trackWidth = size * 1.4f;
                 float trackHeight = size * 0.7f;
                 var track = new Rect(x + (size - trackWidth) / 2f, y + (size - trackHeight) / 2f, trackWidth, trackHeight);
 
-                // 圆点滑动动画（0=左/关，1=右/开）：安卓 ease-out 曲线（快速起步、指数减速到位）
+                if (style == ModernExpandMenuSettings.SwitchStyle.Cyber)
+                {
+                    // 赛博炫酷：小尺寸赛博开关（坐标 hash 加偏移，避免与卡片式赛博开关的动画 id 冲突）
+                    int cyberKey = Mathf.RoundToInt(x * 7f + y * 13f) + 200000;
+                    MD3Widgets.DrawCyberCheckbox(track, active, disabled, cyberKey);
+                    return false;
+                }
+
+                // ── MD3 滑动开关 ──
+                // 圆点滑动动画（0=左/关，1=右/开）：固定时长 + Material standard 近似曲线（smoothstep）
                 int key = Mathf.RoundToInt(x * 7f + y * 13f);
                 float target = active ? 1f : 0f;
-                float animated = checkboxSwitchProgress.TryGetValue(key, out float cur) ? cur : target;
-                animated += (target - animated) * Mathf.Min(1f, Time.deltaTime * 14f);
-                if (Mathf.Abs(animated - target) < 0.001f)
+                float now = Time.realtimeSinceStartup;
+                if (!checkboxSwitchStartTime.TryGetValue(key, out float startTime)
+                    || Mathf.Abs(checkboxSwitchTarget[key] - target) > 0.001f)
+                {
+                    checkboxSwitchStartTime[key] = now;
+                    checkboxSwitchStartValue[key] = checkboxSwitchProgress.TryGetValue(key, out float cur) ? cur : target;
+                    checkboxSwitchTarget[key] = target;
+                }
+                float t = Mathf.Clamp01((now - checkboxSwitchStartTime[key]) / CheckboxSwitchAnimationDuration);
+                float eased = t * t * (3f - 2f * t);
+                float animated = Mathf.Lerp(checkboxSwitchStartValue[key], target, eased);
+                if (t >= 1f)
                 {
                     animated = target;
                 }

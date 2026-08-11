@@ -1,0 +1,6 @@
+# 构建产物（不提交公开仓库）
+Source/**/bin/
+Source/**/obj/
+_AIcoding/ui-preview/bin/
+_AIcoding/ui-preview/obj/
+Assemblies/*.pdb

@@ -255,14 +255,14 @@ namespace ModernExpandMenu
             }
             groups.RemoveAll(group => group.actions.Count == 0);
 
-            // 重新排序（物品组按名称，"其他"组置于末尾）
+            // 重新排序（「其他」类置顶，物品组按名称；用户要求其他类排在物品类上面）
             groups.Sort((a, b) =>
             {
                 bool aIsOther = a.isOtherGroup;
                 bool bIsOther = b.isOtherGroup;
                 if (aIsOther != bIsOther)
                 {
-                    return aIsOther ? 1 : -1;
+                    return aIsOther ? -1 : 1;
                 }
                 return string.Compare(a.headerLabel, b.headerLabel, StringComparison.Ordinal);
             });

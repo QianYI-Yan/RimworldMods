@@ -7,6 +7,10 @@
   <ModernExpandMenu_Md3StyleAllInputsDesc>開啟後，遊戲中所有原版輸入框（數值輸入、搜尋欄等）統一換成 MD3 無邊框樣式，僅外觀變化，輸入功能不變</ModernExpandMenu_Md3StyleAllInputsDesc>
   <ModernExpandMenu_Md3StyleAllButtons>原版按鈕與複選框改為 MD3 樣式</ModernExpandMenu_Md3StyleAllButtons>
   <ModernExpandMenu_Md3StyleAllButtonsDesc>開啟後，遊戲中所有原版按鈕（確定/關閉/載入等）、複選框、tab 分頁與滾動條統一換成 MD3 圓角樣式，僅外觀變化，點擊/互動不變</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SwitchStyleVanilla>原版</ModernExpandMenu_SwitchStyleVanilla>
+  <ModernExpandMenu_SwitchStyleSlider>滑動開關</ModernExpandMenu_SwitchStyleSlider>
+  <ModernExpandMenu_SwitchStyleCyber>賽博炫酷</ModernExpandMenu_SwitchStyleCyber>
+  <ModernExpandMenu_SwitchStyleDesc>開關（複選框）的顯示風格：原版 / MD3 安卓滑動開關 / 賽博炫酷（流光邊框 + 網格 + 掃光 + 衝擊波）。設定介面與原版介面中的開關同步變化，切到「賽博炫酷」時本選擇器自身也會變為賽博風格</ModernExpandMenu_SwitchStyleDesc>
   <ModernExpandMenu_SkipUploadWait>跳過上傳等待倒計時</ModernExpandMenu_SkipUploadWait>
   <ModernExpandMenu_SkipUploadWaitDesc>跳過創意工坊上傳確認的 6 秒等待，立即可上傳</ModernExpandMenu_SkipUploadWaitDesc>
   <ModernExpandMenu_SpaceOnlyPauses>空白鍵僅暫停、不解除暫停</ModernExpandMenu_SpaceOnlyPauses>
@@ -65,7 +69,7 @@
   <ModernExpandMenu_ItemAppearInterval>相鄰項就位間隔（秒）</ModernExpandMenu_ItemAppearInterval>
   <ModernExpandMenu_PopAnimationDuration>視窗彈出動畫時長（秒）</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>分組展開摺疊速度</ModernExpandMenu_ExpandAnimationSpeed>
-  <ModernExpandMenu_ScrollFollowSpeed>載入時滾動跟隨速度</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollFollowDuration>載入時平滑推頂時長（秒）</ModernExpandMenu_ScrollFollowDuration>
   <ModernExpandMenu_ScrollReturnDuration>載入後滾動回頂速度</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>動畫預覽</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>已載入 {0} 件物品 / {1} 項操作，耗時 {2} 秒，動畫總時長 {3} 秒</ModernExpandMenu_LoadingStatsTooltip>
@@ -77,6 +81,7 @@
   <ModernExpandMenu_ResetShowItemCount>組標題顯示物品總數</ModernExpandMenu_ResetShowItemCount>
   <ModernExpandMenu_ResetMd3StyleAllInputs>原版輸入框全部改為 MD3</ModernExpandMenu_ResetMd3StyleAllInputs>
   <ModernExpandMenu_ResetMd3StyleAllButtons>原版按鈕與複選框改為 MD3</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSwitchStyle>開關風格</ModernExpandMenu_ResetSwitchStyle>
   <ModernExpandMenu_ResetSkipUploadWait>跳過上傳等待倒計時</ModernExpandMenu_ResetSkipUploadWait>
   <ModernExpandMenu_ResetMaxMenuHeight>懸浮窗最大高度</ModernExpandMenu_ResetMaxMenuHeight>
   <ModernExpandMenu_ResetMaxProcessedPerFrame>每幀處理物品數</ModernExpandMenu_ResetMaxProcessedPerFrame>
@@ -90,13 +95,27 @@
   <ModernExpandMenu_ResetItemAppearInterval>相鄰項間隔</ModernExpandMenu_ResetItemAppearInterval>
   <ModernExpandMenu_ResetPopAnimationDuration>彈出動畫時長</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>展開動畫速度</ModernExpandMenu_ResetExpandAnimationSpeed>
-  <ModernExpandMenu_ResetScrollFollowSpeed>滾動跟隨速度</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollFollowDuration>平滑推頂時長</ModernExpandMenu_ResetScrollFollowDuration>
   <ModernExpandMenu_ResetScrollReturnDuration>回頂速度</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>視窗高度動畫速度</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>視窗高度動畫速度</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>總開關</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>啟用動畫（關閉後停用所有動畫效果）</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>啟用動畫</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionAnimationSpeedMode>動畫速度模式</ModernExpandMenu_SectionAnimationSpeedMode>
+  <ModernExpandMenu_SpeedModeMultiplier>倍率模式</ModernExpandMenu_SpeedModeMultiplier>
+  <ModernExpandMenu_SpeedModeCustom>自訂模式</ModernExpandMenu_SpeedModeCustom>
+  <ModernExpandMenu_SpeedModeDesc>倍率模式：用一個全域倍率統一控制所有動畫速度，下方單項灰顯禁用；自訂模式：手動調整每項動畫參數，倍率灰顯禁用。</ModernExpandMenu_SpeedModeDesc>
+  <ModernExpandMenu_AnimationSpeedMultiplier>全域動畫速度倍率</ModernExpandMenu_AnimationSpeedMultiplier>
+  <ModernExpandMenu_ScrollReturnWaitSeconds>回頂前等待（秒）</ModernExpandMenu_ScrollReturnWaitSeconds>
+  <ModernExpandMenu_LoadingBarMarquee>頂端載入條 Copilot 光帶</ModernExpandMenu_LoadingBarMarquee>
+  <ModernExpandMenu_LoadingBarMarqueeDesc>開啟後，選單頂端載入條內有一條主色漸變光帶從左到右循環掃過（仿 VS Code Copilot 輸入框）。僅改變外觀。</ModernExpandMenu_LoadingBarMarqueeDesc>
+  <ModernExpandMenu_LoadingMaskOpacity>載入遮罩透明度</ModernExpandMenu_LoadingMaskOpacity>
+  <ModernExpandMenu_ResetAnimationSpeedMode>動畫速度模式</ModernExpandMenu_ResetAnimationSpeedMode>
+  <ModernExpandMenu_ResetAnimationSpeedMultiplier>全域動畫倍率</ModernExpandMenu_ResetAnimationSpeedMultiplier>
+  <ModernExpandMenu_ResetScrollReturnWaitSeconds>回頂前等待</ModernExpandMenu_ResetScrollReturnWaitSeconds>
+  <ModernExpandMenu_ResetLoadingBarMarquee>頂條 Copilot 光帶</ModernExpandMenu_ResetLoadingBarMarquee>
+  <ModernExpandMenu_ResetLoadingMaskOpacity>載入遮罩透明度</ModernExpandMenu_ResetLoadingMaskOpacity>
   <ModernExpandMenu_SectionShare>分享設定</ModernExpandMenu_SectionShare>
   <ModernExpandMenu_ExportToFile>匯出到檔案</ModernExpandMenu_ExportToFile>
   <ModernExpandMenu_CopyConfig>複製設定</ModernExpandMenu_CopyConfig>
@@ -149,6 +168,17 @@
   <ModernExpandMenu_Md3StyleStatisticsDesc>開啟後，歷史 tab 的統計數據頁面按分組顯示為 MD3 卡片（基礎/財富/襲擊/傷亡/結局）。僅改變外觀。</ModernExpandMenu_Md3StyleStatisticsDesc>
   <ModernExpandMenu_Md3StyleIdeo>文化選單（文化行 + 模因大方塊）MD3 化</ModernExpandMenu_Md3StyleIdeo>
   <ModernExpandMenu_Md3StyleIdeoDesc>開啟後，文化 tab 的文化行與模因大方塊使用 MD3 圓角描邊（選中項主色）。僅改變外觀。</ModernExpandMenu_Md3StyleIdeoDesc>
+  <ModernExpandMenu_BorderOutline>普通描邊</ModernExpandMenu_BorderOutline>
+  <ModernExpandMenu_BorderMarquee>主色跑馬燈</ModernExpandMenu_BorderMarquee>
+  <ModernExpandMenu_BorderRainbow>彩色流光</ModernExpandMenu_BorderRainbow>
+  <ModernExpandMenu_BorderStyleDesc>選擇選單（右鍵選單與原版展開選單）的邊框樣式：普通描邊（Outline 色）/ 主色跑馬燈（主色流動光帶）/ 彩色流光（三色漸變沿邊框流動）。</ModernExpandMenu_BorderStyleDesc>
+  <ModernExpandMenu_SectionColorBorder>邊框</ModernExpandMenu_SectionColorBorder>
+  <ModernExpandMenu_Md3StyleMedicalCare>醫藥設定選擇器 MD3 化</ModernExpandMenu_Md3StyleMedicalCare>
+  <ModernExpandMenu_Md3StyleMedicalCareDesc>開啟後，「預設醫藥設定」與健康 tab 的醫藥選擇按鈕組（無醫療/無藥/草藥/工業/超凡）變為 MD3 圓角格：懸停主色底、選中主色描邊。僅改變外觀。</ModernExpandMenu_Md3StyleMedicalCareDesc>
+  <ModernExpandMenu_ScopeAll>全部</ModernExpandMenu_ScopeAll>
+  <ModernExpandMenu_ScopeDialogDropdowns>僅下拉</ModernExpandMenu_ScopeDialogDropdowns>
+  <ModernExpandMenu_ScopeOff>關閉</ModernExpandMenu_ScopeOff>
+  <ModernExpandMenu_ScopeDesc>選擇原版展開選單 MD3 接管的範圍：全部（含遊戲內與對話框展開選單）/ 僅對話框下拉（如「選擇語言」）/ 關閉（保持原版）。</ModernExpandMenu_ScopeDesc>
   <ModernExpandMenu_ResetMd3StyleWindows>原版視窗邊框 MD3 化</ModernExpandMenu_ResetMd3StyleWindows>
   <ModernExpandMenu_ResetMd3StyleCommands>命令按鈕 MD3 化</ModernExpandMenu_ResetMd3StyleCommands>
   <ModernExpandMenu_ResetMd3StyleMenuSections>選單區塊/列表行 MD3 化</ModernExpandMenu_ResetMd3StyleMenuSections>
@@ -156,6 +186,9 @@
   <ModernExpandMenu_ResetMd3StyleInspectPane>資訊卡 MD3 化</ModernExpandMenu_ResetMd3StyleInspectPane>
   <ModernExpandMenu_ResetMd3StyleStatistics>統計介面 MD3 卡片</ModernExpandMenu_ResetMd3StyleStatistics>
   <ModernExpandMenu_ResetMd3StyleIdeo>文化選單 MD3 化</ModernExpandMenu_ResetMd3StyleIdeo>
+  <ModernExpandMenu_ResetFloatMenuTakeoverScope>展開選單接管範圍</ModernExpandMenu_ResetFloatMenuTakeoverScope>
+  <ModernExpandMenu_ResetMenuBorderStyle>選單邊框樣式</ModernExpandMenu_ResetMenuBorderStyle>
+  <ModernExpandMenu_ResetMd3StyleMedicalCare>醫藥設定選擇器 MD3 化</ModernExpandMenu_ResetMd3StyleMedicalCare>
   <ModernExpandMenu_StatsGroupBasics>基礎</ModernExpandMenu_StatsGroupBasics>
   <ModernExpandMenu_StatsGroupWealth>財富</ModernExpandMenu_StatsGroupWealth>
   <ModernExpandMenu_StatsGroupRaids>襲擊</ModernExpandMenu_StatsGroupRaids>
@@ -189,4 +222,7 @@
   <ModernExpandMenu_MiscPreviewTabSurgery>手術</ModernExpandMenu_MiscPreviewTabSurgery>
   <ModernExpandMenu_MiscPreviewDropdownLabel>食物方案</ModernExpandMenu_MiscPreviewDropdownLabel>
   <ModernExpandMenu_MiscPreviewDropdownValue>無限制</ModernExpandMenu_MiscPreviewDropdownValue>
+  <ModernExpandMenu_ForceWorkshopUpload>強制顯示「上傳 / 更新到創意工坊」按鈕</ModernExpandMenu_ForceWorkshopUpload>
+  <ModernExpandMenu_ForceWorkshopUploadDesc>傻逼bug不让我更新模组气笑了\n開啟後，模組列表中的「上傳 / 更新到創意工坊」按鈕始終顯示（無需開發者模式、也無需已訂閱），可強制上傳 / 強制更新你已發布的模組。</ModernExpandMenu_ForceWorkshopUploadDesc>
+  <ModernExpandMenu_ResetForceWorkshopUpload>強制顯示上傳/更新按鈕</ModernExpandMenu_ResetForceWorkshopUpload>
 </LanguageData>

@@ -44,6 +44,11 @@ namespace ModernExpandMenu.UI
         private float loadDurationSeconds;    // 分帧生成实际耗时（秒）
         private int finalActionCount;         // 加载完成后操作项总数
 
+        // 为中央圆形进度条申请的最低显示高度（对齐 demo MIN_LOADING_HEIGHT：初始高度不足时先申请容纳圆环）
+        private const float MinLoadingHeight = 120f;
+        // 回顶前等待（对齐 demo：所有项目滑入完成后停顿可调时长再回顶）
+        private float scrollReturnWaitStartTime = -1f;
+
         // 顶部加载条（常驻显示：加载中显示进度动画，加载完成后显示满条）
         private const float LoadingBarHeight = 5f;   // 加载条高度
         private const float LoadingBarGap = 4f;      // 加载条与内容间距
@@ -58,11 +63,20 @@ namespace ModernExpandMenu.UI
 
         // 弹出动画：窗口从鼠标锚点缩放展开（MD3 / 安卓式弹出）
         private float popScale;                                // 弹出动画进度（0~1）
+        private float popAlpha = 1f;                           // 弹出淡入 alpha（0~1，与缩放同步，对齐 demo opacity ease-out）
         private Rect finalWindowRect;                          // 弹出完成的最终窗口位置与大小
         private Vector2 popPivot;                              // 弹出锚点（右键时的鼠标位置）
+
+        // 出现动画水平滑入距离（对齐 demo 左滑入动效）
+        private const float SlideInDistance = 56f;
         private bool returnToTopPending = true;                // 加载视觉结束后需要平滑返回顶端
         private float scrollReturnStartTime = -1f;             // 回顶动画开始时间（时间设定用）
         private float scrollReturnStartPos;                    // 回顶动画开始的滚动位置
+
+        // 加载时平滑推顶（对齐 Gemini demo：每次内容插入后从当前滚动位置 easeOutCubic 推到新目标）
+        private float scrollFollowStartTime = -1f;             // 推顶动画开始时间（-1=未开始）
+        private float scrollFollowStartPos;                    // 推顶动画开始的滚动位置
+        private float scrollFollowTarget;                      // 推顶动画目标滚动位置
 
         // 回顶动画曲线（用户手绘折线导出）：逐渐加速 → 中段最高速 → 再减速到顶端
         // 时间进度 x（0~1）→ 滚动进度 y（0~1），分段线性插值采样
@@ -78,15 +92,17 @@ namespace ModernExpandMenu.UI
         };
 
         // 以下各项读取模组设置（游戏内"选项 → Mod 设置"可调）
+        // 全局动画速度倍率：时长类 ÷ 倍率（>1 更快）、速度类 × 倍率（对齐 demo speedMultiplier）
+        private static float CurrentSpeedMultiplier => Mathf.Max(0.2f, ModernExpandMenuMod.Settings.animationSpeedMultiplier);
         private static int CurrentMaxProcessedPerFrame => Mathf.Max(1, ModernExpandMenuMod.Settings.maxProcessedPerFrame);
         private static float CurrentMaxMenuHeight => ModernExpandMenuMod.Settings.maxMenuHeight;
-        private static float CurrentItemAppearDuration => Mathf.Max(0.02f, ModernExpandMenuMod.Settings.itemAppearDuration);
-        private static float CurrentItemAppearInterval => Mathf.Max(0f, ModernExpandMenuMod.Settings.itemAppearInterval);
-        private static float CurrentPopAnimationDuration => Mathf.Max(0.02f, ModernExpandMenuMod.Settings.popAnimationDuration);
-        private static float CurrentExpandAnimationSpeed => Mathf.Max(0.1f, ModernExpandMenuMod.Settings.expandAnimationSpeed);
-        private static float CurrentScrollFollowSpeed => Mathf.Max(1f, ModernExpandMenuMod.Settings.scrollFollowSpeed);
-        private static float CurrentScrollReturnDuration => Mathf.Max(0.05f, ModernExpandMenuMod.Settings.scrollReturnDuration);
-        private static float CurrentWindowHeightAnimationSpeed => Mathf.Max(10f, ModernExpandMenuMod.Settings.windowHeightAnimationSpeed);
+        private static float CurrentItemAppearDuration => Mathf.Max(0.02f, ModernExpandMenuMod.Settings.itemAppearDuration) / CurrentSpeedMultiplier;
+        private static float CurrentItemAppearInterval => Mathf.Max(0f, ModernExpandMenuMod.Settings.itemAppearInterval) / CurrentSpeedMultiplier;
+        private static float CurrentPopAnimationDuration => Mathf.Max(0.02f, ModernExpandMenuMod.Settings.popAnimationDuration) / CurrentSpeedMultiplier;
+        private static float CurrentExpandAnimationSpeed => Mathf.Max(0.1f, ModernExpandMenuMod.Settings.expandAnimationSpeed) * CurrentSpeedMultiplier;
+        private static float CurrentScrollFollowDuration => Mathf.Max(0.05f, ModernExpandMenuMod.Settings.scrollFollowDuration) / CurrentSpeedMultiplier;
+        private static float CurrentScrollReturnDuration => Mathf.Max(0.05f, ModernExpandMenuMod.Settings.scrollReturnDuration) / CurrentSpeedMultiplier;
+        private static float CurrentWindowHeightAnimationSpeed => Mathf.Max(10f, ModernExpandMenuMod.Settings.windowHeightAnimationSpeed) * CurrentSpeedMultiplier;
 
         /// <summary>模组动画总开关（关闭后所有动画效果停用，界面直接呈现最终状态）。</summary>
         private static bool AnimationsEnabled => ModernExpandMenuMod.Settings.enableAnimations;
@@ -188,6 +204,7 @@ namespace ModernExpandMenu.UI
             popScale = Mathf.Min(1f, popScale + Time.deltaTime / CurrentPopAnimationDuration);
             // ease-out-cubic：先快后慢的缓动，避免生硬
             float scale = 1f - Mathf.Pow(1f - popScale, 3f);
+            popAlpha = scale;   // 淡入与缩放同步（同一 ease-out-cubic）
             windowRect = new Rect(
                 popPivot.x - (popPivot.x - finalWindowRect.x) * scale,
                 popPivot.y - (popPivot.y - finalWindowRect.y) * scale,
@@ -217,6 +234,7 @@ namespace ModernExpandMenu.UI
                     return;   // 弹出期间暂停展开高度刷新，避免高度刷新干扰缩放
                 }
                 popScale = 1f;
+                popAlpha = 1f;
                 windowRect = finalWindowRect;
             }
 
@@ -258,8 +276,8 @@ namespace ModernExpandMenu.UI
 
             // ── 加载 / 滚动流程 ──────────────────────────────
             // 加载中 / 额外显示：窗口没到最大高度前不滚动（内容直接插入扩大的菜单范围，
-            // 组标题从底部连续出现）；只有窗口高度达到上限（内容超出视口）才跟随底部滚动，
-            // 把上面已满的内容踢上去。
+            // 组标题从底部连续出现）；只有窗口高度达到上限（内容超出视口）才做平滑推顶，
+            // 把上面已满的内容用 easeOutCubic 曲线轻轻顶上去（对齐 Gemini demo 手感）。
             // 加载条跑完（extraEndTime 到）→ ShowLoadingVisual 结束 → 直接进入回顶步骤。
             float maxScroll = Mathf.Max(0f, TotalViewHeight - windowRect.height);
             if (isLoading || (extraEndTime >= 0f && now < extraEndTime))
@@ -267,13 +285,33 @@ namespace ModernExpandMenu.UI
                 bool windowAtMaxHeight = windowRect.height >= CurrentMaxMenuHeight - 1f;
                 if (windowAtMaxHeight && maxScroll > 0f)
                 {
-                    scrollPosition.y = AnimationsEnabled
-                        ? Mathf.MoveTowards(scrollPosition.y, maxScroll, Time.deltaTime * CurrentScrollFollowSpeed)
-                        : maxScroll;
+                    if (AnimationsEnabled)
+                    {
+                        // 平滑推顶：目标变化（新内容插入）时从当前滚动位置开始一次
+                        // easeOutCubic 推顶（快速起步、指数减速到位）；连续插入时持续平滑跟随
+                        if (scrollFollowStartTime < 0f || Mathf.Abs(scrollFollowTarget - maxScroll) > 0.5f)
+                        {
+                            scrollFollowStartTime = now;
+                            scrollFollowStartPos = scrollPosition.y;
+                            scrollFollowTarget = maxScroll;
+                        }
+                        float t = Mathf.Clamp01((now - scrollFollowStartTime) / CurrentScrollFollowDuration);
+                        float eased = 1f - Mathf.Pow(1f - t, 3f);
+                        scrollPosition.y = Mathf.Lerp(scrollFollowStartPos, scrollFollowTarget, eased);
+                        if (t >= 1f)
+                        {
+                            scrollPosition.y = maxScroll;
+                        }
+                    }
+                    else
+                    {
+                        scrollPosition.y = maxScroll;
+                    }
                 }
                 else
                 {
                     scrollPosition.y = 0f;   // 没到上限：不滚动，直接插入扩大的菜单范围
+                    scrollFollowStartTime = -1f;   // 未超限时重置，下次插入重新推顶
                 }
                 returnToTopPending = true;
             }
@@ -281,7 +319,17 @@ namespace ModernExpandMenu.UI
             // 加载视觉结束后：按时间设定滚回顶端（用户手绘动态曲线：逐渐加速 → 中段最高速 → 再减速到顶端）
             if (!ShowLoadingVisual && returnToTopPending)
             {
-                if (AnimationsEnabled)
+                // 回顶前停顿：所有项目滑入完成后等待可调时长（对齐 demo 300ms 默认）再开始回顶
+                if (scrollReturnWaitStartTime < 0f)
+                {
+                    scrollReturnWaitStartTime = now;
+                }
+                float waitSeconds = Mathf.Max(0f, ModernExpandMenuMod.Settings.scrollReturnWaitSeconds);
+                if (now - scrollReturnWaitStartTime < waitSeconds)
+                {
+                    // 等待中：保持当前滚动位置
+                }
+                else if (AnimationsEnabled)
                 {
                     if (scrollReturnStartTime < 0f)
                     {
@@ -296,6 +344,7 @@ namespace ModernExpandMenu.UI
                         scrollPosition.y = 0f;
                         returnToTopPending = false;
                         scrollReturnStartTime = -1f;
+                        scrollReturnWaitStartTime = -1f;
                     }
                 }
                 else
@@ -304,6 +353,7 @@ namespace ModernExpandMenu.UI
                     scrollPosition.y = 0f;
                     returnToTopPending = false;
                     scrollReturnStartTime = -1f;
+                    scrollReturnWaitStartTime = -1f;
                 }
             }
 
@@ -324,11 +374,12 @@ namespace ModernExpandMenu.UI
             }
 
             // 窗口高度动态动画：
-            // 加载时逐组申请高度——目标 = 已排定展开的组累计高度（申请一组 → 扩到能插入组的高度 → 插入组就位 → 再申请下一组）；
+            // 加载时逐组申请高度——目标 = 已排定展开的组累计高度（申请一组 → 扩到能插入组的高度 → 插入组就位 → 再申请下一组），
+            // 且至少 MinLoadingHeight（为中央圆形进度条申请最低显示高度，对齐 demo）；
             // 到达高度上限不再加高，改为滚动把上面的组推上去（有足够位置再插入下一组）；
-            // 非加载时目标 = 全部内容高度。
+            // 非加载时目标 = 全部内容高度（加载完成后若内容小于申请高度会自动平滑缩回包裹内容）。
             float targetHeight = ShowLoadingVisual
-                ? Mathf.Min(ComputeRevealedHeight() + MD3Theme.Padding, CurrentMaxMenuHeight)
+                ? Mathf.Clamp(ComputeRevealedHeight() + MD3Theme.Padding, MinLoadingHeight, CurrentMaxMenuHeight)
                 : Mathf.Min(TotalViewHeight, CurrentMaxMenuHeight);
             if (Mathf.Abs(windowRect.height - targetHeight) > 0.5f)
             {
@@ -338,9 +389,21 @@ namespace ModernExpandMenu.UI
                 {
                     heightSpeed *= 4f;
                 }
-                windowRect.height = AnimationsEnabled
-                    ? Mathf.MoveTowards(windowRect.height, targetHeight, Time.deltaTime * heightSpeed)
-                    : targetHeight;
+                if (AnimationsEnabled)
+                {
+                    // MD3 ease-out 指数衰减：快速起步、减速到位（对齐 demo height 过渡的平滑伸展手感；
+                    // 速度参数映射为衰减系数，数值越大越快）
+                    float damping = 1f - Mathf.Exp(-Time.deltaTime * heightSpeed * 0.02f);
+                    windowRect.height += (targetHeight - windowRect.height) * damping;
+                    if (Mathf.Abs(windowRect.height - targetHeight) < 0.5f)
+                    {
+                        windowRect.height = targetHeight;
+                    }
+                }
+                else
+                {
+                    windowRect.height = targetHeight;
+                }
                 if (windowRect.yMax > Verse.UI.screenHeight)
                 {
                     windowRect.y = Verse.UI.screenHeight - windowRect.height - 4f;
@@ -409,9 +472,28 @@ namespace ModernExpandMenu.UI
                 Event.current.Use();
             }
 
-            // MD3 表面卡片背景 + 窗口外框描边（上下左右，MD3 Outline token）
-            MD3Widgets.DrawCard(inRect, MD3Theme.Surface, MD3Theme.WindowCornerRadius);
-            MD3Widgets.DrawRoundedRectOutline(inRect, MD3Theme.Outline, MD3Theme.WindowCornerRadius, 1f, MD3Theme.Surface);
+            // 弹出淡入：窗口本体（背景 + 描边）透明度与缩放同步（对齐 demo opacity 0.2s ease-out）
+            Color windowBackgroundColor = MD3Theme.Surface;
+            Color windowOutlineColor = MD3Theme.Outline;
+            if (popAlpha < 0.999f)
+            {
+                windowBackgroundColor.a *= popAlpha;
+                windowOutlineColor.a *= popAlpha;
+            }
+            // MD3 表面卡片背景 + 窗口外框（边框样式三选：普通描边 / 主色跑马灯 / 彩色流光）
+            MD3Widgets.DrawCard(inRect, windowBackgroundColor, MD3Theme.WindowCornerRadius);
+            switch (ModernExpandMenuMod.Settings.menuBorderStyle)
+            {
+                case ModernExpandMenuSettings.MenuBorderStyle.Marquee:
+                    MD3Widgets.DrawMarqueeBorder(inRect, MD3Theme.WindowCornerRadius, Time.realtimeSinceStartup * 0.6f, 2f);
+                    break;
+                case ModernExpandMenuSettings.MenuBorderStyle.Rainbow:
+                    MD3Widgets.DrawCyberGradientBorder(inRect, MD3Theme.WindowCornerRadius, Time.realtimeSinceStartup / 3f);
+                    break;
+                default:
+                    MD3Widgets.DrawRoundedRectOutline(inRect, windowOutlineColor, MD3Theme.WindowCornerRadius, 2f, windowBackgroundColor);
+                    break;
+            }
 
             // 内容视口从加载条下方开始（避免组与加载条重叠；组边框在 DrawGroups 内绘制）
             float loadingBarTop = MD3Theme.Padding + LoadingBarHeight + LoadingBarGap;
@@ -430,8 +512,13 @@ namespace ModernExpandMenu.UI
             if (blockInteraction)
             {
                 float progress = ComputeLoadProgress();
-                // 覆盖层调浅，让"逐组展开"的加载动画透出可见（仍拦截交互）
-                MD3Widgets.DrawRoundedRect(inRect, new Color(0f, 0f, 0f, 0.25f), MD3Theme.WindowCornerRadius);
+                // 覆盖层（透明度可调，默认 0.25）：让"逐组展开"的加载动画透出可见（仍拦截交互）；弹出淡入时同步淡入
+                Color overlayColor = new Color(0f, 0f, 0f, Mathf.Clamp(ModernExpandMenuMod.Settings.loadingMaskOpacity, 0f, 0.6f));
+                if (popAlpha < 0.999f)
+                {
+                    overlayColor.a *= popAlpha;
+                }
+                MD3Widgets.DrawRoundedRect(inRect, overlayColor, MD3Theme.WindowCornerRadius);
                 // 中央环形进度（保留环形本身，无发光/呼吸/亮点）+ 下方百分比
                 var ringRect = new Rect(inRect.center.x - 24f, inRect.center.y - 32f, 48f, 48f);
                 DrawProgressRing(ringRect, progress);
@@ -679,16 +766,34 @@ namespace ModernExpandMenu.UI
             return Mathf.Max(MD3Theme.ItemRowHeight, wrappedHeight + 2f);
         }
 
-        /// <summary>某分组"已开始动画"的子项目总高度（下一个子项目未到动画时间前不占高，逐项占高）。</summary>
+        /// <summary>
+        /// 某项当前占高系数（0~1）：排定后从 0 平滑伸展到 1（MD3 ease-out-cubic，时长与滑入一致），
+        /// 对齐 Gemini demo 的 wrapper 高度动画 —— 新项插入时"申请空间"平滑顶出。
+        /// </summary>
+        private float GetEntryHeightFactor(ItemActionEntry entry, float now)
+        {
+            if (entry.appearTime < 0f)
+            {
+                return 0f;   // 未排定：不占高
+            }
+            if (!AnimationsEnabled)
+            {
+                return 1f;   // 动画关闭：直接占满
+            }
+            float t = Mathf.Clamp01((now - entry.appearTime) / CurrentItemAppearDuration);
+            return 1f - Mathf.Pow(1f - t, 3f);   // ease-out-cubic 平滑伸展
+        }
+
+        /// <summary>某分组"已排定动画"的子项目总高度（每项按伸展进度逐项占高，未排定不占高）。</summary>
         private float ComputeActionsHeight(StoredItemGroup group, float contentWidth)
         {
             float height = 0f;
             float now = Time.realtimeSinceStartup;
             foreach (ItemActionEntry entry in group.actions)
             {
-                if (entry.appearTime >= 0f && now >= entry.appearTime)
+                if (entry.appearTime >= 0f)
                 {
-                    height += GetActionRowHeight(entry, contentWidth);
+                    height += GetActionRowHeight(entry, contentWidth) * GetEntryHeightFactor(entry, now);
                 }
             }
             return height;
@@ -852,9 +957,10 @@ namespace ModernExpandMenu.UI
             }
             else if (!hasAppeared && appearTime >= 0f)
             {
-                // 出现中：纯水平从左向右滑入（不做垂直偏移，避免"左下→右上"对角线）
-                anim.alpha = appearProgress;
-                anim.offsetX = -(1f - appearProgress) * 20f;
+                // 出现中：纯水平从左向右滑入（ease-out-cubic 缓动 + 加大距离，对齐 demo slide-in）
+                float eased = 1f - Mathf.Pow(1f - appearProgress, 3f);
+                anim.alpha = eased;
+                anim.offsetX = -(1f - eased) * SlideInDistance;
                 anim.offsetY = 0f;
             }
             else if (!hasAppeared)
@@ -1014,21 +1120,24 @@ namespace ModernExpandMenu.UI
         }
 
         /// <summary>
-        /// 绘制窗口顶端的加载条（纯色无发光）：轨道 + 已完成段（主色）+ 前端 + 缓冲段（半透明）。
+        /// 绘制窗口顶端的 Copilot 风格加载条：轨道 + 平滑进度 + 前端亮点 + 脉冲缓冲 + 光带跑马灯。
+        /// 顶条位于菜单最上端（独立高度、四周留有间隙），绘制在最上层不被中央元素遮挡。
         /// </summary>
         private void DrawLoadingBar(Rect barRect, float progress)
         {
+            float now = Time.realtimeSinceStartup;
+
             // 轨道
             MD3Widgets.DrawRoundedRect(barRect, MD3Theme.SurfaceContainer, 2f);
 
-            // 已完成段（主色）
+            // 已完成段（主色；progress 连续变化即平滑过渡）
             float fillWidth = barRect.width * progress;
             if (fillWidth > 1f)
             {
                 MD3Widgets.DrawRoundedRect(new Rect(barRect.x, barRect.y, fillWidth, barRect.height), MD3Theme.Primary, 2f);
             }
 
-            // 前端（随加载进度前移）
+            // 前端亮点（随加载进度前移）
             float tipWidth = Mathf.Min(20f, barRect.width * 0.12f);
             float tipX = barRect.x + fillWidth - tipWidth;
             if (progress < 1f && tipX + tipWidth <= barRect.xMax)
@@ -1036,12 +1145,22 @@ namespace ModernExpandMenu.UI
                 MD3Widgets.DrawRoundedRect(new Rect(tipX, barRect.y, tipWidth, barRect.height), MD3Theme.Primary, 2f);
             }
 
-            // 缓冲段（填充前端之后）：半透明
-            float bufferWidth = barRect.width * 0.15f;
+            // 脉冲缓冲段（缓冲长度与实际进度匹配，呼吸脉动；对齐 demo buffer-pulse）
+            float bufferWidth = Mathf.Min(barRect.width * 0.2f, Mathf.Max(12f, barRect.width * 0.08f));
+            float pulse = 0.5f + 0.5f * Mathf.Sin(now * 4f);
             if (progress < 1f && fillWidth + bufferWidth < barRect.width)
             {
                 var bufferRect = new Rect(barRect.x + fillWidth, barRect.y, bufferWidth, barRect.height);
-                MD3Widgets.DrawRoundedRect(bufferRect, new Color(MD3Theme.Primary.r, MD3Theme.Primary.g, MD3Theme.Primary.b, 0.3f), 2f);
+                Color bufferColor = MD3Theme.Primary;
+                bufferColor.a = 0.22f + 0.28f * pulse;
+                MD3Widgets.DrawRoundedRect(bufferRect, bufferColor, 2f);
+            }
+
+            // Copilot 光带跑马灯（loadingBarMarquee 开关）：轨道内主色渐变光带从左到右循环扫过
+            if (ModernExpandMenuMod.Settings.loadingBarMarquee && progress < 1f)
+            {
+                float sweepT = (now % 1.2f) / 1.2f;   // 1.2s 一圈
+                MD3Widgets.DrawHorizontalSweep(barRect, sweepT, 0.35f, MD3Theme.Primary);
             }
         }
 

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ModernExpandMenu 设置界面还原（供 Gemini 对比）</title>
+<style>
+  /* ═══════════ MD3 配色 Token（当前默认值：菜单色 = 杂项色）═══════════ */
+  :root {
+    --primary: #00A8FF;
+    --on-primary: #001421;
+    --surface: #161821;
+    --surface-container: #1E212D;
+    --surface-container-high: #262A3A;
+    --on-surface: #E6E6EC;
+    --on-surface-variant: #9A9BA6;
+    --outline: #636676;
+    --disabled: #80808C;
+    --track: #26262E;
+    --thumb: #525261;
+    --thumb-drag: #737385;
+    --card-radius: 10px;
+    --btn-radius: 6px;
+    --font: 'Segoe UI', system-ui, 'Microsoft YaHei', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0c0d12;
+    color: var(--on-surface);
+    font-family: var(--font);
+    font-size: 13px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    user-select: none;
+  }
+  /* 整窗 MD3 表面卡片 */
+  .window {
+    width: 1000px;
+    max-width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--outline);
+    border-radius: 12px;
+    padding: 14px 20px 20px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
+  }
+  /* 顶部两大类胶囊 tab */
+  .category-bar { display: flex; gap: 8px; margin-bottom: 10px; }
+  .category-tab {
+    flex: 1; height: 36px; border-radius: 6px;
+    background: var(--surface-container-high);
+    color: var(--on-surface);
+    border: none; cursor: pointer;
+    font: inherit; transition: background .15s;
+  }
+  .category-tab:hover { filter: brightness(1.15); }
+  .category-tab.active { background: var(--primary); color: var(--on-primary); }
+  /* 主体两栏 */
+  .body { display: flex; gap: 12px; }
+  /* ── 左侧实时预览区 ── */
+  .preview {
+    width: 36%; flex-shrink: 0;
+    display: flex; flex-direction: column;
+  }
+  .preview-title { color: var(--primary); margin-bottom: 6px; }
+  .preview-tabs { display: flex; gap: 6px; margin-bottom: 10px; }
+  .preview-tab {
+    flex: 1; height: 26px; border-radius: 6px;
+    background: var(--surface-container-high);
+    color: var(--on-surface); border: none; cursor: pointer; font: inherit;
+  }
+  .preview-tab.active { background: var(--primary); color: var(--on-primary); }
+  .preview-box {
+    flex: 1; border: 1px solid var(--outline); border-radius: 8px;
+    background: var(--surface-container); padding: 12px;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 420px;
+  }
+  /* 模拟右键菜单预览 */
+  .menu-preview {
+    border: 1px solid var(--outline); border-radius: 8px;
+    background: var(--surface); overflow: hidden;
+  }
+  .menu-group { border-bottom: 1px solid var(--surface-container-high); }
+  .menu-group-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px; background: var(--surface-container-high); cursor: pointer;
+  }
+  .menu-group-header .arrow { margin-left: auto; color: var(--primary); }
+  .menu-group-actions { padding: 2px 6px 6px; }
+  .menu-action {
+    display: flex; align-items: center; gap: 8px;
+    margin: 2px 4px; padding: 6px 8px; border-radius: 6px;
+    background: var(--surface-container-high);
+  }
+  .menu-action .icon { color: var(--primary); }
+  /* 模拟杂项窗口预览 */
+  .misc-win {
+    border: 1px solid var(--outline); border-radius: 8px;
+    background: var(--surface); padding: 10px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .misc-tabs { display: flex; gap: 6px; }
+  .misc-tab {
+    flex: 1; height: 22px; border-radius: 6px; border: none; cursor: pointer;
+    background: var(--surface-container-high); color: var(--on-surface); font: inherit;
+  }
+  .misc-tab.active { background: var(--primary); color: var(--on-primary); }
+  /* ── 右侧设置区 ── */
+  .settings { flex: 1; min-width: 0; }
+  .sub-tabs { display: flex; gap: 6px; margin-bottom: 12px; }
+  .sub-tab {
+    flex: 1; height: 32px; border-radius: 6px; border: none; cursor: pointer;
+    background: var(--surface-container-high); color: var(--on-surface); font: inherit;
+  }
+  .sub-tab.active { background: var(--primary); color: var(--on-primary); }
+  .scroll-area {
+    max-height: 480px; overflow-y: auto; padding-right: 8px;
+    scrollbar-width: thin; scrollbar-color: var(--thumb) var(--track);
+  }
+  .scroll-area::-webkit-scrollbar { width: 6px; }
+  .scroll-area::-webkit-scrollbar-track { background: var(--track); border-radius: 3px; }
+  .scroll-area::-webkit-scrollbar-thumb { background: var(--thumb); border-radius: 3px; }
+  /* 卡片 */
+  .card {
+    background: var(--surface-container);
+    border: 1px solid var(--outline); border-radius: var(--card-radius);
+    padding: 8px 14px 10px; margin-bottom: 12px;
+  }
+  .card-title { color: var(--primary); margin-bottom: 6px; }
+  .row {
+    display: flex; align-items: center; gap: 10px;
+    height: 30px; position: relative;
+  }
+  .row label { flex: 1; cursor: default; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* 安卓滑动开关 */
+  .switch { position: relative; width: 38px; height: 20px; flex-shrink: 0; cursor: pointer; }
+  .switch input { display: none; }
+  .switch .track {
+    position: absolute; inset: 0; border-radius: 10px;
+    background: var(--surface-container-high); transition: background .2s;
+  }
+  .switch .knob {
+    position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+    border-radius: 50%; background: #fff;
+    transition: left .25s cubic-bezier(.05,.7,.1,1);
+    box-shadow: 0 1px 3px rgba(0,0,0,.4);
+  }
+  .switch input:checked + .track { background: var(--primary); }
+  .switch input:checked + .track + .knob { left: 20px; }
+  /* 滑块行 */
+  .slider-row { display: flex; align-items: center; gap: 8px; height: 30px; }
+  .slider-row label { width: 42%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .slider-row input[type=range] {
+    flex: 1; -webkit-appearance: none; appearance: none; height: 4px;
+    background: linear-gradient(to right, var(--primary) 0%, var(--primary) var(--fill,50%), var(--surface-container-high) var(--fill,50%));
+    border-radius: 2px; outline: none;
+  }
+  .slider-row input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--primary); cursor: pointer; border: none;
+  }
+  .slider-row .value {
+    width: 56px; height: 26px; border-radius: 4px;
+    background: var(--surface-container-high); color: var(--primary);
+    display: flex; align-items: center; justify-content: center; font-size: 12px;
+  }
+  /* 按钮 */
+  .md3-btn {
+    border: none; border-radius: var(--btn-radius); cursor: pointer;
+    background: var(--surface-container-high); color: var(--on-surface);
+    padding: 0 12px; height: 30px; font: inherit;
+  }
+  .md3-btn:hover { filter: brightness(1.15); }
+  .md3-btn.primary { background: var(--primary); color: var(--on-primary); }
+  .btn-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .btn-row .md3-btn { flex: 1; min-width: 0; }
+  /* 调色板按钮 */
+  .palette-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 4px; }
+  .palette-btn {
+    border: 1px solid var(--outline); border-radius: 6px; cursor: pointer;
+    background: var(--surface-container-high); color: var(--on-surface);
+    height: 34px; font: inherit;
+  }
+  .palette-btn:hover { filter: brightness(1.15); }
+  /* 颜色行 */
+  .color-row { display: flex; align-items: center; gap: 8px; height: 30px; }
+  .swatch { width: 24px; height: 24px; border-radius: 4px; border: 1px solid var(--outline); flex-shrink: 0; }
+  .color-row label { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .color-row input[type=text] {
+    width: 88px; height: 24px; border-radius: 6px; border: 1.5px solid var(--primary);
+    background: var(--surface-container-high); color: var(--on-surface);
+    padding: 0 6px; font: inherit; text-align: center;
+  }
+  .color-row input[type=color] { width: 30px; height: 24px; border: none; background: none; cursor: pointer; }
+  /* tooltip */
+  .row .tip {
+    display: none; position: absolute; left: 10px; top: -34px;
+    background: var(--surface-container-high); border: 1px solid var(--outline);
+    border-radius: 6px; padding: 4px 8px; font-size: 11px; z-index: 10;
+    white-space: normal; width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,.4);
+  }
+  .row:hover .tip { display: block; }
+  .hint { color: var(--on-surface-variant); font-size: 11px; margin-top: 6px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="window">
+  <!-- 顶部两大类 -->
+  <div class="category-bar">
+    <button class="category-tab active" data-cat="menu" onclick="setCategory('menu')">扩展菜单</button>
+    <button class="category-tab" data-cat="misc" onclick="setCategory('misc')">其他</button>
+  </div>
+
+  <div class="body">
+    <!-- 左侧实时预览区 -->
+    <div class="preview">
+      <div class="preview-title">实时预览</div>
+      <div class="preview-tabs">
+        <button class="preview-tab active" onclick="setPreview('menu')">扩展菜单</button>
+        <button class="preview-tab" onclick="setPreview('misc')">杂项</button>
+      </div>
+      <div class="preview-box">
+        <div id="previewMenu" class="menu-preview">
+          <div class="menu-group">
+            <div class="menu-group-header" onclick="toggleGroup(this)"><span>▣</span> 皮帽 ×12 <span class="arrow">▾</span></div>
+            <div class="menu-group-actions">
+              <div class="menu-action"><span class="icon">❯</span> 强制穿戴：皮帽</div>
+              <div class="menu-action"><span class="icon">❯</span> 拾取：皮帽</div>
+              <div class="menu-action"><span class="icon">❯</span> 搬运到储物区</div>
+            </div>
+          </div>
+          <div class="menu-group">
+            <div class="menu-group-header" onclick="toggleGroup(this)"><span>▣</span> 钢锭 ×80 <span class="arrow">▾</span></div>
+            <div class="menu-group-actions">
+              <div class="menu-action"><span class="icon">❯</span> 拾取全部：钢锭</div>
+              <div class="menu-action"><span class="icon">❯</span> 搬运到储物区</div>
+            </div>
+          </div>
+          <div class="menu-group" style="border-bottom:none">
+            <div class="menu-group-header" onclick="toggleGroup(this)"><span>▣</span> 其他 <span class="arrow">▾</span></div>
+            <div class="menu-group-actions">
+              <div class="menu-action"><span class="icon">❯</span> 走到这里</div>
+            </div>
+          </div>
+        </div>
+        <div id="previewMisc" class="misc-win" style="display:none">
+          <div style="color:var(--on-surface)">模拟设置窗口</div>
+          <div class="misc-tabs">
+            <button class="misc-tab active">概况</button>
+            <button class="misc-tab">手术</button>
+          </div>
+          <div class="row" style="height:26px"><label>食物方案</label><div style="flex:1;height:24px;background:var(--surface-container-high);border-radius:6px;border:1px solid var(--outline);display:flex;align-items:center;padding:0 8px">无限制 <span style="margin-left:auto;color:var(--primary)">▾</span></div></div>
+          <div style="display:flex;gap:6px"><button class="md3-btn">普通按钮</button><button class="md3-btn primary">强调按钮</button></div>
+          <div class="slider-row" style="height:26px"><label>滑块</label><input type="range" min="0" max="100" value="60" oninput="fill(this)"><span class="value" style="width:46px;height:22px">60%</span></div>
+          <div class="row" style="height:26px"><label>滑动开关</label><label class="switch"><input type="checkbox" checked><span class="track"></span><span class="knob"></span></label></div>
+          <div class="row" style="height:26px"><label>输入框</label><input type="text" value="Modern Expand Menu" style="flex:1;height:24px;background:var(--surface-container-high);border:1.5px solid var(--primary);border-radius:6px;color:var(--on-surface);padding:0 6px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧设置区 -->
+    <div class="settings">
+      <div id="subTabs" class="sub-tabs"></div>
+      <div class="scroll-area" id="content"></div>
+    </div>
+  </div>
+  <div class="hint">此页面为游戏内设置界面还原（含交互），用于与 Gemini 的 demo 对比。</div>
+</div>
+
+<script>
+  // ═══════════ 数据：设置项定义 ═══════════
+  const CONFIG = {
+    menu: {
+      tabs: ['常规', '动画', '颜色', '预览'],
+      content: (tab) => {
+        if (tab === 0) return generalContent();
+        if (tab === 1) return animationContent();
+        if (tab === 2) return colorContent();
+        return previewContent('扩展菜单预览窗口');
+      }
+    },
+    misc: {
+      tabs: ['全局样式', '颜色', '预览'],
+      content: (tab) => {
+        if (tab === 0) return globalStyleContent();
+        if (tab === 1) return colorContent(true);
+        return previewContent('杂项样式预览窗口');
+      }
+    }
+  };
+
+  function row(id, label, tip) {
+    return `<div class="row"><label>${label}</label><div class="tip">${tip || label}</div>
+      <label class="switch"><input type="checkbox" id="${id}"><span class="track"></span><span class="knob"></span></label></div>`;
+  }
+  function slider(id, label, val, unit, min, max) {
+    return `<div class="slider-row"><label>${label}</label>
+      <input type="range" id="${id}" min="${min}" max="${max}" value="${val}" oninput="fill(this);updateVal(this)"/>
+      <span class="value" id="${id}-v">${val}${unit}</span></div>`;
+  }
+  function colorRow(id, label, hex) {
+    return `<div class="color-row"><span class="swatch" style="background:${hex}" onclick="copyHex('${hex}')"></span>
+      <label>${label}</label><input type="color" value="${hex}" oninput="syncHex(this)"><input type="text" value="${hex}"></div>`;
+  }
+
+  // ── 扩展菜单 → 常规 ──
+  function generalContent() {
+    return `
+      <div class="card"><div class="card-title">外观</div>
+        ${row('c1','启用模组（关闭后完全使用原版右键菜单')}
+        ${row('c2','禁用开发者模式的伪翻译字符')}
+        ${row('c3','显示加载动画（顶部缓冲条+环形进度+覆盖层+逐条载入）')}
+        ${row('c4','悬停操作项时高亮目标物品并绘制发光箭头')}
+        ${row('c5','分组标题显示物品总数（×N）')}
+      </div>
+      <div class="card"><div class="card-title">性能</div>
+        ${slider('p1','悬浮窗最大高度（像素）',560,'',300,900)}
+        ${slider('p2','每帧处理的物品实例数',6,'',2,30)}
+      </div>
+      <div class="card"><div class="card-title">加载动画</div>
+        ${slider('p3','进度条强制额外显示时间（秒）',0.5,'',0,5)}
+      </div>
+      <div class="card"><div class="card-title">配置</div>
+        <button class="md3-btn" style="width:100%;margin-bottom:6px">恢复默认设置</button>
+        <div class="btn-row">
+          <button class="md3-btn">导出到文件</button><button class="md3-btn">复制配置</button>
+          <button class="md3-btn">从剪贴板导入</button><button class="md3-btn">从文件导入</button>
+          <button class="md3-btn">管理配置</button>
+        </div>
+      </div>`;
+  }
+  // ── 扩展菜单 → 动画 ──
+  function animationContent() {
+    return `
+      <div class="card"><div class="card-title">总开关</div>
+        ${row('a1','启用动画（关闭后停用所有动画效果）')}
+      </div>
+      <div class="card"><div class="card-title">动画速度</div>
+        ${slider('a2','单条滑入动画时长（秒）',0.25,'',0.05,1)}
+        ${slider('a3','相邻项就位间隔（秒）',0.03,'',0,0.5)}
+        ${slider('a4','窗口弹出动画时长（秒）',0.18,'',0.05,1)}
+        ${slider('a5','分组展开折叠速度',10,'',1,20)}
+        ${slider('a6','加载时平滑推顶时长（秒）',0.35,'',0.05,2)}
+        ${slider('a7','加载后滚动回顶速度',0.6,'',0.2,2)}
+        ${slider('a8','窗口高度动画速度',200,'',30,400)}
+      </div>`;
+  }
+  // ── 颜色（palette 参数控制标题；杂项配色独立）──
+  function colorContent(misc) {
+    const title = misc ? '杂项配色（全局 MD3 替换功能用）' : '扩展菜单配色（右键菜单用）';
+    const palettes = ['水影蓝','赛博紫','翡翠绿','熔岩橙','粉彩玫瑰','冰雪蓝'];
+    const colors = [
+      ['主色','#00A8FF'],['主色前景','#001421'],['窗口表面','#161821'],['次级表面','#1E212D'],
+      ['强调表面','#262A3A'],['主文本','#E6E6EC'],['次要文本','#9A9BA6'],['描边','#636676'],
+      ['禁用文本','#80808C'],['阴影','#000000'],['滚动条轨道','#26262E'],['滚动条滑块','#525261'],['滚动条拖动','#737385']
+    ];
+    return `
+      <div class="card"><div class="card-title">调色板（${title}）</div>
+        <div class="palette-grid">${palettes.map(p=>`<button class="palette-btn">${p}</button>`).join('')}</div>
+      </div>
+      <div class="card"><div class="card-title">主色</div>${colorRow('','主色','#00A8FF')}${colorRow('','主色前景','#001421')}</div>
+      <div class="card"><div class="card-title">表面</div>
+        ${colorRow('','窗口表面','#161821')}${colorRow('','次级表面','#1E212D')}${colorRow('','强调表面','#262A3A')}
+      </div>
+      <div class="card"><div class="card-title">文本</div>
+        ${colorRow('','主文本','#E6E6EC')}${colorRow('','次要文本','#9A9BA6')}${colorRow('','描边','#636676')}${colorRow('','禁用文本','#80808C')}
+      </div>
+      <div class="card"><div class="card-title">滚动条</div>
+        ${colorRow('','滚动条轨道','#26262E')}${colorRow('','滚动条滑块','#525261')}${colorRow('','滚动条拖动','#737385')}
+      </div>
+      <div class="card"><div class="card-title">阴影</div>${colorRow('','阴影','#000000')}</div>`;
+  }
+  // ── 其他 → 全局样式（12 开关，带 tooltip）──
+  function globalStyleContent() {
+    const items = [
+      ['g1','原版输入框全部改为 MD3 样式','开启后游戏中所有原版输入框统一换成 MD3 无边框样式，仅外观变化'],
+      ['g2','原版按钮与复选框改为 MD3 样式','开启后所有原版按钮、复选框、tab 分页与滚动条统一换成 MD3 圆角样式'],
+      ['g3','跳过上传等待倒计时','跳过创意工坊上传确认的 6 秒等待，立即可上传'],
+      ['g4','空格仅暂停、不解除暂停','空格键只触发暂停；已暂停时再按空格不会解除'],
+      ['g5','原版窗口边框 MD3 化','所有原版窗口使用 MD3 圆角卡片背景 + 主色描边'],
+      ['g6','命令按钮（征召/解散/攻击等）MD3 化','底部命令栏按钮使用 MD3 圆角背景'],
+      ['g7','菜单区块 / 列表行 MD3 化','药物/食物限制、手术清单、文化列表等区块使用 MD3 圆角卡片'],
+      ['g8','管制栏（时间表）MD3 化','时间表 tab 的管制按钮使用 MD3 胶囊样式'],
+      ['g9','信息卡内容 MD3 化 + 修复栏重叠','左下信息卡内容使用 MD3 卡片背景，修复状态栏重叠'],
+      ['g10','统计界面分组卡片美化','历史 tab 统计数据按分组显示为 MD3 卡片'],
+      ['g11','文化菜单（文化行+模因大方块）MD3 化','文化 tab 的文化行与模因使用 MD3 圆角描边'],
+      ['g12','强制显示「上传/更新到创意工坊」按钮','无需开发者模式或已订阅，可强制上传/更新已发布的模组']
+    ];
+    return `<div class="card"><div class="card-title">全局样式（全部带悬停说明）</div>
+      ${items.map(i=>row(i[0],i[1],i[2])).join('')}
+    </div>`;
+  }
+  function previewContent(name) {
+    return `<div class="card"><div class="card-title">预览</div>
+      <button class="md3-btn primary" style="width:100%">打开${name}</button>
+      <div class="hint" style="margin-top:8px">左侧已有实时预览，此处可打开独立放大窗口</div>
+    </div>`;
+  }
+
+  // ═══════════ 交互 ═══════════
+  let category = 'menu', subTab = 0, previewTab = 'menu';
+
+  function setCategory(c) {
+    category = c; subTab = 0;
+    document.querySelectorAll('.category-tab').forEach(b=>b.classList.toggle('active', b.dataset.cat===c));
+    render();
+  }
+  function render() {
+    const cfg = CONFIG[category];
+    document.getElementById('subTabs').innerHTML = cfg.tabs.map((t,i)=>
+      `<button class="sub-tab ${i===subTab?'active':''}" onclick="setSubTab(${i})">${t}</button>`).join('');
+    document.getElementById('content').innerHTML = cfg.content(subTab);
+  }
+  function setSubTab(i) { subTab = i; render(); }
+  function setPreview(p) {
+    previewTab = p;
+    document.querySelectorAll('.preview-tab').forEach(b=>b.classList.toggle('active', b.textContent===(p==='menu'?'扩展菜单':'杂项')));
+    document.getElementById('previewMenu').style.display = p==='menu' ? '' : 'none';
+    document.getElementById('previewMisc').style.display = p==='misc' ? '' : 'none';
+  }
+  // 菜单预览：点击组标题展开/折叠
+  function toggleGroup(h) {
+    const actions = h.nextElementSibling;
+    const arrow = h.querySelector('.arrow');
+    const open = actions.style.display !== 'none';
+    actions.style.display = open ? 'none' : '';
+    arrow.textContent = open ? '▸' : '▾';
+  }
+  // 滑块填充色与数值
+  function fill(input) {
+    const pct = (input.value - input.min) / (input.max - input.min) * 100;
+    input.style.setProperty('--fill', pct + '%');
+  }
+  function updateVal(input) {
+    const v = document.getElementById(input.id + '-v');
+    const step = parseFloat(input.step || '1');
+    v.textContent = (step < 1 ? parseFloat(input.value).toFixed(2) : input.value) + (v.dataset.unit || '');
+  }
+  // 颜色输入联动
+  function syncHex(input) {
+    const text = input.closest('.color-row').querySelector('input[type=text]');
+    text.value = input.value.toUpperCase();
+  }
+  function copyHex(hex) { navigator.clipboard && navigator.clipboard.writeText(hex); }
+  // 初始化：给滑块补 step
+  function initSliders() {
+    document.querySelectorAll('input[type=range]').forEach(s=>{ fill(s); s.dataset.unit = ''; });
+  }
+  // 拦截滑块文本
+  setInterval(()=>{}, 1000);
+  render();
+</script>
+</body>
+</html>

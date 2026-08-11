@@ -82,4 +82,17 @@ namespace ModernExpandMenu
             }
         }
     }
+
+    /// <summary>本模组设置窗口放大（对齐「设置菜单再做大一些」，只对本模组生效，不影响其他 Mod 设置窗口）。</summary>
+    [HarmonyPatch(typeof(Dialog_ModSettings), "InitialSize", MethodType.Getter)]
+    public static class Patch_ModSettingsInitialSize
+    {
+        private static void Postfix(Dialog_ModSettings __instance, ref Vector2 __result)
+        {
+            if (Patch_WindowOnGUI_MD3.GetTargetMod(__instance) is ModernExpandMenuMod)
+            {
+                __result = new Vector2(1180f, 860f);
+            }
+        }
+    }
 }

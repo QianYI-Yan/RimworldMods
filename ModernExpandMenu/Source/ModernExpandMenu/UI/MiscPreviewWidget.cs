@@ -113,10 +113,31 @@ namespace ModernExpandMenu.UI
             sliderValue = MD3Widgets.MD3Slider(new Rect(innerX + 78f, cy - 2f, innerWidth - 78f, 24f), sliderValue, 0f, 1f, 604, MiscTheme.Primary, MiscTheme.SurfaceContainerHigh);
             cy += 32f;
 
-            // ── 模拟复选框（CheckboxDraw → 滑动开关）──
-            DrawRowLabel(innerX, cy, "ModernExpandMenu_MiscPreviewSwitch".Translate());
-            switchValue = MD3Widgets.MD3ToggleSwitch(new Rect(innerX + 78f, cy - 2f, 110f, 24f), switchValue, 605, MiscTheme.Primary, MiscTheme.SurfaceContainerHigh, MiscTheme.Surface);
-            cy += 32f;
+            // ── 模拟复选框（按「开关风格」设置渲染：原版 / 滑动开关 / 赛博炫酷）──
+            var previewSwitchRect = new Rect(innerX + 78f, cy - 2f, 110f, 24f);
+            var switchStyle = ModernExpandMenuMod.Settings.switchStyle;
+            if (switchStyle == ModernExpandMenuSettings.SwitchStyle.Cyber)
+            {
+                // 赛博：完整 demo 卡片（图标 + 标题 + 描述 + 徽章，点击整行切换）
+                switchValue = MD3Widgets.MD3CyberSwitch(new Rect(innerX, cy - 2f, innerWidth, 56f),
+                    "ModernExpandMenu_MiscPreviewSwitch".Translate(), "", switchValue, 605);
+                cy += 58f;
+            }
+            else
+            {
+                DrawRowLabel(innerX, cy, "ModernExpandMenu_MiscPreviewSwitch".Translate());
+                if (switchStyle == ModernExpandMenuSettings.SwitchStyle.Vanilla)
+                {
+                    bool newSwitchValue = switchValue;
+                    Widgets.Checkbox(new Vector2(previewSwitchRect.x, previewSwitchRect.y), ref newSwitchValue);
+                    switchValue = newSwitchValue;
+                }
+                else
+                {
+                    switchValue = MD3Widgets.MD3ToggleSwitch(previewSwitchRect, switchValue, 605, MiscTheme.Primary, MiscTheme.SurfaceContainerHigh, MiscTheme.Surface);
+                }
+                cy += 32f;
+            }
 
             // ── 模拟输入框（TextField MD3）──
             DrawRowLabel(innerX, cy, "ModernExpandMenu_MiscPreviewInput".Translate());

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Cyberpunk Switch Demo</title>
+  <style>
+    :root {
+      --md-primary: #00a8ff;
+      --md-accent: #00ffcc;
+      --md-pink: #ff007f;
+      --md-surface: #0a0c10;
+      --md-surface-card: #141720;
+      --md-on-surface: #e2e2e9;
+      --md-on-surface-variant: #8b90a0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--md-surface);
+      color: var(--md-on-surface);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 40px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      overflow-x: hidden;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--md-primary);
+      text-shadow: 0 0 12px rgba(0, 168, 255, 0.6);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       终极炫酷 Style B：极光霓虹网格卡片
+       ═══════════════════════════════════════════════════ */
+    .cyber-card-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      border-radius: 20px;
+      padding: 2px;
+      background: transparent;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    /* 1. 外层流光循环边框 */
+    .cyber-card-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 2px;
+      background: linear-gradient(90deg, var(--md-primary), var(--md-accent), var(--md-pink), var(--md-primary));
+      background-size: 300% 100%;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .cyber-card-wrapper.active::before {
+      opacity: 1;
+      animation: rainbowGlow 3s linear infinite;
+    }
+
+    @keyframes rainbowGlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 300% 0%; }
+    }
+
+    /* 2. 卡片主体 */
+    .cyber-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      border-radius: 18px;
+      background: var(--md-surface-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* 点击 3D 压感 */
+    .cyber-card-wrapper:active .cyber-card {
+      transform: scale(0.96) translateZ(-12px);
+    }
+
+    /* 激活态背景：动态发光极光 + 网格背景 */
+    .cyber-card-wrapper.active .cyber-card {
+      background: radial-gradient(circle at 80% 50%, rgba(0, 255, 204, 0.15), transparent 70%),
+                  radial-gradient(circle at 20% 50%, rgba(0, 168, 255, 0.25), transparent 70%),
+                  #10141e;
+      box-shadow: 0 10px 40px rgba(0, 168, 255, 0.3),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+
+    /* 3. 背景网格与光晕流动动画 */
+    .cyber-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 16px 16px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+
+    .cyber-card-wrapper.active .cyber-bg-grid {
+      opacity: 0.6;
+      animation: gridMove 8s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 32px 32px; }
+    }
+
+    /* 4. 斜向扫光束 */
+    .cyber-light-sweep {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transform: skewX(-25deg);
+      pointer-events: none;
+    }
+
+    .cyber-card-wrapper.active .cyber-light-sweep {
+      animation: sweepAnim 0.6s ease-out;
+    }
+
+    @keyframes sweepAnim {
+      0% { left: -100%; }
+      100% { left: 200%; }
+    }
+
+    /* 内容区 */
+    .card-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .card-icon {
+      width: 30px;
+      height: 30px;
+      fill: var(--md-on-surface-variant);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .cyber-card-wrapper.active .card-icon {
+      fill: var(--md-accent);
+      transform: scale(1.25) rotate(15deg);
+      filter: drop-shadow(0 0 10px var(--md-accent));
+    }
+
+    .card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--md-on-surface);
+      transition: all 0.3s ease;
+    }
+
+    .cyber-card-wrapper.active .card-title {
+      color: #ffffff;
+      font-weight: 600;
+      text-shadow: 0 0 12px rgba(0, 255, 204, 0.6);
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--md-on-surface-variant);
+      transition: color 0.3s ease;
+    }
+
+    .cyber-card-wrapper.active .card-desc {
+      color: var(--md-primary);
+    }
+
+    /* 5. 徽章与多重爆裂冲击波 */
+    .badge-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .shockwave-1, .shockwave-2 {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid var(--md-accent);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .cyber-card-wrapper.active .shockwave-1 {
+      animation: pulseWave 0.6s ease-out;
+    }
+    .cyber-card-wrapper.active .shockwave-2 {
+      animation: pulseWave 0.6s ease-out 0.15s;
+    }
+
+    @keyframes pulseWave {
+      0% { transform: scale(0.8); opacity: 1; border-color: var(--md-accent); }
+      100% { transform: scale(2.4); opacity: 0; border-color: var(--md-pink); }
+    }
+
+    .card-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .card-badge svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: var(--md-on-surface-variant);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+
+    .cyber-card-wrapper.active .card-badge {
+      background: linear-gradient(135deg, var(--md-primary), var(--md-accent));
+      border-color: var(--md-accent);
+      transform: scale(1.15) rotate(360deg);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
+    }
+
+    .cyber-card-wrapper.active .card-badge svg {
+      stroke: #041019;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">背景全动态赛博开关 (Ultra Style B)</div>
+
+  <!-- 动态开关 1 -->
+  <div class="cyber-card-wrapper active" id="cyber1">
+    <div class="cyber-card">
+      <div class="cyber-bg-grid"></div>
+      <div class="cyber-light-sweep"></div>
+      
+      <div class="card-info">
+        <svg class="card-icon" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <div class="card-text">
+          <span class="card-title">超高帧率与渲染加速</span>
+          <span class="card-desc">开启 120Hz 动态渲染与全局 GPU 补帧</span>
+        </div>
+      </div>
+
+      <div class="badge-box">
+        <div class="shockwave-1"></div>
+        <div class="shockwave-2"></div>
+        <div class="card-badge">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 动态开关 2 -->
+  <div class="cyber-card-wrapper" id="cyber2">
+    <div class="cyber-card">
+      <div class="cyber-bg-grid"></div>
+      <div class="cyber-light-sweep"></div>
+
+      <div class="card-info">
+        <svg class="card-icon" viewBox="0 0 24 24">
+          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+        </svg>
+        <div class="card-text">
+          <span class="card-title">空间音效与立体声增强</span>
+          <span class="card-desc">开启右键菜单弹出 Sound 3D 视听反馈</span>
+        </div>
+      </div>
+
+      <div class="badge-box">
+        <div class="shockwave-1"></div>
+        <div class="shockwave-2"></div>
+        <div class="card-badge">
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function bindCyberSwitch(id) {
+      const el = document.getElementById(id);
+      el.onclick = () => {
+        el.classList.toggle('active');
+        
+        // 重置动画
+        const s1 = el.querySelector('.shockwave-1');
+        const s2 = el.querySelector('.shockwave-2');
+        const sweep = el.querySelector('.cyber-light-sweep');
+
+        [s1, s2, sweep].forEach(node => {
+          if (node) {
+            node.style.animation = 'none';
+            node.offsetHeight; /* 触发重绘 */
+          }
+        });
+
+        if (el.classList.contains('active')) {
+          s1.style.animation = 'pulseWave 0.6s ease-out';
+          s2.style.animation = 'pulseWave 0.6s ease-out 0.15s';
+          sweep.style.animation = 'sweepAnim 0.6s ease-out';
+        }
+      };
+    }
+
+    bindCyberSwitch('cyber1');
+    bindCyberSwitch('cyber2');
+  </script>
+</body>
+</html>

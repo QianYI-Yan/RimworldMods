@@ -77,9 +77,13 @@ namespace ModernExpandMenu
 
             // 抑制原版菜单，弹出 MD3 悬浮窗（传入右键的容器用于高亮显示，不改变选中）
             __result.Clear();
-            if (Find.WindowStack.Windows.Any(window => window is MD3FloatMenuWindow))
+            // 杀线程：再次触发右键时立即关闭上一次的悬浮窗（避免新旧窗口叠加、分帧任务重叠卡顿）
+            foreach (Window window in Find.WindowStack.Windows.ToList())
             {
-                return;
+                if (window is MD3FloatMenuWindow)
+                {
+                    window.Close(false);
+                }
             }
             Building_Storage clickedStorage = FindClickedStorage(context);
             // 传入右键命中的物品实例：窗口持续高亮这些物品（原版右键目标白框效果）

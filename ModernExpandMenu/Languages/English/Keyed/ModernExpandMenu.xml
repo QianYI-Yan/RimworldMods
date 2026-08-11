@@ -7,6 +7,10 @@
   <ModernExpandMenu_Md3StyleAllInputsDesc>When enabled, all vanilla input fields (value fields, search bars, etc.) use the MD3 borderless style. Only the appearance changes; input behavior stays the same.</ModernExpandMenu_Md3StyleAllInputsDesc>
   <ModernExpandMenu_Md3StyleAllButtons>Apply MD3 style to vanilla buttons &amp; checkboxes</ModernExpandMenu_Md3StyleAllButtons>
   <ModernExpandMenu_Md3StyleAllButtonsDesc>When enabled, all vanilla buttons (confirm/close/load, etc.), checkboxes, tab pages and scrollbars use the MD3 rounded style. Only the appearance changes; clicking and interaction stay the same.</ModernExpandMenu_Md3StyleAllButtonsDesc>
+  <ModernExpandMenu_SwitchStyleVanilla>Vanilla</ModernExpandMenu_SwitchStyleVanilla>
+  <ModernExpandMenu_SwitchStyleSlider>Slider</ModernExpandMenu_SwitchStyleSlider>
+  <ModernExpandMenu_SwitchStyleCyber>Cyber</ModernExpandMenu_SwitchStyleCyber>
+  <ModernExpandMenu_SwitchStyleDesc>Display style of checkboxes/switches: Vanilla / MD3 sliding switch / Cyber (flowing neon border + grid + light sweep + shockwave). Applies to both the settings screen and the vanilla UI; the selector itself turns cyber when Cyber is selected.</ModernExpandMenu_SwitchStyleDesc>
   <ModernExpandMenu_SkipUploadWait>Skip upload waiting countdown</ModernExpandMenu_SkipUploadWait>
   <ModernExpandMenu_SkipUploadWaitDesc>Skip the 6-second wait before confirming a Workshop upload; upload immediately</ModernExpandMenu_SkipUploadWaitDesc>
   <ModernExpandMenu_SpaceOnlyPauses>Spacebar pauses only, never unpauses</ModernExpandMenu_SpaceOnlyPauses>
@@ -66,7 +70,7 @@
   <ModernExpandMenu_ItemAppearInterval>Interval between items (s)</ModernExpandMenu_ItemAppearInterval>
   <ModernExpandMenu_PopAnimationDuration>Window pop-in duration (s)</ModernExpandMenu_PopAnimationDuration>
   <ModernExpandMenu_ExpandAnimationSpeed>Group expand/collapse speed</ModernExpandMenu_ExpandAnimationSpeed>
-  <ModernExpandMenu_ScrollFollowSpeed>Scroll follow speed while loading</ModernExpandMenu_ScrollFollowSpeed>
+  <ModernExpandMenu_ScrollFollowDuration>Scroll push-up duration while loading (s)</ModernExpandMenu_ScrollFollowDuration>
   <ModernExpandMenu_ScrollReturnDuration>Scroll return-to-top speed</ModernExpandMenu_ScrollReturnDuration>
   <ModernExpandMenu_AnimationPreview>Animation preview</ModernExpandMenu_AnimationPreview>
   <ModernExpandMenu_LoadingStatsTooltip>{0} items / {1} actions loaded, took {2}s, animation total {3}s</ModernExpandMenu_LoadingStatsTooltip>
@@ -78,6 +82,7 @@
   <ModernExpandMenu_ResetShowItemCount>Show item count in group headers</ModernExpandMenu_ResetShowItemCount>
   <ModernExpandMenu_ResetMd3StyleAllInputs>Apply MD3 to all vanilla input fields</ModernExpandMenu_ResetMd3StyleAllInputs>
   <ModernExpandMenu_ResetMd3StyleAllButtons>Apply MD3 to vanilla buttons &amp; checkboxes</ModernExpandMenu_ResetMd3StyleAllButtons>
+  <ModernExpandMenu_ResetSwitchStyle>Switch style</ModernExpandMenu_ResetSwitchStyle>
   <ModernExpandMenu_ResetSkipUploadWait>Skip upload waiting countdown</ModernExpandMenu_ResetSkipUploadWait>
   <ModernExpandMenu_ResetMaxMenuHeight>Max menu height</ModernExpandMenu_ResetMaxMenuHeight>
   <ModernExpandMenu_ResetMaxProcessedPerFrame>Items processed per frame</ModernExpandMenu_ResetMaxProcessedPerFrame>
@@ -91,13 +96,27 @@
   <ModernExpandMenu_ResetItemAppearInterval>Item interval</ModernExpandMenu_ResetItemAppearInterval>
   <ModernExpandMenu_ResetPopAnimationDuration>Window pop-in duration</ModernExpandMenu_ResetPopAnimationDuration>
   <ModernExpandMenu_ResetExpandAnimationSpeed>Expand animation speed</ModernExpandMenu_ResetExpandAnimationSpeed>
-  <ModernExpandMenu_ResetScrollFollowSpeed>Scroll follow speed</ModernExpandMenu_ResetScrollFollowSpeed>
+  <ModernExpandMenu_ResetScrollFollowDuration>Scroll push-up duration</ModernExpandMenu_ResetScrollFollowDuration>
   <ModernExpandMenu_ResetScrollReturnDuration>Scroll return speed</ModernExpandMenu_ResetScrollReturnDuration>
   <ModernExpandMenu_WindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_WindowHeightAnimationSpeed>
   <ModernExpandMenu_ResetWindowHeightAnimationSpeed>Window height animation speed</ModernExpandMenu_ResetWindowHeightAnimationSpeed>
   <ModernExpandMenu_SectionAnimationMaster>Master switch</ModernExpandMenu_SectionAnimationMaster>
   <ModernExpandMenu_EnableAnimations>Enable animations (off = disable all animation effects)</ModernExpandMenu_EnableAnimations>
   <ModernExpandMenu_ResetEnableAnimations>Enable animations</ModernExpandMenu_ResetEnableAnimations>
+  <ModernExpandMenu_SectionAnimationSpeedMode>Animation speed mode</ModernExpandMenu_SectionAnimationSpeedMode>
+  <ModernExpandMenu_SpeedModeMultiplier>Multiplier</ModernExpandMenu_SpeedModeMultiplier>
+  <ModernExpandMenu_SpeedModeCustom>Custom</ModernExpandMenu_SpeedModeCustom>
+  <ModernExpandMenu_SpeedModeDesc>Multiplier mode: one global multiplier controls all animation speeds; the individual rows below are greyed out. Custom mode: adjust each animation parameter manually; the multiplier is greyed out.</ModernExpandMenu_SpeedModeDesc>
+  <ModernExpandMenu_AnimationSpeedMultiplier>Global animation speed multiplier</ModernExpandMenu_AnimationSpeedMultiplier>
+  <ModernExpandMenu_ScrollReturnWaitSeconds>Wait before scrolling back (s)</ModernExpandMenu_ScrollReturnWaitSeconds>
+  <ModernExpandMenu_LoadingBarMarquee>Copilot light band on the top loading bar</ModernExpandMenu_LoadingBarMarquee>
+  <ModernExpandMenu_LoadingBarMarqueeDesc>When enabled, a primary-colored gradient light band sweeps left-to-right across the top loading bar (like the VS Code Copilot input box). Appearance only.</ModernExpandMenu_LoadingBarMarqueeDesc>
+  <ModernExpandMenu_LoadingMaskOpacity>Loading mask opacity</ModernExpandMenu_LoadingMaskOpacity>
+  <ModernExpandMenu_ResetAnimationSpeedMode>Animation speed mode</ModernExpandMenu_ResetAnimationSpeedMode>
+  <ModernExpandMenu_ResetAnimationSpeedMultiplier>Global animation multiplier</ModernExpandMenu_ResetAnimationSpeedMultiplier>
+  <ModernExpandMenu_ResetScrollReturnWaitSeconds>Wait before scrolling back</ModernExpandMenu_ResetScrollReturnWaitSeconds>
+  <ModernExpandMenu_ResetLoadingBarMarquee>Top loading bar light band</ModernExpandMenu_ResetLoadingBarMarquee>
+  <ModernExpandMenu_ResetLoadingMaskOpacity>Loading mask opacity</ModernExpandMenu_ResetLoadingMaskOpacity>
   <ModernExpandMenu_SectionShare>Share config</ModernExpandMenu_SectionShare>
   <ModernExpandMenu_ExportToFile>Export to file</ModernExpandMenu_ExportToFile>
   <ModernExpandMenu_CopyConfig>Copy config</ModernExpandMenu_CopyConfig>
@@ -150,6 +169,17 @@
   <ModernExpandMenu_Md3StyleStatisticsDesc>When enabled, the History tab Statistics page shows the stats grouped into MD3 cards (basics/wealth/raids/casualties/ending). Only the appearance changes.</ModernExpandMenu_Md3StyleStatisticsDesc>
   <ModernExpandMenu_Md3StyleIdeo>Apply MD3 style to the ideology menu (culture rows &amp; meme cards)</ModernExpandMenu_Md3StyleIdeo>
   <ModernExpandMenu_Md3StyleIdeoDesc>When enabled, the Ideology tab culture rows and the meme cards use the MD3 rounded outline (primary for the selected one). Only the appearance changes.</ModernExpandMenu_Md3StyleIdeoDesc>
+  <ModernExpandMenu_BorderOutline>Plain outline</ModernExpandMenu_BorderOutline>
+  <ModernExpandMenu_BorderMarquee>Primary marquee</ModernExpandMenu_BorderMarquee>
+  <ModernExpandMenu_BorderRainbow>Rainbow flow</ModernExpandMenu_BorderRainbow>
+  <ModernExpandMenu_BorderStyleDesc>Choose the border style of the menus (right-click menu and all vanilla pop-out menus): plain outline (Outline color) / primary marquee (flowing primary light band) / rainbow flow (three-color gradient flowing along the border).</ModernExpandMenu_BorderStyleDesc>
+  <ModernExpandMenu_SectionColorBorder>Border</ModernExpandMenu_SectionColorBorder>
+  <ModernExpandMenu_Md3StyleMedicalCare>Apply MD3 to the medicine-care selector</ModernExpandMenu_Md3StyleMedicalCare>
+  <ModernExpandMenu_Md3StyleMedicalCareDesc>When enabled, the medicine-care button group in Default Medicine Settings and the Health tab (No care / No medicine / Herbal / Industrial / Ultratech) becomes MD3 rounded slots: primary hover fill and primary outline for the selected one. Appearance only.</ModernExpandMenu_Md3StyleMedicalCareDesc>
+  <ModernExpandMenu_ScopeAll>All</ModernExpandMenu_ScopeAll>
+  <ModernExpandMenu_ScopeDialogDropdowns>Dropdowns only</ModernExpandMenu_ScopeDialogDropdowns>
+  <ModernExpandMenu_ScopeOff>Off</ModernExpandMenu_ScopeOff>
+  <ModernExpandMenu_ScopeDesc>Choose the takeover scope for vanilla pop-out menus: All (both in-game and dialog dropdowns) / Dialog dropdowns only (e.g. Choose Language) / Off (keep vanilla).</ModernExpandMenu_ScopeDesc>
   <ModernExpandMenu_ResetMd3StyleWindows>Apply MD3 to vanilla window borders</ModernExpandMenu_ResetMd3StyleWindows>
   <ModernExpandMenu_ResetMd3StyleCommands>Apply MD3 to command buttons</ModernExpandMenu_ResetMd3StyleCommands>
   <ModernExpandMenu_ResetMd3StyleMenuSections>Apply MD3 to menu sections &amp; list rows</ModernExpandMenu_ResetMd3StyleMenuSections>
@@ -157,6 +187,9 @@
   <ModernExpandMenu_ResetMd3StyleInspectPane>Apply MD3 to the inspect pane</ModernExpandMenu_ResetMd3StyleInspectPane>
   <ModernExpandMenu_ResetMd3StyleStatistics>Apply MD3 cards to the statistics page</ModernExpandMenu_ResetMd3StyleStatistics>
   <ModernExpandMenu_ResetMd3StyleIdeo>Apply MD3 to the ideology menu</ModernExpandMenu_ResetMd3StyleIdeo>
+  <ModernExpandMenu_ResetFloatMenuTakeoverScope>Pop-out menu takeover scope</ModernExpandMenu_ResetFloatMenuTakeoverScope>
+  <ModernExpandMenu_ResetMenuBorderStyle>Menu border style</ModernExpandMenu_ResetMenuBorderStyle>
+  <ModernExpandMenu_ResetMd3StyleMedicalCare>Apply MD3 to the medicine-care selector</ModernExpandMenu_ResetMd3StyleMedicalCare>
   <ModernExpandMenu_StatsGroupBasics>Basics</ModernExpandMenu_StatsGroupBasics>
   <ModernExpandMenu_StatsGroupWealth>Wealth</ModernExpandMenu_StatsGroupWealth>
   <ModernExpandMenu_StatsGroupRaids>Raids</ModernExpandMenu_StatsGroupRaids>
@@ -190,4 +223,7 @@
   <ModernExpandMenu_MiscPreviewTabSurgery>Surgery</ModernExpandMenu_MiscPreviewTabSurgery>
   <ModernExpandMenu_MiscPreviewDropdownLabel>Food policy</ModernExpandMenu_MiscPreviewDropdownLabel>
   <ModernExpandMenu_MiscPreviewDropdownValue>Unrestricted</ModernExpandMenu_MiscPreviewDropdownValue>
+  <ModernExpandMenu_ForceWorkshopUpload>Force show the Upload / Update to Workshop button</ModernExpandMenu_ForceWorkshopUpload>
+  <ModernExpandMenu_ForceWorkshopUploadDesc>傻逼bug不让我更新模组气笑了\nWhen enabled, the Upload / Update to Workshop button in the mod list always shows (no need for dev mode or being subscribed to the item), letting you force-upload / force-update your published mods.</ModernExpandMenu_ForceWorkshopUploadDesc>
+  <ModernExpandMenu_ResetForceWorkshopUpload>Force show the Upload / Update to Workshop button</ModernExpandMenu_ResetForceWorkshopUpload>
 </LanguageData>

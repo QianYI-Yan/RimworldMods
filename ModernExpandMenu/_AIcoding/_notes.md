@@ -285,6 +285,19 @@
 
 ## 两大根组 + 声音滑块 + 文化/列表界面适配（2026-08-02）
 - **右键菜单两大根组**：`BuildGroups` 中「其他」根组由末尾改为**置顶**（`groups.Insert(0, otherGroup)`）；窗口构造中**其他组默认全展开**（加入 `expandedTargets`），物品组保持默认折叠（显示组标题、子项点击展开）
+
+## 圆角纹理重构：按 radius 生成 + 缓存（2026-08-10）
+- **根因教训**：旧方案「固定 16px 圆角纹理 + 动态 cornerUv（radius/64）」在 radius<8 时，取的纹理子区域位于角部距离场之外 → alpha 全透明 → 圆角破损成棱角（用户反馈「修黑线后所有 UI 变有棱有角」）；「固定 16/64 UV」则小 radius 四角采样错位 → 拼接竖线
+- **新方案**：`GetRoundedRectTexture(radius)` 按 radius **动态生成纹理并缓存**（字典 `roundedRectTextureCache`，clamp 1~16）；`DrawRoundedRect` 取 cornerUv = radius/TextureSize（纹理圆角=目标 radius，子区域正好是完整圆角过渡，四块拼接 UV 连续无接缝）；`DrawTextureWithUv` 增加 `Texture2D texture` 参数（9 处调用全改）
+- **新增 `DrawRoundedRectBorder`（只画描边环）**：描边宽度 = 圆角半径（角块 r×r 与边带 r 宽完全匹配，角边无缝），用于「画在已有内容之上且不填充内部」——赛博开关流光边框专用；内部内容（网格/扫光）先画、边框最后画
+
+## 开关风格三段选择器 + 赛博炫酷开关（2026-08-10）
+- **设置新增 `switchStyle`（枚举 `SwitchStyle`：Vanilla=0 / Slider=1 / Cyber=2，默认 Slider）**，独立控制**所有复选框/开关**外观（与 `md3StyleAllButtons` 解耦，后者只管按钮/tab/滚动条）；`Patch_CheckboxDraw` 不再看 `md3StyleAllButtons`
+- **`MD3SegmentedControl`**（多段选择器，Gemini demo 移植）：外层圆角容器 + 滑动胶囊指示器 + 等宽选项；指示器动画 **easeOutBack**（c1=1.70158，c3=c1+1，`1+c3*(t-1)^3+c1*(t-1)^2`）近似 demo 的 cubic-bezier(0.34,1.56,0.64,1) 回弹；`cyberStyle=true` 时容器变赛博（深色 + 网格 + 流光边框 + 发光指示器）
+- **`MD3CyberSwitch`**（卡片式整行赛博开关）：HSV 色相旋转流光边框（`CyberAccentColor(cycle)`）、平铺网格纹理（8x8 十字线 + Repeat wrap + offset 缓慢移动）、开启发光、切换瞬间从左到右扫光亮带（easeOutCubic 0.6s）、徽章处双重冲击波（放大+淡出）、右侧徽章（开启：强调色 + ✓；关闭：暗灰描边圆）；点击整行切换
+- **`DrawCyberCheckbox`**（小尺寸赛博开关，原版 checkbox patch 用）：圆角方形轨道 + 流光边框 + 发光圆点 + 扫光，纯绘制（交互由原版继续处理）；动画 id 用坐标 hash + 200000 偏移避免与卡片式冲突
+- **设置界面**：`DrawGlobalStyleTab` 顶部加「开关风格」分段选择器行（46f 高，controlId=1000）；`DrawCheckboxRow` 按风格渲染（Vanilla=原版 Checkbox / Slider=MD3ToggleSwitch / Cyber=整行卡片式）；`MiscPreviewWidget` 预览开关同步；`Dialog_ResetDefaults` 加 `ResetSwitchStyle` 项
+- 新增键 ×3 语言：`SwitchStyleVanilla/Slider/Cyber/SwitchStyleDesc/ResetSwitchStyle`；lang-exports 同步；**待构建部署验证**
 - **声音设置滑块 MD3（图2）**：原版声音设置用 `Listing_Standard.SliderLabeled` → **返回值版** `Widgets.HorizontalSlider(Rect, float, float, float, bool, string, string, string, float)`（非 ref 版），原 ref 版 patch 不覆盖。新增 `Patch_VanillaSliderReturn`（Prefix，`ref __result` 设返回值），与原版一致处理 label 下移与上方标签绘制
 - **食物/医药限制、手术清单适配（图4）**：`md3StyleMenuSections` 扩展触发 `DrawButtonGraphic` 与 `TabRecord.Draw` 的 MD3 化（原仅 `md3StyleAllButtons`）——开「菜单区块/列表行」即可让药物/食物限制下拉（Dropdown→ButtonTextDraggable→DrawButtonGraphic）、健康卡「概况/手术」tab（TabDrawer→TabRecord.Draw）、手术清单（AddBill 按钮 + DrawMenuSection 左栏）全部 MD3
 - **文化菜单 MD3（图1）**：模因大方块改为 **Prefix 完整重写** `IdeoUIUtility.DoMeme`（原 Postfix 描边不够）——MD3 圆角卡片（表面高色 + 选中主色描边/未选轮廓色 + hover 主色层），保留图标/影响/名称/编辑点击（Dialog_ChooseMemes）；戒律块 `Precept.DrawPreceptBox` Postfix 叠加 MD3 圆角描边 + hover 层；新增 `ClickToEditHint` 翻译键 ×3
@@ -298,9 +311,205 @@
   - 杂项页签：新 `UI/MiscPreviewWidget.cs` —— **模拟原版操作界面被 MD3 化后的样子**：模拟窗口卡片（md3StyleWindows）+ 模拟 tab（概况/手术，md3StyleMenuSections/AllButtons）+ 模拟下拉（Dropdown）+ 模拟按钮行 + 模拟滑块（HorizontalSlider）+ 模拟复选框滑动开关（CheckboxDraw）+ 模拟输入框（TextField）+ 模拟滚动列表（BeginScrollView），全部实时读取杂项配色（MiscTheme），调整「其他→颜色」即时生效
 - 原「预览」子 tab（打开独立窗口）保留；新增翻译键：`LivePreviewTitle`/`PreviewMenuTab`/`PreviewMiscTab`/`MiscPreviewWindowTitle`/`MiscPreviewTabOverview`/`MiscPreviewTabSurgery`/`MiscPreviewDropdownLabel`/`MiscPreviewDropdownValue` ×3；构建部署验证通过
 
+## 加载动画对齐 Gemini demo：平滑推顶（2026-08-10）
+- 用户提供 Gemini 动画 demo（HTML：高度伸展 + 平滑上推），要求对齐手感
+- demo 核心：每插入一项 → 菜单高度平滑伸展（0.35s MD3 曲线）→ 内容超限时用 **350ms easeOutCubic** 从当前滚动位置平滑推顶到新目标（快速起步、指数减速到位）；项目随后从左滑入（0.45s）
+- **改造：加载时滚动跟随从「线性 MoveTowards（速度 80）」改为「时间设定平滑推顶」**：
+  - 新设置 `scrollFollowDuration`（默认 0.35s，时间设定）替换 `scrollFollowSpeed`（速度式）；设置滑块 id 14 改 0.05~2s
+  - `WindowUpdate` 加载块：窗口到最大高度后，每次目标 `maxScroll` 变化（新组插入）→ 从当前 `scrollPosition` 用 `1-(1-t)^3`（easeOutCubic）推顶到新目标；连续插入时持续平滑跟随；未超限时重置（下次插入重新推顶）
+  - 动画总开关关闭时仍直接置底
+- 弹出动画核对：MEM 已是「从鼠标锚点 ease-out-cubic 缩放展开」（约等于 demo 的 scale 0.9→1 + top-left origin），未改
+- 翻译键：`ScrollFollowSpeed`→`ScrollFollowDuration`、`ResetScrollFollowSpeed`→`ResetScrollFollowDuration` ×3；重置项默认 0.35；构建部署验证通过
+
+## 强制上传 / 更新到创意工坊按钮（2026-08-10）
+- **需求**：游戏内「上传 / 更新到创意工坊」按钮强制显示并可强制触发上传更新（此前本地副本未订阅时按钮消失）
+- **根因**（调研 `Page_ModsConfig` 反编译）：上传入口在模组行「More Actions」右键菜单，条件 `Prefs.DevMode && SteamManager.Initialized && mod.CanToUploadToWorkshop()`；`CanToUploadToWorkshop` 校验 `MayHaveAuthorNotCurrentUser`（工坊作者是当前用户），本地 Mods 目录副本**未订阅**时返回 false → 按钮消失
+- **实现**：新 `Patch_ForceWorkshopUpload.cs`（设置 `forceWorkshopUpload`，默认关）：
+  - `ModMetaData.CanToUploadToWorkshop` Postfix → 开关开启时强制 `__result = true`（跳过作者校验）
+  - `Page_ModsConfig.DoModInfo` Transpiler → 把该方法内**唯一的** `Prefs.DevMode` getter 调用替换为读取运行时标志 `forceDevMode`（Prefix 每帧按设置刷新；不全局改 DevMode），开关开启时上传按钮无需开发者模式
+  - 点击后走原版 `Workshop.Upload(mod)`：有 `PublishedFileId` 则更新（`StartItemUpdate`+`SubmitItemUpdate`），无则新建
+- 设置界面全局样式卡片扩为 12 行（switchId 32）；翻译键 `ForceWorkshopUpload`(+Desc)+`ResetForceWorkshopUpload` ×3；反射验证 `Page_ModsConfig.DoModInfo`/`CanToUploadToWorkshop`/`Prefs.DevMode` 均存在；构建部署验证通过
+- **⚠️ Transpiler 替换指令必须转移 labels**：初版 Transpiler 把 `get_DevMode` 替换为 `Ldsfld` 时未保留原指令 `labels` → 跳转分支引用不存在的 label → `ArgumentException: Label #14 is not marked` → 模组加载失败（用户「不能更新」根因）。修复：`replacement.labels.AddRange(instruction.labels)`。教训：**Transpiler 增删/替换指令时，分支跳转目标的 labels 必须完整转移到新指令**
+- **采纳 Gemini 设置页代码的「大类↔预览联动」**：点击顶部大类「扩展菜单」→ 左侧预览自动切到「扩展菜单」页签；点「其他」→ 自动切到「杂项」页签（`DoSettingsWindowContents` 中 `previewTab = 0/1`）；其余 Gemini 代码与当前实现一致；构建部署验证通过
+
+## 开关竖线修复 + 开关动画平滑化（2026-08-10）
+- **竖线根因**：`DrawRoundedRect` 的 9-slice UV 固定用 `cornerUv = 16/64`（纹理圆角 16px），但目标 radius 由调用传（滑动开关轨道 10、16px 圆点 8、8px 内点 4）。当 radius 远小于 16 时四角采样纹理 16px 圆角区域 → 四块在中心线拼接处纹理不连续 → **中间出现竖线/接缝截断控件整体**（小尺寸控件最明显，如滑动开关圆点）
+- **修复**：`cornerUv = Mathf.Clamp(radius / TextureSize, 0.02f, TextureCorner / TextureSize)` 动态化——取纹理「radius 比例」子区域即得对应半径圆角，拼接连续。影响所有 DrawRoundedRect 调用（更精确）
+- **开关动画对齐 Gemini demo**：`MD3ToggleSwitch` 与 `Patch_CheckboxDraw` 圆点动画从「速度式指数 ease-out（deltaTime*14）」改为「**固定 0.18s 时长 + smoothstep 近似 Material standard（cubic-bezier(0.2,0,0,1)）**」——起步更从容、尾段更平滑；新增 `switchAnimationStartTime/StartValue/Target` 与 `checkboxSwitchStart*` 字典，target 变化时从当前进度开始（不跳变）
+- 构建部署验证通过
+
 ## 待办（第三批：原版 UI 可选 MD3 patch）
 - tab 页黑线（MD3 胶囊 tab 相邻重叠）
 - 药物/食物限制下拉、手术清单（医疗）、信息卡（内容 MD3 + **栏重叠 bug**）、窗口边框、征召/解散/攻击命令按钮、文化菜单（文化与戒律块）+ 模因大方块、统计界面分组块美化、管制栏（时间表）
 - 每项做可选开关（新 Settings bool + 全局样式开关行 + 翻译键 + 重置项）
+
+## 赛博开关 + 分段选择器完全对齐 Gemini demo（2026-08-10）
+- **需求**：把已实现的「赛博炫酷开关」和「多段选择器」完全重构，做到与 Gemini 两个 HTML demo（cyber-switch / segmented-switch，已归档 `_AIcoding/ui-refs/`）一致
+- **细边框纹理**：`DrawRoundedRectBorder` 从「环宽=圆角半径」改为**固定 2px 细环** —— 新增 `roundedRectBorderTextureCache`（按 radius 生成 64×64 边框环纹理，`BorderAlphaAt` = 外圆角距离场 - 内缩 2px 圆角挖空）+ 9-slice 绘制（角 r×r、边 2px，角边无缝）；修复旧版粗环不符合 demo 的问题
+- **三色渐变流光边框**：删除单色 HSV `CyberAccentColor`，新增三色渐变 `CyberGradientColor(t)`（蓝 #00A8FF → 青 #00FFCC → 粉 #FF007F → 蓝 循环）；`DrawCyberGradientBorder` 沿边框 8 段（上/右上/右/右下/下/左下/左/左上）取不同相位着色，`flow = now/3`（3 秒一圈，对齐 demo rainbowGlow 3s）
+- **双径向发光**：`DrawCyberRadialGlow`（5 层同心圆递减 alpha 模拟 radial-gradient）——激活卡片右上青色 0.15 + 左下蓝色 0.25（对齐 demo 激活态背景）
+- **斜向扫光束**：`DrawCyberSweep` 用 `GUIUtility.RotateAroundPivot(-25°, rect.center)` 旋转矩阵画斜亮条（60% 宽，easeOutCubic 从左到右，淡出；对齐 demo skewX(-25°) sweepAnim）
+- **描边冲击波**：`DrawCyberShockwaves` 从「实心圆」改为**描边圆环**（外圆环色 + 内圆卡片背景色挖中心形成 2px 环），颜色青色→粉色 lerp（对齐 demo pulseWave border-color）
+- **3D 压感**：`MD3CyberSwitch` 按下时 `rect.ContractedBy(2f)`（近似 demo scale 0.96）
+- **徽章**：激活 = 渐变填充（相位流光近似旋转）+ 青色光晕环 + 深色勾（#041019）；关闭 = 半透明白底 + 白描边 + 灰勾
+- **分段选择器对齐 demo2**：容器圆角 16（`containerRadius`）+ 指示器圆角 12（`indicatorRadius`）分离；指示器新增**下方投影光晕**（`box-shadow 0 2px 8px` 近似）；cyber 模式指示器用渐变相位色
+- 网格移动速度 8→4（对齐 demo 8s 移 2 格）；构建部署验证通过
+
+## 原版「选项」界面设置行卡片化 + 滑块数值输入（2026-08-10）
+- **需求（用户截图原版图像设置）**：把原版「选项」界面（Dialog_Options，1.6 已是「左类别列表 + 右 Listing_Standard 流式内容」）里每个设置行（hover 变背景的块）整块变成目标样式（demo 赛博卡片），并给所有滑块加「手动输入数值」
+- **新设置 `md3StyleOptions`**（默认关，全局样式卡片第 13 行 switchId 33）：仅当开启**且 Dialog_Options 窗口打开**时生效（不影响健康卡/mod 设置等其它用 Listing_Standard 的界面）
+- **新文件 `Patch_Md3StyleOptions.cs`**（已加 csproj）：
+  - 行卡片化：patch `Listing_Standard.CheckboxLabeled`（2 重载）/`ButtonTextLabeledPct`/`SliderLabeled`，Prefix 在绘制前画整行卡片背景；样式跟随「开关风格」三切（Vanilla=MD3 圆角卡 / Slider=表面高色+主色描边 / Cyber=完整赛博卡片：流光渐变边框+网格+双发光+hover 发光）——`MD3Widgets.DrawOptionsRowCard`
+  - 滑块数值输入：`SliderLabeled` **Prefix 完全重写**（return false + ref __result）——行卡片 + label + 原版滑块 + 行尾 48px 数值按钮，点击进入编辑态（`Widgets.TextFieldNumeric` 限制 min~max），回车/点外部提交；编辑态按 label hash 存静态字典
+  - **⚠️ 两个编译坑**：① `HarmonyPatch` 特性参数数组不能含 `MakeByRefType()`（CS0182，需编译期常量）→ 改用 `[HarmonyPatch]` + 静态 `TargetMethod()`（运行时 AccessTools.Method 解析重载）；② `Find.WindowStack.windows` 是 internal（CS1061）→ 改用 `AccessTools.Field(typeof(WindowStack), "windows")` 反射读取
+  - `Listing` 基类 `curY`/`listingRect` 是 protected → 反射读写；`ColumnWidth`/`GetRect`/`verticalSpacing` 是 public
+- 新增键 ×3 语言 + lang-exports：`Md3StyleOptions`(+Desc)/`ResetMd3StyleOptions`；重置项已加；构建部署验证通过
+
+## 终端中文乱码修复（2026-08-10）
+- **现象**：PowerShell 里跑 `cmd /c "build.bat"` 输出中文变「閮ㄧ讲鍒」「鉁?閮ㄧ讲瀹屾垚」
+- **根源**：build.bat 以 UTF-8 保存 + `chcp 65001` 输出 UTF-8 字节；而 PowerShell `[Console]::OutputEncoding` 默认 gb2312（cp936）→ 用 GBK 解码 UTF-8 字节 → 乱码
+- **修复**：新建 `build.ps1`（PowerShell 版构建脚本）——先 `[Console]::OutputEncoding = UTF8` 再调 `cmd /c "build.bat < NUL"`，透传退出码；以后构建统一用 `./build.ps1`（我跑构建时也用它，不再乱码）
+- 其它模组目录（TailorMade 等）build.bat 同样问题，如需要可复制同样 build.ps1 方案
+
+## 设置界面代码分离为独立文件（2026-08-10）
+- **需求**：把设置页面的 C# 代码分离成独立文件，便于发给 Gemini 单独重构
+- **新文件 `Source/ModernExpandMenu/SettingsUI.cs`**（`public static class SettingsUI`）：设置界面**全部代码**集中在此——
+  - 入口 `DrawSettings(Rect)`（原 `DoSettingsWindowContents` 主体）
+  - 全部绘制方法：DrawLivePreview / DrawSubTabBar / DrawGeneralTab / DrawAnimationTab / DrawColorTab / DrawGlobalStyleTab / DrawCheckboxRow / DrawSliderRow / DrawColorRow / DrawPaletteCard / 高度计算等
+  - 状态字段：settingsCategory / menuSubTab / miscSubTab / previewTab / settingsScrollPosition / 滑块数值编辑态（editingSliderId 等）
+  - 用属性 `Settings => ModernExpandMenuMod.Settings` 便捷访问全局设置（方法体无需改动）
+- **`ModernExpandMenuMod.cs` 精简为 ~40 行**：仅保留 Mod 核心——HarmonyId、构造函数（PatchAll）、`Settings` 静态实例、`lastPseudoTranslationSetting`（被 Patch_ModSettingsUI 引用，必须留）、`DoSettingsWindowContents` 委托给 `SettingsUI.DrawSettings`、`SettingsCategory()`
+- **顺带修复 bug**：`ComputeSettingsContentHeight` 里 globalStyleHeight 从 `rowHeight*12f` 修正为 `rowHeight*13f`（新增 md3StyleOptions 后全局样式卡已是 13 行，原高度算少了最后一行）
+- csproj 加 `SettingsUI.cs`；构建部署验证通过；发 Gemini 重构时给 `SettingsUI.cs` + `ModernExpandMenuSettings.cs` 两个文件即可
+
+## 赛博开关完全对齐 Gemini CyberSwitchCard 移植（2026-08-10）
+- **需求**：用户反馈之前的赛博开关「完全不符合 demo」，并提供 Gemini 的 WinForms 移植文件 `CyberSwitchCard.cs`（`System.Windows.Forms.Control` + GDI+，无法直接用于 RimWorld，参考其绘制逻辑移植到 Unity GUI）
+- **MD3CyberSwitch 完全重写**（签名加 `description` 参数，建议高度 56~64px）：
+  - **布局对齐**：左 28px 图标（圆+内点，激活强调色流光/未激活灰）+ 标题/描述两行（激活标题白/描述强调色，未激活灰）+ 右 36px 徽章；卡片背景 #10141E（激活）/ #141720（未激活），圆角 18
+  - **动效对齐**：三色流光渐变边框（3s）+ 16px 流动网格（moveSpeed 12）+ 斜向**渐变**扫光（新 `GetCyberSweepGradientTexture` 64×1 正弦渐变纹理，`DrawTextureWithTexCoords` 拉伸 + 旋转 -25°，0.4s easeOutCubic）+ 双重冲击波（青→粉，0.4s，延迟 0.2s）+ 按压缩放
+- **设置界面行高动态化**：`CheckboxRowHeight`（赛博 56px / 其它 30px），DrawGeneralTab（外观 5 开关）/DrawGlobalStyleTab（13 开关）/DrawAnimationTab（总开关）/`ComputeSettingsContentHeight` 全部按此动态计算；滑块行保持 30px
+- `DrawCheckboxRow` 赛博分支传 `tooltip` 作为描述；`MiscPreviewWidget` 同步（56px + 描述参数）
+- 构建部署验证通过
+- **⚠️ Gemini 聚合设置中心**：`ModernExpandMenuMod.gemini.cs`（已提供）调用 `SettingsUI.DrawAggregatedSettingsHub(inRect, mods)`（左模组列表 + 右设置）——**该 SettingsUI 聚合版实现文件 Gemini 未提供**，如需整合需自行实现或让 Gemini 补
+
+## WebView2 游戏内集成 PoC（2026-08-10）
+- **需求**：用户想「把重构 UI 全部用 WebView2（HTML/CSS）实现」，先做游戏内最小可行原型验证
+- **独立验证已完成**：`_AIcoding/ui-preview/WebView2Preview/`（net10.0-windows + Microsoft.Web.WebView2 1.0.4129.50）——WebView2 渲染 Gemini 两个 demo HTML **完美还原**（浏览器级效果）；WebView2 Runtime 已装 151.x
+- **游戏内 PoC 架构**：后台 STA 线程跑 WinForms 消息泵（`Application.Run` 隐藏屏幕外透明 Form + WebView2 控件，`NavigateToString` 载入 HTML）→ `CoreWebView2.CapturePreviewAsync(Png, Stream)` 截帧 → PNG 字节传回 Unity 主线程 `Texture2D.LoadImage` 显示
+  - `WebView2Host.cs`：静态宿主（Start/Shutdown/RequestCapture/PullLatestPng，跨线程 volatile 交接 PNG）
+  - `UI/Dialog_WebView2Test.cs`：测试窗口（约 8fps 定时截帧）
+  - 触发入口：设置 → 其他 → 预览 → 「WebView2 测试（PoC）」按钮（临时）
+- **⚠️ API 勘误**：WebView2 1.0.4129.50 截图方法是 **`CapturePreviewAsync(imageFormat, Stream)`（Task 版）**，不是旧版 `CapturePreview`（CS1061）；`Window` 关闭回调是 `PreClose()`（不是 `OnClose`，CS0115）
+- **部署注意**：WebView2 依赖 dll（`Microsoft.Web.WebView2.Core.dll`/`WinForms.dll`）必须随模组进 `Assemblies/`（RimWorld 只加载模组目录 dll）；build.bat 已加自动复制；`html/cyber-switch-demo.html` 随构建部署
+- 待游戏内实测：**未验证**（需用户启动游戏点测试按钮；风险点：Unity 进程内 WinForms 消息泵兼容性、隐藏窗口渲染、截帧性能）
+
+## WebView2 PoC v2：绕开 WinForms（2026-08-10）
+- **v1 失败根因（日志）**：`ReflectionTypeLoadException getting types in Microsoft.Web.WebView2.WinForms` + `Could not load type of field 'WebView2Host:_hostForm'`——**RimWorld 跑在 Unity Mono 上，不含 System.Windows.Forms**，所有 WinForms 依赖在游戏进程无法解析 → 整个 WebView2Host 类型加载失败 → Update 持续抛 TypeLoadException
+- **v2 方案（纯 Core + Win32，绕开 WinForms）**：`WebView2Host.cs` 重写——
+  - 只用 `Microsoft.Web.WebView2.Core.dll`（纯 COM 包装，Unity Mono 可加载）
+  - P/Invoke user32 自建**屏幕外隐藏 Win32 窗口**（RegisterClassEx/CreateWindowEx/DefWindowProc）+ **后台 STA 线程消息循环**（GetMessage/TranslateMessage/DispatchMessage）
+  - **自定义 SynchronizationContext**（`HostSyncContext`：Post 到 `ConcurrentQueue<Action>`，消息循环每圈 DrainActions）保证 async 延续回到 host 线程
+  - `CoreWebView2Environment.CreateAsync` → `CreateCoreWebView2ControllerAsync(hwnd)` → `NavigateToString` → `CapturePreviewAsync(Png)` 截帧
+- csproj 移除 System.Windows.Forms/System.Drawing 引用；build.bat 只部署 Core.dll（不部署 WinForms.dll）；已清理游戏部署目录
+- **v2 实测崩溃（用户反馈「点测试按钮后无响应崩溃」）**：游戏启动正常（Core.dll 能加载），但点击「WebView2 测试」→ WebView2 初始化（Chromium 进程 + COM）→ **Unity Mono 与 WebView2 运行时集成不兼容 → 崩溃**。结论：**RimWorld（Unity Mono）无法游戏内集成 WebView2**，无论是 WinForms 路线（无 WinForms）还是纯 Core 路线（运行时崩）
+- **已回滚**：WebView2Host.cs / Dialog_WebView2Test.cs 归档到 `_AIcoding/ui-preview/poc-backup/`；csproj 移除 WebView2 包与文件；build.bat 移除 Core.dll 部署；设置界面移除测试按钮；游戏恢复可玩
+- **替代方向**：① 独立渲染进程 + IPC（命名管道/共享内存）传帧回游戏——效果 100%（浏览器级）但工程量大、常驻 Chromium ~300MB、有 IPC 稳定性风险；② 自绘（WinForms GDI+ demo 与 WebView2 渲染视觉一致）零风险——**推荐用于开关/设置 UI**
+
+## Web Overlay 方案（外挂式悬浮层，2026-08-10）
+- **用户思路**：「像游戏外挂 overlay 一样」——独立进程悬浮层承载 HTML UI，不碰游戏进程
+- **overlay 方案优势**：WebView2 独立进程渲染（100% 效果）+ 天然接收输入（无需转发）+ 游戏零崩溃风险；省掉「传帧回游戏」和「输入转发」两大最难环节
+- **原型已验证（`_AIcoding/ui-preview/Overlay/`）**：`MEMOverlay.exe`（net10.0-windows + WebView2）
+  - v1 透明版（TransparencyKey + 分层窗口 + WebView2 透明背景）→ **点击后窗口消失**（透明组合不稳定）
+  - v2 稳定版（置顶无边框不透明深色面板）→ 三项全过：悬浮置顶 ✓ HTML 渲染 ✓ 点击交互 ✓
+  - v3（当前）：命名管道服务端 + HTML 设置面板（`settings-panel.html` 复用 Gemini demo1 赛博开关卡片 + demo2 三切）+ 双向同步
+    - 游戏 → overlay：`{"cmd":"sync","settings":{...}}` / `{"cmd":"set","key","value"}` / `{"cmd":"quit"}`
+    - overlay → 游戏：`{"cmd":"ready"}` / `{"cmd":"changed","key","value"}`（HTML 里 `chrome.webview.postMessage` → `WebMessageReceived` 转发管道）
+- **游戏端**：`OverlayController.cs`（csproj + System.Text.Json 8.0.5 包）——`Process.Start` 启动 overlay、命名管道 Client、`SendSync` 同步全部设置、收到 `changed` 用 `LongEventHandler.QueueLongEvent(action, key, false, null)` 主线程写回 `Settings`（签名 4 参，注意无 `doAsynchronous` 命名参数）
+- **触发**：设置 → 其他 → 预览 tab → 「打开/关闭 Web 悬浮设置面板（HTML）」按钮（`OverlayController.IsRunning` 切换）
+- **部署**：build.bat 把 `_AIcoding/ui-preview/Overlay/bin/Release/net10.0-windows/` 整个目录复制到游戏 `Mods\ModernExpandMenu\Overlay\`（exe + WebView2 dll + html，336 文件）
+- **⚠️ build.bat 相对路径坑**：`_AIcoding` 在模组目录内，路径应写 `_AIcoding\...` 而非 `..\_AIcoding\...`（前者导致部署失败）
+- 管道独立测试通过（PowerShell NamedPipeClientStream 收到 ready + set 生效）；待游戏内实测
+
+## 回归自绘 + 纹理增强 + 清理 Web 路线（2026-08-10）
+- **用户决定**：overlay 不做了，还是「游戏内绘制」，但要 C# 自绘表现接近 HTML
+- **纹理增强（MD3Widgets）**：
+  - 流光边框 `DrawCyberGradientBorder`：8 段 → **36 段沿周长平滑采样**（每条边 8 小段 + 4 圆角块，段间颜色连续，消除色阶分块感）
+  - 发光 `DrawCyberRadialGlow`：5 层圆叠加 → **预生成 128×128 径向渐变纹理**（中心白→边缘透明，smoothstep 衰减 + Bilinear 过滤，`GetRadialGradientTexture`），接近 CSS radial-gradient
+  - 结论：CSS 的渐变/模糊/阴影/圆角本质是像素处理，预生成纹理 + DrawTexture 完全可复刻（GPU 绘制）；自定义 Shader 在 RimWorld 模组不可行（需 Unity 编辑器打包 AssetBundle）
+- **清理 Web 路线全部产物**：
+  - 删除：OverlayController.cs、csproj 的 System.Text.Json 包、设置界面 Web 面板按钮、build.bat 的 overlay/html/Core.dll 部署段、游戏 `Mods\...\Overlay\`+`html\` 目录、`_AIcoding/ui-preview/` 下 Overlay/Renderer/WebView2Preview/poc-backup
+  - 保留：`CyberSwitchPreview`（WinForms 自绘对照 demo）+ `ui-refs/`（demo HTML 参考）+ 截图
+  - 游戏模组目录恢复干净（About/Assemblies/Languages/Source）；构建部署通过
+
+## 文件梳理清理 + 右键菜单对齐 Gemini「高度伸展与平滑上推」demo（2026-08-11）
+- **参考 demo**：`C:\Users\YINtx\Downloads\gemini-code-1786403241733.html`（已读，核心动效：容器高度 0.35s cubic-bezier 平滑伸展、每项 wrapper 高度 0→ITEM_HEIGHT 顶出、超出 220px 平滑上推 350ms easeOutCubic、每项从左滑入 0.45s、整体缩放 0.9→1+淡入）
+- **梳理清理**：
+  - 游戏部署 `Mods\ModernExpandMenu\`：删除 `Source\OverlayController.cs`、`Source\WebView2Host.cs`、`Source\UI\Dialog_WebView2Test.cs`、`Source\bin`、`Source\obj`、`Source\ModernExpandMenu\bin\obj`、`About\Preview.png.old`、顶层残留 `Source\ModernExpandMenu\` 目录
+  - 源码：删 `About\Preview.png.old`、`_AIcoding/ui-preview/` 下 `overlay-test.png`、`webview2-preview.png`（WebView2/overlay 废弃截图）
+  - 保留：`CyberSwitchPreview`（对照 demo）、`ui-refs/`、`settings-ui-replica.html`（给 Gemini 的参考）、`animation-requirements.md`、`settings-ui-redesign-brief.md`
+- **⚠️ build.bat bug 修复（重要）**：`xcopy /E /Y /Q /I Source\ModernExpandMenu\*.cs` 的 `/E` 会**递归**把 `obj\` 内生成的 `.cs`（如 AssemblyInfo.cs）复制进部署目录，而清理逻辑在部署**前**执行 → 每次构建后 `%MODS_DIR%\Source\bin`、`obj` 又出现。修复：该行去掉 `/E`（只复制顶层 .cs，Theme/UI/Properties 由单独逻辑复制）+ 部署末尾追加清理 bin/obj（含 `Source\ModernExpandMenu\bin\obj` 历史残留）
+- **动画对齐 demo（MD3FloatMenuWindow.cs，高度判定仍用模组自定义 maxMenuHeight/ComputeContentHeight，不照搬 demo 的 220/42px）**：
+  - 弹出淡入：新增 `popAlpha` 与缩放同步（ease-out-cubic），窗口背景/描边/覆盖层按 alpha 淡入
+  - 窗口高度动画：`MoveTowards`（线性速度）→ **指数衰减 ease-out**（`height += (target-height) * (1-exp(-dt*speed*0.02))`，快速起步减速到位，对齐 demo height 平滑伸展）
+  - **每项占高平滑伸展**（对齐 demo wrapper 高度动画）：新增 `GetEntryHeightFactor`——项排定后占高从 0 ease-out-cubic 伸展到 1（时长=itemAppearDuration），`ComputeActionsHeight` 按因子累计 → 新项插入时平滑「顶出」
+  - 滑入动画：`-20px 线性` → **ease-out-cubic 缓动 + 56px 距离**（`SlideInDistance` 常量），更接近 demo 左滑入
+  - 平滑上推（scrollFollow easeOutCubic 0.35s）与回顶曲线（用户手绘）**保持原有**（已与 demo 一致）
+  - 构建部署通过，部署目录彻底干净
+
+## 竖线修复 + 删除选项界面卡片化 + 展开菜单全部 MD3 接管（2026-08-11）
+- **滑动开关白色圆球竖线 / 颜色预设块竖线（根治）**：根因 = `DrawRoundedRect` 的 9-slice 四角在中心拼接，非整数 radius（如小开关圆点）产生 1px 垂直缝隙（露底色竖线）。修复：`DrawRoundedRect` 加**圆形快速路径**——当 `|宽-高|<0.5 && |宽-2×radius|<0.5`（正方形+半宽圆角=圆形）时改用单张 64×64 圆纹理（`GetCircleTexture`，中心不透明边缘平滑）整块绘制，无拼接。圆球/圆点/胶囊全部走此路径，竖线根治
+- **彻底删除「原版选项界面卡片化 + 滑块数值输入」（md3StyleOptions）**：删除 `Patch_Md3StyleOptions.cs`（csproj 引用、设置字段、SettingsUI 开关行、Dialog_ResetDefaults 重置项、MD3Widgets 的 DrawOptionsRowCard/DrawCyberRowCard、3 语言 + lang-exports 键全部清掉）
+- **新增设置 `md3StyleFloatMenus`（默认 true）：原版展开菜单（FloatMenu/FloatMenuGrid）全部 MD3 接管** —— 新文件 `Patch_Md3StyleFloatMenus.cs`：
+  - `Patch_FloatMenuOptionDoGUI`：Prefix 完全接管每行绘制（保留原版布局/交互/图标/extraPart/tooltip/Chosen，仅换外观：hover 主色圆角行 + MD3 文本色；私有字段用 AccessTools 缓存反射）
+  - `Patch_FloatMenuDoWindowContents`：整窗 MD3 卡片背景（圆角 + 描边）
+  - `Patch_FloatMenuGridOptionOnGUI` + `Patch_FloatMenuGridDoWindowContents`：网格式菜单同样处理
+  - 覆盖场景：**「选择语言」下拉**（Dialog_Options → FloatMenu）、殖民者菜单、Mod 设置下拉、Ideo 图标网格等全部原版展开菜单；模组自绘右键菜单（MD3FloatMenuWindow）不走此路径不受影响
+  - 注意：`MouseoverSounds` 在 `Verse.Sound`、`TutorSystem` 在 `RimWorld`、`GenStuff` 在 `RimWorld`、`MD3Widgets` 在 `ModernExpandMenu.UI`
+- **右键菜单动画对齐 Gemini「高度伸展与平滑上推」demo**：等 Gemini 新版 demo 后重写（本轮未动）
+- 构建部署通过（0 错误），部署目录干净
+
+## 医药设置 MD3 + 竖线彻底根治 + 跑马灯边框 + 接管范围（2026-08-11）
+- **竖线彻底根治（DrawRoundedRect 取整）**：上轮圆形快速路径只解决圆形，非整数坐标的 9-slice 仍会在按钮右侧 / 开关轨道左侧产生拼接缝。本轮在 `DrawRoundedRect` 开头把 rect 坐标与 radius 统一 `Mathf.Round` 取整 → 所有 9-slice 块整数对齐，缝隙消失（根治）
+- **展开菜单接管范围（新设置 `floatMenuTakeoverScope` 枚举，默认 All）**：`All`（全部 FloatMenu+Grid）/ `DialogDropdowns`（仅对话框下拉——窗口栈中存在类名以 `Dialog` 开头的窗口时接管；原版无统一 Dialog_ 基类，按类名约定判断）/ `Off`（关闭）。网格菜单仅在 All 时接管。`FloatMenuTakeoverHelper.ShouldTakeover` 统一判断
+- **菜单跑马灯边框（新设置 `menuMarqueeBorder`，默认 true）**：新增 `MD3Widgets.DrawMarqueeBorder`——沿周长 36 段主色亮度波峰流动（波峰亮×1.15、波谷暗×0.35，仿 VS Code Copilot 输入框等待输出的流动光带）。应用于右键菜单（MD3FloatMenuWindow）与原版展开菜单（FloatMenu/Grid）背景：开启跑马灯用主色流动边框，关闭用加厚描边（1px→2px）；FloatMenu 行内缩 2px 与边框留间隔
+- **「默认医药设置」选择器 MD3 化（新设置 `md3StyleMedicalCare`，默认关，新文件 `Patch_Md3StyleMedicalCare.cs`）**：Patch `MedicalCareUtility.MedicalCareSetter`（Prefix 完全接管，覆盖 Dialog_MedicalDefaults 与健康 tab 所有调用处）——5 个图标格 MD3 圆角：hover 主色底、选中主色描边；保留拖动连续涂色（`medicalCarePainting`）、tooltip、音效。注意：`DraggableResult.AnyPressed` 是 internal 扩展（模组不可调用），用 `==Pressed || ==DraggedThenPressed` 等价替代
+- **踩坑**：RimWorld 无 `Dialog_` 基类（对话框直接继承 `Window`）——判断对话框按类名 `StartsWith("Dialog")`
+- 设置 UI：全局样式卡新增「展开菜单接管范围」三段选择器 + 跑马灯开关（34）+ 医药开关（35），卡高更新（两个分段选择器 + 15 行开关）；ResetDefaults 三新项；3 语言 + lang-exports 同步（旧 Md3StyleFloatMenus 键已移除）
+- 构建部署通过（0 错误），部署目录干净
+
+## Gemini demo 重写：动画双模式 + Copilot 顶条 + 圆环自适应 + 杀线程 + 回顶等待（2026-08-11）
+- **参考 demo**：`C:\Users\YINtx\Downloads\gemini-code-1786406813368.html`（Copilot 极致控制台右键菜单 demo：顶条光带跑马灯、中央 SVG 圆环 MIN_LOADING_HEIGHT 申请、杀线程 AbortController、回顶前等待 300ms、全局倍速、二级子项目、高级控制面板）
+- **动画速度双模式（设置页动画 tab，用户明确要求）**：
+  - 新增 `AnimationSpeedMode` 枚举（Multiplier 倍率 / Custom 自定义，默认倍率）+ `animationSpeedMultiplier`（0.2~3，默认 1）
+  - 动画 tab 新增「动画速度模式」卡片：分段选择器切换模式；倍率模式 → 全局倍率滑块可用，7 个单项滑块灰显禁用（`DrawSliderRow` 新增 disabled 参数：标签/数值/滑块全部低饱和灰化且拒绝交互）；自定义模式 → 单项可用，倍率灰显禁用
+  - `MD3FloatMenuWindow` 所有 `Current*` 动画参数应用倍率：时长类（滑入/间隔/弹出/推顶/回顶）÷ 倍率、速度类（展开/高度）× 倍率
+- **顶端加载条 Copilot 改造**（`DrawLoadingBar` 重做）：轨道 + 平滑进度 + 前端亮点 + **脉冲缓冲**（呼吸脉动，缓冲长度匹配实际进度）+ **Copilot 光带跑马灯**（新开关 `loadingBarMarquee`，`MD3Widgets.DrawHorizontalSweep` 用 64×1 渐变纹理横向循环扫过）
+- **中央圆环空间自适应**：加载时窗口高度目标 `Mathf.Clamp(内容, MinLoadingHeight=120, Max)` —— 初始高度不足时自动申请 120px 容纳圆环（对齐 demo MIN_LOADING_HEIGHT）；加载完成后目标 = 实际内容高度，自动平滑缩回包裹内容
+- **杀线程**：`Patch_ItemGroupedFloatMenu` 再次触发右键时先 `Close(false)` 关闭上一次 MD3FloatMenuWindow 再开新窗（替代原来「已存在则 return」，避免新旧窗口叠加卡顿）
+- **回顶前等待**：新设置 `scrollReturnWaitSeconds`（默认 0.3s，对齐 demo 300ms）——加载视觉结束后先停顿再执行自定义折线回顶
+- **新开关/参数**：`loadingBarMarquee`（顶条光带）、`loadingMaskOpacity`（加载遮罩透明度，默认 0.25）、`scrollReturnWaitSeconds`；均入设置 UI（加载卡/动画卡）+ 重置项 + 3 语言 + lang-exports
+- 构建部署通过（0 错误），部署目录干净
+
+## 设置窗口放大 + 描边归组 + 边框三态（2026-08-11）
+- **设置窗口放大**：Patch `Dialog_ModSettings.InitialSize`（Getter），仅当 `mod` 是本模组时返回 1180×860（原 900×700），不影响其他 Mod 设置窗口
+- **「文本-描边」归类修正**：`colorOutline`（Outline 描边色）确实放错了组——从「文本」颜色卡移到**新建的「边框」颜色卡**（文本卡变 3 行：OnSurface/OnSurfaceVariant/DisabledText；边框卡 1 行：Outline）
+- **边框样式三态（对齐 Ultimate Cyberpunk Switch Demo 的彩色边框动效）**：`menuMarqueeBorder`（bool）升级为 `MenuBorderStyle` 枚举 { Outline 普通描边 / Marquee 主色跑马灯 / Rainbow 彩色流光 }，应用于**右键菜单与展开菜单共用**：
+  - Outline：加厚描边（2px，Outline 色）
+  - Marquee：主色亮度波沿边框流动（DrawMarqueeBorder）
+  - Rainbow：三色渐变沿边框流动（DrawCyberGradientBorder，3s 一圈，对齐 demo rainbowGlow）
+  - 全局样式卡原「跑马灯开关」改为**边框样式三段选择器**；重置项、3 语言 + lang-exports 同步（旧 MenuMarqueeBorder 键已删）
+- 构建部署通过（0 错误），部署目录干净
+
+## 绘制窗口/按钮毛刺修复（2026-08-11）
+- **根因**：`CornerAlphaAt` 圆角 alpha 是**硬边**（`Clamp01(radius - distance)`，1px 内 0→1 跳变）——圆角边缘在放大/双线性过滤后出现锯齿、发毛；且圆角矩形/描边环纹理未显式设置过滤模式
+- **修复**：
+  1. `CornerAlphaAt` 圆角边缘 **1.5px smoothstep 平滑过渡**（消除硬边锯齿），所有基于它的绘制（卡片/按钮/圆角矩形/描边环/圆形快速路径）全部受益
+  2. `CreateRoundedRectTexture` / `CreateRoundedRectBorderTexture` 显式设置 `wrapMode=Clamp` + `filterMode=Bilinear`（9-slice UV 不越界、边缘柔和）
+- 构建部署通过（0 错误），部署目录干净
+
+## 展开菜单统一右键菜单同款 + 其他类置顶（2026-08-11）
+- **展开菜单（FloatMenu/FloatMenuGrid 接管）统一右键菜单同款样式**：`Patch_FloatMenuOptionDoGUI` 行绘制加**左侧主色竖条（常驻，disabled 行不显示）** + hover 主色圆角 —— 与 `MD3FloatMenuWindow` 操作项（竖条 + hover 圆角 + 图标 + 文本）完全一致，消除两套观感
+- **「其他 / 物品」两大类排序修复（重要 bug）**：`BuildGroups` 已把「其他」组 `Insert(0)` 置顶，但分帧生成后 `FinalizeGroups` 的排序写反（`return aIsOther ? 1 : -1` 把其他排到**末尾**）→ 最终其他类跑到物品类下面。修复：改为 `return aIsOther ? -1 : 1`（其他类置顶），与 BuildGroups 一致
+- 构建部署通过（0 错误），部署目录干净
 
 

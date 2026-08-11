@@ -7,7 +7,16 @@ namespace ModernExpandMenu
     // ═══════════════════════════════════════════════════
     public class ModernExpandMenuSettings : ModSettings
     {
+        /// <summary>开关（复选框）显示风格：原版 / MD3 滑动开关 / 赛博炫酷。</summary>
+        public enum SwitchStyle
+        {
+            Vanilla = 0,   // 原版复选框
+            Slider = 1,    // MD3 滑动开关（默认，保持既有行为）
+            Cyber = 2      // 赛博炫酷开关（流光边框 + 网格 + 扫光 + 冲击波）
+        }
+
         public bool modEnabled = true;                  // 总开关：完全关闭模组功能（使用原版菜单）
+        public SwitchStyle switchStyle = SwitchStyle.Slider; // 开关（复选框）显示风格：原版 / 滑动开关 / 赛博炫酷
         public bool disableDevPseudoTranslation = false; // 禁用开发者模式的伪翻译字符（默认不干预）
         public bool enableAnimations = true;            // 模组动画总开关（关闭后停用所有动画效果：弹出/出现消失/展开/滚动跟随/高度/加载视觉，默认开启）
         public bool showLoadingAnimation = true;        // 显示加载动画（顶部缓冲条 + 覆盖层 + 逐条载入）
@@ -22,21 +31,53 @@ namespace ModernExpandMenu
         public bool md3StyleSchedule = false;       // 管制栏（时间表 tab 的管制按钮）MD3
         public bool md3StyleInspectPane = false;    // 信息卡：内容 MD3 卡片化 + 修复状态栏与标题重叠
         public bool md3StyleStatistics = false;     // 统计界面：分组卡片块美化
+        /// <summary>原版展开菜单（FloatMenu/FloatMenuGrid）MD3 接管范围。</summary>
+        public enum FloatMenuTakeoverScope
+        {
+            All = 0,              // 全部展开菜单（默认）
+            DialogDropdowns = 1,  // 仅对话框下拉（如「选择语言」）
+            Off = 2               // 关闭（保持原版）
+        }
+
+        /// <summary>菜单边框样式：普通描边 / 主色跑马灯 / 彩色流光（对齐 demo rainbowGlow）。</summary>
+        public enum MenuBorderStyle
+        {
+            Outline = 0,   // 普通描边（Outline 色）
+            Marquee = 1,   // 主色跑马灯（流动光带）
+            Rainbow = 2    // 彩色流光（三色渐变沿边框流动）
+        }
+
+        public FloatMenuTakeoverScope floatMenuTakeoverScope = FloatMenuTakeoverScope.All;  // 展开菜单 MD3 接管范围
+        public MenuBorderStyle menuBorderStyle = MenuBorderStyle.Marquee;   // 菜单边框样式（普通/主色跑马灯/彩色流光）
+        public bool md3StyleMedicalCare = false;    // 医药设置选择器（默认医药设置 / 健康 tab）MD3 化
         public bool md3StyleIdeo = false;           // 文化菜单：文化行 + 模因大方块 MD3 描边
+        public bool forceWorkshopUpload = false;    // 强制显示上传/更新到创意工坊按钮（跳过开发者模式与作者校验）
         public bool skipUploadWait = false;             // 跳过创意工坊上传确认的 6 秒等待倒计时
         public bool spaceOnlyPauses = false;            // 空格键仅暂停不解除暂停（解除需用其他方式）
         public int maxMenuHeight = 560;                 // 悬浮窗最大高度（像素，超出滚动）
         public int maxProcessedPerFrame = 6;            // 每帧处理的物品实例数（越大加载越快，卡顿风险越高）
         public float extraLoadingBarSeconds = 0.5f;     // 加载完成后进度条强制额外显示时长（秒，0 为不强制）
 
+        /// <summary>动画速度控制模式：整体倍率（单项禁用）/ 手动自定义（倍率禁用）。</summary>
+        public enum AnimationSpeedMode
+        {
+            Multiplier = 0,   // 整体倍率
+            Custom = 1        // 手动自定义
+        }
+
         // ── 动画（动画 tab 可调）──
         public float itemAppearDuration = 0.25f;        // 单条操作项 / 分组标题滑入动画时长（秒，上一项就位后下一项开始）
         public float itemAppearInterval = 0.03f;        // 相邻项就位后的间隔（秒，串行播放）
         public float popAnimationDuration = 0.18f;      // 窗口弹出动画时长（秒）
         public float expandAnimationSpeed = 10f;        // 分组展开 / 折叠动画速度（数值越大越快）
-        public float scrollFollowSpeed = 80f;           // 加载时滚动跟随底部速度（越大越跟手）
+        public float scrollFollowDuration = 0.35f;   // 加载时平滑推顶时长（秒，时间设定；对齐 Gemini demo：每次插入后 easeOutCubic 推顶）
         public float scrollReturnDuration = 0.6f;       // 加载结束后滚动返回顶端的时长（秒，时间设定而非固定速度）
         public float windowHeightAnimationSpeed = 200f;  // 窗口高度动态动画速度（加载插入/展开折叠时平滑过渡）
+        public AnimationSpeedMode animationSpeedMode = AnimationSpeedMode.Multiplier;  // 动画速度控制模式：倍率（单项禁用）/ 自定义（倍率禁用）
+        public float animationSpeedMultiplier = 1f;   // 全局动画速度倍率（0.2~3，倍率模式生效，时长类÷倍率、速度类×倍率）
+        public bool loadingBarMarquee = true;         // 顶端加载条 Copilot 光带跑马灯
+        public float scrollReturnWaitSeconds = 0.3f;  // 回顶前等待时长（秒，对齐 demo 300ms）
+        public float loadingMaskOpacity = 0.25f;      // 加载遮罩透明度（0~0.6）
 
         // ── 颜色自定义（16 进制 RGB，带 # 前缀如 #00A8FF；空/非法时回退默认水影蓝）──
         public string colorPrimary = "#00A8FF";
@@ -71,6 +112,7 @@ namespace ModernExpandMenu
         public override void ExposeData()
         {
             Scribe_Values.Look(ref modEnabled, "modEnabled", true);
+            Scribe_Values.Look(ref switchStyle, "switchStyle", SwitchStyle.Slider);
             Scribe_Values.Look(ref disableDevPseudoTranslation, "disableDevPseudoTranslation", false);
             Scribe_Values.Look(ref enableAnimations, "enableAnimations", true);
             Scribe_Values.Look(ref showLoadingAnimation, "showLoadingAnimation", true);
@@ -85,6 +127,10 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref md3StyleInspectPane, "md3StyleInspectPane", false);
             Scribe_Values.Look(ref md3StyleStatistics, "md3StyleStatistics", false);
             Scribe_Values.Look(ref md3StyleIdeo, "md3StyleIdeo", false);
+            Scribe_Values.Look(ref floatMenuTakeoverScope, "floatMenuTakeoverScope", FloatMenuTakeoverScope.All);
+            Scribe_Values.Look(ref menuBorderStyle, "menuBorderStyle", MenuBorderStyle.Marquee);
+            Scribe_Values.Look(ref md3StyleMedicalCare, "md3StyleMedicalCare", false);
+            Scribe_Values.Look(ref forceWorkshopUpload, "forceWorkshopUpload", false);
             Scribe_Values.Look(ref skipUploadWait, "skipUploadWait", false);
             Scribe_Values.Look(ref spaceOnlyPauses, "spaceOnlyPauses", false);
             Scribe_Values.Look(ref maxMenuHeight, "maxMenuHeight", 560);
@@ -94,9 +140,14 @@ namespace ModernExpandMenu
             Scribe_Values.Look(ref itemAppearInterval, "itemAppearInterval", 0.03f);
             Scribe_Values.Look(ref popAnimationDuration, "popAnimationDuration", 0.18f);
             Scribe_Values.Look(ref expandAnimationSpeed, "expandAnimationSpeed", 10f);
-            Scribe_Values.Look(ref scrollFollowSpeed, "scrollFollowSpeed", 80f);
+            Scribe_Values.Look(ref scrollFollowDuration, "scrollFollowDuration", 0.35f);
             Scribe_Values.Look(ref scrollReturnDuration, "scrollReturnDuration", 0.6f);
             Scribe_Values.Look(ref windowHeightAnimationSpeed, "windowHeightAnimationSpeed", 200f);
+            Scribe_Values.Look(ref animationSpeedMode, "animationSpeedMode", AnimationSpeedMode.Multiplier);
+            Scribe_Values.Look(ref animationSpeedMultiplier, "animationSpeedMultiplier", 1f);
+            Scribe_Values.Look(ref loadingBarMarquee, "loadingBarMarquee", true);
+            Scribe_Values.Look(ref scrollReturnWaitSeconds, "scrollReturnWaitSeconds", 0.3f);
+            Scribe_Values.Look(ref loadingMaskOpacity, "loadingMaskOpacity", 0.25f);
             Scribe_Values.Look(ref colorPrimary, "colorPrimary", "#00A8FF");
             Scribe_Values.Look(ref colorOnPrimary, "colorOnPrimary", "#001421");
             Scribe_Values.Look(ref colorSurface, "colorSurface", "#161821");

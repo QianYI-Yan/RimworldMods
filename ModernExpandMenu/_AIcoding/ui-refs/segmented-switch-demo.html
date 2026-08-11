@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-State Segmented Switch Demo</title>
+  <style>
+    :root {
+      --md-primary: #a8c7fa;
+      --md-on-primary: #062e6f;
+      --md-surface: #111318;
+      --md-surface-container: #1d2026;
+      --md-surface-card: #282a31;
+      --md-on-surface: #e2e2e9;
+      --md-on-surface-variant: #8b90a0;
+      --md-outline: #43474e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--md-surface);
+      color: var(--md-on-surface);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      padding: 40px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--md-primary);
+    }
+
+    .card-group {
+      width: 100%;
+      max-width: 480px;
+      background: var(--md-surface-container);
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .setting-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .setting-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--md-on-surface);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .setting-desc {
+      font-size: 12px;
+      color: var(--md-on-surface-variant);
+    }
+
+    /* ═══════════════════════════════════════════════════
+       三段 / 多段开关核心组件 (Multi-Segmented Switch)
+       ═══════════════════════════════════════════════════ */
+    .segmented-switch {
+      position: relative;
+      display: flex;
+      background: var(--md-surface-card);
+      border: 1px solid var(--md-outline);
+      border-radius: 16px;
+      padding: 4px;
+      width: 100%;
+    }
+
+    /* 底层跟随滑动的高亮背景胶囊 (Indicator) */
+    .segmented-indicator {
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      border-radius: 12px;
+      background: var(--md-primary);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  width 0.25s ease;
+      box-shadow: 0 2px 8px rgba(0, 168, 255, 0.3);
+      z-index: 1;
+    }
+
+    /* 单个选项按钮 */
+    .segmented-option {
+      position: relative;
+      flex: 1;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--md-on-surface-variant);
+      cursor: pointer;
+      z-index: 2; /* 在指示器上方 */
+      transition: color 0.2s ease;
+    }
+
+    .segmented-option svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    /* 选中激活状态的文字与图标 */
+    .segmented-option.active {
+      color: var(--md-on-primary);
+      font-weight: 600;
+    }
+
+    .segmented-option.active svg {
+      transform: scale(1.15);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">多段滑动开关示范 (Multi-State Switch)</div>
+
+  <div class="card-group">
+    
+    <!-- 1. 三段开关：主题切换 -->
+    <div class="setting-item">
+      <div class="setting-label">
+        <span>界面主题模式</span>
+        <span class="setting-desc" id="themeVal">跟随系统</span>
+      </div>
+
+      <div class="segmented-switch" id="segmentedTheme">
+        <div class="segmented-indicator" id="indTheme"></div>
+        
+        <div class="segmented-option active" onclick="selectSegment('segmentedTheme', 'indTheme', 0, '跟随系统', 'themeVal')">
+          <svg viewBox="0 0 24 24"><path d="M4 6h16v10H4z"/><path d="M20 18H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2zm-8 1h2v2h-2z"/></svg>
+          跟随系统
+        </div>
+        <div class="segmented-option" onclick="selectSegment('segmentedTheme', 'indTheme', 1, '浅色模式', 'themeVal')">
+          <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg>
+          浅色
+        </div>
+        <div class="segmented-option" onclick="selectSegment('segmentedTheme', 'indTheme', 2, '深色模式', 'themeVal')">
+          <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 3.03 0 5.86-1.55c.48-.26.65-.86.38-1.33-.26-.47-.86-.65-1.33-.38A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c.72 0 1.42.11 2.08.32.52.17 1.08-.12 1.25-.64.17-.52-.12-1.08-.64-1.25A8.99 8.99 0 0 0 12 3z"/></svg>
+          深色
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 四段开关：画质与帧率 -->
+    <div class="setting-item">
+      <div class="setting-label">
+        <span>游戏渲染画质 (四段)</span>
+        <span class="setting-desc" id="qualityVal">平衡 (60fps)</span>
+      </div>
+
+      <div class="segmented-switch" id="segmentedQuality">
+        <div class="segmented-indicator" id="indQuality"></div>
+        
+        <div class="segmented-option" onclick="selectSegment('segmentedQuality', 'indQuality', 0, '流畅 (30fps)', 'qualityVal')">省电</div>
+        <div class="segmented-option active" onclick="selectSegment('segmentedQuality', 'indQuality', 1, '平衡 (60fps)', 'qualityVal')">平衡</div>
+        <div class="segmented-option" onclick="selectSegment('segmentedQuality', 'indQuality', 2, '高清 (90fps)', 'qualityVal')">高清</div>
+        <div class="segmented-option" onclick="selectSegment('segmentedQuality', 'indQuality', 3, '极高 (120fps)', 'qualityVal')">极高</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 通用多段开关切换逻辑
+    function selectSegment(containerId, indicatorId, index, text, displayValId) {
+      const container = document.getElementById(containerId);
+      const indicator = document.getElementById(indicatorId);
+      const options = container.querySelectorAll('.segmented-option');
+
+      // 1. 移除旧 active，设置新 active
+      options.forEach(opt => opt.classList.remove('active'));
+      options[index].classList.add('active');
+
+      // 2. 动态计算高亮底色胶囊（Indicator）的位置和宽度
+      const totalOptions = options.length;
+      const optionWidthPercent = 100 / totalOptions;
+      
+      // 计算 translateX 偏移百分比
+      indicator.style.width = `calc(${optionWidthPercent}% - 2px)`;
+      indicator.style.transform = `translateX(${index * 100}%)`;
+
+      // 3. 更新辅助描述文本
+      if (displayValId) {
+        document.getElementById(displayValId).innerText = text;
+      }
+    }
+
+    // 初始化滑块位置
+    window.onload = () => {
+      selectSegment('segmentedTheme', 'indTheme', 0, '跟随系统', 'themeVal');
+      selectSegment('segmentedQuality', 'indQuality', 1, '平衡 (60fps)', 'qualityVal');
+    };
+  </script>
+</body>
+</html>

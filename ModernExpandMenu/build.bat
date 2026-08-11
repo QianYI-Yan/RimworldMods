@@ -26,8 +26,9 @@ if %ERRORLEVEL% EQU 0 (
     )
     xcopy /E /Y /Q /I Assemblies\ModernExpandMenu.dll "%MODS_DIR%\Assemblies\"
     xcopy /E /Y /Q /I About "%MODS_DIR%\About\"
+    :: 只复制顶层 .cs（不加 /E，避免递归把 bin\obj 内生成的 .cs 带进部署目录）
     xcopy /Y /Q /I Source\ModernExpandMenu\*.cs "%MODS_DIR%\Source\"
-    xcopy /E /Y /Q /I Source\ModernExpandMenu\*.csproj "%MODS_DIR%\Source\"
+    xcopy /Y /Q /I Source\ModernExpandMenu\*.csproj "%MODS_DIR%\Source\"
     xcopy /E /Y /Q /I Source\Directory.Build.props "%MODS_DIR%\Source\"
     if exist "Source\ModernExpandMenu\Theme" (
         if not exist "%MODS_DIR%\Source\Theme" mkdir "%MODS_DIR%\Source\Theme"
@@ -41,6 +42,11 @@ if %ERRORLEVEL% EQU 0 (
         if not exist "%MODS_DIR%\Source\Properties" mkdir "%MODS_DIR%\Source\Properties"
         xcopy /Y /Q "Source\ModernExpandMenu\Properties\*.cs" "%MODS_DIR%\Source\Properties\"
     )
+    :: 清理历史残留的构建中间产物（旧版 build 曾把 bin\obj 复制进部署目录）
+    if exist "%MODS_DIR%\Source\bin" rd /s /q "%MODS_DIR%\Source\bin"
+    if exist "%MODS_DIR%\Source\obj" rd /s /q "%MODS_DIR%\Source\obj"
+    if exist "%MODS_DIR%\Source\ModernExpandMenu\bin" rd /s /q "%MODS_DIR%\Source\ModernExpandMenu\bin"
+    if exist "%MODS_DIR%\Source\ModernExpandMenu\obj" rd /s /q "%MODS_DIR%\Source\ModernExpandMenu\obj"
     echo ✓ 部署完成！
 ) else (
     echo.
